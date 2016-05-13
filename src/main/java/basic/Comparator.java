@@ -88,7 +88,16 @@ public enum Comparator{
         return isLT(compare(one, other));
     }
 
+    public static boolean isEQUAL(Comparable one,Comparable other){
+        return isEQUAL(compare(one, other));
+    }
 
+    public static boolean isEQUAL(Comparator result){
+        if(result.code== Comparator.EQUAL.code){
+            return true;
+        }
+        return false;
+    }
 
     public static Comparator compare(Comparable one,Comparable other){
         return get(one.compareTo(other));

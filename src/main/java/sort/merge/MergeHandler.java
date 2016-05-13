@@ -1,7 +1,7 @@
 package sort.merge;
 
 import basic.Comparator;
-import basic.sort.Sortable;
+import basic.sort.SortHandlerBehavior;
 
 import java.util.Arrays;
 
@@ -11,7 +11,7 @@ import java.util.Arrays;
  * Date:2016/5/5
  * Time:11:10
  */
-public class MergeHandler implements Sortable<Integer> {
+public class MergeHandler<E extends Comparable> extends SortHandlerBehavior<E> {
 
     /**
      * 对多个已排序的数组进行有序合并
@@ -21,10 +21,8 @@ public class MergeHandler implements Sortable<Integer> {
      * @throws IllegalAccessException
      */
     @Override
-    public Integer[] sort(Integer[] ... sortedArrays) throws IllegalAccessException {
-        if(sortedArrays==null){
-            throw new IllegalAccessException("不可以接受null参数");
-        }
+    public E[] sort(E[] ... sortedArrays) throws IllegalAccessException {
+        init(sortedArrays);
         if(sortedArrays.length<2){
             return sortedArrays[0];
         }
@@ -38,11 +36,13 @@ public class MergeHandler implements Sortable<Integer> {
     }
 
     @Override
-    public Integer[] sort(Integer[] originArray) throws Exception {
-        return new Integer[0];
+    public E[] sort(E[] originArray) throws Exception {
+        return null;
     }
 
     /**
+     *
+     * http://blog.jobbole.com/100349/
      *
      * 将两个已经排好序的数组合并成一个有序数组。
      *
@@ -54,7 +54,7 @@ public class MergeHandler implements Sortable<Integer> {
      * @param rightArray  第二个排好序的数组
      * @return 合并完成的有序数组
      */
-    private static int[] merge(int[] leftArray,int[] rightArray){
+    private int[] merge(int[] leftArray,int[] rightArray){
         int leftLen=leftArray.length;
         int rightLen=rightArray.length;
         int total=leftLen+rightLen;
@@ -91,6 +91,6 @@ public class MergeHandler implements Sortable<Integer> {
     public static void main(String[] args) {
         int f[]={-1,0,2,3,7,8,9,10,12,15};
         int s[]={0,0,1,4,5,6,7,8,11,18};
-        System.out.println(Arrays.toString(merge(f,s)));
+        System.out.println(Arrays.toString(new MergeHandler<Integer>().merge(f,s)));
     }
 }

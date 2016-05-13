@@ -1,6 +1,7 @@
 package sort.selection;
 
 import basic.Comparator;
+import basic.sort.SortHandlerBehavior;
 import basic.sort.Sortable;
 
 import java.util.Arrays;
@@ -11,7 +12,7 @@ import java.util.Arrays;
  * Date:2016/5/12
  * Time:16:52
  */
-public class SelectionHandler<E extends Comparable> implements Sortable<E>{
+public class SelectionHandler<E extends Comparable> extends SortHandlerBehavior<E> {
 
     @Override
     public E[] sort(E[]... originArray) throws Exception {
@@ -35,20 +36,13 @@ public class SelectionHandler<E extends Comparable> implements Sortable<E>{
      */
     @Override
     public E[] sort(E[] originArray) throws Exception {
-        if(originArray==null){
-            throw new IllegalAccessException("不可以接受null参数");
-        }
+        init(originArray);
         int len=originArray.length;
         if(len==1){
             return originArray;
         }
         if(len==2){
-            E first=originArray[0];
-            E second=originArray[1];
-            if(Comparator.isLT(second, first)){
-                originArray[0]=second;
-                originArray[1]=first;
-            }
+            swapIfLessThan(originArray,1,0);
             return originArray;
         }
         for (int i = 0; i < len; i++) {
@@ -67,10 +61,7 @@ public class SelectionHandler<E extends Comparable> implements Sortable<E>{
                 }
                 System.out.println("***:" + Arrays.toString(originArray));
             }
-            if(Comparator.isLT(lesser, current)){//如果Y元素比X元素还要小，交换两个元素的位置
-                originArray[i]=lesser;
-                originArray[lessIndex]=current;
-            }
+            swapIfLessThan(originArray,lessIndex,lesser,i,current);//如果Y元素比X元素还要小，交换两个元素的位置
             System.out.println("###:"+Arrays.toString(originArray));
         }
         return originArray;
