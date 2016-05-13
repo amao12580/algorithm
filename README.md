@@ -1,4 +1,4 @@
-# algorithm
+# algorithms learning
 ## 算法学习记录
 
 ### 1. 合并排序算法
