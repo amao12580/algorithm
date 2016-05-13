@@ -1,5 +1,8 @@
 package sort.merge;
 
+import basic.Comparator;
+import basic.sort.Sortable;
+
 import java.util.Arrays;
 
 /**
@@ -8,7 +11,8 @@ import java.util.Arrays;
  * Date:2016/5/5
  * Time:11:10
  */
-public class MergeHandler {
+public class MergeHandler implements Sortable<Integer> {
+
     /**
      * 对多个已排序的数组进行有序合并
      *
@@ -16,7 +20,8 @@ public class MergeHandler {
      * @return 有序的合集数组
      * @throws IllegalAccessException
      */
-    public int[] merge(int[] ... sortedArrays) throws IllegalAccessException {
+    @Override
+    public Integer[] sort(Integer[] ... sortedArrays) throws IllegalAccessException {
         if(sortedArrays==null){
             throw new IllegalAccessException("不可以接受null参数");
         }
@@ -30,6 +35,11 @@ public class MergeHandler {
             }
         }
         return null;
+    }
+
+    @Override
+    public Integer[] sort(Integer[] originArray) throws Exception {
+        return new Integer[0];
     }
 
     /**
@@ -66,7 +76,7 @@ public class MergeHandler {
             }
             int f=leftArray[fi];
             int s=rightArray[si];
-            if(Compre.isLTE(Compre.compare(f, s))){
+            if(Comparator.isLTE(f, s)){
                 result[ri]=f;
                 fi++;
             }else{
