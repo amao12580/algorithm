@@ -1,6 +1,7 @@
 package basic.sort;
 
 import basic.Comparator;
+import basic.Util;
 
 /**
  * Created with IntelliJ IDEA.
@@ -8,58 +9,128 @@ import basic.Comparator;
  * Date:2016/5/13
  * Time:14:45
  */
-public abstract class SortHandlerBehavior<E extends Comparable> implements Sortable<E>{
+public abstract class SortHandlerBehavior implements Sortable {
 
-    public void swap(E[] array,int firstIndex,int secondIndex){
+    public void swap(Comparable[] array,int firstIndex,int secondIndex){
         swapIfNotEqual(array,firstIndex,array[firstIndex],secondIndex,array[secondIndex]);
     }
 
-    public void swap(E[] array,int firstIndex,E firstValue,int secondIndex){
+    public void swap(Comparable[] array,int firstIndex,Comparable firstValue,int secondIndex){
         swapIfNotEqual(array,firstIndex,firstValue,secondIndex,array[secondIndex]);
     }
 
-    public void swap(E[] array,int firstIndex,int secondIndex,E secondValue){
+    public void swap(Comparable[] array,int firstIndex,int secondIndex,Comparable secondValue){
         swapIfNotEqual(array,firstIndex,array[firstIndex],secondIndex,secondValue);
     }
 
-    public void swap(E[] array,int firstIndex,E firstValue,int secondIndex,E secondValue){
+    public void swap(Comparable[] array,int firstIndex,Comparable firstValue,int secondIndex,Comparable secondValue){
         swapIfNotEqual(array,firstIndex,firstValue,secondIndex,secondValue);
     }
 
-    public void swapIfNotEqual(E[] array,int firstIndex,E firstValue,int secondIndex,E secondValue){
+    public void swapIfNotEqual(Comparable[] array,int firstIndex,Comparable firstValue,int secondIndex,Comparable secondValue){
         if(Comparator.isEQUAL(firstValue, secondValue)){
             swapAlways(array, firstIndex, firstValue, secondIndex, secondValue);
         }
     }
 
-    public void swapIfLessThan(E[] array,int firstIndex,E firstValue,int secondIndex,E secondValue){
+    public void swapIfLessThan(Comparable[] array,int firstIndex,Comparable firstValue,int secondIndex,Comparable secondValue){
         if(Comparator.isLT(firstValue, secondValue)){
             swapAlways(array, firstIndex, firstValue, secondIndex, secondValue);
         }
     }
 
-    public void swapIfLessThan(E[] array, int firstIndex, E firstValue, int secondIndex) {
-        swapIfLessThan(array,firstIndex,firstValue,secondIndex,array[secondIndex]);
+    public void swapIfLessThan(Comparable[] array, int firstIndex, Comparable firstValue, int secondIndex) {
+        swapIfLessThan(array, firstIndex, firstValue, secondIndex, array[secondIndex]);
     }
 
-    private void swapAlways(E[] array,int firstIndex,E firstValue,int secondIndex,E secondValue){
+    private void swapAlways(Comparable[] array,int firstIndex,Comparable firstValue,int secondIndex,Comparable secondValue){
         array[firstIndex]=secondValue;
         array[secondIndex]=firstValue;
     }
 
-    public void swapIfLessThan(E[] array,int firstIndex,int secondIndex){
+    public void swapIfLessThan(Comparable[] array,int firstIndex,int secondIndex){
         swapIfLessThan(array, firstIndex, array[firstIndex], secondIndex, array[secondIndex]);
     }
 
-    public void init(E[] originArray) throws IllegalAccessException {
+    public void init(Comparable[] originArray) throws IllegalAccessException {
         if(originArray==null){
             throw new IllegalAccessException("不可以接受null参数");
         }
     }
 
-    public void init(E[]... originArray) throws IllegalAccessException {
+    public void init(Comparable[]... originArray) throws IllegalAccessException {
         for (int i = 0; i < originArray.length; i++) {
             init(originArray[i]);
         }
+    }
+
+    /**
+     * 求数组的平均值
+     *
+     * @param array 数组
+     * @return 平均值
+     */
+    public double avg(double[] array){
+        double sum=0;
+        for (int i = 0; i < array.length; i++) {
+            sum+=array[i];
+        }
+        return sum/array.length;
+    }
+
+    /**
+     * 求数组的最小值
+     *
+     * @param array 数组
+     * @return 最小值
+     */
+    public double min(double[] array){
+        double min=0;
+        if(array!=null&&array.length>0){
+            min=array[0];
+        }
+        for (int i = 0; i < array.length; i++) {
+            double e=array[i];
+            if(min>e){
+                min=e;
+            }
+        }
+        return min;
+    }
+
+    /**
+     * 求数组的最大值
+     *
+     * @param array 数组
+     * @return 最大值
+     */
+    public double max(double[] array){
+        double max=0;
+        for (int i = 0; i < array.length; i++) {
+            double e=array[i];
+            if(max<e){
+                max=e;
+            }
+        }
+        return max;
+    }
+
+    /**
+     *
+     * shuffing(不是排序算法)
+     *
+     * 目标：RearrangComparable array so that result is a uniformly random permutation
+     *
+     * 将已经排好序的数组打乱
+     *
+     * @param array 已排好序的数组打乱
+     * @return  乱序的数组
+     */
+    public Comparable[] rearrange(Comparable[] array){
+        for (int i = 0; i < array.length; i++) {
+            int randomIndex= Util.getRandomInteger(0, array.length - 1);
+            swapAlways(array,i,array[i], randomIndex,array[randomIndex]);
+        }
+        return array;
     }
 }

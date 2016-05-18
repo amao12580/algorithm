@@ -11,20 +11,14 @@ import java.util.Arrays;
  * Date:2016/5/12
  * Time:16:52
  */
-public class InsertionHandler<E extends Comparable> extends SortHandlerBehavior<E> {
-
-    @Override
-    public E[] sort(E[]... originArray) throws Exception {
-
-        return null;
-    }
+public class InsertionHandler extends SortHandlerBehavior {
 
     /**
      *  思路：
      * 在第i次迭代中，将第i个元素与每一个它左边且比它大的的元素交换位置
      *
      *
-     * 时间复杂度：O
+     * 时间复杂度：O(n^2)
      *
      *
      *
@@ -33,7 +27,7 @@ public class InsertionHandler<E extends Comparable> extends SortHandlerBehavior<
      * @throws Exception  在输入参数不可解析时抛出
      */
     @Override
-    public E[] sort(E[] originArray) throws Exception {
+    public Comparable[] sort(Comparable[] originArray) throws Exception {
         init(originArray);
         int len=originArray.length;
         if(len==1){
@@ -43,6 +37,7 @@ public class InsertionHandler<E extends Comparable> extends SortHandlerBehavior<
             swapIfLessThan(originArray,1,0);
             return originArray;
         }
+        //int count=0;
         for (int i = 0; i < len; i++) {
             int endIndex=i-1;
             if(endIndex<0){
@@ -50,15 +45,17 @@ public class InsertionHandler<E extends Comparable> extends SortHandlerBehavior<
             }
             for (int j = 0; j <= endIndex; j++) {
                 swapIfLessThan(originArray,i,j);
-                System.out.println("***:" + Arrays.toString(originArray));
+                //System.out.println("***:" + Arrays.toString(originArray));
+                //count++;
             }
-            System.out.println("###:"+Arrays.toString(originArray));
+            //System.out.println("###:"+Arrays.toString(originArray));
         }
+        //System.out.println("count:"+count);
         return originArray;
     }
 
     public static void main(String[] args) throws Exception {
-        Sortable<Integer> sortable=new InsertionHandler<>();
+        Sortable sortable=new InsertionHandler();
         Integer f[]={5,0,8,58,10,2,3,7,8,9,10,12,15,-5,4,152};
         System.out.println("---:"+Arrays.toString(sortable.sort(f)));
     }

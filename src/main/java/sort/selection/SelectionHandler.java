@@ -12,14 +12,7 @@ import java.util.Arrays;
  * Date:2016/5/12
  * Time:16:52
  */
-public class SelectionHandler<E extends Comparable> extends SortHandlerBehavior<E> {
-
-    @Override
-    public E[] sort(E[]... originArray) throws Exception {
-
-        return null;
-    }
-
+public class SelectionHandler extends SortHandlerBehavior {
     /**
      *  思路：
      * 在第i次迭代中，在剩下的(即未排序的)元素中找到最小的元素
@@ -35,7 +28,7 @@ public class SelectionHandler<E extends Comparable> extends SortHandlerBehavior<
      * @throws Exception  在输入参数不可解析时抛出
      */
     @Override
-    public E[] sort(E[] originArray) throws Exception {
+    public Comparable[] sort(Comparable[] originArray) throws Exception {
         init(originArray);
         int len=originArray.length;
         if(len==1){
@@ -46,15 +39,15 @@ public class SelectionHandler<E extends Comparable> extends SortHandlerBehavior<
             return originArray;
         }
         for (int i = 0; i < len; i++) {
-            E current=originArray[i];//将当前元素记为X元素，将X以及X之前的元素集合分为一组，记为A组。当前元素之后的所有元素分为一组，记为B组
+            Comparable current=originArray[i];//将当前元素记为X元素，将X以及X之前的元素集合分为一组，记为A组。当前元素之后的所有元素分为一组，记为B组
             int lessIndex=i+1;//假设B组的第一个元素为B组内的最小元素，记这个元素为Y元素。记录这个元素的下标值
             if(lessIndex==len){
                 break;
             }
-            E lesser=originArray[lessIndex];
+            Comparable lesser=originArray[lessIndex];
             //寻找B组内的最小元素的元素值和下标值
             for (int j = i+2; j < len; j++) {
-                E index=originArray[j];//记这个元素为Z
+                Comparable index=originArray[j];//记这个元素为Z
                 if(Comparator.isLT(index, lesser)){//如果Z比Y还要小，更新B组内的最小元素的元素值和下标值
                     lesser=index;
                     lessIndex=j;
@@ -68,7 +61,7 @@ public class SelectionHandler<E extends Comparable> extends SortHandlerBehavior<
     }
 
     public static void main(String[] args) throws Exception {
-        Sortable<Integer> sortable=new SelectionHandler<>();
+        Sortable sortable=new SelectionHandler();
         Integer f[]={-1,0,8,58,10,2,3,7,8,9,10,12,15,-5,4};
         System.out.println("---:"+Arrays.toString(sortable.sort(f)));
     }
