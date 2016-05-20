@@ -159,7 +159,7 @@ public class MergeHandler extends SortHandlerBehavior {
 
     public static void main(String[] args) throws Exception {
         //≤‚ ‘ merge
-        //Sortable<Integer> sortable = new MergeHandler<>();
+        Sortable sortable = new MergeHandler();
         //int f[]={-1,0,2,3,7,8,9,10,12,15};
         //int s[]={0,0,1,4,5,6,7,8,11,18};
         //System.out.println(Arrays.toString(new MergeHandler<Integer>().merge(f, s)));
@@ -180,7 +180,7 @@ public class MergeHandler extends SortHandlerBehavior {
 
         //≤‚ ‘–‘ƒ‹
 
-        benchmark();
+        benchmark(sortable);
 
 
 
@@ -202,20 +202,6 @@ public class MergeHandler extends SortHandlerBehavior {
             //    System.out.println("error,index:"+i+",data:" + originArray[i]);
            // }
         //}
-    }
-
-
-    public static void benchmark() throws Exception {
-        MergeHandler sortable = new MergeHandler();
-        int count=200;
-        double[] times=new double[count];
-        for (int i = 0; i < count; i++) {
-            Integer[] array=Util.getRandomIntegerNumberArray(1000000);
-            long st=System.currentTimeMillis();
-            sortable.sort(array);
-            times[i]=System.currentTimeMillis()-st;
-        }
-        System.out.println("avg:"+sortable.avg(times)+",max:"+sortable.max(times)+",min:"+sortable.min(times));
     }
 
     private static String arrayToString(Comparable[] comparables) {

@@ -43,7 +43,7 @@ public abstract class SortHandlerBehavior implements Sortable {
         swapIfLessThan(array, firstIndex, firstValue, secondIndex, array[secondIndex]);
     }
 
-    private void swapAlways(Comparable[] array,int firstIndex,Comparable firstValue,int secondIndex,Comparable secondValue){
+    public void swapAlways(Comparable[] array, int firstIndex, Comparable firstValue, int secondIndex, Comparable secondValue){
         array[firstIndex]=secondValue;
         array[secondIndex]=firstValue;
     }
@@ -70,7 +70,7 @@ public abstract class SortHandlerBehavior implements Sortable {
      * @param array 数组
      * @return 平均值
      */
-    public double avg(double[] array){
+    public static double avg(double[] array){
         double sum=0;
         for (int i = 0; i < array.length; i++) {
             sum+=array[i];
@@ -84,7 +84,7 @@ public abstract class SortHandlerBehavior implements Sortable {
      * @param array 数组
      * @return 最小值
      */
-    public double min(double[] array){
+    public static double min(double[] array){
         double min=0;
         if(array!=null&&array.length>0){
             min=array[0];
@@ -104,7 +104,7 @@ public abstract class SortHandlerBehavior implements Sortable {
      * @param array 数组
      * @return 最大值
      */
-    public double max(double[] array){
+    public static double max(double[] array){
         double max=0;
         for (int i = 0; i < array.length; i++) {
             double e=array[i];
@@ -132,5 +132,17 @@ public abstract class SortHandlerBehavior implements Sortable {
             swapAlways(array,i,array[i], randomIndex,array[randomIndex]);
         }
         return array;
+    }
+
+    public static void benchmark(Sortable sortable) throws Exception {
+        int count=200;
+        double[] times=new double[count];
+        for (int i = 0; i < count; i++) {
+            Integer[] array= Util.getRandomIntegerNumberArray(1000000);
+            long st=System.currentTimeMillis();
+            sortable.sort(array);
+            times[i]=System.currentTimeMillis()-st;
+        }
+        System.out.println("avg:" + avg(times) + ",max:" + max(times) + ",min:" + min(times));
     }
 }
