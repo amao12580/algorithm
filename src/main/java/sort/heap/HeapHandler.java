@@ -7,6 +7,9 @@ import basic.sort.Sortable;
 import java.util.Arrays;
 
 /**
+ *
+ * http://www.cnblogs.com/kkun/archive/2011/11/23/2260286.html
+ *
  * Created with IntelliJ IDEA.
  * User:ChengLiang
  * Date:2016/5/12
