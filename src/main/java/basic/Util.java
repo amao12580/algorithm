@@ -56,6 +56,15 @@ public class Util {
         return array;
     }
 
+
+    public static Integer[] getRandomIntegerNumberArray(int len,int min ,int max){
+        Integer[] array=new Integer[len];
+        for (int i = 0; i <array.length; i++) {
+            array[i]=getRandomInteger(min, max);
+        }
+        return array;
+    }
+
     public static Double getRandomDouble() {
         return Math.random()*Double.MAX_VALUE;
     }
