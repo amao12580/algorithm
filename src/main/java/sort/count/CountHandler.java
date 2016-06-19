@@ -91,6 +91,6 @@ public class CountHandler extends SortHandlerBehavior {
         //System.out.println("---:" + Arrays.toString(sortable.sort(Util.getRandomIntegerNumberArray(100))));
         //System.out.println("---:" + Arrays.toString(sortable.sort(f)));
 
-        benchmark(sortable,0,100000000);//不适合对无规律的数据排序，在随机整数序列中，可能最大值与最小值的差超过一个亿，从而耗尽内存
+        benchmark(sortable,0,100000000);//不适合对无规律的数据排序，在随机整数序列中，可能最大值与最小值的差超过一个亿（意味着bucke的长度过大），从而耗尽内存
     }
 }

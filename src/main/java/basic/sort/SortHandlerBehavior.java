@@ -174,7 +174,7 @@ public abstract class SortHandlerBehavior implements Sortable {
      * @param max      随机数组的元素最d大值
      */
     public static void benchmark(Sortable sortable, Integer min, Integer max) throws Exception {
-        int count = 10;
+        int count = 50;
         double[] times = new double[count];
         for (int i = 0; i < count; i++) {
             Integer[] array;
