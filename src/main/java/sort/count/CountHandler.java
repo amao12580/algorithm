@@ -49,8 +49,9 @@ public class CountHandler extends SortHandlerBehavior {
             throw new Exception("不受支持的排序类型。" + element.getClass());
         }
         //求出数组中的最大值、最小值
-        int maxValue = (Integer) max(originArray);
-        int minValue = (Integer) min(originArray);
+        Comparable[] maxAndMin = maxAndMin(originArray);
+        int maxValue = (Integer) maxAndMin[0];
+        int minValue = (Integer) maxAndMin[1];
         if (maxValue == minValue) {
             return originArray;
         }
@@ -91,6 +92,6 @@ public class CountHandler extends SortHandlerBehavior {
         //System.out.println("---:" + Arrays.toString(sortable.sort(Util.getRandomIntegerNumberArray(100))));
         //System.out.println("---:" + Arrays.toString(sortable.sort(f)));
 
-        benchmark(sortable,0,100000000);//不适合对无规律的数据排序，在随机整数序列中，可能最大值与最小值的差超过一个亿（意味着bucke的长度过大），从而耗尽内存
+        benchmark(sortable, 0, 100000000);//不适合对无规律的数据排序，在随机整数序列中，可能最大值与最小值的差超过一个亿（意味着bucke的长度过大），从而耗尽内存
     }
 }

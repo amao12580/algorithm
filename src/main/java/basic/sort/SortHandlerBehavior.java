@@ -146,6 +146,24 @@ public abstract class SortHandlerBehavior implements Sortable {
         return max;
     }
 
+    public static Comparable[] maxAndMin(Comparable[] array) {
+        Comparable max = array[0];
+        Comparable min = array[0];
+        for (int i = 1; i < array.length; i++) {
+            Comparable e = array[i];
+            if (Comparator.isLT(max, e)) {
+                max = e;
+            }
+            if (Comparator.isGT(min, e)) {
+                min = e;
+            }
+        }
+        Comparable[] result=new Comparable[2];
+        result[0]=max;
+        result[1]=min;
+        return result;
+    }
+
     /**
      * shuffing(²»ÊÇÅÅÐòËã·¨)
      * <p>

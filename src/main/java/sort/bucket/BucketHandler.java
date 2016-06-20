@@ -1,8 +1,11 @@
 package sort.bucket;
 
+import basic.Util;
 import basic.sort.SortHandlerBehavior;
 import basic.sort.Sortable;
 import sort.count.CountHandler;
+
+import java.util.Arrays;
 
 /**
  * https://segmentfault.com/a/1190000003054515
@@ -53,8 +56,9 @@ public class BucketHandler extends SortHandlerBehavior {
             throw new Exception("不受支持的排序类型。" + element.getClass());
         }
         //求出数组中的最大值、最小值
-        int maxValue = (Integer) max(originArray);
-        int minValue = (Integer) min(originArray);
+        Comparable[] maxAndMin = maxAndMin(originArray);
+        int maxValue = (Integer) maxAndMin[0];
+        int minValue = (Integer) maxAndMin[1];
         int length = maxValue - minValue;
         if (length == 0) {
             return originArray;
@@ -92,19 +96,18 @@ public class BucketHandler extends SortHandlerBehavior {
         }
         //可以构建结果集了
         int index = 0;
-        Comparable[] result = new Comparable[originArray.length];
         for (int i = 0; i < bucketArray.length; i++) {
             for (int j = 0; j < buckeCountArray[i]; j++) {
-                result[index] = bucketArray[i][j];
+                originArray[index] = bucketArray[i][j];
                 index++;
             }
         }
-        return result;
+        return originArray;
     }
 
     private void resize(int[][] bucketArray, int bucketIndex) {
         int[] originBucketArrays = bucketArray[bucketIndex];
-        int[] newBucketArrays = new int[originBucketArrays.length +MIN_BUCKET_SIZE];
+        int[] newBucketArrays = new int[originBucketArrays.length + MIN_BUCKET_SIZE];
         for (int i = 0; i < originBucketArrays.length; i++) {
             int value = originBucketArrays[i];
             if (value != 0) {
@@ -146,8 +149,8 @@ public class BucketHandler extends SortHandlerBehavior {
     public static void main(String[] args) throws Exception {
         Sortable sortable = new BucketHandler();
         Integer f[] = {113, 19, 0, 5, 12, 8, 7, 4, 11, 2, 6, 21};
-        //System.out.println("---:" + Arrays.toString(sortable.sort(Util.getRandomIntegerNumberArray(100))));
+        System.out.println("---:" + Arrays.toString(sortable.sort(Util.getRandomIntegerNumberArray(1000000, 0, 100))));
         //System.out.println("---:" + Arrays.toString(sortable.sort(f)));
-        benchmark(sortable, 0, 10000);
+        //benchmark(sortable, 0, 10000);
     }
 }
