@@ -49,6 +49,10 @@ public abstract class SortHandlerBehavior implements Sortable {
         swapIfLessThan(array, firstIndex, firstValue, secondIndex, array[secondIndex]);
     }
 
+    public void swapAlways(Comparable[] array, int firstIndex, int secondIndex) {
+        swapAlways(array, firstIndex, array[firstIndex], secondIndex, array[secondIndex]);
+    }
+
     public void swapAlways(Comparable[] array, int firstIndex, Comparable firstValue, int secondIndex, Comparable secondValue) {
         array[firstIndex] = secondValue;
         array[secondIndex] = firstValue;
@@ -158,9 +162,9 @@ public abstract class SortHandlerBehavior implements Sortable {
                 min = e;
             }
         }
-        Comparable[] result=new Comparable[2];
-        result[0]=max;
-        result[1]=min;
+        Comparable[] result = new Comparable[2];
+        result[0] = max;
+        result[1] = min;
         return result;
     }
 

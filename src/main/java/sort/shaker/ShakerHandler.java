@@ -1,7 +1,10 @@
 package sort.shaker;
 
+import basic.Comparator;
 import basic.sort.SortHandlerBehavior;
 import basic.sort.Sortable;
+
+import java.util.Arrays;
 
 /**
  * http://bubkoo.com/2014/01/15/sort-algorithm/shaker-sort/
@@ -72,11 +75,77 @@ public class ShakerHandler extends SortHandlerBehavior {
         return beginIndex;
     }
 
+    /**
+     * 尝试对鸡尾酒排序的原始实现进行改良
+     * <p>
+     * 在一次遍历中，同时找到最大值和最小值，将最大值放到尾部，最小值放到首部
+     * <p>
+     * 事实上这已经与选择排序有点像了
+     * <p>
+     * 算了一下时间复杂度，还是在O(n^2)级别，与原始算法没有太大的区别。
+     *
+     * @param originArray
+     * @return
+     * @throws Exception
+     */
+    public Comparable[] sortImprovement(Comparable[] originArray) throws Exception {
+        init(originArray);
+        int len = originArray.length;
+        if (len == 1) {
+            return originArray;
+        }
+        if (len == 2) {
+            swapIfLessThan(originArray, 1, 0);
+            return originArray;
+        }
+        int endIndex = originArray.length - 1;
+        int beginIndex = 0;
+        while (beginIndex <= endIndex) {
+            int[] result = doubleWay(originArray, beginIndex, endIndex);
+            beginIndex = result[0];
+            endIndex = result[1];
+        }
+        return originArray;
+    }
+
+    private int[] doubleWay(Comparable[] originArray, int beginIndex, int endIndex) {
+        int[] result = new int[2];
+        int minIndex = beginIndex;
+        Comparable minvalue = originArray[minIndex];
+        for (int i = beginIndex; i <= endIndex; i++) {
+            int nextIndex = i + 1;
+            if (nextIndex > endIndex) {
+                break;
+            }
+            Comparable nextValue = originArray[nextIndex];
+            if (Comparator.isLT(nextValue, minvalue)) {
+                minIndex = nextIndex;
+                minvalue = originArray[minIndex];
+
+            }
+            if (Comparator.isLT(nextValue, originArray[i])) {
+                swapAlways(originArray, nextIndex, i);
+                if (Comparator.isEQUAL(nextValue, minvalue)) {
+                    minIndex = i;
+                    minvalue = originArray[minIndex];
+                }
+            }
+        }
+        if (minIndex != beginIndex) {
+            swapAlways(originArray, beginIndex, minIndex);
+        }
+        beginIndex++;
+        endIndex--;
+        result[0] = beginIndex;
+        result[1] = endIndex;
+        return result;
+    }
+
     public static void main(String[] args) throws Exception {
         Sortable sortable = new ShakerHandler();
         Integer f[] = {113, 19, 0, 5, 12, 8, 7, 4, 11, 2, 6, 21};
         //System.out.println("---:" + Arrays.toString(sortable.sort(Util.getRandomIntegerNumberArray(1000000, 0, 100))));
-        //System.out.println("---:" + Arrays.toString(sortable.sort(f)));
-        benchmark(sortable, 0, 10000);
+        System.out.println("---:" + Arrays.toString(sortable.sort(f)));
+        //benchmark(sortable, 0, 10000);
     }
 }
