@@ -82,7 +82,7 @@ public class ShakerHandler extends SortHandlerBehavior {
      * <p>
      * 事实上这已经与选择排序有点像了
      * <p>
-     * 算了一下时间复杂度，还是在O(n^2)级别，与原始算法没有太大的区别。
+     * 算了一下时间复杂度，还是在O(n^2)级别，与原始算法没有太大的区别(总时间会稍短)。
      *
      * @param originArray
      * @return
