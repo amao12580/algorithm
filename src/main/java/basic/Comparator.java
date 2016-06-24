@@ -62,9 +62,21 @@ public enum Comparator {
         return false;
     }
 
+    public static boolean isGTE(Comparator result) {
+        if (result.code == Comparator.GT.code || result.code == Comparator.EQUAL.code) {
+            return true;
+        }
+        return false;
+    }
+
     public static boolean isLTE(Comparable one, Comparable other) {
         return isLTE(compare(one, other));
     }
+
+    public static boolean isGTE(Comparable one, Comparable other) {
+        return isGTE(compare(one, other));
+    }
+
 
     public static boolean isGT(Comparator result) {
         if (result.code == Comparator.GT.code) {
@@ -100,9 +112,9 @@ public enum Comparator {
     }
 
     public static Comparator compare(Comparable one, Comparable other) {
-        if(one instanceof String && other instanceof String){
-            one=Integer.valueOf(one.toString());
-            other=Integer.valueOf(other.toString());
+        if (one instanceof String && other instanceof String) {
+            one = Integer.valueOf(one.toString());
+            other = Integer.valueOf(other.toString());
         }
         return get(one.compareTo(other));
     }
