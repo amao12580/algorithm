@@ -73,7 +73,7 @@ public class Solution {
     private static int[][] recursion(int[] originArray, int number) {
         topLayer = number;
         //println(originArray);
-        resultArray = new int[number*2][number];
+        resultArray = new int[number * 2][number];
         loop(originArray, new int[topLayer], 0, 0, number);
         if ((resultArray.length - currentOffset) > 0) {
             resultArray = trim(resultArray, currentOffset);

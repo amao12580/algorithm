@@ -12,11 +12,10 @@ import java.util.Arrays;
  * <p>
  * 有面值为1元、3元和5元的硬币若干枚，如何用最少的硬币凑够11元？
  * <p>
- * 需要用DP思想来解题
- * <p>
- * 其他的解法：贪心算法
+ *
+ * V1 没有使用DP思想解题，直接采用递归暴力分解
  */
-public class Solution {
+public class SolutionV1 {
     private static int maxValue = 0;
     private static int minValue = 0;
     private static int index = 0;
@@ -48,6 +47,7 @@ public class Solution {
         for (int i = 2; i < len; i++) {
             subSolution[i] = -1;
         }
+        subSolution[0] = 0;
         subSolution[1] = 1;
         subSolution[3] = 1;
         subSolution[5] = 1;

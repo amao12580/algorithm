@@ -18,6 +18,9 @@ import java.util.Arrays;
  * 改进要点：每次在前面的有序数组段，寻找合适位置进行swap时，不需要遍历整个数组段
  * <p>
  * 使用二分查找进行时间复杂度降低：O(n)  -->   O(log n)
+ * <p>
+ * wiki定义：
+ * 如果比较操作的代价比交换操作大的话，可以采用二分查找法来减少比较操作的数目。该算法可以认为是插入排序的一个变种，称为二分查找插入排序。
  */
 public class InsertionImprovementHandler extends SortHandlerBehavior {
 
