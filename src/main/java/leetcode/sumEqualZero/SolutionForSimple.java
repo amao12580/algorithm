@@ -12,7 +12,7 @@ import java.util.Arrays;
  */
 public class SolutionForSimple {
     public static void main(String[] args) {
-        int[] originArray = {0, 1, 2, 3, 4, 5, -1, -2, -3, -4, -5};
+        int[] originArray = {-1,0,1,2,-1,-4};
         System.out.println("input:" + Arrays.toString(originArray));
         System.out.println("-------      simple        -------");
         println(simple(originArray, 3));

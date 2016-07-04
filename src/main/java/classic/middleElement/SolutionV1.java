@@ -22,4 +22,5 @@ public class SolutionV1 {
         System.out.println("sorted:" + Arrays.toString(originArray));
         System.out.println("middle:" + originArray[originArray.length / 2].toString());
     }
+
 }
