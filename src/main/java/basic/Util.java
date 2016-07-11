@@ -1,5 +1,7 @@
 package basic;
 
+import com.google.gson.Gson;
+
 import java.util.Arrays;
 
 /**
@@ -12,6 +14,16 @@ public class Util {
 
     public static final Integer DEFAULT_ARRAY_LENGTH_MIN=1;
     public static Integer DEFAULT_ARRAY_LENGTH_MAX;
+
+    private static final Gson json = new Gson();
+
+    public static String toJson(Object obj) {
+        return json.toJson(obj);
+    }
+
+    public static <T> T fromJson(String jsonString, Class<T> classOfT) {
+        return json.fromJson(jsonString, classOfT);
+    }
 
     private static void changeDefaultArrayLengthMax() {
         DEFAULT_ARRAY_LENGTH_MAX=(int)Math.pow(10d,6d);

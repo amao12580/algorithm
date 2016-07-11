@@ -17,5 +17,13 @@
         <project.build.sourceEncoding>${file_encoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${file_encoding}</project.reporting.outputEncoding>
     </properties>
+    
+    <dependencies>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.2.4</version>
+        </dependency>
+    </dependencies>
 
 </project>
