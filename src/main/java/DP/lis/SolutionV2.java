@@ -6,13 +6,17 @@ package DP.lis;
  * Date:2016/7/5
  * Time:16:15
  * <p>
- * Ò»¸öĞòÁĞÓĞN¸öÊı£ºA[1],A[2],¡­,A[N]£¬Çó³ö×î³¤·Ç½µ×ÓĞòÁĞµÄ³¤¶È¡£ (½²DP»ù±¾¶¼»á½²µ½µÄÒ»¸öÎÊÌâLIS£ºlongest increasing subsequence)
+ * ä¸€ä¸ªåºåˆ—æœ‰Nä¸ªæ•°ï¼šA[1],A[2],â€¦,A[N]ï¼Œæ±‚å‡ºæœ€é•¿éé™å­åºåˆ—çš„é•¿åº¦ã€‚ (è®²DPåŸºæœ¬éƒ½ä¼šè®²åˆ°çš„ä¸€ä¸ªé—®é¢˜LISï¼šlongest increasing subsequence)
  * <p>
  * tips:
- * 1.²»ÒªÇó½á¹ûĞòÁĞÖĞµÄÔªËØÔÚÔ­Ê¼Êı×éÖĞÊÇÏàÁÚµÄ
- * 2.ÏàµÈµÄÔªËØ£¬²»Ëã×öÏà»¥µİÔö
+ * 1.ä¸è¦æ±‚ç»“æœåºåˆ—ä¸­çš„å…ƒç´ åœ¨åŸå§‹æ•°ç»„ä¸­æ˜¯ç›¸é‚»çš„
+ * 2.ç›¸ç­‰çš„å…ƒç´ ï¼Œä¸ç®—åšç›¸äº’é€’å¢
+ * <p>
+ * å€Ÿç”¨äºŒåˆ†æŸ¥æ‰¾æ¥é™ä½æ—¶é—´å¤æ‚åº¦
+ * <p>
+ * N*log N
  */
-public class Solution {
+public class SolutionV2 {
     public static void main(String[] args) {
         //int[] array1 = {3};
         //int[] array1 = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -23,51 +27,16 @@ public class Solution {
         int[] array = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         int len = lengthOfLIS2(array);
         System.out.println("len:" + len);
-        len = lengthOfLIS(array);
-        System.out.println("len:" + len);
         int len1 = lengthOfLIS2(array1);
-        System.out.println("len1:" + len1);
-        len1 = lengthOfLIS(array1);
         System.out.println("len1:" + len1);
         int len2 = lengthOfLIS2(array2);
         System.out.println("len2:" + len2);
-        len2 = lengthOfLIS(array2);
-        System.out.println("len2:" + len2);
         int len3 = lengthOfLIS2(array3);
         System.out.println("len3:" + len3);
-        len3 = lengthOfLIS(array3);
-        System.out.println("len3:" + len3);
     }
 
     /**
-     * O(n^2)  ½â·¨
-     * <p>
-     * http://www.hawstein.com/posts/dp-novice-to-advanced.html
-     */
-    public static int lengthOfLIS(int[] nums) {
-        //System.out.println("A:" + Util.toJson(nums));
-        if (nums.length == 0) {
-            return 0;
-        }
-        int[] d = new int[nums.length];//¼ÇÂ¼numsÊı×éÖĞ£¬Ã¿¸öÒÔÔªËØÖµ½áÎ²µÄµİÔö×ÓĞòÁĞ×î´ó³¤¶ÈÖµ
-        int maxLen = 1;
-        for (int current = 0; current < nums.length; current++) {
-            d[current] = 1;
-            for (int previous = current - 1; previous >= 0; previous--) {
-                if (nums[previous] < nums[current] && d[previous] + 1 > d[current]) {
-                    d[current] = d[previous] + 1;
-                    if (d[current] > maxLen) {
-                        maxLen = d[current];
-                    }
-                }
-            }
-        }
-        //System.out.println("d:" + Util.toJson(d));
-        return maxLen;
-    }
-
-    /**
-     * O(n*log n)  ½â·¨
+     * O(n*log n)  è§£æ³•
      * <p>
      * https://www.felix021.com/blog/read.php?1587
      */
@@ -76,7 +45,7 @@ public class Solution {
         if (nums.length == 0) {
             return 0;
         }
-        int[] d = new int[nums.length];//¼ÇÂ¼numsÊı×éÖĞ£¬¶ÔÓ¦³¤¶ÈLISµÄ×îĞ¡Ä©Î²
+        int[] d = new int[nums.length];//è®°å½•numsæ•°ç»„ä¸­ï¼Œå¯¹åº”é•¿åº¦LISçš„æœ€å°æœ«å°¾
         d[0] = nums[0];
         int latestIndex = 0;
         for (int current = 1; current < nums.length; current++) {
@@ -91,7 +60,7 @@ public class Solution {
     }
 
     /**
-     * ÔÚ¸ø¶¨Êı×éµÄbegin¡¢endÏÂ±êÖµ·¶Î§ÄÚ£¬ÕÒµ½×îºóÒ»¸ö±ÈkeyĞ¡µÄÔªËØÏÂ±êÖµ
+     * åœ¨ç»™å®šæ•°ç»„çš„beginã€endä¸‹æ ‡å€¼èŒƒå›´å†…ï¼Œæ‰¾åˆ°æœ€åä¸€ä¸ªæ¯”keyå°çš„å…ƒç´ ä¸‹æ ‡å€¼
      */
     private static int binarySearchLatestLessThan(int[] originArray, int beginIndex, int endIndex, int key) {
         if (beginIndex > endIndex) {
@@ -106,7 +75,7 @@ public class Solution {
             if (previousIndex > endIndex) {
                 return middleIndex;
             }
-            //ÅĞ¶ÏÏÂÒ»¸öÖµÊÇ·ñ·ûºÏÒªÇó
+            //åˆ¤æ–­ä¸‹ä¸€ä¸ªå€¼æ˜¯å¦ç¬¦åˆè¦æ±‚
             if (originArray[previousIndex] >= key) {
                 return middleIndex;
             } else {
