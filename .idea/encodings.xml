@@ -2,8 +2,12 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/basic/Util.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/graph/matrix/MatrixGraph.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/sort/bucket/BucketHandler.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/sort/count/CountHandler.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/sort/heap/HeapHandler.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/sort/insertion/InsertionHandler.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/sort/shaker/ShakerHandler.java" charset="GBK" />
   </component>
 </project>
