@@ -7,47 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="874c8ee2-72d9-4d79-8881-17e59794675d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/tree/huffman/HuffmanTree.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/classic/KMP/SolutionV1.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/basic/StringTest.java" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\DP\coins\SolutionV1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\DP\coins\SolutionV2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\DP\lis\SolutionV1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\DP\lis\SolutionV2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\DP\minimumPathSum\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\DP\zigzag\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\basic\Comparator.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\basic\Util.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\basic\sort\SortHandlerBehavior.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\basic\sort\Sortable.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\classic\middleElement\SolutionV1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\classic\middleElement\SolutionV2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\classic\twoArrayRemoveRepeat\SolutionV1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\classic\twoArrayRemoveRepeat\SolutionV2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\graph\edge\EdgeGraph$Node.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\graph\edge\EdgeGraph.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\graph\list\ListGraph$Node.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\graph\list\ListGraph.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\graph\matrix\MatrixGraph.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\leetcode\sumEqualZero\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\leetcode\sumEqualZero\SolutionForDynamicPrograming.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\leetcode\sumEqualZero\SolutionForRecursion.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\leetcode\sumEqualZero\SolutionForSimple.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\bubble\BubbleHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\bucket\BucketHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\count\CountHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\heap\HeapHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\insertion\InsertionHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\insertion\InsertionImprovementHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\merge\MergeHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\quick\QuickHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\radix\RadixHandler$RadixSortHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\radix\RadixHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\selection\SelectionHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\shaker\ShakerHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\shell\ShellHandler.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/basic/Util.java" afterPath="$PROJECT_DIR$/src/main/java/basic/Util.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="DELETED" beforePath="D:\GitHub\algorithm\src\main\java\basic\StringTest.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="algorithm.iws" />
@@ -93,10 +53,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CountHandler.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CountHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sort/count/CountHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33169532">
+            <state vertical-scroll-proportion="0.0">
               <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
               <folding />
             </state>
@@ -123,12 +83,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StringTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/basic/StringTest.java">
+      <file leaf-file-name="HuffmanTree.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/tree/huffman/HuffmanTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="17" selection-end-column="9" />
-              <folding />
+            <state vertical-scroll-proportion="9.4299755">
+              <caret line="233" column="53" selection-start-line="233" selection-start-column="53" selection-end-line="233" selection-end-column="53" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -421,30 +383,8 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="algorithm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="algorithm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sort" />
+              <option name="myItemId" value="huffman" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -467,40 +407,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sort" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="heap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="algorithm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="algorithm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="basic" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1116,12 +1022,12 @@
       <workItem from="1467272690987" duration="35048000" />
       <workItem from="1467706494916" duration="104357000" />
       <workItem from="1468807264635" duration="2672000" />
-      <workItem from="1468910315081" duration="33557000" />
+      <workItem from="1468910315081" duration="33708000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="432682000" />
+    <option name="totallyTimeSpent" value="432833000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1143,10 +1049,10 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5127517" sideWeight="0.5028653" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29512894" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29512894" sideWeight="0.49082568" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4147651" sideWeight="0.49713466" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295129" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29512894" sideWeight="0.5091743" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1592,47 +1498,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/basic/StringTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="17" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/basic/Util.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2797834">
           <caret line="123" column="58" selection-start-line="123" selection-start-column="58" selection-end-line="123" selection-end-column="58" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tree/huffman/HuffmanTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="10.383292">
-          <caret line="245" column="31" selection-start-line="245" selection-start-column="31" selection-end-line="245" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4553#4554#0" expanded="true" />
-            <element signature="e#4586#4587#0" expanded="true" />
-            <element signature="e#5528#5529#0" expanded="true" />
-            <element signature="e#5564#5565#0" expanded="true" />
-            <element signature="e#5603#5604#0" expanded="true" />
-            <element signature="e#5639#5640#0" expanded="true" />
-            <element signature="e#5676#5677#0" expanded="true" />
-            <element signature="e#5711#5712#0" expanded="true" />
-            <element signature="e#5749#5750#0" expanded="true" />
-            <element signature="e#5785#5786#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1657,9 +1527,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sort/count/CountHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33169532">
+        <state vertical-scroll-proportion="0.0">
           <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tree/huffman/HuffmanTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="9.4299755">
+          <caret line="233" column="53" selection-start-line="233" selection-start-column="53" selection-end-line="233" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
