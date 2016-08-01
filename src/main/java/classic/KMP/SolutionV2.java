@@ -21,11 +21,11 @@ package classic.KMP;
  * https://leetcode.com/problems/implement-strstr/
  *
  *
- * Brute Force 算法，暴力匹配
+ * KMP 算法，暴力匹配
  */
-public class SolutionV1 {
+public class SolutionV2 {
     public static void main(String[] args) {
-        SolutionV1 solution = new SolutionV1();
+        SolutionV2 solution = new SolutionV2();
         String S = "BBC ABCDAB ABCDABCDABDE";
         String P = "ABCDABD";
         int index = solution.strStr(S, P);
