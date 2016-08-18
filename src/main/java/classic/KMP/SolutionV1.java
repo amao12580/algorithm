@@ -22,6 +22,10 @@ package classic.KMP;
  *
  *
  * Brute Force 算法，暴力匹配
+ *
+ * * 假设文本串长度为N，模式串长度为M
+ * 时间复杂度度（O(N*M)）
+ * 空间复杂度（O(1)）
  */
 public class SolutionV1 {
     public static void main(String[] args) {

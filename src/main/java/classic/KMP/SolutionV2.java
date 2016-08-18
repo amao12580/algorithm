@@ -25,6 +25,10 @@ package classic.KMP;
  * <p>
  * <p>
  * KMP 算法，预处理Next数组
+ * <p>
+ * 假设文本串长度为N，模式串长度为M
+ * 时间复杂度度（O(N+M)）
+ * 空间复杂度（O(M)）
  */
 public class SolutionV2 {
     public static void main(String[] args) {
@@ -42,10 +46,11 @@ public class SolutionV2 {
 
     public int strStr(String haystack, String needle) {
         int needleLen = needle.length();
-        if ((haystack.isEmpty() && needle.isEmpty()) || (!haystack.isEmpty() && needle.isEmpty())) {
+        int haystackLen = haystack.length();
+        if ((haystackLen == 0 && needleLen == 0) || (haystackLen != 0 && needleLen == 0)) {
             return 0;
         }
-        if (haystack.length() < needle.length()) {
+        if (haystackLen < needleLen) {
             return -1;
         }
         int[] next = new int[needleLen];
@@ -68,7 +73,7 @@ public class SolutionV2 {
             }
         }
         int i = 0, h = 0;
-        while (i < haystack.length()) {
+        while (i < haystackLen) {
             if (haystack.charAt(i) == needle.charAt(h)) {
                 if (h == needleLen - 1) {
                     return i - h;
