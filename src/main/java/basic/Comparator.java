@@ -10,9 +10,9 @@ import java.util.Map;
  * Time:11:45
  */
 public enum Comparator {
-    GT(1, "greater than"),//´óÓÚ
-    LT(-1, "less than"),//Ğ¡ÓÚ
-    EQUAL(0, "equal");//ÏàµÈ
+    GT(1, "greater than"),//å¤§äº
+    LT(-1, "less than"),//å°äº
+    EQUAL(0, "equal");//ç›¸ç­‰
 
     Integer code;
     String desc;
@@ -50,10 +50,10 @@ public enum Comparator {
     }
 
     /**
-     * ÊÇ·ñÊÇĞ¡ÓÚµÈÓÚ£¿
+     * æ˜¯å¦æ˜¯å°äºç­‰äºï¼Ÿ
      *
-     * @param result ±È½ÏÍê³ÉÒÔºóµÄ½á¹û
-     * @return ¼ì²é½á¹û
+     * @param result æ¯”è¾ƒå®Œæˆä»¥åçš„ç»“æœ
+     * @return æ£€æŸ¥ç»“æœ
      */
     public static boolean isLTE(Comparator result) {
         if (result.code == Comparator.LT.code || result.code == Comparator.EQUAL.code) {

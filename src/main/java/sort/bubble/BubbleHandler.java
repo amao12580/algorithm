@@ -15,16 +15,16 @@ import basic.sort.Sortable;
 public class BubbleHandler extends SortHandlerBehavior {
 
     /**
-     * ÉèÊý×é³¤¶ÈÎªN¡£
-     * 1£®±È½ÏÏàÁÚµÄÇ°ºó¶þ¸öÊý¾Ý£¬Èç¹ûÇ°ÃæÊý¾Ý´óÓÚºóÃæµÄÊý¾Ý£¬¾Í½«¶þ¸öÊý¾Ý½»»»¡£
-     * 2£®ÕâÑù¶ÔÊý×éµÄµÚ0¸öÊý¾Ýµ½N-1¸öÊý¾Ý½øÐÐÒ»´Î±éÀúºó£¬×î´óµÄÒ»¸öÊý¾Ý¾Í¡°³Á¡±µ½Êý×éµÚN-1¸öÎ»ÖÃ¡£
-     * 3£®N=N-1£¬Èç¹ûN²»Îª0¾ÍÖØ¸´Ç°Ãæ¶þ²½£¬·ñÔòÅÅÐòÍê³É¡£
+     * è®¾æ•°ç»„é•¿åº¦ä¸ºNã€‚
+     * 1ï¼Žæ¯”è¾ƒç›¸é‚»çš„å‰åŽäºŒä¸ªæ•°æ®ï¼Œå¦‚æžœå‰é¢æ•°æ®å¤§äºŽåŽé¢çš„æ•°æ®ï¼Œå°±å°†äºŒä¸ªæ•°æ®äº¤æ¢ã€‚
+     * 2ï¼Žè¿™æ ·å¯¹æ•°ç»„çš„ç¬¬0ä¸ªæ•°æ®åˆ°N-1ä¸ªæ•°æ®è¿›è¡Œä¸€æ¬¡éåŽ†åŽï¼Œæœ€å¤§çš„ä¸€ä¸ªæ•°æ®å°±â€œæ²‰â€åˆ°æ•°ç»„ç¬¬N-1ä¸ªä½ç½®ã€‚
+     * 3ï¼ŽN=N-1ï¼Œå¦‚æžœNä¸ä¸º0å°±é‡å¤å‰é¢äºŒæ­¥ï¼Œå¦åˆ™æŽ’åºå®Œæˆã€‚
      *
      * O(n^2)
      *
-     * @param originArray Ô­Ê¼ÊäÈëÊý×é
-     * @return ÅÅºÃÐòµÄÊý×é
-     * @throws Exception ÔÚÊäÈë²ÎÊý²»¿É½âÎöÊ±Å×³ö
+     * @param originArray åŽŸå§‹è¾“å…¥æ•°ç»„
+     * @return æŽ’å¥½åºçš„æ•°ç»„
+     * @throws Exception åœ¨è¾“å…¥å‚æ•°ä¸å¯è§£æžæ—¶æŠ›å‡º
      */
     @Override
     public Comparable[] sort(Comparable[] originArray) throws Exception {

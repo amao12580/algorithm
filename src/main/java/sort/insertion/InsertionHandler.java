@@ -14,15 +14,15 @@ import java.util.Arrays;
 public class InsertionHandler extends SortHandlerBehavior {
 
     /**
-     * Ë¼Â·£º
-     * ÔÚµÚi´Îµü´úÖĞ£¬½«µÚi¸öÔªËØÓëÃ¿Ò»¸öËü×ó±ßÇÒ±ÈËü´óµÄµÄÔªËØ½»»»Î»ÖÃ
+     * æ€è·¯ï¼š
+     * åœ¨ç¬¬iæ¬¡è¿­ä»£ä¸­ï¼Œå°†ç¬¬iä¸ªå…ƒç´ ä¸æ¯ä¸€ä¸ªå®ƒå·¦è¾¹ä¸”æ¯”å®ƒå¤§çš„çš„å…ƒç´ äº¤æ¢ä½ç½®
      * <p>
      * <p>
-     * Ê±¼ä¸´ÔÓ¶È£ºO(n^2)
+     * æ—¶é—´å¤æ‚åº¦ï¼šO(n^2)
      *
-     * @param originArray Ô­Ê¼ÊäÈëÊı×é
-     * @return ÅÅºÃĞòµÄÊı×é
-     * @throws Exception ÔÚÊäÈë²ÎÊı²»¿É½âÎöÊ±Å×³ö
+     * @param originArray åŸå§‹è¾“å…¥æ•°ç»„
+     * @return æ’å¥½åºçš„æ•°ç»„
+     * @throws Exception åœ¨è¾“å…¥å‚æ•°ä¸å¯è§£ææ—¶æŠ›å‡º
      */
     @Override
     public Comparable[] sort(Comparable[] originArray) throws Exception {

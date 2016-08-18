@@ -15,22 +15,22 @@ import basic.sort.Sortable;
 public class CountHandler extends SortHandlerBehavior {
 
     /**
-     * Ë¼Â·:
-     * Ò»ÖÖÌØÊâµÄÍ°ÅÅĞò£¬°´ÕÕÃ¿¸ö´ıÅÅĞòµÄÊıÖµ½øĞĞ·ÖÍ°
+     * æ€è·¯:
+     * ä¸€ç§ç‰¹æ®Šçš„æ¡¶æ’åºï¼ŒæŒ‰ç…§æ¯ä¸ªå¾…æ’åºçš„æ•°å€¼è¿›è¡Œåˆ†æ¡¶
      * <p>
-     * ÕÒ³ö´ıÅÅĞòµÄÊı×éÖĞ×î´óºÍ×îĞ¡µÄÔªËØ
-     * Í³¼ÆÊı×éÖĞÃ¿¸öÖµÎªiµÄÔªËØ³öÏÖµÄ´ÎÊı£¬´æÈëÊı×éCµÄµÚiÏî
-     * ¶ÔËùÓĞµÄ¼ÆÊıÀÛ¼Ó£¨´ÓCÖĞµÄµÚÒ»¸öÔªËØ¿ªÊ¼£¬Ã¿Ò»ÏîºÍÇ°Ò»ÏîÏà¼Ó£©
-     * ·´ÏòÌî³äÄ¿±êÊı×é£º½«Ã¿¸öÔªËØi·ÅÔÚĞÂÊı×éµÄµÚC(i)Ïî£¬Ã¿·ÅÒ»¸öÔªËØ¾Í½«C(i)¼õÈ¥1
+     * æ‰¾å‡ºå¾…æ’åºçš„æ•°ç»„ä¸­æœ€å¤§å’Œæœ€å°çš„å…ƒç´ 
+     * ç»Ÿè®¡æ•°ç»„ä¸­æ¯ä¸ªå€¼ä¸ºiçš„å…ƒç´ å‡ºç°çš„æ¬¡æ•°ï¼Œå­˜å…¥æ•°ç»„Cçš„ç¬¬ié¡¹
+     * å¯¹æ‰€æœ‰çš„è®¡æ•°ç´¯åŠ ï¼ˆä»Cä¸­çš„ç¬¬ä¸€ä¸ªå…ƒç´ å¼€å§‹ï¼Œæ¯ä¸€é¡¹å’Œå‰ä¸€é¡¹ç›¸åŠ ï¼‰
+     * åå‘å¡«å……ç›®æ ‡æ•°ç»„ï¼šå°†æ¯ä¸ªå…ƒç´ iæ”¾åœ¨æ–°æ•°ç»„çš„ç¬¬C(i)é¡¹ï¼Œæ¯æ”¾ä¸€ä¸ªå…ƒç´ å°±å°†C(i)å‡å»1
      * <p>
      * <p>
-     * kÊÇ×î´óÖµÓë×îĞ¡ÖµµÄ²îÖµ£¬ÔÚ¾ùÔÈ·Ö²¼µÄĞòÁĞÖĞ£¬kÓënÃ»ÓĞÃ÷ÏÔµÄ²î±ğ¡£
+     * kæ˜¯æœ€å¤§å€¼ä¸æœ€å°å€¼çš„å·®å€¼ï¼Œåœ¨å‡åŒ€åˆ†å¸ƒçš„åºåˆ—ä¸­ï¼Œkä¸næ²¡æœ‰æ˜æ˜¾çš„å·®åˆ«ã€‚
      * <p>
-     * Ê±¼ä¸´ÔÓ¶È:O(n+k)
+     * æ—¶é—´å¤æ‚åº¦:O(n+k)
      *
-     * @param originArray Ô­Ê¼ÊäÈëÊı×é
-     * @return ÅÅºÃĞòµÄÊı×é
-     * @throws Exception ÔÚÊäÈë²ÎÊı²»¿É½âÎöÊ±Å×³ö
+     * @param originArray åŸå§‹è¾“å…¥æ•°ç»„
+     * @return æ’å¥½åºçš„æ•°ç»„
+     * @throws Exception åœ¨è¾“å…¥å‚æ•°ä¸å¯è§£ææ—¶æŠ›å‡º
      */
     @Override
     public Comparable[] sort(Comparable[] originArray) throws Exception {
@@ -46,28 +46,28 @@ public class CountHandler extends SortHandlerBehavior {
         Comparable element = originArray[0];
         if (element instanceof Integer) {
         } else {
-            throw new Exception("²»ÊÜÖ§³ÖµÄÅÅĞòÀàĞÍ¡£" + element.getClass());
+            throw new Exception("ä¸å—æ”¯æŒçš„æ’åºç±»å‹ã€‚" + element.getClass());
         }
-        //Çó³öÊı×éÖĞµÄ×î´óÖµ¡¢×îĞ¡Öµ
+        //æ±‚å‡ºæ•°ç»„ä¸­çš„æœ€å¤§å€¼ã€æœ€å°å€¼
         Comparable[] maxAndMin = maxAndMin(originArray);
         int maxValue = (Integer) maxAndMin[0];
         int minValue = (Integer) maxAndMin[1];
         if (maxValue == minValue) {
             return originArray;
         }
-        //¹¹½¨¼ÆÊıÊı×é
+        //æ„å»ºè®¡æ•°æ•°ç»„
         int bucket = maxValue - minValue + 1;
-        //System.out.println("bucket£º"+bucket);
+        //System.out.println("bucketï¼š"+bucket);
         int[] countArray = new int[bucket];
-        //Ìî³ä¼ÆÊıÊı×é
+        //å¡«å……è®¡æ•°æ•°ç»„
         for (int i = 0; i < originArray.length; i++) {
             countArray[(Integer) originArray[i] - minValue] += 1;
         }
-        //¼ÆÊıÊı×é½øĞĞË³Ğò¹ØÁª
+        //è®¡æ•°æ•°ç»„è¿›è¡Œé¡ºåºå…³è”
         for (int i = 1; i < countArray.length; i++) {
             countArray[i] += countArray[i - 1];
         }
-        //¹¹½¨½á¹ûÊı×é
+        //æ„å»ºç»“æœæ•°ç»„
         int[] result = new int[originArray.length];
         for (int i = 0; i < originArray.length; i++) {
             int value = (Integer) originArray[i];
@@ -92,6 +92,6 @@ public class CountHandler extends SortHandlerBehavior {
         //System.out.println("---:" + Arrays.toString(sortable.sort(Util.getRandomIntegerNumberArray(100))));
         //System.out.println("---:" + Arrays.toString(sortable.sort(f)));
 
-        benchmark(sortable, 0, 100000000);//²»ÊÊºÏ¶ÔÎŞ¹æÂÉµÄÊı¾İÅÅĞò£¬ÔÚËæ»úÕûÊıĞòÁĞÖĞ£¬¿ÉÄÜ×î´óÖµÓë×îĞ¡ÖµµÄ²î³¬¹ıÒ»¸öÒÚ£¨ÒâÎ¶×ÅbuckeµÄ³¤¶È¹ı´ó£©£¬´Ó¶øºÄ¾¡ÄÚ´æ
+        benchmark(sortable, 0, 100000000);//ä¸é€‚åˆå¯¹æ— è§„å¾‹çš„æ•°æ®æ’åºï¼Œåœ¨éšæœºæ•´æ•°åºåˆ—ä¸­ï¼Œå¯èƒ½æœ€å¤§å€¼ä¸æœ€å°å€¼çš„å·®è¶…è¿‡ä¸€ä¸ªäº¿ï¼ˆæ„å‘³ç€buckeçš„é•¿åº¦è¿‡å¤§ï¼‰ï¼Œä»è€Œè€—å°½å†…å­˜
     }
 }

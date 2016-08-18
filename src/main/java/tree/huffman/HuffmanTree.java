@@ -229,7 +229,7 @@ public class HuffmanTree {
 
 
     public static void main(String[] args) {
-        String plainText = Util.generateMixedString(100);
+        String plainText = Util.generateMixedString(20);
         //String plainText = "beep boop beer!";
         System.out.println("plainText:" + plainText);
         String originEncodingValue = Util.toBinary(plainText);

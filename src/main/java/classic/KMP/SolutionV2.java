@@ -19,39 +19,70 @@ package classic.KMP;
  * <p>
  * <p>
  * https://leetcode.com/problems/implement-strstr/
- *
- *
- * KMP 算法，暴力匹配
+ * <p>
+ * <p>
+ * http://blog.csdn.net/v_july_v/article/details/7041827
+ * <p>
+ * <p>
+ * KMP 算法，预处理Next数组
  */
 public class SolutionV2 {
     public static void main(String[] args) {
         SolutionV2 solution = new SolutionV2();
+//        String S = "bbababaaaababbaabbbabbbaaabbbaaababbabaabbaaaaabbaaabbbbaaabaabbaababbbaabaaababbaaabbbbbbaabbbbbaaabbababaaaaabaabbbababbaababaabbaa";
+//        String P = "bbabba";
+        String P1 = "abab";
+
+
         String S = "BBC ABCDAB ABCDABCDABDE";
         String P = "ABCDABD";
         int index = solution.strStr(S, P);
-//        int index = solution.strStr("mississippi", "a");
         System.out.println("index:" + index);
     }
 
     public int strStr(String haystack, String needle) {
+        int needleLen = needle.length();
         if ((haystack.isEmpty() && needle.isEmpty()) || (!haystack.isEmpty() && needle.isEmpty())) {
             return 0;
         }
         if (haystack.length() < needle.length()) {
             return -1;
         }
-        int i = 0, j = 0;
-        while (i < haystack.length() && j < needle.length()) {
-            if (haystack.charAt(i) == needle.charAt(j)) {
-                if (j == needle.length() - 1) {
-                    return i - j;
-                } else {
-                    i++;
-                    j++;
+        int[] next = new int[needleLen];
+        next[0] = -1;
+
+        int k = -1;
+        int j = 0;
+        while (j < needleLen) {
+            if (k == -1 || needle.charAt(j) == needle.charAt(k)) {
+                ++j;
+                ++k;
+                if (j < needleLen) {
+                    if (needle.charAt(j) != needle.charAt(k))
+                        next[j] = k;
+                    else
+                        next[j] = next[k];
                 }
             } else {
-                i = i - j + 1;
-                j = 0;
+                k = next[k];
+            }
+        }
+        int i = 0, h = 0;
+        while (i < haystack.length()) {
+            if (haystack.charAt(i) == needle.charAt(h)) {
+                if (h == needleLen - 1) {
+                    return i - h;
+                } else {
+                    i++;
+                    h++;
+                }
+            } else {
+                if (next[h] < 0) {
+                    i++;
+                    h = 0;
+                } else {
+                    h = next[h];
+                }
             }
         }
         return -1;
