@@ -88,7 +88,8 @@ public class SolutionV3 {
         int i = needleLast;
         int j = i;
         boolean islatest = false;
-        Map<String, List<Integer>> goodSuffixs = new HashMap<>();
+//        Map<String, List<Integer>> goodSuffixs = new HashMap<>();
+        Map<String, Integer> badCharRightests = new HashMap<>();
         while (j >= 0 && i >= 0 && i < haystackLen) {
             System.out.println("i:" + i + ",j:" + j);
             if (i == haystackLen - 1) {
@@ -101,36 +102,60 @@ public class SolutionV3 {
                     return i;
                 }
                 //记录到“好后缀”集合
-                String goodSuffix = needle.substring(j);
-                if (goodSuffixs.containsKey(P)) {
-                    goodSuffixs.get(goodSuffix).add(j);
-                } else {
-                    List<Integer> positions = new ArrayList<>();
-                    positions.add(j);
-                    goodSuffixs.put(goodSuffix, positions);
-                }
+//                String goodSuffix = needle.substring(j);
+//                if (!goodSuffixs.containsKey(String.valueOf(P))) {
+//                    goodSuffixs.put(goodSuffix, new ArrayList<>());
+//                }
+//                if (goodSuffix.length() == 1) {
+//                    goodSuffixs.get(goodSuffix).addAll(positioner.get(goodSuffix.charAt(0)));
+//                } else {
+//                    goodSuffixs.get(goodSuffix).add(j);
+//                    //计算好后缀在模式串的其他位置
+//
+//                }
                 i--;
                 j--;
             } else {
                 if (islatest) {
                     return -1;
                 }
-                if (!goodSuffixs.isEmpty()) {
-                    goodSuffixs = new HashMap<>();
-                }
+//                if (!goodSuffixs.isEmpty()) {
+//                    goodSuffixs = new HashMap<>();
+//                }
                 //计算模式串向后移动的步长
 
                 //1.按照坏字符的规则来计算
                 int position = -1;
-                List<Integer> preperPositions = positioner.get(S);
-                if (preperPositions != null) {
-                    position = preperPositions.get(preperPositions.size() - 1);
+                if (badCharRightests.containsKey(S+""+j)) {
+                    position = badCharRightests.get(S+""+j);
+                } else {
+                    List<Integer> preperPositions = positioner.get(S);
+                    if (preperPositions != null && preperPositions.size() >= 1) {
+                        int size = preperPositions.size();
+                        int end = size - 1;
+                        while (end >= 0) {
+                            int rightest = preperPositions.get(end);
+                            if (rightest < j) {
+                                position = rightest;
+                                break;
+                            }
+                            end--;
+                        }
+                    }
+                    badCharRightests.put(S+""+j, position);
                 }
                 int move = j - position;
                 //2.按照好后缀的规则来计算
 //                if (j != needleLast) {//第一次就失配了，不会有好后缀
+//
 //                    String suffix = needle.substring(j);
-                //}
+//                    if (goodSuffixs.get(suffix).size() == 1) {
+//
+//                    }
+//                    for (Map.Entry<String, List<Integer>> entry : goodSuffixs.entrySet()) {
+//
+//                    }
+//                }
                 i = i - j + move + needleLast;
                 j = needleLast;
             }
