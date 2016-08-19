@@ -14,18 +14,18 @@ import java.util.Arrays;
  */
 public class SelectionHandler extends SortHandlerBehavior {
     /**
-     *  Ë¼Â·£º
-     * ÔÚµÚi´Îµü´úÖĞ£¬ÔÚÊ£ÏÂµÄ(¼´Î´ÅÅĞòµÄ)ÔªËØÖĞÕÒµ½×îĞ¡µÄÔªËØ
-     * ½«µÚi¸öÔªËØÓë×îĞ¡µÄÔªËØ½»»»Î»ÖÃ
+     *  æ€è·¯ï¼š
+     * åœ¨ç¬¬iæ¬¡è¿­ä»£ä¸­ï¼Œåœ¨å‰©ä¸‹çš„(å³æœªæ’åºçš„)å…ƒç´ ä¸­æ‰¾åˆ°æœ€å°çš„å…ƒç´ 
+     * å°†ç¬¬iä¸ªå…ƒç´ ä¸æœ€å°çš„å…ƒç´ äº¤æ¢ä½ç½®
      *
      *
-     * Ê±¼ä¸´ÔÓ¶È£ºO(n^2)
+     * æ—¶é—´å¤æ‚åº¦ï¼šO(n^2)
      *
      *
      *
-     * @param originArray  Ô­Ê¼ÊäÈëÊı×é
-     * @return ÅÅºÃĞòµÄÊı×é
-     * @throws Exception  ÔÚÊäÈë²ÎÊı²»¿É½âÎöÊ±Å×³ö
+     * @param originArray  åŸå§‹è¾“å…¥æ•°ç»„
+     * @return æ’å¥½åºçš„æ•°ç»„
+     * @throws Exception  åœ¨è¾“å…¥å‚æ•°ä¸å¯è§£ææ—¶æŠ›å‡º
      */
     @Override
     public Comparable[] sort(Comparable[] originArray) throws Exception {
@@ -39,22 +39,22 @@ public class SelectionHandler extends SortHandlerBehavior {
             return originArray;
         }
         for (int i = 0; i < len; i++) {
-            Comparable current=originArray[i];//½«µ±Ç°ÔªËØ¼ÇÎªXÔªËØ£¬½«XÒÔ¼°XÖ®Ç°µÄÔªËØ¼¯ºÏ·ÖÎªÒ»×é£¬¼ÇÎªA×é¡£µ±Ç°ÔªËØÖ®ºóµÄËùÓĞÔªËØ·ÖÎªÒ»×é£¬¼ÇÎªB×é
-            int lessIndex=i+1;//¼ÙÉèB×éµÄµÚÒ»¸öÔªËØÎªB×éÄÚµÄ×îĞ¡ÔªËØ£¬¼ÇÕâ¸öÔªËØÎªYÔªËØ¡£¼ÇÂ¼Õâ¸öÔªËØµÄÏÂ±êÖµ
+            Comparable current=originArray[i];//å°†å½“å‰å…ƒç´ è®°ä¸ºXå…ƒç´ ï¼Œå°†Xä»¥åŠXä¹‹å‰çš„å…ƒç´ é›†åˆåˆ†ä¸ºä¸€ç»„ï¼Œè®°ä¸ºAç»„ã€‚å½“å‰å…ƒç´ ä¹‹åçš„æ‰€æœ‰å…ƒç´ åˆ†ä¸ºä¸€ç»„ï¼Œè®°ä¸ºBç»„
+            int lessIndex=i+1;//å‡è®¾Bç»„çš„ç¬¬ä¸€ä¸ªå…ƒç´ ä¸ºBç»„å†…çš„æœ€å°å…ƒç´ ï¼Œè®°è¿™ä¸ªå…ƒç´ ä¸ºYå…ƒç´ ã€‚è®°å½•è¿™ä¸ªå…ƒç´ çš„ä¸‹æ ‡å€¼
             if(lessIndex==len){
                 break;
             }
             Comparable lesser=originArray[lessIndex];
-            //Ñ°ÕÒB×éÄÚµÄ×îĞ¡ÔªËØµÄÔªËØÖµºÍÏÂ±êÖµ
+            //å¯»æ‰¾Bç»„å†…çš„æœ€å°å…ƒç´ çš„å…ƒç´ å€¼å’Œä¸‹æ ‡å€¼
             for (int j = i+2; j < len; j++) {
-                Comparable index=originArray[j];//¼ÇÕâ¸öÔªËØÎªZ
-                if(Comparator.isLT(index, lesser)){//Èç¹ûZ±ÈY»¹ÒªĞ¡£¬¸üĞÂB×éÄÚµÄ×îĞ¡ÔªËØµÄÔªËØÖµºÍÏÂ±êÖµ
+                Comparable index=originArray[j];//è®°è¿™ä¸ªå…ƒç´ ä¸ºZ
+                if(Comparator.isLT(index, lesser)){//å¦‚æœZæ¯”Yè¿˜è¦å°ï¼Œæ›´æ–°Bç»„å†…çš„æœ€å°å…ƒç´ çš„å…ƒç´ å€¼å’Œä¸‹æ ‡å€¼
                     lesser=index;
                     lessIndex=j;
                 }
                 System.out.println("***:" + Arrays.toString(originArray));
             }
-            swapIfLessThan(originArray,lessIndex,lesser,i,current);//Èç¹ûYÔªËØ±ÈXÔªËØ»¹ÒªĞ¡£¬½»»»Á½¸öÔªËØµÄÎ»ÖÃ
+            swapIfLessThan(originArray,lessIndex,lesser,i,current);//å¦‚æœYå…ƒç´ æ¯”Xå…ƒç´ è¿˜è¦å°ï¼Œäº¤æ¢ä¸¤ä¸ªå…ƒç´ çš„ä½ç½®
             System.out.println("###:"+Arrays.toString(originArray));
         }
         return originArray;

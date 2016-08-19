@@ -16,21 +16,21 @@ import sort.merge.MergeHandler;
 public class RadixHandler extends SortHandlerBehavior {
 
     /**
-     * Ë¼Â·:
-     * Ò»ÖÖÌØÊâµÄÍ°ÅÅĞò£¬°´ÕÕÎ»ÊıÖµ½øĞĞ·ÖÍ°
+     * æ€è·¯:
+     * ä¸€ç§ç‰¹æ®Šçš„æ¡¶æ’åºï¼ŒæŒ‰ç…§ä½æ•°å€¼è¿›è¡Œåˆ†æ¡¶
      * <p>
-     * ½«ËùÓĞ´ı±È½ÏÊıÖµ(×¢Òâ,±ØĞëÊÇÕıÕûÊı)Í³Ò»ÎªÍ¬ÑùµÄÊıÎ»³¤¶È,ÊıÎ»½Ï¶ÌµÄÊıÇ°Ãæ²¹Áã.
-     * ´Ó×îµÍÎ»¿ªÊ¼, ÒÀ´Î½øĞĞÒ»´ÎÎÈ¶¨ÅÅĞò.
-     * ÕâÑù´Ó×îµÍÎ»ÅÅĞòÒ»Ö±µ½×î¸ßÎ»ÅÅĞòÍê³ÉÒÔºó, ÊıÁĞ¾Í±ä³ÉÒ»¸öÓĞĞòĞòÁĞ.
+     * å°†æ‰€æœ‰å¾…æ¯”è¾ƒæ•°å€¼(æ³¨æ„,å¿…é¡»æ˜¯æ­£æ•´æ•°)ç»Ÿä¸€ä¸ºåŒæ ·çš„æ•°ä½é•¿åº¦,æ•°ä½è¾ƒçŸ­çš„æ•°å‰é¢è¡¥é›¶.
+     * ä»æœ€ä½ä½å¼€å§‹, ä¾æ¬¡è¿›è¡Œä¸€æ¬¡ç¨³å®šæ’åº.
+     * è¿™æ ·ä»æœ€ä½ä½æ’åºä¸€ç›´åˆ°æœ€é«˜ä½æ’åºå®Œæˆä»¥å, æ•°åˆ—å°±å˜æˆä¸€ä¸ªæœ‰åºåºåˆ—.
      * <p>
      * <p>
-     *  mÊÇ×î´óÊıÖµµÄ³¤¶È£¬Ò»°ãn >> m
+     *  mæ˜¯æœ€å¤§æ•°å€¼çš„é•¿åº¦ï¼Œä¸€èˆ¬n >> m
      *
-     * Ê±¼ä¸´ÔÓ¶È:O(n+m)
+     * æ—¶é—´å¤æ‚åº¦:O(n+m)
      *
-     * @param originArray Ô­Ê¼ÊäÈëÊı×é
-     * @return ÅÅºÃĞòµÄÊı×é
-     * @throws Exception ÔÚÊäÈë²ÎÊı²»¿É½âÎöÊ±Å×³ö
+     * @param originArray åŸå§‹è¾“å…¥æ•°ç»„
+     * @return æ’å¥½åºçš„æ•°ç»„
+     * @throws Exception åœ¨è¾“å…¥å‚æ•°ä¸å¯è§£ææ—¶æŠ›å‡º
      */
     @Override
     public Comparable[] sort(Comparable[] originArray) throws Exception {
@@ -43,22 +43,22 @@ public class RadixHandler extends SortHandlerBehavior {
             swapIfLessThan(originArray, 1, 0);
             return originArray;
         }
-        //ÏÈ¼ì²éÊÇ·ñÎªÕûÊıÀàĞÍ£¬ÕıÕûÊıºÍ¸ºÕûÊı¶¼¿ÉÒÔÅÅĞò£¬Ö»ĞèÒª·ÖÎªÁ½²¿·Ö¾Í¿ÉÒÔÁË¡£
+        //å…ˆæ£€æŸ¥æ˜¯å¦ä¸ºæ•´æ•°ç±»å‹ï¼Œæ­£æ•´æ•°å’Œè´Ÿæ•´æ•°éƒ½å¯ä»¥æ’åºï¼Œåªéœ€è¦åˆ†ä¸ºä¸¤éƒ¨åˆ†å°±å¯ä»¥äº†ã€‚
 
-        //Èç¹ûÓĞËã·¨¿ÉÒÔ½«·ÇÕûÊıÀàĞÍ×ª»¯ÎªÕûÊıÀàĞÍ£¬²¢ÇÒ±£³Ö´óĞ¡ÉÏµÄ¶ÔÓ¦¹ØÏµ£¬Ò²¿ÉÒÔÓÃÕâ¸öËã·¨À´ÅÅĞò
+        //å¦‚æœæœ‰ç®—æ³•å¯ä»¥å°†éæ•´æ•°ç±»å‹è½¬åŒ–ä¸ºæ•´æ•°ç±»å‹ï¼Œå¹¶ä¸”ä¿æŒå¤§å°ä¸Šçš„å¯¹åº”å…³ç³»ï¼Œä¹Ÿå¯ä»¥ç”¨è¿™ä¸ªç®—æ³•æ¥æ’åº
         Comparable element = originArray[0];
         if (element instanceof Integer) {
         } else {
-            throw new Exception("²»ÊÜÖ§³ÖµÄÅÅĞòÀàĞÍ¡£" + element.getClass());
+            throw new Exception("ä¸å—æ”¯æŒçš„æ’åºç±»å‹ã€‚" + element.getClass());
         }
-        //Çó³öÊı×éÖĞµÄ×î³¤ÊıÖµ
+        //æ±‚å‡ºæ•°ç»„ä¸­çš„æœ€é•¿æ•°å€¼
         int elementMaxLen = getElementMaxLen(originArray);
         if (elementMaxLen == 0) {
             return originArray;
         }
-        //½«²»¹»³¤µÄÊı×éÔªËØÓÃÁã²¹Î»
+        //å°†ä¸å¤Ÿé•¿çš„æ•°ç»„å…ƒç´ ç”¨é›¶è¡¥ä½
         String[] fixedArray = fixArrayElementLen(originArray, elementMaxLen);
-        //´ÓµÍµ½¸ß°´Î»½øĞĞÅÅĞò
+        //ä»ä½åˆ°é«˜æŒ‰ä½è¿›è¡Œæ’åº
         int bit = 1;
         //System.out.println("---:" + Arrays.toString(fixedArray));
         //System.out.println("---elementMaxLen:" + elementMaxLen);
@@ -80,7 +80,7 @@ public class RadixHandler extends SortHandlerBehavior {
         return result;
     }
 
-    private Comparable[] sortByBit(int bit, String[] originArray) throws Exception {//²ÉÓÃÎÈ¶¨ÅÅĞò£º²åÈëÅÅĞò
+    private Comparable[] sortByBit(int bit, String[] originArray) throws Exception {//é‡‡ç”¨ç¨³å®šæ’åºï¼šæ’å…¥æ’åº
         Sortable sortable = new MergeHandler(new RadixSortHandler(bit));
         return sortable.sort(originArray);
     }
@@ -140,19 +140,19 @@ public class RadixHandler extends SortHandlerBehavior {
     private String getFixValues(int length) {
         String r = "";
         for (int i = 0; i < length; i++) {
-            r += "0";//ÓÃÁã²¹Î»µÄºÃ´¦£º1.ÃâÈ¥±È½Ï£¬0×÷ÎªÃ¿Î»µÄ×îĞ¡Öµ£¬²»²ÎÓë±È½Ï£¬×Ô¶¯ÅÅÔÚ×îºó¡£2.Ò××ª»»£¬ÅÅºÃĞòºó£¬·´×ªÎªÔ­Ê¼Öµ£¬ÓÃInteger.valueOf¼´¿É»¹Ô­
+            r += "0";//ç”¨é›¶è¡¥ä½çš„å¥½å¤„ï¼š1.å…å»æ¯”è¾ƒï¼Œ0ä½œä¸ºæ¯ä½çš„æœ€å°å€¼ï¼Œä¸å‚ä¸æ¯”è¾ƒï¼Œè‡ªåŠ¨æ’åœ¨æœ€åã€‚2.æ˜“è½¬æ¢ï¼Œæ’å¥½åºåï¼Œåè½¬ä¸ºåŸå§‹å€¼ï¼Œç”¨Integer.valueOfå³å¯è¿˜åŸ
         }
         return r;
     }
 
     private int getElementMaxLen(Comparable[] originArray) throws Exception {
         int maxLen = originArray[0].toString().length();
-        boolean hasPositive = false;//´æÔÚÕıÊı
-        boolean hasNegative = false;//´æÔÚ¸ºÊı
+        boolean hasPositive = false;//å­˜åœ¨æ­£æ•°
+        boolean hasNegative = false;//å­˜åœ¨è´Ÿæ•°
         for (int i = 1; i < originArray.length; i++) {
             Comparable current = originArray[i];
             if (current == null) {
-                throw new Exception("²»ÔÊĞínullÖµ");
+                throw new Exception("ä¸å…è®¸nullå€¼");
             }
             Integer element = Integer.valueOf(current.toString());
             if (element > 0) {
@@ -172,10 +172,10 @@ public class RadixHandler extends SortHandlerBehavior {
             }
         }
         if (hasPositive && hasNegative) {
-            throw new Exception("²»ÔÊĞíÍ¬Ê±°üº¬ÕıÊıºÍ¸ºÊı");
+            throw new Exception("ä¸å…è®¸åŒæ—¶åŒ…å«æ­£æ•°å’Œè´Ÿæ•°");
         }
         if (!hasNegative && !hasPositive) {
-            //ËùÓĞÖµ¶¼Îª0
+            //æ‰€æœ‰å€¼éƒ½ä¸º0
             return 0;
         }
         return maxLen;
