@@ -19,28 +19,28 @@ public class MergeHandler extends SortHandlerBehavior {
     private static final int DEFAULT_SPLIT_PIECE_ARRAY_LENGTH_MIN = (int) Util.pow(DEFAULT_SPLIT_HALVE_SIZE, 6);
 
     /**
-     * merge sort(¹é²¢ÅÅĞò)
+     * merge sort(å½’å¹¶æ’åº)
      * <p>
-     * Ë¼Â·£º
+     * æ€è·¯ï¼š
      * Divide array into two halves.
      * Recursively sort each half.
      * Merge two halves.
      * <p>
      * <p>
-     * Abstract in-place merge(Ô­µØ¹é²¢µÄ³éÏó·½·¨)
+     * Abstract in-place merge(åŸåœ°å½’å¹¶çš„æŠ½è±¡æ–¹æ³•)
      * Given two sorted subarrays a[lo] to a[mid] and a[mid+1] to a[hi],replace with sorted subarray a[lo] to a[hi]
      * <p>
      * <p>
-     * ²½Öè£º
-     * ÏÈ½«ËùÓĞÔªËØ¸´ÖÆµ½aux[]ÖĞ£¬ÔÙ¹é²¢»Øa[]ÖĞ¡£
-     * ¹é²¢Ê±µÄËÄ¸öÅĞ¶Ï£º
-     * ×ó°ë±ßÓÃ¾¡(È¡ÓÒ°ë±ßÔªËØ)
-     * ÓÒ°ë±ßÓÃ¾¡(È¡×ó°ë±ßÔªËØ)
-     * ÓÒ°ë±ßµÄµ±Ç°ÔªËØĞ¡ÓÚ×ó°ë±ßµÄµ±Ç°ÔªËØ(È¡ÓÒ°ë±ßµÄÔªËØ)
-     * ÓÒ°ë±ßµÄµ±Ç°ÔªËØ´óÓÚ/µÈÓÚ×ó°ë±ßµÄµ±Ç°ÔªËØ(È¡×ó°ë±ßµÄÔªËØ)
+     * æ­¥éª¤ï¼š
+     * å…ˆå°†æ‰€æœ‰å…ƒç´ å¤åˆ¶åˆ°aux[]ä¸­ï¼Œå†å½’å¹¶å›a[]ä¸­ã€‚
+     * å½’å¹¶æ—¶çš„å››ä¸ªåˆ¤æ–­ï¼š
+     * å·¦åŠè¾¹ç”¨å°½(å–å³åŠè¾¹å…ƒç´ )
+     * å³åŠè¾¹ç”¨å°½(å–å·¦åŠè¾¹å…ƒç´ )
+     * å³åŠè¾¹çš„å½“å‰å…ƒç´ å°äºå·¦åŠè¾¹çš„å½“å‰å…ƒç´ (å–å³åŠè¾¹çš„å…ƒç´ )
+     * å³åŠè¾¹çš„å½“å‰å…ƒç´ å¤§äº/ç­‰äºå·¦åŠè¾¹çš„å½“å‰å…ƒç´ (å–å·¦åŠè¾¹çš„å…ƒç´ )
      *
-     * @param originArray ÂÒĞòµÄÊı×é
-     * @return ÒÑÅÅºÃĞòµÄÊı×é
+     * @param originArray ä¹±åºçš„æ•°ç»„
+     * @return å·²æ’å¥½åºçš„æ•°ç»„
      * @throws Exception
      */
     @Override
@@ -49,13 +49,13 @@ public class MergeHandler extends SortHandlerBehavior {
         if (originArray.length < DEFAULT_SPLIT_PIECE_ARRAY_LENGTH_MIN) {
             return sortable.sort(originArray);
         }
-        //1.°´µÈ·İ²ğ·ÖÎª¶à¸öµÈ³¤Êı×é
+        //1.æŒ‰ç­‰ä»½æ‹†åˆ†ä¸ºå¤šä¸ªç­‰é•¿æ•°ç»„
         Comparable[][] splitedArray = split(originArray);
-        //2.Ã¿µÈ·İÊı×é£¬Ê¹ÓÃ²åÈëÅÅĞòËã·¨½øĞĞÅÅĞò
+        //2.æ¯ç­‰ä»½æ•°ç»„ï¼Œä½¿ç”¨æ’å…¥æ’åºç®—æ³•è¿›è¡Œæ’åº
         for (int i = 0; i < splitedArray.length; i++) {
             splitedArray[i] = sortable.sort(splitedArray[i]);
         }
-        //3.ºÏ²¢ÅÅĞò½á¹û
+        //3.åˆå¹¶æ’åºç»“æœ
         int index = 0;
         for (int i = 0; i < splitedArray.length; i += DEFAULT_SPLIT_HALVE_SIZE) {
             Comparable[] mergredArray;
@@ -70,7 +70,7 @@ public class MergeHandler extends SortHandlerBehavior {
         return originArray;
     }
 
-    //2.Ã¿µÈ·İÊı×é£¬Ê¹ÓÃ²åÈëÅÅĞòËã·¨½øĞĞÅÅĞò
+    //2.æ¯ç­‰ä»½æ•°ç»„ï¼Œä½¿ç”¨æ’å…¥æ’åºç®—æ³•è¿›è¡Œæ’åº
     private SortHandlerBehavior sortable = null;
 
     public MergeHandler(SortHandlerBehavior sortable) {
@@ -116,15 +116,15 @@ public class MergeHandler extends SortHandlerBehavior {
     /**
      * http://blog.jobbole.com/100349/
      * <p>
-     * ½«Á½¸öÒÑ¾­ÅÅºÃĞòµÄÊı×éºÏ²¢³ÉÒ»¸öÓĞĞòÊı×é¡£
+     * å°†ä¸¤ä¸ªå·²ç»æ’å¥½åºçš„æ•°ç»„åˆå¹¶æˆä¸€ä¸ªæœ‰åºæ•°ç»„ã€‚
      * <p>
-     * ÅÅºÃĞòÊÇÖ¸ÊıÖµĞ¡µÄÔªËØ×ÜÊÇÏÂ±êÖµ½ÏĞ¡
+     * æ’å¥½åºæ˜¯æŒ‡æ•°å€¼å°çš„å…ƒç´ æ€»æ˜¯ä¸‹æ ‡å€¼è¾ƒå°
      * <p>
-     * Ê±¼ä¸´ÔÓ¶ÈÎª On nÎªlÁ½¸öÊı×éµÄÔªËØ×Ü¸öÊı
+     * æ—¶é—´å¤æ‚åº¦ä¸º On nä¸ºlä¸¤ä¸ªæ•°ç»„çš„å…ƒç´ æ€»ä¸ªæ•°
      *
-     * @param leftArray  µÚÒ»¸öÅÅºÃĞòµÄÊı×é
-     * @param rightArray µÚ¶ş¸öÅÅºÃĞòµÄÊı×é
-     * @return ºÏ²¢Íê³ÉµÄÓĞĞòÊı×é
+     * @param leftArray  ç¬¬ä¸€ä¸ªæ’å¥½åºçš„æ•°ç»„
+     * @param rightArray ç¬¬äºŒä¸ªæ’å¥½åºçš„æ•°ç»„
+     * @return åˆå¹¶å®Œæˆçš„æœ‰åºæ•°ç»„
      */
     private Comparable[] merge(Comparable[] leftArray, Comparable[] rightArray) {
         int leftLen = leftArray.length;

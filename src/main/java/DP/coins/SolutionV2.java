@@ -12,16 +12,16 @@ import java.util.Arrays;
  * Date:2016/6/23
  * Time:17:04
  * <p>
- * ÓĞÃæÖµÎª1Ôª¡¢3ÔªºÍ5ÔªµÄÓ²±ÒÈô¸ÉÃ¶£¬ÈçºÎÓÃ×îÉÙµÄÓ²±Ò´Õ¹»11Ôª£¿
+ * æœ‰é¢å€¼ä¸º1å…ƒã€3å…ƒå’Œ5å…ƒçš„ç¡¬å¸è‹¥å¹²æšï¼Œå¦‚ä½•ç”¨æœ€å°‘çš„ç¡¬å¸å‡‘å¤Ÿ11å…ƒï¼Ÿ
  * <p>
- * V2ÓÃÁËDPË¼ÏëÀ´½âÌâ
+ * V2ç”¨äº†DPæ€æƒ³æ¥è§£é¢˜
  */
 public class SolutionV2 {
     private static int[] existedSolution = null;
-    private static int[] coins = {5, 3, 1};//Ö»ÓĞ3ÖÖÓ²±Ò;
+    private static int[] coins = {5, 3, 1};//åªæœ‰3ç§ç¡¬å¸;
 
     public static void main(String[] args) {
-        int sum = 11;//Ó²±ÒĞèÒª´Õ¹»11Ôª
+        int sum = 11;//ç¡¬å¸éœ€è¦å‡‘å¤Ÿ11å…ƒ
         initExistedSolution(sum + 1);
         int count = loop(sum);
         System.out.println(count);
@@ -29,7 +29,7 @@ public class SolutionV2 {
     }
 
     /**
-     * ³õÊ¼»¯Ò»Ğ©ÒÑÖªµÄ´ğ°¸£¬ÀıÈç´Õ¹»5Ôª£¬×îÉÙĞèÒ»Ã¶£»´Õ¹»3Ôª£¬×îÉÙĞèÒ»Ã¶¡£
+     * åˆå§‹åŒ–ä¸€äº›å·²çŸ¥çš„ç­”æ¡ˆï¼Œä¾‹å¦‚å‡‘å¤Ÿ5å…ƒï¼Œæœ€å°‘éœ€ä¸€æšï¼›å‡‘å¤Ÿ3å…ƒï¼Œæœ€å°‘éœ€ä¸€æšã€‚
      */
     private static void initExistedSolution(int len) {
         existedSolution = new int[len];
@@ -51,15 +51,15 @@ public class SolutionV2 {
         if (amount <= 0) {
             return existedSolution[0];
         }
-        //Èç¹ûÕâÊÇÒ»¸öÒÑÖªµÄ´ğ°¸£¬¾ÍÈ¡³ö»º´æ
+        //å¦‚æœè¿™æ˜¯ä¸€ä¸ªå·²çŸ¥çš„ç­”æ¡ˆï¼Œå°±å–å‡ºç¼“å­˜
         if (existedSolution[amount] >= 0) {
             return existedSolution[amount];
         }
-        //²ğ·ÖÎªÍ¬ĞÔÖÊµÄ×ÓÎÊÌâ
+        //æ‹†åˆ†ä¸ºåŒæ€§è´¨çš„å­é—®é¢˜
         int[] group = new int[coins.length];
         int index = 0;
         for (int coin : coins) {
-            //×´Ì¬·½³Ì£ºÃ¿Ò»²½£¬¾ù¿ÉÄÜ³öÏÖ3ÖĞÓ²±Ò
+            //çŠ¶æ€æ–¹ç¨‹ï¼šæ¯ä¸€æ­¥ï¼Œå‡å¯èƒ½å‡ºç°3ä¸­ç¡¬å¸
             int part = amount - coin;
             int count;
             if (part < 0) {
@@ -70,14 +70,14 @@ public class SolutionV2 {
             group[index] = count;
             index++;
         }
-        //×´Ì¬×ªÒÆ·½³Ì£ºÔÚËùÓĞ×ÓÎÊÌâµÄ´ğ°¸ÖĞ£¬È¡µÃ×îĞ¡Öµ
-        //Í¬Ê±½«ÒÑÓĞµÄ´ğ°¸»º´æ£¬´ğ°¸Ò»¾­½â³ö¾Í²»ÔÙ»á±ä»¯ÁË¡£
+        //çŠ¶æ€è½¬ç§»æ–¹ç¨‹ï¼šåœ¨æ‰€æœ‰å­é—®é¢˜çš„ç­”æ¡ˆä¸­ï¼Œå–å¾—æœ€å°å€¼
+        //åŒæ—¶å°†å·²æœ‰çš„ç­”æ¡ˆç¼“å­˜ï¼Œç­”æ¡ˆä¸€ç»è§£å‡ºå°±ä¸å†ä¼šå˜åŒ–äº†ã€‚
         existedSolution[amount] = min(group);
         return existedSolution[amount];
     }
 
     /**
-     * ¼ÆËãÊı×éÖĞµÄ×îĞ¡ÔªËØ£¬Ğ¡ÓÚÁãµÄÔªËØ²»²ÎÓë¼ÆËã
+     * è®¡ç®—æ•°ç»„ä¸­çš„æœ€å°å…ƒç´ ï¼Œå°äºé›¶çš„å…ƒç´ ä¸å‚ä¸è®¡ç®—
      */
     public static int min(int[] array) {
         array = lessThanOrEqualZero(array);
@@ -91,7 +91,7 @@ public class SolutionV2 {
     }
 
     /**
-     * ÌŞ³ıµôÊı×éÖĞËùÓĞĞ¡ÓÚ0µÄÔªËØ£¬²¢resizeÊı×é
+     * å‰”é™¤æ‰æ•°ç»„ä¸­æ‰€æœ‰å°äº0çš„å…ƒç´ ï¼Œå¹¶resizeæ•°ç»„
      */
     public static int[] lessThanOrEqualZero(int[] array) {
         int[] result = new int[array.length];

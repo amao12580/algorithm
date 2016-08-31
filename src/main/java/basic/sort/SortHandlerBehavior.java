@@ -64,7 +64,7 @@ public abstract class SortHandlerBehavior implements Sortable {
 
     public void init(Comparable[] originArray) throws IllegalAccessException {
         if (originArray == null) {
-            throw new IllegalAccessException("²»¿ÉÒÔ½ÓÊÜnull²ÎÊı");
+            throw new IllegalAccessException("ä¸å¯ä»¥æ¥å—nullå‚æ•°");
         }
     }
 
@@ -75,10 +75,10 @@ public abstract class SortHandlerBehavior implements Sortable {
     }
 
     /**
-     * ÇóÊı×éµÄÆ½¾ùÖµ
+     * æ±‚æ•°ç»„çš„å¹³å‡å€¼
      *
-     * @param array Êı×é
-     * @return Æ½¾ùÖµ
+     * @param array æ•°ç»„
+     * @return å¹³å‡å€¼
      */
     public static double avg(double[] array) {
         double sum = 0;
@@ -89,10 +89,10 @@ public abstract class SortHandlerBehavior implements Sortable {
     }
 
     /**
-     * ÇóÊı×éµÄ×îĞ¡Öµ
+     * æ±‚æ•°ç»„çš„æœ€å°å€¼
      *
-     * @param array Êı×é
-     * @return ×îĞ¡Öµ
+     * @param array æ•°ç»„
+     * @return æœ€å°å€¼
      */
     public static double min(double[] array) {
         double min = 0;
@@ -123,10 +123,10 @@ public abstract class SortHandlerBehavior implements Sortable {
     }
 
     /**
-     * ÇóÊı×éµÄ×î´óÖµ
+     * æ±‚æ•°ç»„çš„æœ€å¤§å€¼
      *
-     * @param array Êı×é
-     * @return ×î´óÖµ
+     * @param array æ•°ç»„
+     * @return æœ€å¤§å€¼
      */
     public static double max(double[] array) {
         double max = array[0];
@@ -169,14 +169,14 @@ public abstract class SortHandlerBehavior implements Sortable {
     }
 
     /**
-     * shuffing(²»ÊÇÅÅĞòËã·¨)
+     * shuffing(ä¸æ˜¯æ’åºç®—æ³•)
      * <p>
-     * Ä¿±ê£ºRearrangComparable array so that result is a uniformly random permutation
+     * ç›®æ ‡ï¼šRearrangComparable array so that result is a uniformly random permutation
      * <p>
-     * ½«ÒÑ¾­ÅÅºÃĞòµÄÊı×é´òÂÒ
+     * å°†å·²ç»æ’å¥½åºçš„æ•°ç»„æ‰“ä¹±
      *
-     * @param array ÒÑÅÅºÃĞòµÄÊı×é´òÂÒ
-     * @return ÂÒĞòµÄÊı×é
+     * @param array å·²æ’å¥½åºçš„æ•°ç»„æ‰“ä¹±
+     * @return ä¹±åºçš„æ•°ç»„
      */
     public Comparable[] rearrange(Comparable[] array) {
         for (int i = 0; i < array.length; i++) {
@@ -192,8 +192,8 @@ public abstract class SortHandlerBehavior implements Sortable {
 
     /**
      * @param sortable
-     * @param min      Ëæ»úÊı×éµÄÔªËØ×îĞ¡Öµ
-     * @param max      Ëæ»úÊı×éµÄÔªËØ×îd´óÖµ
+     * @param min      éšæœºæ•°ç»„çš„å…ƒç´ æœ€å°å€¼
+     * @param max      éšæœºæ•°ç»„çš„å…ƒç´ æœ€då¤§å€¼
      */
     public static void benchmark(Sortable sortable, Integer min, Integer max) throws Exception {
         int count = 50;

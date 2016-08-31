@@ -14,22 +14,22 @@ import java.util.Arrays;
  */
 public class ShellHandler extends SortHandlerBehavior {
     /**
-     * ˼·��
-     * ϣ�������ǻ��ڲ��������
-     * ����h�Ĳ������в�������
+     * 思路：
+     * 希尔排序是基于插入排序的
+     * 按照h的步长进行插入排序
      *
-     * ��������һ�����3x+1��1,4,13,40,121,364.....��ʹ�����ֵ������е�ϣ����������ıȽϴ������ᳬ��N�����ɱ����Ե������еĳ��ȡ�
+     * 递增数列一般采用3x+1：1,4,13,40,121,364.....，使用这种递增数列的希尔排序所需的比较次数不会超过N的若干倍乘以递增数列的长度。
      *
-     * �����£�ʹ��3x+1�������е�ϣ������ıȽϴ�����O(N^(3/2))
+     * 最坏情况下，使用3x+1递增数列的希尔排序的比较次数是O(N^(3/2))
      *
-     * 3x+1���е�ͨ�ʽ�ǣ�f(x)=((3^(x+1))-1)/2
+     * 3x+1数列的通项公式是：f(x)=((3^(x+1))-1)/2
      *
      *
-     * ʱ�临�Ӷȣ�O(n*logn)
+     * 时间复杂度：O(n*logn)
      *
-     * @param originArray ԭʼ��������
-     * @return �ź��������
-     * @throws Exception ������������ɽ���ʱ�׳�
+     * @param originArray 原始输入数组
+     * @return 排好序的数组
+     * @throws Exception 在输入参数不可解析时抛出
      */
     @Override
     public Comparable[] sort(Comparable[] originArray) throws Exception {

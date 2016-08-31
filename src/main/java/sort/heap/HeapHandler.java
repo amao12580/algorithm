@@ -20,21 +20,21 @@ public class HeapHandler extends SortHandlerBehavior {
     int heapSize = 0;
 
     /**
-     * Ë¼Â·:
-     * ½èÓÃÍêÈ«¶ş²æÊ÷µÄË¼Ïë
+     * æ€è·¯:
+     * å€Ÿç”¨å®Œå…¨äºŒå‰æ ‘çš„æ€æƒ³
      *
-     * Éè¶¨Êı×é³õÊ¼³¤¶ÈÎªN£¬½«Êı×éµ÷ÕûÎª×î´ó¶Ñ£¬×î´ó¶ÑµÄ¸ù½ÚµãÊÇ×î´óÖµ¡£
-     * ¸ù½ÚµãÎ»ÓÚÊı×éÊ×²¿£¬O(0)
-     * ½«Õâ¸ö×î´óÖµÓëO(N-1)½»»»
-     * ½«Êı×éµÄ±éÀú·¶Î§¼õÒ»£¬¼´:N--
-     * ÔÚ0µ½NÖ®¼äÖØ¸´ÉÏÊö¹ı³Ì
+     * è®¾å®šæ•°ç»„åˆå§‹é•¿åº¦ä¸ºNï¼Œå°†æ•°ç»„è°ƒæ•´ä¸ºæœ€å¤§å †ï¼Œæœ€å¤§å †çš„æ ¹èŠ‚ç‚¹æ˜¯æœ€å¤§å€¼ã€‚
+     * æ ¹èŠ‚ç‚¹ä½äºæ•°ç»„é¦–éƒ¨ï¼ŒO(0)
+     * å°†è¿™ä¸ªæœ€å¤§å€¼ä¸O(N-1)äº¤æ¢
+     * å°†æ•°ç»„çš„éå†èŒƒå›´å‡ä¸€ï¼Œå³:N--
+     * åœ¨0åˆ°Nä¹‹é—´é‡å¤ä¸Šè¿°è¿‡ç¨‹
      *
      *
-     * Ê±¼ä¸´ÔÓ¶È:O(n*log(n))
+     * æ—¶é—´å¤æ‚åº¦:O(n*log(n))
      *
-     * @param originArray Ô­Ê¼ÊäÈëÊı×é
-     * @return ÅÅºÃĞòµÄÊı×é
-     * @throws Exception ÔÚÊäÈë²ÎÊı²»¿É½âÎöÊ±Å×³ö
+     * @param originArray åŸå§‹è¾“å…¥æ•°ç»„
+     * @return æ’å¥½åºçš„æ•°ç»„
+     * @throws Exception åœ¨è¾“å…¥å‚æ•°ä¸å¯è§£ææ—¶æŠ›å‡º
      */
     @Override
     public Comparable[] sort(Comparable[] originArray) throws Exception {
@@ -60,22 +60,22 @@ public class HeapHandler extends SortHandlerBehavior {
     }
 
     /**
-     * ÖØ½¨×î´ó¶Ñ
+     * é‡å»ºæœ€å¤§å †
      *
-     * @param originArray Êı×é
+     * @param originArray æ•°ç»„
      */
     private void rebuild(Comparable[] originArray, int endIndex) {
         double high = Util.log(endIndex, 2);
         int highlen = (int) high;
         if (high > highlen) {
-            highlen++;//Çó³öÊ÷µÄ¸ß¶ÈÖµ
+            highlen++;//æ±‚å‡ºæ ‘çš„é«˜åº¦å€¼
         }
         while (highlen >= 1) {
-            int floorStartIndex = (int) Util.pow(2, highlen - 2);//Ã¿´Î´ÓÊ÷µÄµ¹ÊıµÚ¶ş²ãµÄµÚÒ»¸ö½áµã±éÀú
+            int floorStartIndex = (int) Util.pow(2, highlen - 2);//æ¯æ¬¡ä»æ ‘çš„å€’æ•°ç¬¬äºŒå±‚çš„ç¬¬ä¸€ä¸ªç»“ç‚¹éå†
             if (floorStartIndex <= 0) {
                 return;
             }
-            int floorEndIndex = (int) Util.pow(2, highlen - 1) - 1;////´ÓÊ÷µÄµ¹ÊıµÚ¶ş²ãµÄ×îºóÒ»¸ö½áµã½áÊø±éÀú
+            int floorEndIndex = (int) Util.pow(2, highlen - 1) - 1;////ä»æ ‘çš„å€’æ•°ç¬¬äºŒå±‚çš„æœ€åä¸€ä¸ªç»“ç‚¹ç»“æŸéå†
             //System.out.println("floorStartIndex:" + floorStartIndex + ",floorEndIndex:" + floorEndIndex + ",highlen:" + highlen);
             for (int currentIndex = floorStartIndex; currentIndex <= floorEndIndex; currentIndex++) {
                 Comparable leftChildNode = leftChildNode(originArray, currentIndex);
@@ -83,7 +83,7 @@ public class HeapHandler extends SortHandlerBehavior {
                 if (leftChildNode != null) {
                     int leftChildIndex = 2 * currentIndex - 1;
                     //System.out.println("leftChildIndex:" + leftChildIndex + ",leftChildNode:" + leftChildNode);
-                    swapIfLessThan(originArray, currentIndex - 1, leftChildIndex);//ÔÚµ±Ç°½áµãÓë¸Ã½áµãµÄ×ó½áµãÖ®¼äÑ¡³ö×î´óÖµ£¬½«´óµÄÖµ½»»»µ½µ±Ç°½áµã
+                    swapIfLessThan(originArray, currentIndex - 1, leftChildIndex);//åœ¨å½“å‰ç»“ç‚¹ä¸è¯¥ç»“ç‚¹çš„å·¦ç»“ç‚¹ä¹‹é—´é€‰å‡ºæœ€å¤§å€¼ï¼Œå°†å¤§çš„å€¼äº¤æ¢åˆ°å½“å‰ç»“ç‚¹
                 }
 //                System.out.println("///:");
 //                printHeapTree(originArray);
@@ -91,7 +91,7 @@ public class HeapHandler extends SortHandlerBehavior {
                 if (rightChildNode != null) {
                     int rightChildIndex = 2 * currentIndex;
                     //System.out.println("rightChildIndex:" + rightChildIndex + ",rightChildNode:" + rightChildNode);
-                    swapIfLessThan(originArray, currentIndex - 1, rightChildIndex);//ÔÚµ±Ç°½áµãÓë¸Ã½áµãµÄÓÒ½áµãÖ®¼äÑ¡³ö×î´óÖµ£¬½«´óµÄÖµ½»»»µ½µ±Ç°½áµã
+                    swapIfLessThan(originArray, currentIndex - 1, rightChildIndex);//åœ¨å½“å‰ç»“ç‚¹ä¸è¯¥ç»“ç‚¹çš„å³ç»“ç‚¹ä¹‹é—´é€‰å‡ºæœ€å¤§å€¼ï¼Œå°†å¤§çš„å€¼äº¤æ¢åˆ°å½“å‰ç»“ç‚¹
                 }
 //                System.out.println("+++:");
 //                printHeapTree(originArray);
@@ -101,10 +101,10 @@ public class HeapHandler extends SortHandlerBehavior {
     }
 
     /**
-     * ×ó×Ó½Úµã
+     * å·¦å­èŠ‚ç‚¹
      *
-     * @param i µ±Ç°½ÚµãµÄÎ»ÖÃ
-     * @return ×ó×Ó½Úµã
+     * @param i å½“å‰èŠ‚ç‚¹çš„ä½ç½®
+     * @return å·¦å­èŠ‚ç‚¹
      */
     private Comparable leftChildNode(Comparable[] originArray, int i) {
         int expectIndex = 2 * i - 1;
@@ -115,10 +115,10 @@ public class HeapHandler extends SortHandlerBehavior {
     }
 
     /**
-     * ÓÒ×Ó½Úµã
+     * å³å­èŠ‚ç‚¹
      *
-     * @param i µ±Ç°½ÚµãµÄÎ»ÖÃ
-     * @return ÓÒ×Ó½Úµã
+     * @param i å½“å‰èŠ‚ç‚¹çš„ä½ç½®
+     * @return å³å­èŠ‚ç‚¹
      */
     private Comparable rightChildNode(Comparable[] originArray, int i) {
         int expectIndex = 2 * i;

@@ -6,15 +6,15 @@ package DP.lis;
  * Date:2016/7/5
  * Time:16:15
  * <p>
- * Ò»¸öĞòÁĞÓĞN¸öÊı£ºA[1],A[2],¡­,A[N]£¬Çó³ö×î³¤·Ç½µ×ÓĞòÁĞµÄ³¤¶È¡£ (½²DP»ù±¾¶¼»á½²µ½µÄÒ»¸öÎÊÌâLIS£ºlongest increasing subsequence)
+ * ä¸€ä¸ªåºåˆ—æœ‰Nä¸ªæ•°ï¼šA[1],A[2],â€¦,A[N]ï¼Œæ±‚å‡ºæœ€é•¿éé™å­åºåˆ—çš„é•¿åº¦ã€‚ (è®²DPåŸºæœ¬éƒ½ä¼šè®²åˆ°çš„ä¸€ä¸ªé—®é¢˜LISï¼šlongest increasing subsequence)
  * <p>
  * tips:
- * 1.²»ÒªÇó½á¹ûĞòÁĞÖĞµÄÔªËØÔÚÔ­Ê¼Êı×éÖĞÊÇÏàÁÚµÄ
- * 2.ÏàµÈµÄÔªËØ£¬²»Ëã×öÏà»¥µİÔö
+ * 1.ä¸è¦æ±‚ç»“æœåºåˆ—ä¸­çš„å…ƒç´ åœ¨åŸå§‹æ•°ç»„ä¸­æ˜¯ç›¸é‚»çš„
+ * 2.ç›¸ç­‰çš„å…ƒç´ ï¼Œä¸ç®—åšç›¸äº’é€’å¢
  * <p>
- * ½èÓÃDPË¼Ïë
+ * å€Ÿç”¨DPæ€æƒ³
  * <p>
- * Ê±¼ä¸´ÔÓ¶È£ºN^2
+ * æ—¶é—´å¤æ‚åº¦ï¼šN^2
  */
 public class SolutionV1 {
     public static void main(String[] args) {
@@ -36,7 +36,7 @@ public class SolutionV1 {
     }
 
     /**
-     * O(n^2)  ½â·¨
+     * O(n^2)  è§£æ³•
      * <p>
      * http://www.hawstein.com/posts/dp-novice-to-advanced.html
      */
@@ -45,7 +45,7 @@ public class SolutionV1 {
         if (nums.length == 0) {
             return 0;
         }
-        int[] d = new int[nums.length];//¼ÇÂ¼numsÊı×éÖĞ£¬Ã¿¸öÒÔÔªËØÖµ½áÎ²µÄµİÔö×ÓĞòÁĞ×î´ó³¤¶ÈÖµ
+        int[] d = new int[nums.length];//è®°å½•numsæ•°ç»„ä¸­ï¼Œæ¯ä¸ªä»¥å…ƒç´ å€¼ç»“å°¾çš„é€’å¢å­åºåˆ—æœ€å¤§é•¿åº¦å€¼
         int maxLen = 1;
         for (int current = 0; current < nums.length; current++) {
             d[current] = 1;

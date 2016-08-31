@@ -8,7 +8,7 @@ import java.util.*;
  * Date:2016/6/22
  * Time:13:39
  * <p>
- * ÓĞÒ»¸öËæ»úÕûÊıÊı×é£¬´ÓÖĞÌôABCÈı¸öÕûÊı£¬ÈÃABCÈı¸öÕûÊı¼ÓÆğÀ´µÈÓÚÁã£¬¿´ÓĞ¶àÉÙ¸ö²»ÖØ¸´µÄ×éºÏ£¿
+ * æœ‰ä¸€ä¸ªéšæœºæ•´æ•°æ•°ç»„ï¼Œä»ä¸­æŒ‘ABCä¸‰ä¸ªæ•´æ•°ï¼Œè®©ABCä¸‰ä¸ªæ•´æ•°åŠ èµ·æ¥ç­‰äºé›¶ï¼Œçœ‹æœ‰å¤šå°‘ä¸ªä¸é‡å¤çš„ç»„åˆï¼Ÿ
  */
 public class SolutionForDynamicPrograming {
     public static void main(String[] args) {
@@ -64,20 +64,20 @@ public class SolutionForDynamicPrograming {
     }
 
     /**
-     * ÔËÓÃDPË¼ÏëÀ´½µµÍµİ¹é´ÎÊı
+     * è¿ç”¨DPæ€æƒ³æ¥é™ä½é€’å½’æ¬¡æ•°
      */
     private List<List<Integer>> loop(int[] array, int beginIndex, int number, int expectValue) {
         //System.out.println("number:" + number + ",expectValue:" + expectValue);
         if (number == 0 || beginIndex > array.length - 1) {
             return empty;
         }
-        //³¢ÊÔ´ÓÒÑÖªµÄ´ğ°¸ÖĞ»ñÈ¡
+        //å°è¯•ä»å·²çŸ¥çš„ç­”æ¡ˆä¸­è·å–
         List<List<Integer>> existed = getExistedSolution(number, expectValue);
         if (existed != null) {
             return existed;
         }
         List<List<Integer>> thisPartGroup = new LinkedList<>();
-        if (number == 1) {//×îµ×²ã²»ÔÙĞèÒªÏòÏÂ·Ö½â
+        if (number == 1) {//æœ€åº•å±‚ä¸å†éœ€è¦å‘ä¸‹åˆ†è§£
             if (array[beginIndex] > expectValue || array[array.length - 1] < expectValue) {
 
             } else {
@@ -92,7 +92,7 @@ public class SolutionForDynamicPrograming {
             for (int index = beginIndex; index < array.length; index++) {
                 int currentValue = array[index];
                 int nextIndex = index + 1;
-                //½«ÎÊÌâ·Ö½âÎªÍ¬ĞÔÖÊµÄ×ÓÎÊÌâ
+                //å°†é—®é¢˜åˆ†è§£ä¸ºåŒæ€§è´¨çš„å­é—®é¢˜
                 List<List<Integer>> nextPartGroup = loop(array, nextIndex, number - 1, expectValue - currentValue);
                 //System.out.println("currentValue:" + currentValue + ",number:" + number + ",expectValue:" + expectValue + ",groups:" + nextPartGroup.toString());
                 if (!nextPartGroup.isEmpty()) {

@@ -8,7 +8,7 @@ import java.util.Arrays;
  * Date:2016/6/22
  * Time:13:39
  * <p>
- * ÓĞÒ»¸öËæ»úÕûÊıÊı×é£¬´ÓÖĞÌôABCÈı¸öÕûÊı£¬ÈÃABCÈı¸öÕûÊı¼ÓÆğÀ´µÈÓÚÁã£¬¿´ÓĞ¶àÉÙ¸ö²»ÖØ¸´µÄ×éºÏ£¿
+ * æœ‰ä¸€ä¸ªéšæœºæ•´æ•°æ•°ç»„ï¼Œä»ä¸­æŒ‘ABCä¸‰ä¸ªæ•´æ•°ï¼Œè®©ABCä¸‰ä¸ªæ•´æ•°åŠ èµ·æ¥ç­‰äºé›¶ï¼Œçœ‹æœ‰å¤šå°‘ä¸ªä¸é‡å¤çš„ç»„åˆï¼Ÿ
  */
 public class SolutionForSimple {
     public static void main(String[] args) {
@@ -29,11 +29,11 @@ public class SolutionForSimple {
     }
 
     /**
-     * ¼òµ¥ÊµÏÖ£¬3ÖØforÑ­»·£¬Í¬Ê±È¥ÖØ
+     * ç®€å•å®ç°ï¼Œ3é‡forå¾ªç¯ï¼ŒåŒæ—¶å»é‡
      *
-     * @param originArray Ô­Ê¼Êı×é
-     * @param number      ¼¸¸öÊıÏà¼Ó£¿
-     * @return ½á¹û×éºÏ
+     * @param originArray åŸå§‹æ•°ç»„
+     * @param number      å‡ ä¸ªæ•°ç›¸åŠ ï¼Ÿ
+     * @return ç»“æœç»„åˆ
      */
     private static int[][] simple(int[] originArray, int number) {
         int length = originArray.length;

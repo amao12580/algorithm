@@ -18,18 +18,18 @@ import java.util.Arrays;
 public class ShakerHandler extends SortHandlerBehavior {
 
     /**
-     * ��β��������ð���������΢���Ρ���ͬ�ĵط����ڣ���β�������Ǵӵ͵���Ȼ��Ӹߵ����������򣬶�ð����������ӵ͵���ȥ�Ƚ��������ÿ��Ԫ�ء�
-     * ���ɱ�ð�������Ч����΢��һ�㣬ԭ����ð������ֻ��һ��������бȶ�(�ɵ͵���)��ÿ��ѭ��ֻ�ƶ�һ����Ŀ��
+     * 鸡尾酒排序是冒泡排序的轻微变形。不同的地方在于，鸡尾酒排序是从低到高然后从高到低来回排序，而冒泡排序则仅从低到高去比较序列里的每个元素。
+     * 他可比冒泡排序的效率稍微好一点，原因是冒泡排序只从一个方向进行比对(由低到高)，每次循环只移动一个项目。
      * <p>
      * <p>
-     * ������̣�
-     * �ȶ���������ҽ���ð���������򣩣�������Ԫ��ȥ�����Ҷ�
-     * �ٶ�������ҵ������ð�����򣨽��򣩣�����С��Ԫ��ȥ�������
-     * �Դ����ƣ����θı�ð�ݵķ��򣬲�������Сδ����Ԫ�صķ�Χ��ֱ�����һ��Ԫ�ؽ���
+     * 排序过程：
+     * 先对数组从左到右进行冒泡排序（升序），则最大的元素去到最右端
+     * 再对数组从右到左进行冒泡排序（降序），则最小的元素去到最左端
+     * 以此类推，依次改变冒泡的方向，并不断缩小未排序元素的范围，直到最后一个元素结束
      *
-     * @param originArray ԭʼ��������
-     * @return �ź��������
-     * @throws Exception ������������ɽ���ʱ�׳�
+     * @param originArray 原始输入数组
+     * @return 排好序的数组
+     * @throws Exception 在输入参数不可解析时抛出
      */
     @Override
     public Comparable[] sort(Comparable[] originArray) throws Exception {
@@ -76,13 +76,13 @@ public class ShakerHandler extends SortHandlerBehavior {
     }
 
     /**
-     * ���ԶԼ�β�������ԭʼʵ�ֽ��и���
+     * 尝试对鸡尾酒排序的原始实现进行改良
      * <p>
-     * ��һ�α����У�ͬʱ�ҵ����ֵ����Сֵ�������ֵ�ŵ�β������Сֵ�ŵ��ײ�
+     * 在一次遍历中，同时找到最大值和最小值，将最大值放到尾部，最小值放到首部
      * <p>
-     * ��ʵ�����Ѿ���ѡ�������е�����
+     * 事实上这已经与选择排序有点像了
      * <p>
-     * ����һ��ʱ�临�Ӷȣ�������O(n^2)������ԭʼ�㷨û��̫�������(��ʱ����Զ�)��
+     * 算了一下时间复杂度，还是在O(n^2)级别，与原始算法没有太大的区别(总时间会稍短)。
      *
      * @param originArray
      * @return

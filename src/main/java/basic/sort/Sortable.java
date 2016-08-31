@@ -11,14 +11,14 @@ public interface Sortable{
 
     /**
      *
-     * shuffing(²»ÊÇÅÅĞòËã·¨)
+     * shuffing(ä¸æ˜¯æ’åºç®—æ³•)
      *
-     * Ä¿±ê£ºRearrange array so that result is a uniformly random permutation
+     * ç›®æ ‡ï¼šRearrange array so that result is a uniformly random permutation
      *
-     * ½«ÒÑ¾­ÅÅºÃĞòµÄÊı×é´òÂÒ
+     * å°†å·²ç»æ’å¥½åºçš„æ•°ç»„æ‰“ä¹±
      *
-     * @param array ÒÑÅÅºÃĞòµÄÊı×é´òÂÒ
-     * @return  ÂÒĞòµÄÊı×é
+     * @param array å·²æ’å¥½åºçš„æ•°ç»„æ‰“ä¹±
+     * @return  ä¹±åºçš„æ•°ç»„
      */
     Comparable[] rearrange(Comparable[] array);
 }

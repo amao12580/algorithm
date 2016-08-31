@@ -18,26 +18,26 @@ import java.util.Arrays;
  */
 public class BucketHandler extends SortHandlerBehavior {
 
-    //�������壺ÿ��Ͱ����Сsize
+    //常量定义：每个桶的最小size
     private static final int MIN_BUCKET_SIZE = 64;
 
     /**
-     * Ͱ�����Ǽ�������ı��֣��Ѽ������������ڵ�m��"СͰ"�ŵ�һ��"��Ͱ"�У��ڷ���Ͱ�󣬶�ÿ��Ͱ��������һ���ÿ��ţ���Ȼ��ϲ������Ľ����
+     * 桶排序是计数排序的变种，把计数排序中相邻的m个"小桶"放到一个"大桶"中，在分完桶后，对每个桶进行排序（一般用快排），然后合并成最后的结果。
      * <p>
-     * ����˼�룺
+     * 基本思想：
      * <p>
-     * Ͱ�������������һ��������̲������ù��̽�Ԫ�ؾ��ȶ������طֲ�������[0,1)�ϡ����ǰ�����[0,1)���ֳ�n����ͬ��С�������䣬��ΪͰ����n����¼�ֲ�������Ͱ��ȥ��
-     * ����ж���һ����¼�ֵ�ͬһ��Ͱ�У���Ҫ����Ͱ������������ΰѸ���Ͱ�еļ�¼�г����ǵõ��������С�
+     * 桶排序假设序列由一个随机过程产生，该过程将元素均匀而独立地分布在区间[0,1)上。我们把区间[0,1)划分成n个相同大小的子区间，称为桶。将n个记录分布到各个桶中去。
+     * 如果有多于一个记录分到同一个桶中，需要进行桶内排序。最后依次把各个桶中的记录列出来记得到有序序列。
      * <p>
      * <p>
-     * Ч�ʷ�����
+     * 效率分析：
      * <p>
-     * Ͱ�����ƽ��ʱ�临�Ӷ�Ϊ���Ե�O(N+C)������CΪͰ�ڿ��ŵ�ʱ�临�Ӷȡ���������ͬ����N��Ͱ����MԽ����Ч��Խ�ߣ���õ�ʱ�临�ӶȴﵽO(N)��
-     * ��ȻͰ����Ŀռ临�Ӷ� ΪO(N+M)������������ݷǳ��Ӵ󣬶�Ͱ������Ҳ�ǳ��࣬��ռ���������ǰ���ġ����⣬Ͱ�������ȶ��ġ�
+     * 桶排序的平均时间复杂度为线性的O(N+C)，其中C为桶内快排的时间复杂度。如果相对于同样的N，桶数量M越大，其效率越高，最好的时间复杂度达到O(N)。
+     * 当然桶排序的空间复杂度 为O(N+M)，如果输入数据非常庞大，而桶的数量也非常多，则空间代价无疑是昂贵的。此外，桶排序是稳定的。
      *
-     * @param originArray ԭʼ��������
-     * @return �ź��������
-     * @throws Exception ������������ɽ���ʱ�׳�
+     * @param originArray 原始输入数组
+     * @return 排好序的数组
+     * @throws Exception 在输入参数不可解析时抛出
      */
     @Override
     public Comparable[] sort(Comparable[] originArray) throws Exception {
@@ -53,9 +53,9 @@ public class BucketHandler extends SortHandlerBehavior {
         Comparable element = originArray[0];
         if (element instanceof Integer) {
         } else {
-            throw new Exception("����֧�ֵ��������͡�" + element.getClass());
+            throw new Exception("不受支持的排序类型。" + element.getClass());
         }
-        //��������е����ֵ����Сֵ
+        //求出数组中的最大值、最小值
         Comparable[] maxAndMin = maxAndMin(originArray);
         int maxValue = (Integer) maxAndMin[0];
         int minValue = (Integer) maxAndMin[1];
@@ -64,28 +64,28 @@ public class BucketHandler extends SortHandlerBehavior {
             return originArray;
         }
 
-        //����Ͱ�ĸ���
+        //计算桶的个数
         int bucketCount = length / MIN_BUCKET_SIZE;
         if (bucketCount < (length * MIN_BUCKET_SIZE)) {
             bucketCount++;
         }
-        //System.out.println("bucketCount��" + bucketCount);
+        //System.out.println("bucketCount：" + bucketCount);
         int[][] bucketArray = new int[bucketCount][MIN_BUCKET_SIZE];
 
-        //���������飬��������ÿ��Ͱ�����Ԫ�ص��±�ֵ
+        //辅助性数组，用来保存每个桶内最后元素的下标值
         int[] buckeCountArray = new int[bucketCount];
-        //���Ͱ
+        //填充桶
         for (Comparable anOriginArray : originArray) {
             int value = (Integer) anOriginArray;
             int bucketIndex = getBucketIndex(value, minValue, bucketCount);
             int subBucketIndex = buckeCountArray[bucketIndex];
             if (subBucketIndex > MIN_BUCKET_SIZE - 1) {
-                resize(bucketArray, bucketIndex);//Ԥ�����СͰ��������������һ��resize������+=MIN_BUCKET_SIZE
+                resize(bucketArray, bucketIndex);//预分配的小桶容量不够啦，做一下resize：容量+=MIN_BUCKET_SIZE
             }
             bucketArray[bucketIndex][buckeCountArray[bucketIndex]] = value;
             buckeCountArray[bucketIndex] += 1;
         }
-        //��СͰ�������������
+        //对小桶的数组进行排序
 
         Sortable sortable = new CountHandler();
         for (int i = 0; i < bucketArray.length; i++) {
@@ -94,7 +94,7 @@ public class BucketHandler extends SortHandlerBehavior {
                 bucketArray[i] = freeArray(sortable.sort(getPartArray(bucketArray[i], count)));
             }
         }
-        //���Թ����������
+        //可以构建结果集了
         int index = 0;
         for (int i = 0; i < bucketArray.length; i++) {
             for (int j = 0; j < buckeCountArray[i]; j++) {
@@ -143,7 +143,7 @@ public class BucketHandler extends SortHandlerBehavior {
                 index++;
             }
         }
-        throw new Exception("Ԫ��ֵ��" + value + "�޷����䵽Ͱ");
+        throw new Exception("元素值：" + value + "无法分配到桶");
     }
 
     public static void main(String[] args) throws Exception {

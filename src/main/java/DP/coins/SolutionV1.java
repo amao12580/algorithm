@@ -10,10 +10,10 @@ import java.util.Arrays;
  * Date:2016/6/23
  * Time:17:04
  * <p>
- * ÓĞÃæÖµÎª1Ôª¡¢3ÔªºÍ5ÔªµÄÓ²±ÒÈô¸ÉÃ¶£¬ÈçºÎÓÃ×îÉÙµÄÓ²±Ò´Õ¹»11Ôª£¿
+ * æœ‰é¢å€¼ä¸º1å…ƒã€3å…ƒå’Œ5å…ƒçš„ç¡¬å¸è‹¥å¹²æšï¼Œå¦‚ä½•ç”¨æœ€å°‘çš„ç¡¬å¸å‡‘å¤Ÿ11å…ƒï¼Ÿ
  * <p>
  *
- * V1 Ã»ÓĞÊ¹ÓÃDPË¼Ïë½âÌâ£¬Ö±½Ó²ÉÓÃµİ¹é±©Á¦·Ö½â
+ * V1 æ²¡æœ‰ä½¿ç”¨DPæ€æƒ³è§£é¢˜ï¼Œç›´æ¥é‡‡ç”¨é€’å½’æš´åŠ›åˆ†è§£
  */
 public class SolutionV1 {
     private static int maxValue = 0;
@@ -24,20 +24,20 @@ public class SolutionV1 {
     private static int[] result = new int[maxValue];
 
     public static void main(String[] args) {
-        //³õÊ¼»¯Ó²±ÒµÄÖÖÀàºÍ¸öÊı
-        coins = new int[5 + 1];//Ó²±ÒµÄ×î´óÃæÖµÎª5
-        coins[1] = 10;//¼ÙÉèÃæÖµÎª1µÄÓ²±ÒÓĞ10¸ö
-        coins[3] = 10;//¼ÙÉèÃæÖµÎª3µÄÓ²±ÒÓĞ10¸ö
-        coins[5] = 10;//¼ÙÉèÃæÖµÎª5µÄÓ²±ÒÓĞ10¸ö
-        //ÆäËûÃ»ÓĞ³õÊ¼»¯µÄÓ²±ÒÃæÖµ£¬±ÈÈçËµÃæÖµÎª4£¬¸öÊıÎª0.
-        int sum = 11;//Ó²±ÒĞèÒª´Õ¹»11Ôª
+        //åˆå§‹åŒ–ç¡¬å¸çš„ç§ç±»å’Œä¸ªæ•°
+        coins = new int[5 + 1];//ç¡¬å¸çš„æœ€å¤§é¢å€¼ä¸º5
+        coins[1] = 10;//å‡è®¾é¢å€¼ä¸º1çš„ç¡¬å¸æœ‰10ä¸ª
+        coins[3] = 10;//å‡è®¾é¢å€¼ä¸º3çš„ç¡¬å¸æœ‰10ä¸ª
+        coins[5] = 10;//å‡è®¾é¢å€¼ä¸º5çš„ç¡¬å¸æœ‰10ä¸ª
+        //å…¶ä»–æ²¡æœ‰åˆå§‹åŒ–çš„ç¡¬å¸é¢å€¼ï¼Œæ¯”å¦‚è¯´é¢å€¼ä¸º4ï¼Œä¸ªæ•°ä¸º0.
+        int sum = 11;//ç¡¬å¸éœ€è¦å‡‘å¤Ÿ11å…ƒ
         maxValue = 5;
         initSubSolution(sum + 1);
         minValue = firstElement(coins);
         int s = loop(sum);
 
         System.out.println(s);
-        System.out.println("×ÜÉÙÓ²±ÒÊıÓĞ" + result.length + "Ã¶");
+        System.out.println("æ€»å°‘ç¡¬å¸æ•°æœ‰" + result.length + "æš");
         System.out.println("result:" + Arrays.toString(result));
         System.out.println("subSolution:" + Arrays.toString(subSolution));
     }

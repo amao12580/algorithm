@@ -12,28 +12,28 @@ import java.util.Arrays;
  * Date:2016/5/12
  * Time:16:52
  * <p>
- * ³¢ÊÔ¶Ô²åÈëÅÅĞò½øĞĞ¸Ä½ø
+ * å°è¯•å¯¹æ’å…¥æ’åºè¿›è¡Œæ”¹è¿›
  * <p>
  * <p>
- * ¸Ä½øÒªµã£ºÃ¿´ÎÔÚÇ°ÃæµÄÓĞĞòÊı×é¶Î£¬Ñ°ÕÒºÏÊÊÎ»ÖÃ½øĞĞswapÊ±£¬²»ĞèÒª±éÀúÕû¸öÊı×é¶Î
+ * æ”¹è¿›è¦ç‚¹ï¼šæ¯æ¬¡åœ¨å‰é¢çš„æœ‰åºæ•°ç»„æ®µï¼Œå¯»æ‰¾åˆé€‚ä½ç½®è¿›è¡Œswapæ—¶ï¼Œä¸éœ€è¦éå†æ•´ä¸ªæ•°ç»„æ®µ
  * <p>
- * Ê¹ÓÃ¶ş·Ö²éÕÒ½øĞĞÊ±¼ä¸´ÔÓ¶È½µµÍ£ºO(n)  -->   O(log n)
+ * ä½¿ç”¨äºŒåˆ†æŸ¥æ‰¾è¿›è¡Œæ—¶é—´å¤æ‚åº¦é™ä½ï¼šO(n)  -->   O(log n)
  * <p>
- * wiki¶¨Òå£º
- * Èç¹û±È½Ï²Ù×÷µÄ´ú¼Û±È½»»»²Ù×÷´óµÄ»°£¬¿ÉÒÔ²ÉÓÃ¶ş·Ö²éÕÒ·¨À´¼õÉÙ±È½Ï²Ù×÷µÄÊıÄ¿¡£¸ÃËã·¨¿ÉÒÔÈÏÎªÊÇ²åÈëÅÅĞòµÄÒ»¸ö±äÖÖ£¬³ÆÎª¶ş·Ö²éÕÒ²åÈëÅÅĞò¡£
+ * wikiå®šä¹‰ï¼š
+ * å¦‚æœæ¯”è¾ƒæ“ä½œçš„ä»£ä»·æ¯”äº¤æ¢æ“ä½œå¤§çš„è¯ï¼Œå¯ä»¥é‡‡ç”¨äºŒåˆ†æŸ¥æ‰¾æ³•æ¥å‡å°‘æ¯”è¾ƒæ“ä½œçš„æ•°ç›®ã€‚è¯¥ç®—æ³•å¯ä»¥è®¤ä¸ºæ˜¯æ’å…¥æ’åºçš„ä¸€ä¸ªå˜ç§ï¼Œç§°ä¸ºäºŒåˆ†æŸ¥æ‰¾æ’å…¥æ’åºã€‚
  */
 public class InsertionImprovementHandler extends SortHandlerBehavior {
 
     /**
-     * Ë¼Â·£º
-     * ÔÚµÚi´Îµü´úÖĞ£¬½«µÚi¸öÔªËØÓëÃ¿Ò»¸öËü×ó±ßÇÒ±ÈËü´óµÄµÄÔªËØ½»»»Î»ÖÃ
+     * æ€è·¯ï¼š
+     * åœ¨ç¬¬iæ¬¡è¿­ä»£ä¸­ï¼Œå°†ç¬¬iä¸ªå…ƒç´ ä¸æ¯ä¸€ä¸ªå®ƒå·¦è¾¹ä¸”æ¯”å®ƒå¤§çš„çš„å…ƒç´ äº¤æ¢ä½ç½®
      * <p>
      * <p>
-     * Ê±¼ä¸´ÔÓ¶È£ºO(n^2)
+     * æ—¶é—´å¤æ‚åº¦ï¼šO(n^2)
      *
-     * @param originArray Ô­Ê¼ÊäÈëÊı×é
-     * @return ÅÅºÃĞòµÄÊı×é
-     * @throws Exception ÔÚÊäÈë²ÎÊı²»¿É½âÎöÊ±Å×³ö
+     * @param originArray åŸå§‹è¾“å…¥æ•°ç»„
+     * @return æ’å¥½åºçš„æ•°ç»„
+     * @throws Exception åœ¨è¾“å…¥å‚æ•°ä¸å¯è§£ææ—¶æŠ›å‡º
      */
     @Override
     public Comparable[] sort(Comparable[] originArray) throws Exception {
@@ -64,7 +64,7 @@ public class InsertionImprovementHandler extends SortHandlerBehavior {
     }
 
     /**
-     * ÔÚ¸ø¶¨Êı×éµÄbegin¡¢endÏÂ±êÖµ·¶Î§ÄÚ£¬½«Ã¿Ò»¸öÔªËØÏëºóÒÆ¶¯1¸ñ
+     * åœ¨ç»™å®šæ•°ç»„çš„beginã€endä¸‹æ ‡å€¼èŒƒå›´å†…ï¼Œå°†æ¯ä¸€ä¸ªå…ƒç´ æƒ³åç§»åŠ¨1æ ¼
      */
     private void move(Comparable[] originArray, int beginIndex, int endIndex) {
         while (beginIndex <= endIndex) {
@@ -74,7 +74,7 @@ public class InsertionImprovementHandler extends SortHandlerBehavior {
     }
 
     /**
-     * ÔÚ¸ø¶¨Êı×éµÄbegin¡¢endÏÂ±êÖµ·¶Î§ÄÚ£¬ÕÒµ½µÚÒ»¸ö±Èkey´óµÄÔªËØÏÂ±êÖµ
+     * åœ¨ç»™å®šæ•°ç»„çš„beginã€endä¸‹æ ‡å€¼èŒƒå›´å†…ï¼Œæ‰¾åˆ°ç¬¬ä¸€ä¸ªæ¯”keyå¤§çš„å…ƒç´ ä¸‹æ ‡å€¼
      */
     private int binarySearch(Comparable[] originArray, int beginIndex, int endIndex, Comparable key) {
         if (beginIndex > endIndex) {
@@ -89,7 +89,7 @@ public class InsertionImprovementHandler extends SortHandlerBehavior {
             if (previousIndex < beginIndex) {
                 return middleIndex;
             }
-            //ÅĞ¶ÏÉÏÒ»¸öÖµÊÇ·ñ·ûºÏÒªÇó
+            //åˆ¤æ–­ä¸Šä¸€ä¸ªå€¼æ˜¯å¦ç¬¦åˆè¦æ±‚
             if (Comparator.isGT(originArray[previousIndex], key)) {
                 return binarySearch(originArray, beginIndex, previousIndex, key);
             } else {

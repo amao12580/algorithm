@@ -32,8 +32,7 @@ public enum Comparator {
         if (meta == null) {
             meta = new HashMap<>();
             Comparator[] arr = Comparator.values();
-            for (int i = 0; i < arr.length; i++) {
-                Comparator obj = arr[i];
+            for (Comparator obj : arr) {
                 meta.put(obj.getCode(), obj);
             }
             //System.out.println("meta:"+meta.toString());
@@ -56,17 +55,11 @@ public enum Comparator {
      * @return 检查结果
      */
     public static boolean isLTE(Comparator result) {
-        if (result.code == Comparator.LT.code || result.code == Comparator.EQUAL.code) {
-            return true;
-        }
-        return false;
+        return result.code == Comparator.LT.code || result.code == Comparator.EQUAL.code;
     }
 
     public static boolean isGTE(Comparator result) {
-        if (result.code == Comparator.GT.code || result.code == Comparator.EQUAL.code) {
-            return true;
-        }
-        return false;
+        return result.code == Comparator.GT.code || result.code == Comparator.EQUAL.code;
     }
 
     public static boolean isLTE(Comparable one, Comparable other) {
@@ -79,10 +72,7 @@ public enum Comparator {
 
 
     public static boolean isGT(Comparator result) {
-        if (result.code == Comparator.GT.code) {
-            return true;
-        }
-        return false;
+        return result.code == Comparator.GT.code;
     }
 
     public static boolean isGT(Comparable one, Comparable other) {
@@ -90,10 +80,7 @@ public enum Comparator {
     }
 
     public static boolean isLT(Comparator result) {
-        if (result.code == Comparator.LT.code) {
-            return true;
-        }
-        return false;
+        return result.code == Comparator.LT.code;
     }
 
     public static boolean isLT(Comparable one, Comparable other) {
@@ -105,10 +92,7 @@ public enum Comparator {
     }
 
     public static boolean isEQUAL(Comparator result) {
-        if (result.code == Comparator.EQUAL.code) {
-            return true;
-        }
-        return false;
+        return result.code == Comparator.EQUAL.code;
     }
 
     public static Comparator compare(Comparable one, Comparable other) {

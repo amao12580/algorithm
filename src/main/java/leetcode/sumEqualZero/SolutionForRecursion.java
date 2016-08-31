@@ -8,7 +8,7 @@ import java.util.Arrays;
  * Date:2016/6/22
  * Time:13:39
  * <p>
- * ÓĞÒ»¸öËæ»úÕûÊıÊı×é£¬´ÓÖĞÌôABCÈı¸öÕûÊı£¬ÈÃABCÈı¸öÕûÊı¼ÓÆğÀ´µÈÓÚÁã£¬¿´ÓĞ¶àÉÙ¸ö²»ÖØ¸´µÄ×éºÏ£¿
+ * æœ‰ä¸€ä¸ªéšæœºæ•´æ•°æ•°ç»„ï¼Œä»ä¸­æŒ‘ABCä¸‰ä¸ªæ•´æ•°ï¼Œè®©ABCä¸‰ä¸ªæ•´æ•°åŠ èµ·æ¥ç­‰äºé›¶ï¼Œçœ‹æœ‰å¤šå°‘ä¸ªä¸é‡å¤çš„ç»„åˆï¼Ÿ
  */
 public class SolutionForRecursion {
     public static void main(String[] args) {
@@ -29,11 +29,11 @@ public class SolutionForRecursion {
     }
 
     /**
-     * 3ÖØforÑ­»·µÄµİ¹é°æ±¾
+     * 3é‡forå¾ªç¯çš„é€’å½’ç‰ˆæœ¬
      *
-     * @param originArray Ô­Ê¼Êı×é
-     * @param number      ¼¸¸öÊıÏà¼Ó£¿
-     * @return ½á¹û×éºÏ
+     * @param originArray åŸå§‹æ•°ç»„
+     * @param number      å‡ ä¸ªæ•°ç›¸åŠ ï¼Ÿ
+     * @return ç»“æœç»„åˆ
      */
     private static int[][] recursion(int[] originArray, int number) {
         topLayer = number;
@@ -53,7 +53,7 @@ public class SolutionForRecursion {
         Integer currentLayerLoopResult = null;
         for (int i = beginIndex; i < originArray.length; i++) {
             int currentValue = originArray[i];
-            if (topLayer == currentLayer) {//×î¶¥²ãloopÊ±½«½á¹ûÁ´ÖÃ¿Õ
+            if (topLayer == currentLayer) {//æœ€é¡¶å±‚loopæ—¶å°†ç»“æœé“¾ç½®ç©º
                 chain = new int[topLayer];
             } else {
                 chain = copy(chain);
@@ -61,7 +61,7 @@ public class SolutionForRecursion {
             if (currentLayer > 0) {
                 Integer nextLayerLoopResult;
                 chain[topLayer - currentLayer] = currentValue;
-                if (currentLayer == 1) {//×îµ×²ã²»ĞèÒªÔÙÏòÏÂloop
+                if (currentLayer == 1) {//æœ€åº•å±‚ä¸éœ€è¦å†å‘ä¸‹loop
                     nextLayerLoopResult = 0;
                 } else {
                     nextLayerLoopResult = loop(originArray, chain, i + 1, expectSumValue - currentValue, currentLayer - 1);
