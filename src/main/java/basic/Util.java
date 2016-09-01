@@ -135,4 +135,35 @@ public class Util {
         int len = str.length();
         return str.substring(len - 8, len);
     }
+
+
+    /**
+     * 在给定数组的begin、end下标值范围内(包含两个临界值)，找到最后一个比key小的元素下标值
+     */
+    public static int binarySearchLatestLessThan(int[] originArray, int beginIndex, int endIndex, int key) {
+        if (beginIndex > endIndex) {
+            return endIndex + 1;
+        }
+        if (originArray[endIndex] < key) {
+            return endIndex;
+        }
+        int middleIndex = beginIndex + ((endIndex - beginIndex) / 2);
+        if (originArray[middleIndex] < key) {
+            int previousIndex = middleIndex + 1;
+            if (previousIndex > endIndex) {
+                return middleIndex;
+            }
+            //判断下一个值是否符合要求
+            if (originArray[previousIndex] >= key) {
+                return middleIndex;
+            } else {
+                return binarySearchLatestLessThan(originArray, previousIndex, endIndex, key);
+            }
+        } else {
+            if (middleIndex == 0) {
+                return -1;
+            }
+            return binarySearchLatestLessThan(originArray, beginIndex, middleIndex, key);
+        }
+    }
 }

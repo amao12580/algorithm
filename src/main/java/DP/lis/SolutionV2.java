@@ -1,5 +1,7 @@
 package DP.lis;
 
+import basic.Util;
+
 /**
  * Created with IntelliJ IDEA.
  * User:ChengLiang
@@ -49,7 +51,7 @@ public class SolutionV2 {
         d[0] = nums[0];
         int latestIndex = 0;
         for (int current = 1; current < nums.length; current++) {
-            int expectIndex = binarySearchLatestLessThan(d, 0, latestIndex, nums[current]) + 1;
+            int expectIndex = Util.binarySearchLatestLessThan(d, 0, latestIndex, nums[current]) + 1;
             d[expectIndex] = nums[current];
             if (expectIndex > latestIndex) {
                 latestIndex = expectIndex;
@@ -57,35 +59,5 @@ public class SolutionV2 {
         }
         //System.out.println("d:" + Util.toJson(d));
         return latestIndex + 1;
-    }
-
-    /**
-     * 在给定数组的begin、end下标值范围内，找到最后一个比key小的元素下标值
-     */
-    private static int binarySearchLatestLessThan(int[] originArray, int beginIndex, int endIndex, int key) {
-        if (beginIndex > endIndex) {
-            return endIndex + 1;
-        }
-        if (originArray[endIndex] < key) {
-            return endIndex;
-        }
-        int middleIndex = beginIndex + ((endIndex - beginIndex) / 2);
-        if (originArray[middleIndex] < key) {
-            int previousIndex = middleIndex + 1;
-            if (previousIndex > endIndex) {
-                return middleIndex;
-            }
-            //判断下一个值是否符合要求
-            if (originArray[previousIndex] >= key) {
-                return middleIndex;
-            } else {
-                return binarySearchLatestLessThan(originArray, previousIndex, endIndex, key);
-            }
-        } else {
-            if (middleIndex == 0) {
-                return -1;
-            }
-            return binarySearchLatestLessThan(originArray, beginIndex, middleIndex, key);
-        }
     }
 }
