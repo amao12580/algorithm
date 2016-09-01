@@ -1,5 +1,6 @@
 D:\GitHub\algorithm\src\main\java\sort\bucket\package-info.java
 D:\GitHub\algorithm\src\main\java\sort\quick\package-info.java
+D:\GitHub\algorithm\src\main\java\DP\knapsack\Solution.java
 D:\GitHub\algorithm\src\main\java\classic\KMP\SolutionV1.java
 D:\GitHub\algorithm\src\main\java\DP\minimumPathSum\Solution.java
 D:\GitHub\algorithm\src\main\java\leetcode\sumEqualZero\SolutionForRecursion.java
@@ -18,6 +19,7 @@ D:\GitHub\algorithm\src\main\java\sort\bubble\package-info.java
 D:\GitHub\algorithm\src\main\java\graph\matrix\MatrixGraph.java
 D:\GitHub\algorithm\src\main\java\sort\bucket\BucketHandler.java
 D:\GitHub\algorithm\src\main\java\sort\radix\package-info.java
+D:\GitHub\algorithm\src\main\java\DP\knapsack\package-info.java
 D:\GitHub\algorithm\src\main\java\DP\lis\SolutionV2.java
 D:\GitHub\algorithm\src\main\java\classic\middleElement\SolutionV2.java
 D:\GitHub\algorithm\src\main\java\leetcode\sumEqualZero\SolutionForSimple.java

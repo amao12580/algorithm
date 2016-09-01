@@ -1,5 +1,6 @@
 sort\merge\MergeHandler.class
 classic\middleElement\SolutionV2.class
+DP\knapsack\Solution.class
 sort\selection\SelectionHandler.class
 tree\huffman\HuffmanTree$TreeNode.class
 classic\twoArrayRemoveRepeat\SolutionV2.class
