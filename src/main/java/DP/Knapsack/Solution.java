@@ -17,8 +17,19 @@ import java.util.Arrays;
 public class Solution {
     private static int capacity = 0;
 
+    static class Gem {
+        int bulk;//所需体积
+        int value;//价值
+
+        Gem(int bulk, int value) {
+            this.bulk = bulk;
+            this.value = value;
+        }
+    }
+
     public static void main(String[] args) {
         int[] gem = {2, 10, 20, 15, 25, 5, 5, 30, 15, 40};//第一枚宝石的价值是10，第二枚宝石的价值是20...
+        Gem[] gems = {new Gem(1, 2), new Gem(2, 10), new Gem(2, 10)};
         capacity = 161;//背包的容量
         int[] result = maxValues(gem);
         System.out.println("宝石的总数量:" + gem.length + ",带走了总价值为" + sum(result) + "的" + result.length + "枚宝石.剩余的宝石个数:" + (gem.length - result.length) + ",背包剩余容量:" + capacity);

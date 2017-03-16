@@ -81,9 +81,9 @@ public class Util {
     }
 
 
-    private static final String ALLCHAR = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static final String LETTERCHAR = "abcdefghijkllmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static final String NUMBERCHAR = "0123456789";
+    private static final String ALLCHAR = LETTERCHAR + NUMBERCHAR;
 
     public static String generateMixedString(int length) {
         StringBuffer stringBuffer = new StringBuffer();
