@@ -1,6 +1,7 @@
 D:\GitHub\algorithm\src\main\java\sort\bucket\package-info.java
 D:\GitHub\algorithm\src\main\java\sort\quick\package-info.java
 D:\GitHub\algorithm\src\main\java\DP\knapsack\Solution.java
+D:\GitHub\algorithm\src\main\java\ACM\digitGenerator\Solution.java
 D:\GitHub\algorithm\src\main\java\classic\KMP\SolutionV1.java
 D:\GitHub\algorithm\src\main\java\DP\minimumPathSum\Solution.java
 D:\GitHub\algorithm\src\main\java\leetcode\sumEqualZero\SolutionForRecursion.java
@@ -16,6 +17,7 @@ D:\GitHub\algorithm\src\main\java\sort\count\CountHandler.java
 D:\GitHub\algorithm\src\main\java\sort\selection\package-info.java
 D:\GitHub\algorithm\src\main\java\classic\middleElement\SolutionV1.java
 D:\GitHub\algorithm\src\main\java\sort\bubble\package-info.java
+D:\GitHub\algorithm\src\main\java\ACM\DigitCounting\Solution.java
 D:\GitHub\algorithm\src\main\java\graph\matrix\MatrixGraph.java
 D:\GitHub\algorithm\src\main\java\sort\bucket\BucketHandler.java
 D:\GitHub\algorithm\src\main\java\sort\radix\package-info.java
@@ -51,6 +53,9 @@ D:\GitHub\algorithm\src\main\java\sort\count\package-info.java
 D:\GitHub\algorithm\src\main\java\classic\KMP\SolutionV3.java
 D:\GitHub\algorithm\src\main\java\DP\coins\SolutionV2.java
 D:\GitHub\algorithm\src\main\java\leetcode\sumEqualZero\SolutionForDynamicPrograming.java
+D:\GitHub\algorithm\src\main\java\ACM\MolarMass\Solution.java
 D:\GitHub\algorithm\src\main\java\basic\sort\Sortable.java
+D:\GitHub\algorithm\src\main\java\ACM\circularSequence\Solution.java
+D:\GitHub\algorithm\src\main\java\ACM\score\Solution.java
 D:\GitHub\algorithm\src\main\java\graph\package-info.java
 D:\GitHub\algorithm\src\main\java\sort\selection\SelectionHandler.java
