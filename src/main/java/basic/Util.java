@@ -68,8 +68,21 @@ public class Util {
         return Math.random() * Double.MAX_VALUE;
     }
 
+    /**
+     * 返回min与max之间的随机值，该值可能等于min，也有可能max
+     *
+     * @param min lower
+     * @param max upper
+     * @return random
+     */
     public static int getRandomInteger(int min, int max) {
-        return (int) (Math.random() * max) + min;
+        if (max < min) {
+            return 0;
+        }
+        if (max == min) {
+            return max;
+        }
+        return (int) (Math.random() * (max - min + 1)) + min;
     }
 
     public static double log(double value, double base) {
@@ -86,7 +99,7 @@ public class Util {
     private static final String ALLCHAR = LETTERCHAR + NUMBERCHAR;
 
     public static String generateMixedString(int length) {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder stringBuffer = new StringBuilder();
         Random random = new Random();
         for (int i = 0; i < length; i++) {
             stringBuffer.append(ALLCHAR.charAt(random.nextInt(ALLCHAR.length())));
@@ -95,7 +108,7 @@ public class Util {
     }
 
     public static String generateLetterString(int length) {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder stringBuffer = new StringBuilder();
         Random random = new Random();
         for (int i = 0; i < length; i++) {
             stringBuffer.append(LETTERCHAR.charAt(random.nextInt(LETTERCHAR.length())));
@@ -104,7 +117,7 @@ public class Util {
     }
 
     public static String generateNumberString(int length) {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder stringBuffer = new StringBuilder();
         Random random = new Random();
         for (int i = 0; i < length; i++) {
             stringBuffer.append(NUMBERCHAR.charAt(random.nextInt(NUMBERCHAR.length())));

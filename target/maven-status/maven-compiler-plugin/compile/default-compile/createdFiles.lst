@@ -4,12 +4,15 @@ ACM\score\Solution.class
 graph\edge\EdgeGraph.class
 sort\quick\QuickHandler.class
 DP\zigzag\Solution.class
+ACM\CrosswordAnswers\Solution$Element.class
 graph\edge\EdgeGraph$Node.class
 sort\heap\HeapHandler.class
 classic\KMP\SolutionV1.class
 sort\shaker\ShakerHandler.class
+ACM\PeriodicStrings\Solution.class
 sort\bubble\BubbleHandler.class
 graph\list\ListGraph.class
+ACM\Puzzle\Solution.class
 DP\lis\SolutionV1.class
 classic\twoArrayRemoveRepeat\SolutionV1.class
 leetcode\sumEqualZero\Solution.class
@@ -26,6 +29,7 @@ leetcode\sumEqualZero\SolutionForSimple.class
 tree\huffman\HuffmanTree.class
 sort\merge\MergeHandler.class
 classic\middleElement\SolutionV2.class
+ACM\CrosswordAnswers\Solution.class
 tree\huffman\HuffmanTree$TreeNode.class
 classic\twoArrayRemoveRepeat\SolutionV2.class
 DP\coins\SolutionV1.class
@@ -41,6 +45,7 @@ DP\minimumPathSum\Solution.class
 ACM\MolarMass\Solution.class
 basic\Comparator.class
 graph\list\ListGraph$Node.class
+ACM\Puzzle\Solution$Element.class
 ACM\digitGenerator\Solution.class
 sort\radix\RadixHandler$RadixSortHandler.class
 sort\bucket\BucketHandler.class
