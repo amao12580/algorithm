@@ -51,5 +51,6 @@ ACM\digitGenerator\Solution.class
 sort\radix\RadixHandler$RadixSortHandler.class
 sort\bucket\BucketHandler.class
 DP\knapsack\Solution$Gem.class
+ACM\RepeatingDecimals\Solution.class
 sort\insertion\InsertionImprovementHandler.class
 classic\KMP\SolutionV2.class
