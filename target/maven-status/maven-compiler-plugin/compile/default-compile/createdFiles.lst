@@ -25,6 +25,7 @@ sort\count\CountHandler.class
 sort\radix\RadixHandler.class
 basic\sort\SortHandlerBehavior.class
 ACM\DigitCounting\Solution.class
+ACM\DNAConsensusString\Solution.class
 leetcode\sumEqualZero\SolutionForSimple.class
 tree\huffman\HuffmanTree.class
 sort\merge\MergeHandler.class
