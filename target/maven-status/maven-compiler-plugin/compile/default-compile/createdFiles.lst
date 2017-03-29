@@ -42,6 +42,7 @@ sort\insertion\InsertionHandler.class
 classic\KMP\SolutionV3.class
 basic\Util.class
 leetcode\sumEqualZero\SolutionForDynamicPrograming.class
+ACM\Box\Solution.class
 sort\shell\ShellHandler.class
 DP\minimumPathSum\Solution.class
 ACM\MolarMass\Solution.class
