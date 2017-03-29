@@ -3,6 +3,7 @@ sort\selection\SelectionHandler.class
 ACM\score\Solution.class
 graph\edge\EdgeGraph.class
 sort\quick\QuickHandler.class
+ACM\AllinAll\Solution.class
 DP\zigzag\Solution.class
 ACM\CrosswordAnswers\Solution$Element.class
 graph\edge\EdgeGraph$Node.class
