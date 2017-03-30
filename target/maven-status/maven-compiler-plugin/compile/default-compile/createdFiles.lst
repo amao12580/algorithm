@@ -1,5 +1,6 @@
 DP\knapsack\Solution.class
 ACM\Kickdown\Solution.class
+ACM\FloatingPointNumbers\Solution.class
 sort\selection\SelectionHandler.class
 ACM\score\Solution.class
 graph\edge\EdgeGraph.class
@@ -16,6 +17,7 @@ sort\bubble\BubbleHandler.class
 graph\list\ListGraph.class
 ACM\Puzzle\Solution.class
 DP\lis\SolutionV1.class
+ACM\FloatingPointNumbers\Solution$BinaryLength.class
 classic\twoArrayRemoveRepeat\SolutionV1.class
 leetcode\sumEqualZero\Solution.class
 classic\middleElement\SolutionV1.class
@@ -38,6 +40,7 @@ classic\twoArrayRemoveRepeat\SolutionV2.class
 DP\coins\SolutionV1.class
 DP\lis\SolutionV2.class
 ACM\circularSequence\Solution.class
+ACM\FloatingPointNumbers\Solution$ScienceCount.class
 leetcode\sumEqualZero\SolutionForRecursion.class
 sort\insertion\InsertionHandler.class
 classic\KMP\SolutionV3.class
