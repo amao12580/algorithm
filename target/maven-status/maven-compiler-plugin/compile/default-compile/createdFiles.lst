@@ -54,6 +54,7 @@ basic\Comparator.class
 graph\list\ListGraph$Node.class
 ACM\Puzzle\Solution$Element.class
 ACM\digitGenerator\Solution.class
+ACM\HangmanJudge\Solution.class
 sort\radix\RadixHandler$RadixSortHandler.class
 sort\bucket\BucketHandler.class
 DP\knapsack\Solution$Gem.class
