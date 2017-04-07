@@ -72,7 +72,7 @@ public class Solution {
                 break;
             }
             boolean r = false;
-            if (word.indexOf(c) >= 0 && success.add(c)) {
+            if (all.contains(c) && success.add(c)) {
                 r = true;
                 printGuessSuccess(w, success);
             }
