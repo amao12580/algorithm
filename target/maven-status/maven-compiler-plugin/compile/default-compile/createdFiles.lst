@@ -13,6 +13,7 @@ graph\edge\EdgeGraph$Node.class
 sort\heap\HeapHandler.class
 classic\KMP\SolutionV1.class
 sort\shaker\ShakerHandler.class
+ACM\MessageDecoding\Solution.class
 ACM\PeriodicStrings\Solution.class
 sort\bubble\BubbleHandler.class
 graph\list\ListGraph.class
