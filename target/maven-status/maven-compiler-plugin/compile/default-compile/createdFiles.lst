@@ -11,6 +11,7 @@ DP\zigzag\Solution.class
 ACM\CrosswordAnswers\Solution$Element.class
 graph\edge\EdgeGraph$Node.class
 sort\heap\HeapHandler.class
+ACM\SpreadsheetTracking\Solution.class
 classic\KMP\SolutionV1.class
 sort\shaker\ShakerHandler.class
 ACM\MessageDecoding\Solution.class
