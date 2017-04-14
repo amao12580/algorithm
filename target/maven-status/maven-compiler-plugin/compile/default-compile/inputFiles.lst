@@ -5,6 +5,7 @@ D:\GitHub\algorithm\src\main\java\DP\knapsack\Solution.java
 D:\GitHub\algorithm\src\main\java\ACM\digitGenerator\Solution.java
 D:\GitHub\algorithm\src\main\java\classic\KMP\SolutionV1.java
 D:\GitHub\algorithm\src\main\java\DP\minimumPathSum\Solution.java
+D:\GitHub\algorithm\src\main\java\ACM\ATypicalHomework\Command.java
 D:\GitHub\algorithm\src\main\java\leetcode\sumEqualZero\SolutionForRecursion.java
 D:\GitHub\algorithm\src\main\java\sort\shaker\package-info.java
 D:\GitHub\algorithm\src\main\java\classic\twoArrayRemoveRepeat\SolutionV2.java
@@ -41,6 +42,7 @@ D:\GitHub\algorithm\src\main\java\basic\Util.java
 D:\GitHub\algorithm\src\main\java\sort\shell\ShellHandler.java
 D:\GitHub\algorithm\src\main\java\classic\twoArrayRemoveRepeat\SolutionV1.java
 D:\GitHub\algorithm\src\main\java\leetcode\package-info.java
+D:\GitHub\algorithm\src\main\java\ACM\ATypicalHomework\Student.java
 D:\GitHub\algorithm\src\main\java\ACM\HangmanJudge\Solution.java
 D:\GitHub\algorithm\src\main\java\ACM\package-info.java
 D:\GitHub\algorithm\src\main\java\sort\insertion\package-info.java
@@ -49,10 +51,13 @@ D:\GitHub\algorithm\src\main\java\tree\huffman\HuffmanTree.java
 D:\GitHub\algorithm\src\main\java\basic\sort\SortHandlerBehavior.java
 D:\GitHub\algorithm\src\main\java\sort\bubble\BubbleHandler.java
 D:\GitHub\algorithm\src\main\java\sort\merge\package-info.java
+D:\GitHub\algorithm\src\main\java\ACM\ATypicalHomework\Solution.java
 D:\GitHub\algorithm\src\main\java\DP\package-info.java
 D:\GitHub\algorithm\src\main\java\sort\radix\RadixHandler.java
 D:\GitHub\algorithm\src\main\java\ACM\CrosswordAnswers\Solution.java
 D:\GitHub\algorithm\src\main\java\sort\quick\QuickHandler.java
+D:\GitHub\algorithm\src\main\java\ACM\Squares\Solution.java
+D:\GitHub\algorithm\src\main\java\ACM\Xiangqi\Role.java
 D:\GitHub\algorithm\src\main\java\DP\coins\SolutionV1.java
 D:\GitHub\algorithm\src\main\java\leetcode\sumEqualZero\Solution.java
 D:\GitHub\algorithm\src\main\java\ACM\SpreadsheetTracking\Solution.java
@@ -70,6 +75,7 @@ D:\GitHub\algorithm\src\main\java\ACM\MolarMass\Solution.java
 D:\GitHub\algorithm\src\main\java\basic\sort\Sortable.java
 D:\GitHub\algorithm\src\main\java\ACM\circularSequence\Solution.java
 D:\GitHub\algorithm\src\main\java\ACM\Kickdown\Solution.java
+D:\GitHub\algorithm\src\main\java\ACM\Xiangqi\Solution.java
 D:\GitHub\algorithm\src\main\java\ACM\score\Solution.java
 D:\GitHub\algorithm\src\main\java\graph\package-info.java
 D:\GitHub\algorithm\src\main\java\sort\selection\SelectionHandler.java
