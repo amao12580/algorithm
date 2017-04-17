@@ -2,6 +2,7 @@ package ACM.Xiangqi;
 
 import basic.Util;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -108,42 +109,33 @@ public class Solution {
         chess[rIndex][cIndex] = thisP;
         chess[JPoint.getRowIndex()][JPoint.getColumnIndex()] = null;//吃掉了
         JPoint = new Point(thisP, rIndex, cIndex);
-        if (other != null) {
-            reCollect();
+        remove(other, rIndex, cIndex);
+    }
+
+    private void remove(Role c, int rIndex, int cIndex) {
+        if (c == null) {
+            return;
+        }
+        if (c.compareTo(Role.R) == 0) {
+            remove(c, rIndex, cIndex, RPoints);
+            return;
+        }
+        if (c.compareTo(Role.H) == 0) {
+            remove(c, rIndex, cIndex, HPoints);
+            return;
+        }
+        if (c.compareTo(Role.C) == 0) {
+            remove(c, rIndex, cIndex, CPoints);
         }
     }
 
-    private void reCollect() {
-        Point GPoint = null;
-        Point JPoint = null;
-        RPoints = new LinkedList<>();
-        HPoints = new LinkedList<>();
-        CPoints = new LinkedList<>();
-
-        for (int i = 0; i < rowLen; i++) {
-            for (int j = 0; j < columnLen; ) {
-                Role c = chess[i][j];
-                if (c == null) {
-                    continue;
-                }
-                if (JPoint == null && c.compareTo(Role.J) == 0) {
-                    JPoint = new Point(c, i, j);
-                }
-                if (GPoint == null && c.compareTo(Role.G) == 0) {
-                    GPoint = new Point(c, i, j);
-                }
-                if (c.compareTo(Role.R) == 0) {
-                    Point point = new Point(c, i, j);
-                    RPoints.add(point);
-                }
-                if (c.compareTo(Role.H) == 0) {
-                    Point point = new Point(c, i, j);
-                    HPoints.add(point);
-                }
-                if (c.compareTo(Role.C) == 0) {
-                    Point point = new Point(c, i, j);
-                    CPoints.add(point);
-                }
+    private void remove(Role c, int rIndex, int cIndex, List<Point> points) {
+        Iterator<Point> iterator = points.iterator();
+        while (iterator.hasNext()) {
+            Point point = iterator.next();
+            if (point.getColumnIndex() == cIndex && point.getRowIndex() == rIndex && point.getRole().compareTo(c) == 0) {
+                iterator.remove();
+                break;
             }
         }
     }
@@ -207,6 +199,7 @@ public class Solution {
             }
             return !(rowIndex != otherRowIndex && columnIndex != otherColumnIndex) && role.canAttack(chess, columnIndex, rowIndex, otherColumnIndex, otherRowIndex);
         }
+
     }
 
     private void generatorChess() {
