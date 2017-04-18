@@ -54,6 +54,7 @@ ACM\ATypicalHomework\Solution.class
 ACM\FloatingPointNumbers\Solution$ScienceCount.class
 leetcode\sumEqualZero\SolutionForRecursion.class
 sort\insertion\InsertionHandler.class
+ACM\Othello\Solution$Point.class
 classic\KMP\SolutionV3.class
 basic\Util.class
 leetcode\sumEqualZero\SolutionForDynamicPrograming.class
@@ -72,6 +73,7 @@ ACM\Xiangqi\Role$1.class
 sort\radix\RadixHandler$RadixSortHandler.class
 ACM\Xiangqi\Role$4.class
 sort\bucket\BucketHandler.class
+ACM\Othello\Solution.class
 DP\knapsack\Solution$Gem.class
 ACM\RepeatingDecimals\Solution.class
 sort\insertion\InsertionImprovementHandler.class
