@@ -39,6 +39,7 @@ ACM\DigitCounting\Solution.class
 ACM\DNAConsensusString\Solution.class
 leetcode\sumEqualZero\SolutionForSimple.class
 tree\huffman\HuffmanTree.class
+ACM\Squares\Solution$Line.class
 ACM\Xiangqi\Solution$Point.class
 ACM\Xiangqi\Role$2.class
 sort\merge\MergeHandler.class
@@ -74,4 +75,5 @@ sort\bucket\BucketHandler.class
 DP\knapsack\Solution$Gem.class
 ACM\RepeatingDecimals\Solution.class
 sort\insertion\InsertionImprovementHandler.class
+ACM\Squares\Solution$Point.class
 classic\KMP\SolutionV2.class

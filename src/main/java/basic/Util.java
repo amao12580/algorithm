@@ -3,7 +3,6 @@ package basic;
 import com.google.gson.Gson;
 
 import java.util.Random;
-import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -84,6 +83,13 @@ public class Util {
             return max;
         }
         return (int) (Math.random() * (max - min + 1)) + min;
+    }
+
+    /**
+     * 随机返回一个true或false
+     */
+    public static boolean getRandomBoolean() {
+        return getRandomInteger(1, 1000) > 500;
     }
 
     public static double log(double value, double base) {
