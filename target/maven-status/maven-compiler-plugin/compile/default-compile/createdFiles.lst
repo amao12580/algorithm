@@ -57,6 +57,7 @@ leetcode\sumEqualZero\SolutionForRecursion.class
 sort\insertion\InsertionHandler.class
 ACM\Othello\Solution$Point.class
 classic\KMP\SolutionV3.class
+ACM\IPNetworks\Solution.class
 basic\Util.class
 leetcode\sumEqualZero\SolutionForDynamicPrograming.class
 ACM\Box\Solution.class
@@ -78,5 +79,6 @@ ACM\Othello\Solution.class
 DP\knapsack\Solution$Gem.class
 ACM\RepeatingDecimals\Solution.class
 sort\insertion\InsertionImprovementHandler.class
+ACM\IPNetworks\Solution$IP.class
 ACM\Squares\Solution$Point.class
 classic\KMP\SolutionV2.class
