@@ -46,6 +46,7 @@ ACM\Xiangqi\Role$2.class
 sort\merge\MergeHandler.class
 classic\middleElement\SolutionV2.class
 ACM\CrosswordAnswers\Solution.class
+ACM\MorseMismatches\Solution.class
 tree\huffman\HuffmanTree$TreeNode.class
 classic\twoArrayRemoveRepeat\SolutionV2.class
 DP\coins\SolutionV1.class
