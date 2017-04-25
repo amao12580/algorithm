@@ -76,6 +76,7 @@ ACM\Puzzle\Solution$Element.class
 ACM\Xiangqi\Role.class
 ACM\digitGenerator\Solution.class
 ACM\HangmanJudge\Solution.class
+ACM\Flooded\Solution.class
 ACM\Xiangqi\Role$1.class
 sort\radix\RadixHandler$RadixSortHandler.class
 ACM\Xiangqi\Role$4.class

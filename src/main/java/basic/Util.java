@@ -68,6 +68,11 @@ public class Util {
         return Math.random() * Double.MAX_VALUE;
     }
 
+
+    public static long getRandomLong() {
+        return (long) (Math.random() * Long.MAX_VALUE);
+    }
+
     /**
      * 返回min与max之间的随机值，该值可能等于min，也有可能max
      *
@@ -186,4 +191,5 @@ public class Util {
             return binarySearchLatestLessThan(originArray, beginIndex, middleIndex, key);
         }
     }
+
 }
