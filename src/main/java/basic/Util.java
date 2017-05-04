@@ -191,5 +191,4 @@ public class Util {
             return binarySearchLatestLessThan(originArray, beginIndex, middleIndex, key);
         }
     }
-
 }

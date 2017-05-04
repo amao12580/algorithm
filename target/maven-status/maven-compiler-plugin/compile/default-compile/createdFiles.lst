@@ -31,6 +31,7 @@ ACM\RAID\Solution.class
 ACM\Squares\Solution.class
 leetcode\sumEqualZero\Solution.class
 ACM\DataMining\Solution.class
+ACM\AlignmentOfCode\Solution$Node.class
 classic\middleElement\SolutionV1.class
 ACM\CubePainting\Solution.class
 classic\KMP\SolutionV4.class
@@ -88,4 +89,5 @@ ACM\RepeatingDecimals\Solution.class
 sort\insertion\InsertionImprovementHandler.class
 ACM\IPNetworks\Solution$IP.class
 ACM\Squares\Solution$Point.class
+ACM\AlignmentOfCode\Solution.class
 classic\KMP\SolutionV2.class
