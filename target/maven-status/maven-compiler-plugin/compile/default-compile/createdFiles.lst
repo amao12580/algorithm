@@ -49,6 +49,7 @@ leetcode\sumEqualZero\SolutionForSimple.class
 tree\huffman\HuffmanTree.class
 ACM\Squares\Solution$Line.class
 ACM\Xiangqi\Solution$Point.class
+ACM\ThrowingCardsAwayI\Solution.class
 ACM\Xiangqi\Role$2.class
 sort\merge\MergeHandler.class
 classic\middleElement\SolutionV2.class
