@@ -75,7 +75,7 @@ public class Util {
     }
 
     /**
-     * 返回min与max之间的随机值，该值可能等于min，也有可能max
+     * 返回min与max之间的随机整数值，该值可能等于min，也有可能等于max
      *
      * @param min lower
      * @param max upper

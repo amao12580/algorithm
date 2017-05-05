@@ -58,6 +58,7 @@ ACM\ForeignExchange\Solution$Student.class
 sort\quick\QuickHandler.class
 DP\zigzag\Solution.class
 ACM\CrosswordAnswers\Solution$Element.class
+ACM\Symmetry\Solution.class
 sort\heap\HeapHandler.class
 ACM\SpreadsheetTracking\Solution.class
 classic\KMP\SolutionV1.class
@@ -82,6 +83,7 @@ DP\lis\SolutionV2.class
 ACM\ATypicalHomework\Solution.class
 ACM\FloatingPointNumbers\Solution$ScienceCount.class
 sort\insertion\InsertionHandler.class
+ACM\Symmetry\Solution$Point.class
 ACM\Othello\Solution$Point.class
 ACM\IPNetworks\Solution.class
 ACM\Box\Solution.class
