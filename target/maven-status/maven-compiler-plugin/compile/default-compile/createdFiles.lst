@@ -48,7 +48,9 @@ ACM\Xiangqi\Role$4.class
 sort\bucket\BucketHandler.class
 ACM\Othello\Solution.class
 DP\knapsack\Solution$Gem.class
+ACM\PrinterQueue\Solution$Task.class
 ACM\IPNetworks\Solution$IP.class
+ACM\PrinterQueue\Solution.class
 ACM\AlignmentOfCode\Solution.class
 classic\KMP\SolutionV2.class
 ACM\Kickdown\Solution.class
