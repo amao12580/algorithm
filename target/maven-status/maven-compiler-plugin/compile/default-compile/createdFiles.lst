@@ -1,5 +1,6 @@
 DP\knapsack\Solution.class
 ACM\FloatingPointNumbers\Solution.class
+ACM\CompoundWords\Solution.class
 ACM\DucciSequence\Solution.class
 ACM\TheDoleQueue\Solution.class
 sort\selection\SelectionHandler.class
@@ -25,6 +26,7 @@ sort\count\CountHandler.class
 sort\radix\RadixHandler.class
 ACM\DNAConsensusString\Solution.class
 leetcode\sumEqualZero\SolutionForSimple.class
+ACM\CompoundWords\Solution$Element.class
 ACM\Squares\Solution$Line.class
 ACM\ThrowingCardsAwayI\Solution.class
 classic\middleElement\SolutionV2.class
@@ -90,6 +92,7 @@ ACM\Puzzle\Solution$Element.class
 ACM\digitGenerator\Solution.class
 ACM\HangmanJudge\Solution.class
 ACM\Xiangqi\Role$1.class
+basic\Util$DictionaryString.class
 sort\radix\RadixHandler$RadixSortHandler.class
 ACM\ForeignExchange\Solution.class
 ACM\RepeatingDecimals\Solution.class

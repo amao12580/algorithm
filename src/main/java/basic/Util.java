@@ -2,6 +2,7 @@ package basic;
 
 import com.google.gson.Gson;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -191,4 +192,100 @@ public class Util {
             return binarySearchLatestLessThan(originArray, beginIndex, middleIndex, key);
         }
     }
+
+    /**
+     * 打乱数组
+     */
+    public static void shuffleArray(Object[] arrays) {
+        int endIndex = arrays.length - 1;
+        for (int i = 0; i <= endIndex; i++) {
+            if (swapArray(arrays, i, getRandomInteger(0, endIndex))) {
+                swapArray(arrays, i, getRandomInteger(0, endIndex));
+            }
+        }
+    }
+
+    /**
+     * 数组指定两个下标值进行交换，交换成功后返回true
+     */
+    public static boolean swapArray(Object[] arrays, int thisIndex, int otherIndex) {
+        int endIndex = arrays.length - 1;
+        if (thisIndex >= 0 && thisIndex <= endIndex && otherIndex >= 0 && otherIndex <= endIndex && thisIndex != otherIndex) {
+            Object temp = arrays[thisIndex];
+            arrays[thisIndex] = arrays[otherIndex];
+            arrays[otherIndex] = temp;
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 按照字典序，升序排列
+     * <p>
+     * 具体字符比较大小，请参见ASCII码对照表，取10进制整数值
+     * <p>
+     * https://zh.wikipedia.org/wiki/ASCII
+     */
+    public static String[] orderByDictionaryASC(String[] strings) {
+        if (strings == null) {
+            return null;
+        }
+        int len = strings.length;
+        if (len == 1) {
+            return strings;
+        }
+        DictionaryString[] dictionaryStrings = new DictionaryString[len];
+        for (int i = 0; i < len; i++) {
+            dictionaryStrings[i] = new DictionaryString(strings[i]);
+        }
+        Arrays.sort(dictionaryStrings);
+        String[] result = new String[len];
+        for (int i = 0; i < len; i++) {
+            result[i] = dictionaryStrings[i].getString();
+        }
+        return result;
+    }
+
+    private static class DictionaryString implements Comparable<DictionaryString> {
+        private String string;
+
+        public DictionaryString(String string) {
+            this.string = string;
+        }
+
+        public String getString() {
+            return string;
+        }
+
+        @Override
+        public int compareTo(DictionaryString other) {
+            if (other == null) {
+                throw new IllegalArgumentException();
+            }
+            String thisString = this.getString();
+            String otherString = other.getString();
+            int myLen = thisString.length();
+            int otherLen = otherString.length();
+            int len = myLen > otherLen ? otherLen : myLen;
+            for (int i = 0; i < len; i++) {
+                int c = thisString.charAt(i) - otherString.charAt(i);
+                if (c > 0) {
+                    return 1;
+                }
+                if (c < 0) {
+                    return -1;
+                }
+            }
+            if (myLen > otherLen) {
+                return 1;
+            }
+            if (otherLen > myLen) {
+                return -1;
+            }
+            return 0;
+        }
+    }
+
+    public static final char[] seeds_big_chars = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+    public static final int seedsBigCharsEndIndex = seeds_big_chars.length - 1;
 }
