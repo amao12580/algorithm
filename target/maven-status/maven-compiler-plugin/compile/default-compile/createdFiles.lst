@@ -99,6 +99,7 @@ ACM\Xiangqi\Role$1.class
 basic\Util$DictionaryString.class
 sort\radix\RadixHandler$RadixSortHandler.class
 ACM\ForeignExchange\Solution.class
+ACM\Borrowers\Solution.class
 ACM\RepeatingDecimals\Solution.class
 sort\insertion\InsertionImprovementHandler.class
 ACM\Squares\Solution$Point.class

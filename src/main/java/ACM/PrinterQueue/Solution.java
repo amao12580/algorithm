@@ -105,7 +105,6 @@ public class Solution {
                 break;
             }
         }
-        Collections.sort(priority);
     }
 
     private class Task implements Comparable<Task> {
