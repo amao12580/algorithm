@@ -28,12 +28,14 @@ ACM\DNAConsensusString\Solution.class
 leetcode\sumEqualZero\SolutionForSimple.class
 ACM\CompoundWords\Solution$Element.class
 ACM\Squares\Solution$Line.class
+ACM\Borrowers\Solution$Book.class
 ACM\ThrowingCardsAwayI\Solution.class
 classic\middleElement\SolutionV2.class
 ACM\CrosswordAnswers\Solution.class
 tree\huffman\HuffmanTree$TreeNode.class
 classic\twoArrayRemoveRepeat\SolutionV2.class
 DP\coins\SolutionV1.class
+ACM\Borrowers\Solution$Command.class
 ACM\circularSequence\Solution.class
 leetcode\sumEqualZero\SolutionForRecursion.class
 classic\KMP\SolutionV3.class
@@ -103,3 +105,4 @@ ACM\Borrowers\Solution.class
 ACM\RepeatingDecimals\Solution.class
 sort\insertion\InsertionImprovementHandler.class
 ACM\Squares\Solution$Point.class
+ACM\Borrowers\Solution$1.class

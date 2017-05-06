@@ -111,6 +111,10 @@ public class Util {
     private static final String NUMBERCHAR = "0123456789";
     private static final String ALLCHAR = LETTERCHAR + NUMBERCHAR;
 
+    public static String generateMixedString() {
+        return generateMixedString(10);
+    }
+
     public static String generateMixedString(int length) {
         StringBuilder stringBuffer = new StringBuilder();
         Random random = new Random();
@@ -118,6 +122,10 @@ public class Util {
             stringBuffer.append(ALLCHAR.charAt(random.nextInt(ALLCHAR.length())));
         }
         return stringBuffer.toString();
+    }
+
+    public static String generateLetterString() {
+        return generateLetterString(10);
     }
 
     public static String generateLetterString(int length) {
