@@ -10,6 +10,7 @@ ACM\AllinAll\Solution.class
 ACM\Xiangqi\Role$3.class
 graph\edge\EdgeGraph$Node.class
 sort\shaker\ShakerHandler.class
+ACM\BugHunt\Statement$Type$1.class
 ACM\MessageDecoding\Solution.class
 ACM\PeriodicStrings\Solution.class
 ACM\Puzzle\Solution.class
@@ -17,6 +18,7 @@ DP\lis\SolutionV1.class
 ACM\ExtraordinarilyTiredStudents\Solution.class
 ACM\RAID\Solution.class
 ACM\Squares\Solution.class
+ACM\BugHunt\Statement.class
 leetcode\sumEqualZero\Solution.class
 ACM\DataMining\Solution.class
 ACM\AlignmentOfCode\Solution$Node.class
@@ -48,6 +50,8 @@ ACM\Xiangqi\Role.class
 ACM\Flooded\Solution.class
 ACM\Xiangqi\Role$4.class
 sort\bucket\BucketHandler.class
+ACM\BugHunt\Statement$Type.class
+ACM\BugHunt\Statement$1.class
 ACM\Othello\Solution.class
 DP\knapsack\Solution$Gem.class
 ACM\PrinterQueue\Solution$Task.class
@@ -56,6 +60,7 @@ ACM\PrinterQueue\Solution.class
 ACM\AlignmentOfCode\Solution.class
 classic\KMP\SolutionV2.class
 ACM\Kickdown\Solution.class
+ACM\BugHunt\Solution.class
 ACM\score\Solution.class
 graph\edge\EdgeGraph.class
 ACM\ForeignExchange\Solution$Student.class
@@ -77,6 +82,7 @@ DP\coins\SolutionV2.class
 graph\matrix\MatrixGraph.class
 ACM\ATypicalHomework\Command.class
 basic\sort\SortHandlerBehavior.class
+ACM\BugHunt\Common.class
 ACM\DigitCounting\Solution.class
 tree\huffman\HuffmanTree.class
 ACM\Xiangqi\Solution$Point.class
@@ -101,8 +107,10 @@ ACM\Xiangqi\Role$1.class
 basic\Util$DictionaryString.class
 sort\radix\RadixHandler$RadixSortHandler.class
 ACM\ForeignExchange\Solution.class
+ACM\BugHunt\Statement$Type$2.class
 ACM\Borrowers\Solution.class
 ACM\RepeatingDecimals\Solution.class
 sort\insertion\InsertionImprovementHandler.class
+ACM\BugHunt\Statement$PartType.class
 ACM\Squares\Solution$Point.class
 ACM\Borrowers\Solution$1.class

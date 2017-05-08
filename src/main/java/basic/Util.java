@@ -254,6 +254,87 @@ public class Util {
         return result;
     }
 
+    /**
+     * string的beginIndex至endIndex，找到key最后一次出现的位置
+     * <p>
+     * 没找到或者参数无效，返回-1
+     */
+    public static int lastIndexOf(String string, char key, int beginIndex, int endIndex) {
+        if (string == null) {
+            return -1;
+        }
+        int len = string.length();
+        if (!isInRange(beginIndex, 0, len - 1) || !isInRange(endIndex, 0, len - 1)) {
+            return -1;
+        }
+        if (!isInRange(beginIndex, 0, endIndex)) {
+            return -1;
+        }
+        char[] chars = string.toCharArray();
+        for (int i = endIndex; i >= beginIndex; i--) {
+            if (chars[i] == key) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 至多取string某一段：beginIndex至endIndex，但这段不能以key结尾
+     */
+    public static String skipEndKey(String string, char key, int beginIndex, int endIndex) {
+        if (string == null) {
+            return null;
+        }
+        int len = string.length();
+        if (!isInRange(beginIndex, 0, len - 1) || !isInRange(endIndex, 0, len - 1)) {
+            return null;
+        }
+        if (!isInRange(beginIndex, 0, endIndex)) {
+            return null;
+        }
+        char[] chars = string.toCharArray();
+        int myEndIndex = endIndex;
+        for (int i = endIndex; i >= beginIndex; i--) {
+            if (chars[i] == key) {
+                myEndIndex--;
+            } else {
+                break;
+            }
+        }
+        return string.substring(beginIndex, myEndIndex + 1);
+    }
+
+    /**
+     * 至多取string某一段：beginIndex至endIndex，但这段不能以key开头
+     */
+    public static String skipBeginKey(String string, char key, int beginIndex, int endIndex) {
+        if (string == null) {
+            return null;
+        }
+        int len = string.length();
+        if (!isInRange(beginIndex, 0, len - 1) || !isInRange(endIndex, 0, len - 1)) {
+            return null;
+        }
+        if (!isInRange(beginIndex, 0, endIndex)) {
+            return null;
+        }
+        char[] chars = string.toCharArray();
+        int myBeginIndex = beginIndex;
+        for (int i = beginIndex; i <= endIndex; i++) {
+            if (chars[i] == key) {
+                myBeginIndex++;
+            } else {
+                break;
+            }
+        }
+        return string.substring(myBeginIndex, beginIndex + 1);
+    }
+
+    private static boolean isInRange(int key, int min, int max) {
+        return key >= min && key <= max;
+    }
+
     private static class DictionaryString implements Comparable<DictionaryString> {
         private String string;
 

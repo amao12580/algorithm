@@ -27,6 +27,7 @@ D:\GitHub\algorithm\src\main\java\classic\package-info.java
 D:\GitHub\algorithm\src\main\java\graph\edge\EdgeGraph.java
 D:\GitHub\algorithm\src\main\java\sort\insertion\InsertionImprovementHandler.java
 D:\GitHub\algorithm\src\main\java\ACM\CubePainting\Solution.java
+D:\GitHub\algorithm\src\main\java\ACM\BugHunt\Common.java
 D:\GitHub\algorithm\src\main\java\basic\Util.java
 D:\GitHub\algorithm\src\main\java\ACM\AlignmentOfCode\Solution.java
 D:\GitHub\algorithm\src\main\java\ACM\DataMining\Solution.java
@@ -46,6 +47,7 @@ D:\GitHub\algorithm\src\main\java\DP\coins\SolutionV1.java
 D:\GitHub\algorithm\src\main\java\sort\package-info.java
 D:\GitHub\algorithm\src\main\java\ACM\AllinAll\Solution.java
 D:\GitHub\algorithm\src\main\java\ACM\FloatingPointNumbers\Solution.java
+D:\GitHub\algorithm\src\main\java\ACM\BugHunt\Solution.java
 D:\GitHub\algorithm\src\main\java\classic\KMP\SolutionV3.java
 D:\GitHub\algorithm\src\main\java\leetcode\sumEqualZero\SolutionForDynamicPrograming.java
 D:\GitHub\algorithm\src\main\java\basic\sort\Sortable.java
@@ -70,6 +72,7 @@ D:\GitHub\algorithm\src\main\java\ACM\ThrowingCardsAwayI\Solution.java
 D:\GitHub\algorithm\src\main\java\classic\middleElement\SolutionV2.java
 D:\GitHub\algorithm\src\main\java\leetcode\sumEqualZero\SolutionForSimple.java
 D:\GitHub\algorithm\src\main\java\ACM\CompoundWords\Solution.java
+D:\GitHub\algorithm\src\main\java\ACM\BugHunt\Statement.java
 D:\GitHub\algorithm\src\main\java\ACM\WhereistheMarble\Solution.java
 D:\GitHub\algorithm\src\main\java\graph\list\ListGraph.java
 D:\GitHub\algorithm\src\main\java\sort\shell\ShellHandler.java
