@@ -27,11 +27,12 @@ class Statement {
                 Type.parse(string);
             } catch (IllegalArgumentException e) {
                 System.out.println("line " + (index + 1) + " is invalid." + e.getMessage());
-                break;
+                return;
             }
             System.out.println(string + " passed.");
             index++;
         }
+        System.out.println("All passed.");
     }
 
     private enum Type {
@@ -132,7 +133,7 @@ class Statement {
             if (expect == null) {
                 Integer value = VALUE.parseValue(statement, beginIndex, endIndex, false);
                 if (value == null) {
-                    LinkedList<Integer> arrayBeginIndexs = parseKeys(statement, Common.arrayBeginKey);
+                    LinkedList<Integer> arrayBeginIndexs = parseKeys(statement, Common.arrayBeginKey, Common.arrayEndKey);
                     LinkedList<Integer> arrayEndIndexs = parseKeys(statement, Common.arrayEndKey);
                     if (arrayBeginIndexs.size() != arrayEndIndexs.size()) {
                         throw new IllegalArgumentException("array is not valid.");
@@ -144,7 +145,7 @@ class Statement {
             } else if (expect.equals(VALUE)) {
                 return VALUE.parseValue(statement, beginIndex, endIndex, true);
             } else {
-                LinkedList<Integer> arrayBeginIndexs = parseKeys(statement, Common.arrayBeginKey);
+                LinkedList<Integer> arrayBeginIndexs = parseKeys(statement, Common.arrayBeginKey, Common.arrayEndKey);
                 LinkedList<Integer> arrayEndIndexs = parseKeys(statement, Common.arrayEndKey);
                 if (arrayBeginIndexs.size() != arrayEndIndexs.size()) {
                     throw new IllegalArgumentException("array is not valid.");
@@ -154,12 +155,19 @@ class Statement {
         }
 
         private static LinkedList<Integer> parseKeys(String string, char key) {
+            return parseKeys(string, key, null);
+        }
+
+        private static LinkedList<Integer> parseKeys(String string, char key, Character notKey) {
             LinkedList<Integer> result = new LinkedList<>();
             int len = string.length();
             char[] chars = string.toCharArray();
             for (int i = 0; i < len; i++) {
                 if (chars[i] == key) {
                     result.add(i);
+                }
+                if (notKey != null && chars[i] == notKey) {
+                    break;
                 }
             }
             return result;
@@ -202,7 +210,7 @@ class Statement {
                 throw new IllegalArgumentException("array " + name + " not define.");
             }
             if (index < 0 || index > dl - 1) {
-                throw new IllegalArgumentException("index out of bound:" + index + ",max:" + (dl - 1));
+                throw new IllegalArgumentException("index out of bound:" + name + Common.arrayBeginKey + index + Common.arrayEndKey + ",max:" + (dl - 1));
             }
             String array = name + Common.arrayBeginKey + index + Common.arrayEndKey;
             Integer value = arrayValue.get(array);
@@ -212,7 +220,7 @@ class Statement {
             String b = statement;
             String e = statement;
             statement = b.substring(beginIndex, preBp + 1) + value + e.substring(ep + 1, endIndex + 1);
-            arrayBeginIndexs = parseKeys(statement, Common.arrayBeginKey);
+            arrayBeginIndexs = parseKeys(statement, Common.arrayBeginKey, Common.arrayEndKey);
             arrayEndIndexs = parseKeys(statement, Common.arrayEndKey);
             return parseArray(statement, 0, arrayBeginIndexs, statement.length() - 1, arrayEndIndexs, type, isLeft);
         }

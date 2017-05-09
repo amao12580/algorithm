@@ -89,6 +89,7 @@ ACM\Xiangqi\Solution$Point.class
 ACM\Xiangqi\Role$2.class
 sort\merge\MergeHandler.class
 ACM\MorseMismatches\Solution.class
+ACM\SearchingTheWeb\Solution.class
 DP\lis\SolutionV2.class
 ACM\ATypicalHomework\Solution.class
 ACM\FloatingPointNumbers\Solution$ScienceCount.class

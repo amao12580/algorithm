@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8cb3bf52-3226-4800-b5d0-ff0472d749dc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ACM/BugHunt/Common.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ACM/BugHunt/Solution.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ACM/BugHunt/Statement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/basic/Util$DictionaryString.class" afterPath="$PROJECT_DIR$/target/classes/basic/Util$DictionaryString.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/basic/Util.class" afterPath="$PROJECT_DIR$/target/classes/basic/Util.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/ACM/SearchingTheWeb/Solution.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ACM/SearchingTheWeb/Solution.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ACM/BugHunt/Statement$PartType.class" afterPath="$PROJECT_DIR$/target/classes/ACM/BugHunt/Statement$PartType.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ACM/BugHunt/Statement$Type$1.class" afterPath="$PROJECT_DIR$/target/classes/ACM/BugHunt/Statement$Type$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ACM/BugHunt/Statement$Type$2.class" afterPath="$PROJECT_DIR$/target/classes/ACM/BugHunt/Statement$Type$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ACM/BugHunt/Statement$Type.class" afterPath="$PROJECT_DIR$/target/classes/ACM/BugHunt/Statement$Type.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ACM/BugHunt/Statement.class" afterPath="$PROJECT_DIR$/target/classes/ACM/BugHunt/Statement.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/study-algorithm-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/target/study-algorithm-1.0-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/basic/Util.java" afterPath="$PROJECT_DIR$/src/main/java/basic/Util.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ACM/BugHunt/Statement.java" afterPath="$PROJECT_DIR$/src/main/java/ACM/BugHunt/Statement.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
@@ -49,76 +51,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Solution.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Solution.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ACM/BugHunt/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="19" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="19" />
-              <folding>
-                <element signature="e#1152#1153#0" expanded="true" />
-                <element signature="e#1229#1230#0" expanded="true" />
-                <element signature="e#1257#1258#0" expanded="true" />
-                <element signature="e#1341#1342#0" expanded="true" />
-                <element signature="e#1369#1370#0" expanded="true" />
-                <element signature="e#1424#1425#0" expanded="true" />
-                <element signature="e#1468#1469#0" expanded="true" />
-                <element signature="e#1506#1507#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Statement.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ACM/BugHunt/Statement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="199" column="47" selection-start-line="199" selection-start-column="47" selection-end-line="199" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1263#1264#0" expanded="true" />
-                <element signature="e#1333#1334#0" expanded="true" />
-                <element signature="e#2035#2036#0" expanded="true" />
-                <element signature="e#2105#2106#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LinkedList.java" pinned="false" current-in-tab="false">
-        <entry file="jar://D:/Program Files/Java/jdk1.8.0_74/src.zip!/java/util/LinkedList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="769" column="7" selection-start-line="769" selection-start-column="7" selection-end-line="769" selection-end-column="7" />
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Util.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/basic/Util.java">
+      <file leaf-file-name="Solution.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ACM/SearchingTheWeb/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="310" column="25" selection-start-line="310" selection-start-column="25" selection-end-line="310" selection-end-column="25" />
-              <folding>
-                <element signature="e#3138#3139#0" expanded="true" />
-                <element signature="e#3184#3185#0" expanded="true" />
-                <element signature="e#3573#3574#0" expanded="true" />
-                <element signature="e#3620#3621#0" expanded="true" />
-                <element signature="e#9966#9967#0" expanded="true" />
-                <element signature="e#10013#10014#0" expanded="true" />
-              </folding>
+              <caret line="13" column="41" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="41" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="String.java" pinned="false" current-in-tab="false">
-        <entry file="jar://D:/Program Files/Java/jdk1.8.0_74/src.zip!/java/lang/String.java">
+      <file leaf-file-name="Statement.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ACM/BugHunt/Statement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1544" column="29" selection-start-line="1544" selection-start-column="27" selection-end-line="1544" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.71681416">
+              <caret line="220" column="33" selection-start-line="220" selection-start-column="33" selection-end-line="220" selection-end-column="33" />
               <folding>
-                <element signature="e#70749#70750#0" expanded="true" />
-                <element signature="e#70802#70803#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#6205#6206#0" expanded="true" />
+                <element signature="e#6264#6265#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -128,7 +89,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/ACM/BugHunt/Common.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+              <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -155,7 +116,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/basic/Comparator.java" />
         <option value="$PROJECT_DIR$/src/main/java/DP/Knapsack/package-info.java" />
         <option value="$PROJECT_DIR$/src/main/java/DP/lis/SolutionV2.java" />
         <option value="$PROJECT_DIR$/src/main/java/DP/knapsack/Solution.java" />
@@ -205,6 +165,7 @@
         <option value="$PROJECT_DIR$/src/main/java/ACM/BugHunt/Common.java" />
         <option value="$PROJECT_DIR$/src/main/java/basic/Util.java" />
         <option value="$PROJECT_DIR$/src/main/java/ACM/BugHunt/Solution.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ACM/SearchingTheWeb/Solution.java" />
         <option value="$PROJECT_DIR$/src/main/java/ACM/BugHunt/Statement.java" />
       </list>
     </option>
@@ -326,90 +287,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="study-algorithm" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="study-algorithm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; 1.8 &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="study-algorithm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; 1.8 &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rt.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="study-algorithm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; 1.8 &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rt.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="study-algorithm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; 1.8 &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rt.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1123,12 +1000,12 @@
       <workItem from="1493177328789" duration="100000" />
       <workItem from="1493256571393" duration="681000" />
       <workItem from="1493695661646" duration="60168000" />
-      <workItem from="1494202389859" duration="30550000" />
+      <workItem from="1494202389859" duration="32237000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="457432000" />
+    <option name="totallyTimeSpent" value="459119000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="0" />
@@ -1143,10 +1020,10 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24283667" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.55973154" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35436243" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21203439" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21203439" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295129" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.424933" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1170,7 +1047,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24283667" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24283667" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295129" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1183,10 +1060,10 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.55973154" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3865772" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295129" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21203439" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21203439" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.424933" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -1227,13 +1104,13 @@
         <line-breakpoint enabled="true" type="java-line">
           <condition expression="statement.equals(&quot;B[a[0]]&quot;)" language="JAVA" custom="" />
           <url>file://$PROJECT_DIR$/src/main/java/ACM/BugHunt/Statement.java</url>
-          <line>120</line>
+          <line>121</line>
           <properties />
           <option name="timeStamp" value="153" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ACM/BugHunt/Statement.java</url>
-          <line>168</line>
+          <line>176</line>
           <properties />
           <option name="timeStamp" value="161" />
         </line-breakpoint>
@@ -1614,17 +1491,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="1544" column="29" selection-start-line="1544" selection-start-column="27" selection-end-line="1544" selection-end-column="29" />
           <folding>
-            <element signature="e#70749#70750#0" expanded="true" />
-            <element signature="e#70802#70803#0" expanded="true" />
+            <element signature="e#70749#70750#0" expanded="false" />
+            <element signature="e#70802#70803#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ACM/BugHunt/Common.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1651,33 +1520,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ACM/BugHunt/Statement.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ACM/BugHunt/Common.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="199" column="47" selection-start-line="199" selection-start-column="47" selection-end-line="199" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1263#1264#0" expanded="true" />
-            <element signature="e#1333#1334#0" expanded="true" />
-            <element signature="e#2035#2036#0" expanded="true" />
-            <element signature="e#2105#2106#0" expanded="true" />
-          </folding>
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ACM/BugHunt/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="19" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="19" />
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ACM/SearchingTheWeb/Solution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="41" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ACM/BugHunt/Statement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71681416">
+          <caret line="220" column="33" selection-start-line="220" selection-start-column="33" selection-end-line="220" selection-end-column="33" />
           <folding>
-            <element signature="e#1152#1153#0" expanded="true" />
-            <element signature="e#1229#1230#0" expanded="true" />
-            <element signature="e#1257#1258#0" expanded="true" />
-            <element signature="e#1341#1342#0" expanded="true" />
-            <element signature="e#1369#1370#0" expanded="true" />
-            <element signature="e#1424#1425#0" expanded="true" />
-            <element signature="e#1468#1469#0" expanded="true" />
-            <element signature="e#1506#1507#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#6205#6206#0" expanded="true" />
+            <element signature="e#6264#6265#0" expanded="true" />
           </folding>
         </state>
       </provider>
