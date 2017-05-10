@@ -113,12 +113,16 @@ public class Solution {
                     printNotFound();
                 }
                 break;
-
             case AND:
                 keyword1 = params[1];
                 keyword2 = params[2];
                 System.out.println("command :" + Command.AND.toString() + ",keyword:" + keyword1 + "," + keyword2);
-                positions = and(findPositions(keyword1), findPositions(keyword2));
+                Set<Position> positions1 = findPositions(keyword1);
+                if (positions1 == null || positions1.isEmpty()) {
+                    printNotFound();
+                    break;
+                }
+                positions = and(positions1, findPositions(keyword2));
                 if (positions != null) {
                     printLine(positions);
                 } else {
@@ -344,6 +348,11 @@ public class Solution {
         public int hashCode() {
             return (id + "").hashCode();
         }
+
+        @Override
+        public String toString() {
+            return getContent();
+        }
     }
 
     Map<Integer, Article> articles = new HashMap<>();
@@ -352,36 +361,18 @@ public class Solution {
         Article article = new Article(strings);
         indexOne(article);
         this.articles.put(article.getId(), article);
-//        File file = new File("");
-//        FileInputStream inputStream = new FileInputStream(file);
-//        inputStream.read();
-//        inputStream.skip()
     }
 
     private void indexOne(Article article) {
         int articleId = article.getId();
         Map<Integer, Line> lines = article.getLines();
-
-//        long sum = 0l;
-//        int count = 100;
         for (Map.Entry<Integer, Line> entry : lines.entrySet()) {
-//            long s = System.currentTimeMillis();
             indexOne(entry.getValue(), articleId);
-//            sum += System.currentTimeMillis() - s;
-//            if (count == 1) {
-//                System.out.println("--------------------------");
-//                System.out.println("time avg:" + (sum / 100));
-//                System.out.println("--------------------------");
-//                count = 100;
-//                sum = 0;
-//            }
-//            count--;
         }
     }
 
     private void indexOne(Line line, int articleId) {
         int lineId = line.getId();
-//        System.out.println("index line :" + lineId);
         String content = line.getContent();
         int len = content.length();
         int beginIndex = -1;
@@ -531,7 +522,7 @@ public class Solution {
         public abstract String getRandomQuery();
 
         public String getRandomKeyword() {
-            int len = Util.getRandomInteger(1, keywordMax / 4);
+            int len = Util.getRandomInteger(3, keywordMax / 8);
             return Util.generateLetterString(len);
         }
 
@@ -541,12 +532,12 @@ public class Solution {
         }
 
         private static String[] parse(String query, String key) {
-            int ap = query.indexOf(key);
-            if (ap > 0) {
+            int p = query.indexOf(key);
+            if (p >= 0) {
                 String[] result = new String[3];
                 result[0] = key;
-                result[1] = query.substring(0, ap).toLowerCase();
-                result[2] = query.substring(ap + key.length()).toLowerCase();
+                result[1] = query.substring(0, p).toLowerCase();
+                result[2] = query.substring(p + key.length()).toLowerCase();
                 return result;
             }
             return null;
