@@ -13,6 +13,7 @@ sort\shaker\ShakerHandler.class
 ACM\BugHunt\Statement$Type$1.class
 ACM\MessageDecoding\Solution.class
 ACM\PeriodicStrings\Solution.class
+ACM\UpdatingADictionary\Solution$Element.class
 ACM\Puzzle\Solution.class
 ACM\SearchingTheWeb\Solution$1.class
 DP\lis\SolutionV1.class

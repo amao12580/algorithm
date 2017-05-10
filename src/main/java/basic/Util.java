@@ -352,7 +352,9 @@ public class Util {
                 throw new IllegalArgumentException();
             }
             String thisString = this.getString();
+            thisString = thisString.toLowerCase();
             String otherString = other.getString();
+            otherString = otherString.toLowerCase();
             int myLen = thisString.length();
             int otherLen = otherString.length();
             int len = myLen > otherLen ? otherLen : myLen;
