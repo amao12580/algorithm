@@ -89,6 +89,8 @@ public class Solution {
     private int time = 0;
 
     private void AllRequestExecutedTime(Topic[] topicArray, Person[] personArray) {
+        System.out.println("topic:" + Arrays.toString(topicArray));
+        System.out.println("person:" + Arrays.toString(personArray));
         Set<Topic> topics = new HashSet<>();
         for (Topic topic : topicArray) {
             if (time > topic.getT0()) {
@@ -112,10 +114,12 @@ public class Solution {
                 tasks = new HashMap<>();
                 List<Person> availablePersons = findAvailable(persons);
                 for (Person person : availablePersons) {//匹配客服与任务
+                    Topic topic;
+                    List<Person> personList;
                     for (Integer tid : person.getTopics()) {
-                        Topic topic = availableTopics.get(tid);
+                        topic = availableTopics.get(tid);
                         if (topic != null) {
-                            List<Person> personList = tasks.get(topic);
+                            personList = tasks.get(topic);
                             if (personList == null) {
                                 personList = new ArrayList<>();
                                 personList.add(person);
@@ -127,9 +131,11 @@ public class Solution {
                         }
                     }
                 }
+                Topic topic;
+                List<Person> personList;
                 for (Map.Entry<Topic, List<Person>> entry : tasks.entrySet()) {//开始做服务
-                    Topic topic = entry.getKey();
-                    List<Person> personList = entry.getValue();
+                    topic = entry.getKey();
+                    personList = entry.getValue();
                     if (personList.size() > 1) {
                         Collections.sort(personList);
                     }
@@ -165,7 +171,7 @@ public class Solution {
 
 
     private class Topic {
-        private String no;
+        private transient String no;
         private int tid;
         private int num;
         private int t0;
@@ -227,14 +233,19 @@ public class Solution {
             this.num--;
             return this.num <= 0;
         }
+
+        @Override
+        public String toString() {
+            return Util.toJson(this);
+        }
     }
 
     private class Person implements Comparable<Person> {
-        private String no;
+        private transient String no;
         private int pid;
-        private boolean isFree = true;
-        private Integer lastServiceTime = null;
-        private Integer nextFreeTime = null;
+        private transient boolean isFree = true;
+        private transient Integer lastServiceTime = null;
+        private transient Integer nextFreeTime = null;
         private LinkedList<Integer> topics;
 
         public boolean inService() {
@@ -306,6 +317,11 @@ public class Solution {
                 return this.pid > other.pid ? 1 : -1;
             }
             return 0;
+        }
+
+        @Override
+        public String toString() {
+            return Util.toJson(this);
         }
     }
 }

@@ -78,6 +78,7 @@ ACM\score\Solution.class
 graph\edge\EdgeGraph.class
 ACM\ForeignExchange\Solution$Student.class
 sort\quick\QuickHandler.class
+ACM\Exchange\Solution.class
 DP\zigzag\Solution.class
 ACM\CrosswordAnswers\Solution$Element.class
 ACM\Symmetry\Solution.class
