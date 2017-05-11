@@ -2,6 +2,7 @@ DP\knapsack\Solution.class
 ACM\FloatingPointNumbers\Solution.class
 ACM\CompoundWords\Solution.class
 ACM\DucciSequence\Solution.class
+ACM\QueueAndA\Solution$Person.class
 ACM\TheDoleQueue\Solution.class
 sort\selection\SelectionHandler.class
 ACM\WhereistheMarble\Solution.class
@@ -43,6 +44,7 @@ ACM\SearchingTheWeb\Solution$Command$4.class
 tree\huffman\HuffmanTree$TreeNode.class
 classic\twoArrayRemoveRepeat\SolutionV2.class
 DP\coins\SolutionV1.class
+ACM\QueueAndA\Solution.class
 ACM\SearchingTheWeb\Solution$Position.class
 ACM\DoYouKnowTheWayToSanJose\Solution$Location.class
 ACM\Borrowers\Solution$Command.class
@@ -69,6 +71,7 @@ ACM\IPNetworks\Solution$IP.class
 ACM\PrinterQueue\Solution.class
 ACM\AlignmentOfCode\Solution.class
 classic\KMP\SolutionV2.class
+ACM\QueueAndA\Solution$Topic.class
 ACM\Kickdown\Solution.class
 ACM\BugHunt\Solution.class
 ACM\score\Solution.class
