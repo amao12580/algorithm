@@ -26,6 +26,7 @@ leetcode\sumEqualZero\Solution.class
 ACM\DataMining\Solution.class
 ACM\AlignmentOfCode\Solution$Node.class
 classic\middleElement\SolutionV1.class
+ACM\DoYouKnowTheWayToSanJose\Solution$Request.class
 basic\sort\Sortable.class
 sort\count\CountHandler.class
 sort\radix\RadixHandler.class
@@ -43,6 +44,7 @@ tree\huffman\HuffmanTree$TreeNode.class
 classic\twoArrayRemoveRepeat\SolutionV2.class
 DP\coins\SolutionV1.class
 ACM\SearchingTheWeb\Solution$Position.class
+ACM\DoYouKnowTheWayToSanJose\Solution$Location.class
 ACM\Borrowers\Solution$Command.class
 ACM\circularSequence\Solution.class
 leetcode\sumEqualZero\SolutionForRecursion.class
@@ -54,6 +56,7 @@ ACM\MolarMass\Solution.class
 graph\list\ListGraph$Node.class
 ACM\Xiangqi\Role.class
 ACM\Flooded\Solution.class
+ACM\DoYouKnowTheWayToSanJose\Solution$Map.class
 ACM\Xiangqi\Role$4.class
 sort\bucket\BucketHandler.class
 ACM\BugHunt\Statement$Type.class
@@ -61,6 +64,7 @@ ACM\BugHunt\Statement$1.class
 ACM\Othello\Solution.class
 DP\knapsack\Solution$Gem.class
 ACM\PrinterQueue\Solution$Task.class
+ACM\DoYouKnowTheWayToSanJose\Solution.class
 ACM\IPNetworks\Solution$IP.class
 ACM\PrinterQueue\Solution.class
 ACM\AlignmentOfCode\Solution.class
@@ -119,6 +123,7 @@ basic\Util$DictionaryString.class
 sort\radix\RadixHandler$RadixSortHandler.class
 ACM\ForeignExchange\Solution.class
 ACM\BugHunt\Statement$Type$2.class
+ACM\DoYouKnowTheWayToSanJose\Solution$Point.class
 ACM\Borrowers\Solution.class
 ACM\RepeatingDecimals\Solution.class
 sort\insertion\InsertionImprovementHandler.class
