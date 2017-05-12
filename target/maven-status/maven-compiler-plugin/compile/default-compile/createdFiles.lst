@@ -11,10 +11,12 @@ ACM\AllinAll\Solution.class
 ACM\Xiangqi\Role$3.class
 graph\edge\EdgeGraph$Node.class
 sort\shaker\ShakerHandler.class
+ACM\Exchange\Solution$1.class
 ACM\BugHunt\Statement$Type$1.class
 ACM\MessageDecoding\Solution.class
 ACM\PeriodicStrings\Solution.class
 ACM\UpdatingADictionary\Solution$Element.class
+ACM\Exchange\Solution$CommandType.class
 ACM\Puzzle\Solution.class
 ACM\SearchingTheWeb\Solution$1.class
 DP\lis\SolutionV1.class
@@ -57,6 +59,7 @@ ACM\Xiangqi\Solution.class
 ACM\MolarMass\Solution.class
 graph\list\ListGraph$Node.class
 ACM\Xiangqi\Role.class
+ACM\Exchange\Solution$Command.class
 ACM\Flooded\Solution.class
 ACM\DoYouKnowTheWayToSanJose\Solution$Map.class
 ACM\Xiangqi\Role$4.class
@@ -91,6 +94,7 @@ ACM\ATypicalHomework\Student.class
 graph\list\ListGraph.class
 ACM\FloatingPointNumbers\Solution$BinaryLength.class
 classic\twoArrayRemoveRepeat\SolutionV1.class
+ACM\Exchange\Solution$Order.class
 ACM\CubePainting\Solution.class
 classic\KMP\SolutionV4.class
 DP\coins\SolutionV2.class
