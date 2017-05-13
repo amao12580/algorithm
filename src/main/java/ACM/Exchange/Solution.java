@@ -176,14 +176,14 @@ public class Solution {
                 buys.add(order);
                 orders.put(command.getCid(), order);
                 addPriceToOrder(order);
-                doBuy(order);
+                doBuy(buys.peek());
                 break;
             case SELL:
                 order = new Order(command.getCid(), CommandType.SELL, param[0], param[1]);
                 sells.add(order);
                 orders.put(command.getCid(), order);
                 addPriceToOrder(order);
-                doSell(order);
+                doSell(sells.peek());
                 break;
             case CANCEL:
                 doCancel(param[0]);
