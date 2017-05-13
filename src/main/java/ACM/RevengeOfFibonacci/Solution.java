@@ -25,7 +25,7 @@ public class Solution {
         Solution solution = new Solution();
         long s = System.currentTimeMillis();
         solution.createFibonacci(100000);
-        System.out.println("tire tree create time:" + (System.currentTimeMillis() - s) + "ms");
+        System.out.println("trie tree create time:" + (System.currentTimeMillis() - s) + "ms");
         solution.case1();
     }
 
