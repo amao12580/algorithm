@@ -96,6 +96,7 @@ graph\list\ListGraph.class
 ACM\FloatingPointNumbers\Solution$BinaryLength.class
 classic\twoArrayRemoveRepeat\SolutionV1.class
 ACM\Exchange\Solution$Order.class
+ACM\RevengeOfFibonacci\Solution$1.class
 ACM\CubePainting\Solution.class
 classic\KMP\SolutionV4.class
 DP\coins\SolutionV2.class
@@ -111,12 +112,14 @@ ACM\SearchingTheWeb\Solution$Command.class
 sort\merge\MergeHandler.class
 ACM\MorseMismatches\Solution.class
 ACM\SearchingTheWeb\Solution.class
+ACM\RevengeOfFibonacci\Solution$TrieTree.class
 DP\lis\SolutionV2.class
 ACM\ATypicalHomework\Solution.class
 ACM\FloatingPointNumbers\Solution$ScienceCount.class
 sort\insertion\InsertionHandler.class
 ACM\Symmetry\Solution$Point.class
 ACM\Othello\Solution$Point.class
+ACM\RevengeOfFibonacci\Solution$Node.class
 ACM\SearchingTheWeb\Solution$Command$1.class
 ACM\IPNetworks\Solution.class
 ACM\Box\Solution.class
