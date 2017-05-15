@@ -51,7 +51,9 @@ ACM\SearchingTheWeb\Solution$Position.class
 ACM\DoYouKnowTheWayToSanJose\Solution$Location.class
 ACM\Borrowers\Solution$Command.class
 ACM\circularSequence\Solution.class
+ACM\UseOfHospitalFacilities\Solution.class
 leetcode\sumEqualZero\SolutionForRecursion.class
+ACM\UseOfHospitalFacilities\Solution$Patient.class
 classic\KMP\SolutionV3.class
 basic\Util.class
 leetcode\sumEqualZero\SolutionForDynamicPrograming.class
@@ -90,6 +92,7 @@ sort\heap\HeapHandler.class
 ACM\SpreadsheetTracking\Solution.class
 classic\KMP\SolutionV1.class
 ACM\SearchingTheWeb\Solution$Command$3.class
+ACM\UseOfHospitalFacilities\Solution$Room.class
 sort\bubble\BubbleHandler.class
 ACM\ATypicalHomework\Student.class
 graph\list\ListGraph.class

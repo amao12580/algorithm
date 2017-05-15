@@ -107,7 +107,9 @@ public class Util {
     }
 
 
-    private static final String LETTERCHAR = "abcdefghijkllmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private static final String LOWERLETTERCHAR = "abcdefghijkllmnopqrstuvwxyz";
+    private static final String UPLETTERCHAR = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private static final String LETTERCHAR = LOWERLETTERCHAR + UPLETTERCHAR;
     private static final String NUMBERCHAR = "0123456789";
     private static final String ALLCHAR = LETTERCHAR + NUMBERCHAR;
 
@@ -124,6 +126,10 @@ public class Util {
         return stringBuffer.toString();
     }
 
+    public static String generateLowerLetterString() {
+        return generateLowerLetterString(10);
+    }
+
     public static String generateLetterString() {
         return generateLetterString(10);
     }
@@ -133,6 +139,15 @@ public class Util {
         Random random = new Random();
         for (int i = 0; i < length; i++) {
             stringBuffer.append(LETTERCHAR.charAt(random.nextInt(LETTERCHAR.length())));
+        }
+        return stringBuffer.toString();
+    }
+
+    public static String generateLowerLetterString(int length) {
+        StringBuilder stringBuffer = new StringBuilder();
+        Random random = new Random();
+        for (int i = 0; i < length; i++) {
+            stringBuffer.append(LOWERLETTERCHAR.charAt(random.nextInt(LOWERLETTERCHAR.length())));
         }
         return stringBuffer.toString();
     }
@@ -377,6 +392,6 @@ public class Util {
         }
     }
 
-    public static final char[] seeds_big_chars = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+    public static final char[] seeds_big_chars = UPLETTERCHAR.toCharArray();
     public static final int seedsBigCharsEndIndex = seeds_big_chars.length - 1;
 }
