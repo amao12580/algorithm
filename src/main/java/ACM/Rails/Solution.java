@@ -38,12 +38,13 @@ public class Solution {
         Stack<Integer> stack = new Stack<>();
         int endIndex = in.length - 1;
         int len = in.length;
+        int[] empty = new int[len];
         int[] maybe;
         int index;
         for (int i = 0; i <= endIndex; i++) {
-            maybe = new int[len];
+            maybe = empty;
             index = 0;
-            for (int j = 0; j < len; j++) {
+            for (int j = 0; j <= endIndex; j++) {
                 stack.push(in[j]);
                 if (j == i || j == endIndex) {
                     while (!stack.empty()) {
