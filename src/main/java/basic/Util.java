@@ -109,7 +109,7 @@ public class Util {
 
     private static final String LOWERLETTERCHAR = "abcdefghijkllmnopqrstuvwxyz";
     private static final String UPLETTERCHAR = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    private static final String LETTERCHAR = LOWERLETTERCHAR + UPLETTERCHAR;
+    public static final String LETTERCHAR = LOWERLETTERCHAR + UPLETTERCHAR;
     private static final String NUMBERCHAR = "0123456789";
     private static final String ALLCHAR = LETTERCHAR + NUMBERCHAR;
 
