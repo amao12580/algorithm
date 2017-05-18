@@ -56,6 +56,7 @@ ACM\UseOfHospitalFacilities\Solution.class
 leetcode\sumEqualZero\SolutionForRecursion.class
 ACM\UseOfHospitalFacilities\Solution$Patient.class
 classic\KMP\SolutionV3.class
+ACM\MatrixChainMultiplication\Solution.class
 basic\Util.class
 leetcode\sumEqualZero\SolutionForDynamicPrograming.class
 ACM\Xiangqi\Solution.class
@@ -138,6 +139,7 @@ ACM\Puzzle\Solution$Element.class
 ACM\SearchingTheWeb\Solution$Line.class
 ACM\digitGenerator\Solution.class
 ACM\HangmanJudge\Solution.class
+ACM\MatrixChainMultiplication\Solution$Matrix.class
 ACM\Xiangqi\Role$1.class
 basic\Util$DictionaryString.class
 sort\radix\RadixHandler$RadixSortHandler.class

@@ -135,30 +135,30 @@ public class Util {
     }
 
     public static String generateLetterString(int length) {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringBuilder builder = new StringBuilder();
         Random random = new Random();
         for (int i = 0; i < length; i++) {
-            stringBuffer.append(LETTERCHAR.charAt(random.nextInt(LETTERCHAR.length())));
+            builder.append(LETTERCHAR.charAt(random.nextInt(LETTERCHAR.length())));
         }
-        return stringBuffer.toString();
+        return builder.toString();
     }
 
     public static String generateLowerLetterString(int length) {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringBuilder builder = new StringBuilder();
         Random random = new Random();
         for (int i = 0; i < length; i++) {
-            stringBuffer.append(LOWERLETTERCHAR.charAt(random.nextInt(LOWERLETTERCHAR.length())));
+            builder.append(LOWERLETTERCHAR.charAt(random.nextInt(LOWERLETTERCHAR.length())));
         }
-        return stringBuffer.toString();
+        return builder.toString();
     }
 
     public static String generateNumberString(int length) {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringBuilder builder = new StringBuilder();
         Random random = new Random();
         for (int i = 0; i < length; i++) {
-            stringBuffer.append(NUMBERCHAR.charAt(random.nextInt(NUMBERCHAR.length())));
+            builder.append(NUMBERCHAR.charAt(random.nextInt(NUMBERCHAR.length())));
         }
-        return stringBuffer.toString();
+        return builder.toString();
     }
 
 
@@ -346,6 +346,9 @@ public class Util {
         return string.substring(myBeginIndex, beginIndex + 1);
     }
 
+    /**
+     * 判断是否在给定范围内，包含上下边界值
+     */
     private static boolean isInRange(int key, int min, int max) {
         return key >= min && key <= max;
     }
@@ -394,4 +397,25 @@ public class Util {
 
     public static final char[] seeds_big_chars = UPLETTERCHAR.toCharArray();
     public static final int seedsBigCharsEndIndex = seeds_big_chars.length - 1;
+
+    /**
+     * 判断是否为字母，包括大写或小写
+     */
+    public static boolean isAlpha(char c) {
+        return isLowerCaseAlpha(c) || isUpperCaseAlpha(c);
+    }
+
+    /**
+     * 判断是否为小写字母
+     */
+    public static boolean isLowerCaseAlpha(char c) {
+        return (c >= 97 && c <= 122);
+    }
+
+    /**
+     * 判断是否为大写字母
+     */
+    public static boolean isUpperCaseAlpha(char c) {
+        return (c >= 65 && c <= 90);
+    }
 }
