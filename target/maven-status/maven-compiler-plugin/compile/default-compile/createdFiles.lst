@@ -67,6 +67,7 @@ ACM\Xiangqi\Role.class
 ACM\Exchange\Solution$Command.class
 ACM\Flooded\Solution.class
 ACM\DoYouKnowTheWayToSanJose\Solution$Map.class
+ACM\BoxesInALine\Solution.class
 ACM\Xiangqi\Role$4.class
 sort\bucket\BucketHandler.class
 ACM\BugHunt\Statement$Type.class
