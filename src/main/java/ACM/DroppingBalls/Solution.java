@@ -124,6 +124,7 @@ public class Solution {
             nodes.add(node.getLeft());
             nodes.add(node.getRight());
         }
+        nodes.clear();
         return binaryTree;
     }
 

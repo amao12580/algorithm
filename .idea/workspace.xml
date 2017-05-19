@@ -5,173 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8cb3bf52-3226-4800-b5d0-ff0472d749dc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/basic/dataStructure/tree/binary/BinaryTree.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/basic/dataStructure/tree/binary/Node.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ACM/DroppingBalls/Solution.java" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\ATypicalHomework\Command.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\ATypicalHomework\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\ATypicalHomework\Student.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\AlignmentOfCode\Solution$Node.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\AlignmentOfCode\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\AllinAll\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Borrowers\Solution$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Borrowers\Solution$Book.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Borrowers\Solution$Command.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Borrowers\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Box\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\BoxesInALine\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\BrokenKeyboard\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\BugHunt\Common.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\BugHunt\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\BugHunt\Statement$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\BugHunt\Statement$PartType.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\BugHunt\Statement$Type$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\BugHunt\Statement$Type$2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\BugHunt\Statement$Type.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\BugHunt\Statement.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\CompoundWords\Solution$Element.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\CompoundWords\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\ConcurrencySimulator\Solution$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\ConcurrencySimulator\Solution$Procedure.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\ConcurrencySimulator\Solution$Result.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\ConcurrencySimulator\Solution$Statement.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\ConcurrencySimulator\Solution$StatementType.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\ConcurrencySimulator\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\CrosswordAnswers\Solution$Element.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\CrosswordAnswers\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\CubePainting\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\DNAConsensusString\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\DataMining\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\DigitCounting\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\DoYouKnowTheWayToSanJose\Solution$Location.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\DoYouKnowTheWayToSanJose\Solution$Map.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\DoYouKnowTheWayToSanJose\Solution$Point.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\DoYouKnowTheWayToSanJose\Solution$Request.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\DoYouKnowTheWayToSanJose\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\DucciSequence\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Exchange\Solution$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Exchange\Solution$Command.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Exchange\Solution$CommandType.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Exchange\Solution$Order.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Exchange\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\ExtraordinarilyTiredStudents\Solution$Student.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\ExtraordinarilyTiredStudents\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\FloatingPointNumbers\Solution$BinaryLength.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\FloatingPointNumbers\Solution$ScienceCount.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\FloatingPointNumbers\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Flooded\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\ForeignExchange\Solution$Student.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\ForeignExchange\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\HangmanJudge\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\IPNetworks\Solution$IP.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\IPNetworks\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Kickdown\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\MatrixChainMultiplication\Solution$Matrix.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\MatrixChainMultiplication\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\MessageDecoding\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\MolarMass\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\MorseMismatches\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Othello\Solution$Point.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Othello\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\PeriodicStrings\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\PrinterQueue\Solution$Task.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\PrinterQueue\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Puzzle\Solution$Element.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Puzzle\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\QueueAndA\Solution$Person.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\QueueAndA\Solution$Topic.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\QueueAndA\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\RAID\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Rails\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\RepeatingDecimals\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\RevengeOfFibonacci\Solution$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\RevengeOfFibonacci\Solution$Node.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\RevengeOfFibonacci\Solution$TrieTree.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\RevengeOfFibonacci\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\SearchingTheWeb\Solution$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\SearchingTheWeb\Solution$Article.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\SearchingTheWeb\Solution$Command$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\SearchingTheWeb\Solution$Command$2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\SearchingTheWeb\Solution$Command$3.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\SearchingTheWeb\Solution$Command$4.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\SearchingTheWeb\Solution$Command.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\SearchingTheWeb\Solution$Line.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\SearchingTheWeb\Solution$Position.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\SearchingTheWeb\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\SpreadsheetTracking\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Squares\Solution$Line.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Squares\Solution$Point.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Squares\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Symmetry\Solution$Point.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Symmetry\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\TheDoleQueue\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\ThrowingCardsAwayI\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\UpdatingADictionary\Solution$Element.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\UpdatingADictionary\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\UseOfHospitalFacilities\Solution$Patient.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\UseOfHospitalFacilities\Solution$Room.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\UseOfHospitalFacilities\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\WhereistheMarble\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Xiangqi\Role$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Xiangqi\Role$2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Xiangqi\Role$3.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Xiangqi\Role$4.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Xiangqi\Role.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Xiangqi\Solution$Point.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Xiangqi\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\circularSequence\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\digitGenerator\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\score\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\DP\coins\SolutionV1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\DP\coins\SolutionV2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\DP\knapsack\Solution$Gem.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\DP\knapsack\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\DP\lis\SolutionV1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\DP\lis\SolutionV2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\DP\minimumPathSum\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\DP\zigzag\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\basic\Comparator.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\basic\Util$DictionaryString.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\basic\Util.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\basic\sort\SortHandlerBehavior.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\basic\sort\Sortable.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\classic\KMP\SolutionV1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\classic\KMP\SolutionV2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\classic\KMP\SolutionV3.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\classic\KMP\SolutionV4.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\classic\middleElement\SolutionV1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\classic\middleElement\SolutionV2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\classic\twoArrayRemoveRepeat\SolutionV1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\classic\twoArrayRemoveRepeat\SolutionV2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\graph\edge\EdgeGraph$Node.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\graph\edge\EdgeGraph.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\graph\list\ListGraph$Node.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\graph\list\ListGraph.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\graph\matrix\MatrixGraph.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\leetcode\sumEqualZero\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\leetcode\sumEqualZero\SolutionForDynamicPrograming.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\leetcode\sumEqualZero\SolutionForRecursion.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\leetcode\sumEqualZero\SolutionForSimple.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\bubble\BubbleHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\bucket\BucketHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\count\CountHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\heap\HeapHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\insertion\InsertionHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\insertion\InsertionImprovementHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\merge\MergeHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\quick\QuickHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\radix\RadixHandler$RadixSortHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\radix\RadixHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\selection\SelectionHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\shaker\ShakerHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\shell\ShellHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\tree\huffman\HuffmanTree$TreeNode.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\tree\huffman\HuffmanTree.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\maven-archiver\pom.properties" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\maven-status\maven-compiler-plugin\compile\default-compile\createdFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\maven-status\maven-compiler-plugin\compile\default-compile\inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\maven-status\maven-compiler-plugin\testCompile\default-testCompile\inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\study-algorithm-1.0-SNAPSHOT.jar" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ACM/DroppingBalls/Solution.class" afterPath="$PROJECT_DIR$/target/classes/ACM/DroppingBalls/Solution.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/study-algorithm-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/target/study-algorithm-1.0-SNAPSHOT.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ACM/DroppingBalls/Solution.java" afterPath="$PROJECT_DIR$/src/main/java/ACM/DroppingBalls/Solution.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="study-algorithm.iws" />
@@ -209,8 +46,8 @@
       <file leaf-file-name="Solution.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ACM/DroppingBalls/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="5.0416665">
-              <caret line="121" column="37" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.5833333">
+              <caret line="125" column="9" selection-start-line="125" selection-start-column="9" selection-end-line="125" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1490#1491#0" expanded="true" />
@@ -1228,12 +1065,12 @@
       <workItem from="1494551996488" duration="43028000" />
       <workItem from="1494810464571" duration="47091000" />
       <workItem from="1494921361472" duration="29185000" />
-      <workItem from="1495180902155" duration="9868000" />
+      <workItem from="1495180902155" duration="10030000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="653921000" />
+    <option name="totallyTimeSpent" value="654083000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
@@ -1735,8 +1572,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ACM/DroppingBalls/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.0416665">
-          <caret line="121" column="37" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.5833333">
+          <caret line="125" column="9" selection-start-line="125" selection-start-column="9" selection-end-line="125" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1490#1491#0" expanded="true" />
