@@ -30,6 +30,7 @@ leetcode\sumEqualZero\Solution.class
 ACM\DataMining\Solution.class
 ACM\AlignmentOfCode\Solution$Node.class
 classic\middleElement\SolutionV1.class
+ACM\DroppingBalls\Solution.class
 ACM\DoYouKnowTheWayToSanJose\Solution$Request.class
 basic\sort\Sortable.class
 sort\count\CountHandler.class
@@ -53,6 +54,7 @@ ACM\DoYouKnowTheWayToSanJose\Solution$Location.class
 ACM\Borrowers\Solution$Command.class
 ACM\circularSequence\Solution.class
 ACM\UseOfHospitalFacilities\Solution.class
+basic\dataStructure\tree\binary\Node.class
 leetcode\sumEqualZero\SolutionForRecursion.class
 ACM\UseOfHospitalFacilities\Solution$Patient.class
 classic\KMP\SolutionV3.class
@@ -81,6 +83,7 @@ ACM\IPNetworks\Solution$IP.class
 ACM\PrinterQueue\Solution.class
 ACM\AlignmentOfCode\Solution.class
 ACM\ConcurrencySimulator\Solution$1.class
+ACM\DroppingBalls\Solution$SwitchNode.class
 classic\KMP\SolutionV2.class
 ACM\QueueAndA\Solution$Topic.class
 ACM\ConcurrencySimulator\Solution$StatementType.class
@@ -108,6 +111,7 @@ ACM\Exchange\Solution$Order.class
 ACM\RevengeOfFibonacci\Solution$1.class
 ACM\CubePainting\Solution.class
 classic\KMP\SolutionV4.class
+basic\dataStructure\tree\binary\BinaryTree.class
 DP\coins\SolutionV2.class
 graph\matrix\MatrixGraph.class
 ACM\ATypicalHomework\Command.class
