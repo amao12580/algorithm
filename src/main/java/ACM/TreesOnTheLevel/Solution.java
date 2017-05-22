@@ -84,13 +84,13 @@ public class Solution {
         while (!nodes.isEmpty()) {
             node = nodes.pollFirst();
             path = node.getPath();
-            String lk = path + "L";
+            String lk = path.concat("L");
             left = path2nodes.get(lk);
             if (left != null) {
                 System.out.print(left.getValue() + " ");
                 nodes.addLast(left);
             }
-            String rk = path + "R";
+            String rk = path.concat("R");
             right = path2nodes.get(rk);
             if (right != null) {
                 System.out.print(right.getValue() + " ");
