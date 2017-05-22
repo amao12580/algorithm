@@ -7,7 +7,7 @@ package basic.dataStructure.tree.binary;
  * Time:16:54
  */
 public class Node<T> {
-    private T value;
+    public T value;
     private Node<T> left;
     private Node<T> right;
 

@@ -15,10 +15,6 @@ public final class BinaryTree<T> {
 
     }
 
-    public BinaryTree(Node<T> root) {
-        this.root = root;
-    }
-
     public Node<T> getRoot() {
         return root;
     }

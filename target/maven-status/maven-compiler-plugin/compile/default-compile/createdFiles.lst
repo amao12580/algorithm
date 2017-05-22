@@ -88,6 +88,7 @@ classic\KMP\SolutionV2.class
 ACM\QueueAndA\Solution$Topic.class
 ACM\ConcurrencySimulator\Solution$StatementType.class
 ACM\Kickdown\Solution.class
+ACM\TreesOnTheLevel\Solution$NodePrint.class
 ACM\BugHunt\Solution.class
 ACM\score\Solution.class
 graph\edge\EdgeGraph.class
