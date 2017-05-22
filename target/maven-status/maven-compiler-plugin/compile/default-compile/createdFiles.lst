@@ -107,6 +107,8 @@ ACM\ATypicalHomework\Student.class
 graph\list\ListGraph.class
 ACM\FloatingPointNumbers\Solution$BinaryLength.class
 classic\twoArrayRemoveRepeat\SolutionV1.class
+ACM\DroppingBalls\SolutionV2.class
+ACM\TreesOnTheLevel\Solution.class
 ACM\Exchange\Solution$Order.class
 ACM\RevengeOfFibonacci\Solution$1.class
 ACM\CubePainting\Solution.class
