@@ -64,6 +64,7 @@ ACM\MatrixChainMultiplication\Solution.class
 basic\Util.class
 leetcode\sumEqualZero\SolutionForDynamicPrograming.class
 ACM\Xiangqi\Solution.class
+ACM\TheFallingLeaves\Solution.class
 ACM\MolarMass\Solution.class
 graph\list\ListGraph$Node.class
 ACM\Xiangqi\Role.class
