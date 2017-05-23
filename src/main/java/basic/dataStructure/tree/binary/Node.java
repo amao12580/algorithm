@@ -47,4 +47,8 @@ public class Node<T> {
     public void setRight(Node<T> right) {
         this.right = right;
     }
+
+    public boolean isLeafNode() {
+        return this.left == null && this.right == null;
+    }
 }

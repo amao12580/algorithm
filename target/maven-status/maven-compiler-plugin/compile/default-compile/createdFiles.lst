@@ -103,6 +103,7 @@ ACM\SpreadsheetTracking\Solution.class
 classic\KMP\SolutionV1.class
 ACM\SearchingTheWeb\Solution$Command$3.class
 ACM\UseOfHospitalFacilities\Solution$Room.class
+ACM\Tree\Solution.class
 sort\bubble\BubbleHandler.class
 ACM\ATypicalHomework\Student.class
 graph\list\ListGraph.class
@@ -119,6 +120,7 @@ DP\coins\SolutionV2.class
 graph\matrix\MatrixGraph.class
 ACM\ATypicalHomework\Command.class
 basic\sort\SortHandlerBehavior.class
+ACM\Tree\Solution$WeightLeafNode.class
 ACM\BugHunt\Common.class
 ACM\DigitCounting\Solution.class
 tree\huffman\HuffmanTree.class
