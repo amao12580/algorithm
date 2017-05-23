@@ -48,6 +48,9 @@ public class Node<T> {
         this.right = right;
     }
 
+    /**
+     * 是否为叶子节点
+     */
     public boolean isLeafNode() {
         return this.left == null && this.right == null;
     }
