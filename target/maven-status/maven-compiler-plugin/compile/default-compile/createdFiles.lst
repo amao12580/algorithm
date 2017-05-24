@@ -1,4 +1,5 @@
 DP\knapsack\Solution.class
+basic\dataStructure\graph\Graph.class
 ACM\FloatingPointNumbers\Solution.class
 ACM\NotSoMobile\Solution.class
 ACM\CompoundWords\Solution.class
@@ -19,6 +20,7 @@ ACM\MessageDecoding\Solution.class
 ACM\PeriodicStrings\Solution.class
 ACM\UpdatingADictionary\Solution$Element.class
 ACM\Exchange\Solution$CommandType.class
+basic\dataStructure\graph\Line.class
 ACM\Puzzle\Solution.class
 ACM\SearchingTheWeb\Solution$1.class
 DP\lis\SolutionV1.class
@@ -53,6 +55,7 @@ DP\coins\SolutionV1.class
 ACM\QueueAndA\Solution.class
 ACM\SearchingTheWeb\Solution$Position.class
 ACM\DoYouKnowTheWayToSanJose\Solution$Location.class
+ACM\OilDeposits\Solution.class
 ACM\Borrowers\Solution$Command.class
 ACM\circularSequence\Solution.class
 ACM\UseOfHospitalFacilities\Solution.class
@@ -118,6 +121,7 @@ ACM\Exchange\Solution$Order.class
 ACM\RevengeOfFibonacci\Solution$1.class
 ACM\CubePainting\Solution.class
 classic\KMP\SolutionV4.class
+basic\dataStructure\graph\Point.class
 basic\dataStructure\tree\binary\BinaryTree.class
 DP\coins\SolutionV2.class
 graph\matrix\MatrixGraph.class
