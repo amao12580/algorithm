@@ -9,6 +9,7 @@
       <w>letterchar</w>
       <w>liang</w>
       <w>numberchar</w>
+      <w>quadtree</w>
     </words>
   </dictionary>
 </component>

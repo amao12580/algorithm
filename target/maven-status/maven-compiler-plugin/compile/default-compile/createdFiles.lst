@@ -37,6 +37,7 @@ basic\sort\Sortable.class
 sort\count\CountHandler.class
 sort\radix\RadixHandler.class
 ACM\DNAConsensusString\Solution.class
+ACM\Quadtrees\Solution$1.class
 leetcode\sumEqualZero\SolutionForSimple.class
 ACM\CompoundWords\Solution$Element.class
 ACM\Squares\Solution$Line.class
@@ -125,7 +126,10 @@ basic\sort\SortHandlerBehavior.class
 ACM\Tree\Solution$WeightLeafNode.class
 ACM\BugHunt\Common.class
 ACM\DigitCounting\Solution.class
+ACM\Quadtrees\Solution$Node.class
+ACM\Quadtrees\Solution$Quadtree.class
 tree\huffman\HuffmanTree.class
+ACM\Quadtrees\Solution.class
 ACM\Xiangqi\Solution$Point.class
 ACM\Xiangqi\Role$2.class
 ACM\ConcurrencySimulator\Solution$Statement.class

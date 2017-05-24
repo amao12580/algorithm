@@ -95,6 +95,9 @@ public class Solution {
         }
     }
 
+    /**
+     * 先序遍历，反向构建二叉树
+     */
     private void createTree(Node<Integer> root, LinkedList<Integer> treeList, int offset, Map<Integer, List<Node<Integer>>> offsetNodes) {
         if (treeList.isEmpty()) {
             return;
