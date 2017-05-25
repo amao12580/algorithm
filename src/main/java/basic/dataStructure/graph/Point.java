@@ -17,7 +17,7 @@ public class Point {
         }
         this.rowIndex = rowIndex;
         this.columnIndex = columnIndex;
-        this.uniqueCode = rowIndex + "" + columnIndex;
+        this.uniqueCode = String.format("%04d", rowIndex).concat(String.format("%04d", columnIndex));
     }
 
     public int getRowIndex() {

@@ -53,4 +53,10 @@ public class Graph {
     public void addPoint(Point point) {
         this.points.add(point);
     }
+
+    public void clear() {
+        this.points.clear();
+        this.lines.clear();
+    }
+
 }
