@@ -49,4 +49,11 @@ public class Point {
     public String getUniqueCode() {
         return uniqueCode;
     }
+
+    @Override
+    public String toString() {
+        return "(" + rowIndex +
+                ", " + columnIndex +
+                ')';
+    }
 }

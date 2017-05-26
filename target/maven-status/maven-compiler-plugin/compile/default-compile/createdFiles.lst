@@ -1,3 +1,4 @@
+ACM\AbbottsRevenge\Solution$Rats.class
 DP\knapsack\Solution.class
 basic\dataStructure\graph\Graph.class
 ACM\FloatingPointNumbers\Solution.class
@@ -38,7 +39,9 @@ ACM\DoYouKnowTheWayToSanJose\Solution$Request.class
 basic\sort\Sortable.class
 sort\count\CountHandler.class
 sort\radix\RadixHandler.class
+ACM\AbbottsRevenge\Solution$Maze.class
 ACM\DNAConsensusString\Solution.class
+ACM\AbbottsRevenge\Solution$MovePoint.class
 ACM\Quadtrees\Solution$1.class
 leetcode\sumEqualZero\SolutionForSimple.class
 ACM\CompoundWords\Solution$Element.class
@@ -78,6 +81,7 @@ ACM\DoYouKnowTheWayToSanJose\Solution$Map.class
 ACM\BoxesInALine\Solution.class
 ACM\Xiangqi\Role$4.class
 ACM\AncientMessages\Solution.class
+ACM\AbbottsRevenge\Solution$Path.class
 sort\bucket\BucketHandler.class
 ACM\BugHunt\Statement$Type.class
 ACM\BugHunt\Statement$1.class
@@ -114,6 +118,7 @@ ACM\Tree\Solution.class
 sort\bubble\BubbleHandler.class
 ACM\ATypicalHomework\Student.class
 graph\list\ListGraph.class
+ACM\AbbottsRevenge\Solution$Crossroad.class
 ACM\FloatingPointNumbers\Solution$BinaryLength.class
 classic\twoArrayRemoveRepeat\SolutionV1.class
 ACM\DroppingBalls\SolutionV2.class
@@ -134,6 +139,7 @@ ACM\DigitCounting\Solution.class
 ACM\Quadtrees\Solution$Node.class
 ACM\Quadtrees\Solution$Quadtree.class
 tree\huffman\HuffmanTree.class
+ACM\AbbottsRevenge\Solution.class
 ACM\Quadtrees\Solution.class
 ACM\Xiangqi\Solution$Point.class
 ACM\Xiangqi\Role$2.class
