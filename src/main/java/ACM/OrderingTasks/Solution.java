@@ -1,8 +1,10 @@
 package ACM.OrderingTasks;
 
-import java.util.HashSet;
+import basic.Util;
+
 import java.util.LinkedList;
 import java.util.Set;
+import java.util.concurrent.ConcurrentSkipListSet;
 
 /**
  * Created with IntelliJ IDEA.
@@ -28,8 +30,10 @@ import java.util.Set;
  * 0 0
  * Sample Output
  * 1 4 2 5 3
- *
+ * <p>
  * 输出的可能为多解，保持题意顺序即可，如题目要求a<b,则输出必需保持a在b之前即可，中间有无隔断无关紧要
+ * <p>
+ * DAG:Directed Acyclic Graph 有向无环图，通过环上的任意节点，沿单方向运动，不会回到原点。
  */
 public class Solution {
     public static void main(String[] args) {
@@ -39,10 +43,16 @@ public class Solution {
         solution.case2();
         System.out.println("----------------------------------------------------------------------------------------------");
         solution.case3();
+        System.out.println("----------------------------------------------------------------------------------------------");
+        solution.case4();
     }
 
     private void case1() {
-        int[][] depends = {{1, 2}, {2, 3}, {1, 3}, {1, 5}};
+        int[][] depends = {
+                {1, 2},
+                {2, 3},
+                {1, 3},
+                {1, 5}};
         order(5, depends);
     }
 
@@ -58,54 +68,68 @@ public class Solution {
                 {8, 12}, {12, 14}, {4, 9},
                 {9, 11}, {6, 10}, {6, 16},
                 {15, 16}, {16, 17}, {15, 18}};
+        Util.shuffleArray(depends);
         order(18, depends);
     }
 
-    private void order(int taskNumbers, int[][] depends) {
-        LinkedList<Integer> list = new LinkedList<>();
-        int u, v, up, vp;
-        for (int[] depend : depends) {
-            u = depend[0];
-            v = depend[1];
-            up = list.indexOf(u);
-            vp = list.indexOf(v);
-            if (up < 0 && vp < 0) {
-                list.add(u);
-                list.add(v);
-            } else if (up >= 0 && vp < 0) {
-                if (up == list.size() - 1) {
-                    list.addLast(v);
-                } else {
-                    list.add(up + 1, v);
-                }
-            } else if (up < 0 && vp >= 0) {
-                if (vp == 0) {
-                    list.addFirst(u);
-                } else {
-                    list.add(vp, u);
-                }
-            } else if (up >= 0 && vp >= 0) {
-                if (up > vp) {
-                    list.remove(vp);
-                    up = list.indexOf(u);
-                    if (up == list.size() - 1) {
-                        list.addLast(v);
-                    } else {
-                        list.add(up + 1, v);
-                    }
-                }
-            }
+    private void case4() {
+        int[][] depends = {
+                {1, 2},
+                {1, 4},
+                {2, 3},
+                {3, 1},
+                {1, 5}};
+        order(5, depends);
+    }
+
+    private void order(int taskNumbers, int[][] dependPair) {
+        Set<Integer> all = new ConcurrentSkipListSet<>();
+        for (int i = 0; i < taskNumbers; i++) {
+            all.add(i + 1);
         }
-        if (list.isEmpty()) {
+        int size = taskNumbers + 1;
+        boolean[][] depend = new boolean[size][size];
+        for (int[] pair : dependPair) {
+            depend[pair[0]][pair[1]] = true;
+        }
+        LinkedList<Integer> result = new LinkedList<>();
+        order(all, depend, size, result);
+        if (result.size() < taskNumbers) {
             System.out.println("circle depend.");
             return;
         }
-        Set<Integer> all = new HashSet<>();
-        for (int i = 1; i <= taskNumbers; i++) {
-            all.add(i);
+        System.out.println(result.toString());
+    }
+
+    private void order(Set<Integer> all, boolean[][] depends, int len, LinkedList<Integer> result) {
+        Set<Integer> portal = findPortal(all, len, depends);
+        if (portal.isEmpty()) {
+            return;
         }
-        all.removeAll(list);
-        list.addAll(all);
-        System.out.println(list.toString());
+        for (Integer u : portal) {
+            result.add(u);
+            removeEdge(depends, len, u);
+        }
+        order(all, depends, len, result);
+    }
+
+    private Set<Integer> findPortal(Set<Integer> all, int len, boolean[][] depends) {
+        Set<Integer> result = new ConcurrentSkipListSet<>();
+        result.addAll(all);
+        for (int i = 1; i < len; i++) {
+            for (int j = 1; j < len; j++) {
+                if (depends[i][j]) {
+                    result.remove(j);
+                }
+            }
+        }
+        all.removeAll(result);
+        return result;
+    }
+
+    private void removeEdge(boolean[][] depends, int len, int u) {
+        for (int i = 1; i < len; i++) {
+            depends[u][i] = false;
+        }
     }
 }

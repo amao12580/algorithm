@@ -172,6 +172,7 @@ ACM\Xiangqi\Role$1.class
 basic\Util$DictionaryString.class
 sort\radix\RadixHandler$RadixSortHandler.class
 ACM\ConcurrencySimulator\Solution$Procedure.class
+ACM\OrderingTasks\Solution.class
 ACM\ForeignExchange\Solution.class
 ACM\BugHunt\Statement$Type$2.class
 ACM\DoYouKnowTheWayToSanJose\Solution$Point.class
