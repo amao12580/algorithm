@@ -34,6 +34,8 @@ import java.util.concurrent.ConcurrentSkipListSet;
  * 输出的可能为多解，保持题意顺序即可，如题目要求a<b,则输出必需保持a在b之前即可，中间有无隔断无关紧要
  * <p>
  * DAG:Directed Acyclic Graph 有向无环图，通过环上的任意节点，沿单方向运动，不会回到原点。
+ *
+ * http://sjjp.tjuci.edu.cn/sjjg/DataStructure/DS/web/tu/tu7.6.1.htm
  */
 public class Solution {
     public static void main(String[] args) {

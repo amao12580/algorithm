@@ -62,6 +62,7 @@ ACM\OilDeposits\Solution.class
 ACM\Borrowers\Solution$Command.class
 ACM\circularSequence\Solution.class
 ACM\UseOfHospitalFacilities\Solution.class
+ACM\PlayOnWords\Solution$Edge.class
 basic\dataStructure\tree\binary\Node.class
 leetcode\sumEqualZero\SolutionForRecursion.class
 ACM\UseOfHospitalFacilities\Solution$Patient.class
@@ -113,6 +114,7 @@ sort\heap\HeapHandler.class
 ACM\SpreadsheetTracking\Solution.class
 classic\KMP\SolutionV1.class
 ACM\SearchingTheWeb\Solution$Command$3.class
+ACM\PlayOnWords\Solution.class
 ACM\UseOfHospitalFacilities\Solution$Room.class
 ACM\Tree\Solution.class
 sort\bubble\BubbleHandler.class
