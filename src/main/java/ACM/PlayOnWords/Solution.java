@@ -34,6 +34,20 @@ import java.util.*;
  * The door cannot be opened.
  * Ordering is possible.
  * The door cannot be opened.
+ * <p>
+ * 关于欧拉道路（from Titanium大神）：
+ * <p>
+ * 判断有向图是否有欧拉路
+ * <p>
+ * 1.判断有向图的基图（即有向图转化为无向图）连通性，用简单的DFS即可。如果图都不连通，一定不存在欧拉路
+ * <p>
+ * 2.在条件1的基础上
+ * <p>
+ * 对于欧拉回路，要求苛刻一点，所有点的入度都要等于出度，那么就存在欧拉回路了
+ * <p>
+ * 对于欧拉道路，要求松一点，只有一个点，出度比入度大1，这个点一定是起点； 一个点，入度比出度大1，这个点一定是终点.其余点的出度等于入度
+ * <p>
+ * （注意，只能大1，而且这样的点分别只能有1个,而且存在起点就一定要存在终点，存在终点就一定要存在起点）
  */
 public class Solution {
     public static void main(String[] args) {
