@@ -353,6 +353,16 @@ public class Util {
         return key >= min && key <= max;
     }
 
+    public static int max(int... num) {
+        Arrays.sort(num);
+        return num[num.length - 1];
+    }
+
+    public static int min(int... num) {
+        Arrays.sort(num);
+        return num[0];
+    }
+
     private static class DictionaryString implements Comparable<DictionaryString> {
         private String string;
 

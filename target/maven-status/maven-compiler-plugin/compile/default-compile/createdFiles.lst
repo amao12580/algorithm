@@ -66,6 +66,7 @@ ACM\Symmetry\Solution.class
 sort\heap\HeapHandler.class
 classic\KMP\SolutionV1.class
 ACM\SearchingTheWeb\Solution$Command$3.class
+ACM\Sculpture\Solution$Line.class
 ACM\UseOfHospitalFacilities\Solution$Room.class
 ACM\Tree\Solution.class
 sort\bubble\BubbleHandler.class
@@ -138,6 +139,7 @@ ACM\UrbanElevations\Solution$Cube.class
 DP\coins\SolutionV1.class
 ACM\QueueAndA\Solution.class
 ACM\SearchingTheWeb\Solution$Position.class
+ACM\Sculpture\Solution$Area.class
 ACM\Borrowers\Solution$Command.class
 ACM\UseOfHospitalFacilities\Solution$Patient.class
 classic\KMP\SolutionV3.class
