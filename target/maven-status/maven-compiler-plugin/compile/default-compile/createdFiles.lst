@@ -92,6 +92,7 @@ sort\insertion\InsertionHandler.class
 ACM\Symmetry\Solution$Point.class
 ACM\RevengeOfFibonacci\Solution$Node.class
 ACM\SearchingTheWeb\Solution$Command$1.class
+ACM\SelfAssembly\Solution$Face.class
 sort\shell\ShellHandler.class
 DP\minimumPathSum\Solution.class
 ACM\SearchingTheWeb\Solution$Line.class
@@ -100,6 +101,7 @@ ACM\MatrixChainMultiplication\Solution$Matrix.class
 ACM\Xiangqi\Role$1.class
 basic\Util$DictionaryString.class
 ACM\UrbanElevations\Solution.class
+ACM\SelfAssembly\Solution$Point.class
 ACM\ForeignExchange\Solution.class
 ACM\BugHunt\Statement$Type$2.class
 ACM\DoYouKnowTheWayToSanJose\Solution$Point.class
@@ -142,8 +144,10 @@ ACM\SearchingTheWeb\Solution$Position.class
 ACM\Sculpture\Solution$Area.class
 ACM\Borrowers\Solution$Command.class
 ACM\UseOfHospitalFacilities\Solution$Patient.class
+ACM\SelfAssembly\Solution.class
 classic\KMP\SolutionV3.class
 ACM\BrokenKeyboard\Solution.class
+ACM\SelfAssembly\Solution$Block.class
 basic\Util.class
 ACM\Xiangqi\Solution.class
 graph\list\ListGraph$Node.class
