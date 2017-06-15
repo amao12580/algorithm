@@ -4,6 +4,7 @@ ACM\DucciSequence\Solution.class
 ACM\Xiangqi\Role$3.class
 graph\edge\EdgeGraph$Node.class
 ACM\Exchange\Solution$1.class
+ACM\IdealPath\Solution$Edge.class
 ACM\BugHunt\Statement$Type$1.class
 ACM\SearchingTheWeb\Solution$1.class
 DP\lis\SolutionV1.class
@@ -107,6 +108,7 @@ ACM\BugHunt\Statement$Type$2.class
 ACM\DoYouKnowTheWayToSanJose\Solution$Point.class
 ACM\Rails\Solution.class
 sort\insertion\InsertionImprovementHandler.class
+ACM\IdealPath\Solution.class
 ACM\SearchingTheWeb\Solution$Article.class
 DP\knapsack\Solution.class
 ACM\FloatingPointNumbers\Solution.class
@@ -152,6 +154,7 @@ basic\Util.class
 ACM\Xiangqi\Solution.class
 graph\list\ListGraph$Node.class
 ACM\Othello\Solution.class
+ACM\IdealPath\Solution$1.class
 ACM\PrinterQueue\Solution$Task.class
 ACM\DoYouKnowTheWayToSanJose\Solution.class
 ACM\IPNetworks\Solution$IP.class
@@ -169,6 +172,7 @@ ACM\AbbottsRevenge\Solution$Crossroad.class
 classic\twoArrayRemoveRepeat\SolutionV1.class
 ACM\DroppingBalls\SolutionV2.class
 ACM\Exchange\Solution$Order.class
+ACM\IdealPath\Solution$Graph.class
 ACM\CubePainting\Solution.class
 classic\KMP\SolutionV4.class
 basic\dataStructure\graph\Point.class
