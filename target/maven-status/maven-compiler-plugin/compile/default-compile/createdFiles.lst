@@ -75,11 +75,13 @@ ACM\ATypicalHomework\Student.class
 ACM\FloatingPointNumbers\Solution$BinaryLength.class
 ACM\TreesOnTheLevel\Solution.class
 ACM\RevengeOfFibonacci\Solution$1.class
+ACM\SystemDependencies\Solution$1.class
 DP\coins\SolutionV2.class
 ACM\ATypicalHomework\Command.class
 ACM\DigitCounting\Solution.class
 ACM\Quadtrees\Solution$Node.class
 ACM\Quadtrees\Solution$Quadtree.class
+ACM\SystemDependencies\Command.class
 ACM\Quadtrees\Solution.class
 ACM\Xiangqi\Solution$Point.class
 ACM\Xiangqi\Role$2.class
@@ -151,6 +153,7 @@ classic\KMP\SolutionV3.class
 ACM\BrokenKeyboard\Solution.class
 ACM\SelfAssembly\Solution$Block.class
 basic\Util.class
+ACM\SystemDependencies\Solution.class
 ACM\Xiangqi\Solution.class
 graph\list\ListGraph$Node.class
 ACM\Othello\Solution.class
