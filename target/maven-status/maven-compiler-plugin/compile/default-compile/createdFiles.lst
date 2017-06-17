@@ -134,6 +134,7 @@ ACM\Exchange\Solution$CommandType.class
 basic\dataStructure\graph\Line.class
 ACM\Puzzle\Solution.class
 ACM\RAID\Solution.class
+ACM\STrees\Solution.class
 ACM\Squares\Solution.class
 ACM\BugHunt\Statement.class
 sort\count\CountHandler.class
