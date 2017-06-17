@@ -21,6 +21,7 @@ sort\radix\RadixHandler.class
 ACM\DNAConsensusString\Solution.class
 ACM\AbbottsRevenge\Solution$MovePoint.class
 ACM\Borrowers\Solution$Book.class
+ACM\Paintball\Location.class
 ACM\SearchingTheWeb\Solution$Command$2.class
 ACM\ThrowingCardsAwayI\Solution.class
 ACM\UrbanElevations\Solution$Line.class
@@ -146,6 +147,7 @@ DP\coins\SolutionV1.class
 ACM\QueueAndA\Solution.class
 ACM\SearchingTheWeb\Solution$Position.class
 ACM\Sculpture\Solution$Area.class
+ACM\Paintball\Solution.class
 ACM\Borrowers\Solution$Command.class
 ACM\UseOfHospitalFacilities\Solution$Patient.class
 ACM\SelfAssembly\Solution.class
@@ -174,6 +176,7 @@ graph\list\ListGraph.class
 ACM\AbbottsRevenge\Solution$Crossroad.class
 classic\twoArrayRemoveRepeat\SolutionV1.class
 ACM\DroppingBalls\SolutionV2.class
+ACM\Paintball\Enemy.class
 ACM\Exchange\Solution$Order.class
 ACM\IdealPath\Solution$Graph.class
 ACM\CubePainting\Solution.class

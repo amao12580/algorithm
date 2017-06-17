@@ -428,4 +428,12 @@ public class Util {
     public static boolean isUpperCaseAlpha(char c) {
         return (c >= 65 && c <= 90);
     }
+
+    public static String contactAll(Object... objects) {
+        StringBuilder builder = new StringBuilder();
+        for (Object obj : objects) {
+            builder = builder.append(obj.toString());
+        }
+        return builder.toString();
+    }
 }
