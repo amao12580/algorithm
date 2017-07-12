@@ -10,7 +10,6 @@ public class Node<T> {
     public T value;
     private Node<T> left;
     private Node<T> right;
-    private char[] notNullValue;
 
     public Node() {
 

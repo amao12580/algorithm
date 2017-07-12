@@ -41,6 +41,7 @@ leetcode\sumEqualZero\SolutionForRecursion.class
 ACM\MatrixChainMultiplication\Solution.class
 leetcode\sumEqualZero\SolutionForDynamicPrograming.class
 ACM\TheFallingLeaves\Solution.class
+ACM\EquilibriumMobile\Solution.class
 ACM\MolarMass\Solution.class
 ACM\Xiangqi\Role.class
 ACM\Exchange\Solution$Command.class
