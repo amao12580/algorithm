@@ -177,6 +177,7 @@ DP\zigzag\Solution.class
 ACM\SpreadsheetTracking\Solution.class
 ACM\PlayOnWords\Solution.class
 graph\list\ListGraph.class
+ACM\PatrolRobot\Solution.class
 ACM\AbbottsRevenge\Solution$Crossroad.class
 classic\twoArrayRemoveRepeat\SolutionV1.class
 ACM\DroppingBalls\SolutionV2.class
