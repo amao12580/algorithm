@@ -70,6 +70,7 @@ ACM\Symmetry\Solution.class
 sort\heap\HeapHandler.class
 classic\KMP\SolutionV1.class
 ACM\SearchingTheWeb\Solution$Command$3.class
+ACM\PetriNetSimulation\Place.class
 ACM\Sculpture\Solution$Line.class
 ACM\UseOfHospitalFacilities\Solution$Room.class
 ACM\Tree\Solution.class
@@ -140,6 +141,7 @@ ACM\STrees\Solution.class
 ACM\Squares\Solution.class
 ACM\BugHunt\Statement.class
 sort\count\CountHandler.class
+ACM\PetriNetSimulation\Transition.class
 ACM\AbbottsRevenge\Solution$Maze.class
 ACM\Quadtrees\Solution$1.class
 leetcode\sumEqualZero\SolutionForSimple.class
@@ -210,6 +212,7 @@ sort\radix\RadixHandler$RadixSortHandler.class
 ACM\ConcurrencySimulator\Solution$Procedure.class
 ACM\OrderingTasks\Solution.class
 ACM\Borrowers\Solution.class
+ACM\PetriNetSimulation\Solution.class
 ACM\RepeatingDecimals\Solution.class
 ACM\BugHunt\Statement$PartType.class
 ACM\Squares\Solution$Point.class
