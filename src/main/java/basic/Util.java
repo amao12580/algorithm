@@ -363,6 +363,20 @@ public class Util {
         return num[0];
     }
 
+    /**
+     * 反转字符串序列，12345，输出为54321
+     */
+    public static String reverse(String string) {
+        char[] chars = string.toCharArray();
+        int len = string.length();
+        char[] newChars = new char[len];
+        len--;
+        for (int i = 0; i <= len; i++) {
+            newChars[i] = chars[len - i];
+        }
+        return new String(newChars);
+    }
+
     private static class DictionaryString implements Comparable<DictionaryString> {
         private String string;
 

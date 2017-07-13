@@ -1,6 +1,7 @@
 ACM\AbbottsRevenge\Solution$Rats.class
 basic\dataStructure\graph\Graph.class
 ACM\DucciSequence\Solution.class
+ACM\SpatialStructures\Solution.class
 ACM\Xiangqi\Role$3.class
 graph\edge\EdgeGraph$Node.class
 ACM\Exchange\Solution$1.class
@@ -153,6 +154,7 @@ ACM\UrbanElevations\Solution$Cube.class
 DP\coins\SolutionV1.class
 ACM\QueueAndA\Solution.class
 ACM\SearchingTheWeb\Solution$Position.class
+basic\dataStructure\tree\binary\MultiTree.class
 ACM\Sculpture\Solution$Area.class
 ACM\Paintball\Solution.class
 ACM\Borrowers\Solution$Command.class
@@ -172,6 +174,7 @@ ACM\DoYouKnowTheWayToSanJose\Solution.class
 ACM\IPNetworks\Solution$IP.class
 classic\KMP\SolutionV2.class
 ACM\QueueAndA\Solution$Topic.class
+basic\dataStructure\tree\binary\MultiNode.class
 ACM\BugHunt\Solution.class
 ACM\score\Solution.class
 graph\edge\EdgeGraph.class
