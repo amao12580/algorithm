@@ -93,6 +93,7 @@ ACM\Xiangqi\Role$2.class
 ACM\ConcurrencySimulator\Solution$Statement.class
 ACM\SearchingTheWeb\Solution$Command.class
 sort\merge\MergeHandler.class
+ACM\AccordianPatience\Card.class
 ACM\RevengeOfFibonacci\Solution$TrieTree.class
 ACM\ATypicalHomework\Solution.class
 ACM\FloatingPointNumbers\Solution$ScienceCount.class
@@ -190,6 +191,7 @@ ACM\DroppingBalls\SolutionV2.class
 ACM\Paintball\Enemy.class
 ACM\Exchange\Solution$Order.class
 ACM\IdealPath\Solution$Graph.class
+ACM\AccordianPatience\Solution.class
 ACM\CubePainting\Solution.class
 classic\KMP\SolutionV4.class
 basic\dataStructure\graph\Point.class
