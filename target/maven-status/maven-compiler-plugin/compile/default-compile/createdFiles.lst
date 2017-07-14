@@ -183,6 +183,7 @@ sort\quick\QuickHandler.class
 DP\zigzag\Solution.class
 ACM\SpreadsheetTracking\Solution.class
 ACM\PlayOnWords\Solution.class
+ACM\Game102030\Solution.class
 graph\list\ListGraph.class
 ACM\PatrolRobot\Solution.class
 ACM\AbbottsRevenge\Solution$Crossroad.class
