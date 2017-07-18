@@ -119,6 +119,7 @@ ACM\Rails\Solution.class
 sort\insertion\InsertionImprovementHandler.class
 ACM\IdealPath\Solution.class
 ACM\SearchingTheWeb\Solution$Article.class
+ACM\TreeReconstruction\Solution.class
 DP\knapsack\Solution.class
 ACM\FloatingPointNumbers\Solution.class
 ACM\NotSoMobile\Solution.class
