@@ -243,6 +243,20 @@ public class Util {
     }
 
     /**
+     * 数组指定两个下标值进行交换，交换成功后返回true
+     */
+    public static boolean swapArray(int[] arrays, int thisIndex, int otherIndex) {
+        int endIndex = arrays.length - 1;
+        if (thisIndex >= 0 && thisIndex <= endIndex && otherIndex >= 0 && otherIndex <= endIndex && thisIndex != otherIndex) {
+            int temp = arrays[thisIndex];
+            arrays[thisIndex] = arrays[otherIndex];
+            arrays[otherIndex] = temp;
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * 按照字典序，升序排列
      * <p>
      * 具体字符比较大小，请参见ASCII码对照表，取10进制整数值
@@ -449,5 +463,9 @@ public class Util {
             builder = builder.append(obj.toString());
         }
         return builder.toString();
+    }
+
+    public static boolean checkInRange(int value, int min, int max) {
+        return value >= min && value <= max;
     }
 }

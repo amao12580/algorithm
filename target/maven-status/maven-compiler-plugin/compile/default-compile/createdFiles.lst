@@ -89,6 +89,7 @@ ACM\Quadtrees\Solution$Quadtree.class
 ACM\SystemDependencies\Command.class
 ACM\Quadtrees\Solution.class
 ACM\Xiangqi\Solution$Point.class
+ACM\ADiceyProblem\Solution.class
 ACM\Xiangqi\Role$2.class
 ACM\ConcurrencySimulator\Solution$Statement.class
 ACM\SearchingTheWeb\Solution$Command.class
@@ -148,6 +149,7 @@ ACM\PetriNetSimulation\Transition.class
 ACM\AbbottsRevenge\Solution$Maze.class
 ACM\Quadtrees\Solution$1.class
 leetcode\sumEqualZero\SolutionForSimple.class
+ACM\ADiceyProblem\Dice.class
 ACM\CompoundWords\Solution$Element.class
 ACM\Squares\Solution$Line.class
 ACM\TreeRecovery\Solution.class
