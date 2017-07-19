@@ -444,17 +444,32 @@ public class Util {
     }
 
     /**
+     * 判断字符串是否包含字母
+     */
+    public static boolean isContainsAlpha(String string) {
+        int len = string.length();
+        char c;
+        for (int i = 0; i < len; i++) {
+            c = string.charAt(i);
+            if (isAlpha(c)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * 判断是否为小写字母
      */
     public static boolean isLowerCaseAlpha(char c) {
-        return (c >= 97 && c <= 122);
+        return c >= 97 && c <= 122;
     }
 
     /**
      * 判断是否为大写字母
      */
     public static boolean isUpperCaseAlpha(char c) {
-        return (c >= 65 && c <= 90);
+        return c >= 65 && c <= 90;
     }
 
     public static String contactAll(Object... objects) {
