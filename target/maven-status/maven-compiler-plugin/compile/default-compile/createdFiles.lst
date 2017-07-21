@@ -171,6 +171,7 @@ basic\Util.class
 ACM\SystemDependencies\Solution.class
 ACM\Xiangqi\Solution.class
 graph\list\ListGraph$Node.class
+ACM\InspectorsDilemma\Solution.class
 ACM\Othello\Solution.class
 ACM\IdealPath\Solution$1.class
 ACM\PrinterQueue\Solution$Task.class
