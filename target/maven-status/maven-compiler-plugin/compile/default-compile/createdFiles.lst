@@ -205,6 +205,7 @@ basic\dataStructure\tree\binary\BinaryTree.class
 graph\matrix\MatrixGraph.class
 ACM\SpreadsheetCalculator\Solution.class
 basic\sort\SortHandlerBehavior.class
+ACM\MaximumProduct\Solution.class
 ACM\Tree\Solution$WeightLeafNode.class
 ACM\BugHunt\Common.class
 tree\huffman\HuffmanTree.class
