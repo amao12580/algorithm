@@ -221,6 +221,7 @@ basic\Comparator.class
 ACM\Puzzle\Solution$Element.class
 ACM\digitGenerator\Solution.class
 ACM\HangmanJudge\Solution.class
+ACM\FractionsAgain\Solution.class
 sort\radix\RadixHandler$RadixSortHandler.class
 ACM\ConcurrencySimulator\Solution$Procedure.class
 ACM\OrderingTasks\Solution.class
