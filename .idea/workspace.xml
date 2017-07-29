@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8cb3bf52-3226-4800-b5d0-ff0472d749dc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ACM/FractionsAgain/Solution.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ACM/FractionsAgain/Solution.class" afterPath="$PROJECT_DIR$/target/classes/ACM/FractionsAgain/Solution.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/study-algorithm-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/target/study-algorithm-1.0-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ACM/FractionsAgain/Solution.java" afterPath="$PROJECT_DIR$/src/main/java/ACM/FractionsAgain/Solution.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -50,27 +49,13 @@
       <file leaf-file-name="Solution.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ACM/FractionsAgain/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.65841585">
-              <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.39873418">
+              <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#878#879#0" expanded="true" />
-                <element signature="e#906#907#0" expanded="true" />
-                <element signature="e#991#992#0" expanded="true" />
-                <element signature="e#1048#1049#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BigDecimal.java" pinned="false" current-in-tab="false">
-        <entry file="jar://D:/Program Files/Java/jdk1.8.0_74/src.zip!/java/math/BigDecimal.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="2329" column="45" selection-start-line="2329" selection-start-column="28" selection-end-line="2329" selection-end-column="45" />
-              <folding>
-                <element signature="e#67889#67890#0" expanded="true" />
-                <element signature="e#67953#67954#0" expanded="true" />
+                <element signature="e#848#849#0" expanded="true" />
+                <element signature="e#876#877#0" expanded="true" />
+                <element signature="e#961#962#0" expanded="true" />
+                <element signature="e#1018#1019#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1155,12 +1140,12 @@
       <workItem from="1500272886347" duration="50755000" />
       <workItem from="1500544907882" duration="11701000" />
       <workItem from="1500863165054" duration="12222000" />
-      <workItem from="1501228448213" duration="2890000" />
+      <workItem from="1501228448213" duration="5165000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1172202000" />
+    <option name="totallyTimeSpent" value="1174477000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
@@ -1175,7 +1160,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26289397" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41879195" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3248322" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31303725" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1240,7 +1225,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ACM/FractionsAgain/Solution.java</url>
-          <line>62</line>
+          <line>56</line>
           <properties />
           <option name="timeStamp" value="519" />
         </line-breakpoint>
@@ -1619,22 +1604,21 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="2329" column="45" selection-start-line="2329" selection-start-column="28" selection-end-line="2329" selection-end-column="45" />
           <folding>
-            <element signature="e#67889#67890#0" expanded="true" />
-            <element signature="e#67953#67954#0" expanded="true" />
+            <element signature="e#67889#67890#0" expanded="false" />
+            <element signature="e#67953#67954#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ACM/FractionsAgain/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65841585">
-          <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.39873418">
+          <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#878#879#0" expanded="true" />
-            <element signature="e#906#907#0" expanded="true" />
-            <element signature="e#991#992#0" expanded="true" />
-            <element signature="e#1048#1049#0" expanded="true" />
+            <element signature="e#848#849#0" expanded="true" />
+            <element signature="e#876#877#0" expanded="true" />
+            <element signature="e#961#962#0" expanded="true" />
+            <element signature="e#1018#1019#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -2,8 +2,6 @@ package ACM.FractionsAgain;
 
 import basic.Util;
 
-import java.math.BigDecimal;
-
 /**
  * Created with IntelliJ IDEA.
  * User:ChengLiang
@@ -56,15 +54,9 @@ public class Solution {
 
     private void fractions(int k) {
         int yMax = 2 * k;
-        BigDecimal xMax;
-        BigDecimal K = new BigDecimal(k);
-        BigDecimal zero = new BigDecimal(0);
-        BigDecimal Y;
         for (int y = k + 1; y <= yMax; y++) {
-            Y = new BigDecimal(y);
-            xMax = K.multiply(Y).divide(Y.subtract(K), 4, BigDecimal.ROUND_HALF_UP);
-            if (xMax.compareTo(zero) > 0 && xMax.compareTo(new BigDecimal(xMax.intValue())) == 0) {
-                System.out.println("1/" + k + " = 1/" + xMax.intValue() + " + 1/" + y);
+            if (y > k && (k * y) % (y - k) == 0) {
+                System.out.println("1/" + k + " = 1/" + ((k * y) / (y - k)) + " + 1/" + y);
             }
         }
     }
