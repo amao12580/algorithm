@@ -49,8 +49,8 @@
       <file leaf-file-name="Solution.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ACM/FractionsAgain/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39873418">
-              <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.67932487">
+              <caret line="55" column="25" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
               <folding>
                 <element signature="e#848#849#0" expanded="true" />
                 <element signature="e#876#877#0" expanded="true" />
@@ -1140,12 +1140,12 @@
       <workItem from="1500272886347" duration="50755000" />
       <workItem from="1500544907882" duration="11701000" />
       <workItem from="1500863165054" duration="12222000" />
-      <workItem from="1501228448213" duration="5165000" />
+      <workItem from="1501228448213" duration="5952000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1174477000" />
+    <option name="totallyTimeSpent" value="1175264000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
@@ -1612,8 +1612,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ACM/FractionsAgain/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39873418">
-          <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.67932487">
+          <caret line="55" column="25" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
           <folding>
             <element signature="e#848#849#0" expanded="true" />
             <element signature="e#876#877#0" expanded="true" />

@@ -55,7 +55,7 @@ public class Solution {
     private void fractions(int k) {
         int yMax = 2 * k;
         for (int y = k + 1; y <= yMax; y++) {
-            if (y > k && (k * y) % (y - k) == 0) {
+            if ((k * y) % (y - k) == 0) {
                 System.out.println("1/" + k + " = 1/" + ((k * y) / (y - k)) + " + 1/" + y);
             }
         }
