@@ -1,5 +1,11 @@
 package ACM.PrimeRingProblem;
 
+import basic.Util;
+
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Set;
+
 /**
  * Created with IntelliJ IDEA.
  * User:ChengLiang
@@ -20,13 +26,79 @@ public class Solution {
     public static void main(String[] args) {
         Solution solution = new Solution();
         solution.case1();
+        System.out.println("------------------------------------------------");
+        solution.case2();
+        System.out.println("------------------------------------------------");
+        solution.case3();
     }
 
     private void case1() {
         ring(6);
     }
 
-    private void ring(int n) {
+    private void case2() {
+        ring(Util.getRandomInteger(1, 16));
+    }
 
+    private void case3() {
+        ring(16);
+    }
+
+    private void ring(int n) {
+        System.out.println("n:" + n);
+        boolean[] array = new boolean[n];
+        LinkedList<Integer> numbers = new LinkedList<>();
+        ring(array, numbers, n);
+        print();
+        result.clear();
+    }
+
+    private void print() {
+        result.forEach(System.out::println);
+    }
+
+    private void ring(boolean[] array, LinkedList<Integer> numbers, int n) {
+        if (numbers.size() == n) {
+            if (Util.isPrime(numbers.peekFirst() + numbers.peekLast())) {
+                addResult(numbers);
+            }
+            numbers.clear();
+            return;
+        }
+        LinkedList<Integer> currentNumbers;
+        for (int i = 0; i < n; i++) {
+            if (!array[i]) {
+                array[i] = true;
+                currentNumbers = new LinkedList<>(numbers);
+                if (isPrime(currentNumbers, i + 1)) {
+                    currentNumbers.add(i + 1);
+                    ring(array, currentNumbers, n);
+                }
+                array[i] = false;
+            }
+        }
+    }
+
+    private boolean isPrime(LinkedList<Integer> currentNumbers, int number) {
+        if (currentNumbers.isEmpty()) {
+            return Util.isPrime(number);
+        }
+        return Util.isPrime(number + currentNumbers.peekLast());
+    }
+
+    Set<String> result = new HashSet<>();
+
+    private void addResult(LinkedList<Integer> numbers) {
+        int firstIndex = numbers.indexOf(1);
+        if (firstIndex < 0) {
+            throw new IllegalArgumentException();
+        }
+        if (firstIndex != 0) {
+            int last = numbers.size() - 1;
+            for (int i = last; i >= firstIndex; i--) {
+                numbers.addFirst(numbers.pollLast());
+            }
+        }
+        result.add(Util.contactAll(' ', numbers.toArray()));
     }
 }
