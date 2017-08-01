@@ -1,5 +1,7 @@
 package ACM.EightQueen;
 
+import basic.Util;
+
 import java.util.*;
 
 /**
@@ -8,7 +10,7 @@ import java.util.*;
  * Date:2017/7/29
  * Time:11:17
  * <p>
- * spec link:https://zh.wikipedia.org/wiki/%E5%85%AB%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98
+ * spec link:    https://zh.wikipedia.org/wiki/%E5%85%AB%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98
  * <p>
  * 八皇后问题
  */
@@ -18,6 +20,8 @@ public class Solution {
         solution.case1();
         System.out.println("----------------------------------------------------");
         solution.case2();
+        System.out.println("----------------------------------------------------");
+        solution.case3();
     }
 
     private void case1() {//92
@@ -28,18 +32,23 @@ public class Solution {
         queen(12);
     }
 
+    private void case3() {//2
+        queen(4);
+    }
+
     private void queen(int num) {
         boolean[] row = new boolean[num];//横向
         boolean[] column = new boolean[num];//纵向
         List<Point> points = new ArrayList<>();
         queen(row, column, points, num);
-        System.out.println(num + " queen question has " + resultSet.size() + " solution.");
+        System.out.println(Util.contactAll(num, " queen question has ", results.size(), " solution."));
+        results.clear();
     }
 
 
     private void queen(boolean[] rows, boolean[] columns, List<Point> points, int num) {
         if (points.size() == num) {
-            addChess(points);
+            addResult(points);
             points.clear();
             return;
         }
@@ -51,8 +60,7 @@ public class Solution {
                     if (!columns[j]) {
                         columns[j] = true;
                         currentPoints = new ArrayList<>(points);
-                        currentPoints.add(createPoint(i, j));
-                        if (checkAllPeace(currentPoints)) {
+                        if (checkAllPeace(currentPoints, createPoint(i, j))) {
                             queen(rows, columns, currentPoints, num);
                         }
                         columns[j] = false;
@@ -63,58 +71,51 @@ public class Solution {
         }
     }
 
-    Map<String, Point> pointMap = new HashMap<>();
+    Map<String, Point> pointCache = new HashMap<>();
 
     private Point createPoint(int i, int j) {
-        String key = i + "," + j;
-        Point cache = pointMap.get(key);
+        String key = Util.contactAll(i, ",", j);
+        Point cache = pointCache.get(key);
         if (cache == null) {
             cache = new Point(i, j);
-            pointMap.put(key, cache);
+            pointCache.put(key, cache);
         }
         return cache;
     }
 
-    private void addChess(List<Point> points) {
+    private void addResult(List<Point> points) {
         Collections.sort(points);
         StringBuilder builder = new StringBuilder();
         for (Point point : points) {
             builder = builder.append(point.toString()).append(" ");
         }
-        if (resultSet.add(builder.toString())) {
+        if (results.add(builder.toString())) {
             System.out.println(builder.toString());
         }
     }
 
-    Set<String> resultSet = new HashSet<>();
+    Set<String> results = new HashSet<>();
 
-    private boolean checkAllPeace(List<Point> points) {
-        return points.size() == 1 || checkAllPeace(points, points.size(), 0);
-    }
-
-    private boolean checkAllPeace(List<Point> points, int size, int leftIndex) {
-        if (leftIndex == size) {
-            return true;
-        }
-        Point current = points.get(leftIndex);
-        for (int i = leftIndex + 1; i < size; i++) {
-            if (!checkAllPeace(current, points.get(i))) {
+    private boolean checkAllPeace(List<Point> points, Point last) {
+        for (Point point : points) {
+            if (!checkAllPeace(point, last)) {
                 return false;
             }
         }
-        return checkAllPeace(points, size, leftIndex + 1);
+        points.add(last);
+        return true;
     }
 
     private boolean checkAllPeace(Point left, Point right) {
-        if (left.getRowIndex() > right.getRowIndex() && left.getColumnIndex() > right.getColumnIndex()) {
-            return left.getRowIndex() - right.getRowIndex() != left.getColumnIndex() - right.getColumnIndex();
+        int lr2rr = left.getRowIndex() - right.getRowIndex();
+        int lc2rc = left.getColumnIndex() - right.getColumnIndex();
+        if (lr2rr > 0 && lc2rc > 0) {
+            return lr2rr != lc2rc;
         }
-
-        if (left.getRowIndex() < right.getRowIndex() && left.getColumnIndex() < right.getColumnIndex()) {
-            return left.getRowIndex() - right.getRowIndex() != left.getColumnIndex() - right.getColumnIndex();
+        if (lr2rr < 0 && lc2rc < 0) {
+            return lr2rr != lc2rc;
         }
-
-        return left.getRowIndex() - right.getRowIndex() + left.getColumnIndex() - right.getColumnIndex() != 0;
+        return lr2rr + lc2rc != 0;
     }
 }
 
@@ -137,7 +138,7 @@ class Point implements Comparable<Point> {
 
     @Override
     public String toString() {
-        return "(" + (rowIndex + 1) + "," + (columnIndex + 1) + ")";
+        return Util.contactAll("(", rowIndex + 1, ",", columnIndex + 1, ")");
     }
 
     @Override

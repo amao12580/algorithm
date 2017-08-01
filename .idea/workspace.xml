@@ -5,90 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8cb3bf52-3226-4800-b5d0-ff0472d749dc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ACM/EightQueen/Solution.java" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\AbbottsRevenge\Solution$Crossroad.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\AbbottsRevenge\Solution$Maze.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\AbbottsRevenge\Solution$MovePoint.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\AbbottsRevenge\Solution$Path.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\AbbottsRevenge\Solution$Rats.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\AbbottsRevenge\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\AccordianPatience\Card.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\AccordianPatience\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\AllinAll\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\AncientMessages\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Borrowers\Solution$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Borrowers\Solution$Book.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Borrowers\Solution$Command.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Borrowers\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\BrokenKeyboard\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\ConcurrencySimulator\Solution$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\ConcurrencySimulator\Solution$Procedure.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\ConcurrencySimulator\Solution$Result.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\ConcurrencySimulator\Solution$Statement.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\ConcurrencySimulator\Solution$StatementType.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\ConcurrencySimulator\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\DNAConsensusString\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\DoYouKnowTheWayToSanJose\Solution$Location.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\DoYouKnowTheWayToSanJose\Solution$Map.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\DoYouKnowTheWayToSanJose\Solution$Point.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\DoYouKnowTheWayToSanJose\Solution$Request.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\DoYouKnowTheWayToSanJose\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Game102030\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\IPNetworks\Solution$IP.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\IPNetworks\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\IdealPath\Solution$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\IdealPath\Solution$Edge.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\IdealPath\Solution$Graph.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\IdealPath\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\InspectorsDilemma\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\MatrixChainMultiplication\Solution$Matrix.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\MatrixChainMultiplication\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\OilDeposits\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\OrderingTasks\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Othello\Solution$Point.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Othello\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Puzzle\Solution$Element.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Puzzle\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Rails\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\RepeatingDecimals\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\RevengeOfFibonacci\Solution$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\RevengeOfFibonacci\Solution$Node.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\RevengeOfFibonacci\Solution$TrieTree.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\RevengeOfFibonacci\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\STrees\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\SpatialStructures\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\SpreadsheetTracking\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Squares\Solution$Line.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Squares\Solution$Point.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Squares\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Tree\Solution$WeightLeafNode.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\Tree\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\TreesOnTheLevel\Solution$NodePrint.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\TreesOnTheLevel\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\UndrawTheTrees\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\WhereistheMarble\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\ACM\digitGenerator\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\DP\knapsack\Solution$Gem.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\DP\knapsack\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\DP\lis\SolutionV2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\DP\minimumPathSum\Solution.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\classic\KMP\SolutionV1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\classic\KMP\SolutionV3.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\classic\KMP\SolutionV4.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\classic\twoArrayRemoveRepeat\SolutionV2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\graph\list\ListGraph$Node.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\graph\list\ListGraph.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\graph\matrix\MatrixGraph.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\leetcode\sumEqualZero\SolutionForDynamicPrograming.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\leetcode\sumEqualZero\SolutionForRecursion.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\bucket\BucketHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\heap\HeapHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\classes\sort\merge\MergeHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\maven-archiver\pom.properties" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\maven-status\maven-compiler-plugin\compile\default-compile\createdFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\maven-status\maven-compiler-plugin\compile\default-compile\inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\maven-status\maven-compiler-plugin\testCompile\default-testCompile\inputFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="D:\GitHub\algorithm\target\study-algorithm-1.0-SNAPSHOT.jar" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ACM/PrimeRingProblem/Solution.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ACM/EightQueen/Point.class" afterPath="$PROJECT_DIR$/target/classes/ACM/EightQueen/Point.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ACM/EightQueen/Solution.class" afterPath="$PROJECT_DIR$/target/classes/ACM/EightQueen/Solution.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/study-algorithm-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/target/study-algorithm-1.0-SNAPSHOT.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ACM/EightQueen/Solution.java" afterPath="$PROJECT_DIR$/src/main/java/ACM/EightQueen/Solution.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="study-algorithm.iws" />
@@ -126,23 +50,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="Solution.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ACM/PrimeRingProblem/Solution.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Solution.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ACM/EightQueen/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.73965937">
-              <caret line="49" column="47" selection-start-line="49" selection-start-column="47" selection-end-line="49" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.86902285">
+              <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
               <folding>
-                <element signature="e#529#530#0" expanded="true" />
-                <element signature="e#557#558#0" expanded="true" />
-                <element signature="e#585#586#0" expanded="true" />
-                <element signature="e#617#618#0" expanded="true" />
-                <element signature="e#4041#4042#0" expanded="true" />
-                <element signature="e#4072#4073#0" expanded="true" />
-                <element signature="e#4107#4108#0" expanded="true" />
-                <element signature="e#4141#4142#0" expanded="true" />
-                <element signature="e#4187#4188#0" expanded="true" />
-                <element signature="e#4262#4263#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#663#664#0" expanded="true" />
+                <element signature="e#691#692#0" expanded="true" />
+                <element signature="e#719#720#0" expanded="true" />
+                <element signature="e#751#752#0" expanded="true" />
+                <element signature="e#779#780#0" expanded="true" />
+                <element signature="e#806#807#0" expanded="true" />
+                <element signature="e#3845#3846#0" expanded="true" />
+                <element signature="e#3929#3930#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Util.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/basic/Util.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="474" column="25" selection-start-line="474" selection-start-column="25" selection-end-line="474" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -168,7 +111,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/ACM/BoxesInALine/Solution.java" />
         <option value="$PROJECT_DIR$/src/main/java/basic/dataStructure/Tree.java" />
         <option value="$PROJECT_DIR$/src/main/java/basic/dataStructure/BinaryTree.java" />
         <option value="$PROJECT_DIR$/src/main/java/ACM/DroppingBalls/Solution.java" />
@@ -218,6 +160,7 @@
         <option value="$PROJECT_DIR$/src/main/java/ACM/Division/Solution.java" />
         <option value="$PROJECT_DIR$/src/main/java/ACM/MaximumProduct/Solution.java" />
         <option value="$PROJECT_DIR$/src/main/java/ACM/FractionsAgain/Solution.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ACM/PrimeRingProblem/Solution.java" />
         <option value="$PROJECT_DIR$/src/main/java/ACM/EightQueen/Solution.java" />
       </list>
     </option>
@@ -425,15 +368,49 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="PrimeRingProblem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="study-algorithm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="algorithm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ACM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="EightQueen" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Solution.java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1188,12 +1165,13 @@
       <workItem from="1500272886347" duration="50755000" />
       <workItem from="1500544907882" duration="11701000" />
       <workItem from="1500863165054" duration="12222000" />
-      <workItem from="1501228448213" duration="20131000" />
+      <workItem from="1501228448213" duration="20994000" />
+      <workItem from="1501546622442" duration="1342000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1189443000" />
+    <option name="totallyTimeSpent" value="1191648000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
@@ -1208,7 +1186,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26289397" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40939596" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31543624" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31303725" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1282,13 +1260,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/basic/dataStructure/graph/Point.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="58" column="1" selection-start-line="8" selection-start-column="0" selection-end-line="58" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ACM/SelfAssembly/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1539,21 +1510,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/basic/Util.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="464" column="34" selection-start-line="464" selection-start-column="34" selection-end-line="464" selection-end-column="34" />
-          <folding>
-            <element signature="e#13215#13216#0" expanded="false" />
-            <element signature="e#13280#13281#0" expanded="false" />
-            <element signature="e#13698#13699#0" expanded="false" />
-            <element signature="e#13740#13741#0" expanded="false" />
-            <element signature="e#13827#13828#0" expanded="false" />
-            <element signature="e#13868#13869#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ACM/SpreadsheetCalculator/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1565,10 +1521,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="354" column="19" selection-start-line="354" selection-start-column="19" selection-end-line="354" selection-end-column="19" />
-          <folding>
-            <element signature="e#8748#8749#0" expanded="false" />
-            <element signature="e#8787#8788#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1594,10 +1546,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="78" column="21" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
-          <folding>
-            <element signature="e#1588#1589#0" expanded="false" />
-            <element signature="e#1616#1617#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1605,7 +1553,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="290" column="11" selection-start-line="290" selection-start-column="11" selection-end-line="290" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1613,6 +1560,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="129" column="29" selection-start-line="129" selection-start-column="29" selection-end-line="129" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1652,10 +1600,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2329" column="45" selection-start-line="2329" selection-start-column="28" selection-end-line="2329" selection-end-column="45" />
-          <folding>
-            <element signature="e#67889#67890#0" expanded="false" />
-            <element signature="e#67953#67954#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1663,12 +1607,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="55" column="25" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
-          <folding>
-            <element signature="e#848#849#0" expanded="true" />
-            <element signature="e#876#877#0" expanded="true" />
-            <element signature="e#961#962#0" expanded="true" />
-            <element signature="e#1018#1019#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1680,21 +1618,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ACM/PrimeRingProblem/Solution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/basic/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="474" column="25" selection-start-line="474" selection-start-column="25" selection-end-line="474" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ACM/EightQueen/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73965937">
-          <caret line="49" column="47" selection-start-line="49" selection-start-column="47" selection-end-line="49" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.86902285">
+          <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
           <folding>
-            <element signature="e#529#530#0" expanded="true" />
-            <element signature="e#557#558#0" expanded="true" />
-            <element signature="e#585#586#0" expanded="true" />
-            <element signature="e#617#618#0" expanded="true" />
-            <element signature="e#4041#4042#0" expanded="true" />
-            <element signature="e#4072#4073#0" expanded="true" />
-            <element signature="e#4107#4108#0" expanded="true" />
-            <element signature="e#4141#4142#0" expanded="true" />
-            <element signature="e#4187#4188#0" expanded="true" />
-            <element signature="e#4262#4263#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#663#664#0" expanded="true" />
+            <element signature="e#691#692#0" expanded="true" />
+            <element signature="e#719#720#0" expanded="true" />
+            <element signature="e#751#752#0" expanded="true" />
+            <element signature="e#779#780#0" expanded="true" />
+            <element signature="e#806#807#0" expanded="true" />
+            <element signature="e#3845#3846#0" expanded="true" />
+            <element signature="e#3929#3930#0" expanded="true" />
           </folding>
         </state>
       </provider>
