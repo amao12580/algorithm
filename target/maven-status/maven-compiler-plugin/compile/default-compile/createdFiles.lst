@@ -83,6 +83,7 @@ sort\bubble\BubbleHandler.class
 ACM\ATypicalHomework\Student.class
 ACM\FloatingPointNumbers\Solution$BinaryLength.class
 ACM\TreesOnTheLevel\Solution.class
+ACM\KryptonFactor\Solution.class
 ACM\RevengeOfFibonacci\Solution$1.class
 ACM\SystemDependencies\Solution$1.class
 DP\coins\SolutionV2.class
