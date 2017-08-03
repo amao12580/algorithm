@@ -133,6 +133,7 @@ ACM\CompoundWords\Solution.class
 ACM\QueueAndA\Solution$Person.class
 ACM\TheDoleQueue\Solution.class
 sort\selection\SelectionHandler.class
+ACM\Bandwidth\Solution.class
 ACM\Sculpture\Solution$Cube.class
 ACM\WhereistheMarble\Solution.class
 ACM\ExtraordinarilyTiredStudents\Solution$Student.class
