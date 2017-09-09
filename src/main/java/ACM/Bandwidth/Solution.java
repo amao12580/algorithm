@@ -61,8 +61,8 @@ public class Solution {
         }
     }
 
-    int globalMin = 0;
-    Map<Character, Integer> globalMinSequence;
+    private int globalMin = 0;
+    private Map<Character, Integer> globalMinSequence;
 
     private void bandWidth(boolean[] array, Map<Character, Integer> sequence, int index, Character[] seedArray, Map<Character, Set<Character>> mapping, int len, int thisSequenceMin) {
         Map<Character, Integer> currentSequence;
@@ -147,11 +147,7 @@ public class Solution {
 
     private void add(Map<Character, Set<Character>> mapping, Character key, Character value) {
         Set<Character> valueSet;
-        valueSet = mapping.get(key);
-        if (valueSet == null) {
-            valueSet = new HashSet<>();
-            mapping.put(key, valueSet);
-        }
+        valueSet = mapping.computeIfAbsent(key, k -> new HashSet<>());
         valueSet.add(value);
     }
 }

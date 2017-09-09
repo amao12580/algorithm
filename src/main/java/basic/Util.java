@@ -2,6 +2,7 @@ package basic;
 
 import com.google.gson.Gson;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -69,9 +70,47 @@ public class Util {
         return Math.random() * Double.MAX_VALUE;
     }
 
+    public static double getRandomDouble(double lowerBound, double upperBound) {
+        BigDecimal lowerBoundBD = new BigDecimal(lowerBound);
+        BigDecimal upperBoundBD = new BigDecimal(upperBound);
+        int multiple = 1;
+        BigDecimal ten = new BigDecimal(10);
+        while (hasDecimals(lowerBoundBD.doubleValue()) || hasDecimals(upperBoundBD.doubleValue())) {
+            multiple *= 10;
+            lowerBoundBD = lowerBoundBD.multiply(ten);
+            upperBoundBD = upperBoundBD.multiply(ten);
+        }
+        return (double) getRandomLong(lowerBoundBD.longValue(), upperBoundBD.longValue()) / multiple;
+    }
+
+    /**
+     * 是否有小数
+     */
+    public static boolean hasDecimals(double value) {
+        String str = String.valueOf(value);
+        int p = str.indexOf(".");
+        if (p < 0) {
+            return false;
+        }
+        if (p == str.length() - 1) {//小数点在最后一位？
+            throw new IllegalArgumentException(value + " not valid param.");
+        }
+        return Integer.valueOf(str.substring(p + 1)) != 0;
+    }
+
 
     public static long getRandomLong() {
         return (long) (Math.random() * Long.MAX_VALUE);
+    }
+
+    public static long getRandomLong(long min, long max) {
+        if (max < min) {
+            return 0;
+        }
+        if (max == min) {
+            return max;
+        }
+        return (long) (Math.random() * (max - min + 1)) + min;
     }
 
     /**
