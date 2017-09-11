@@ -92,7 +92,7 @@ public class Solution {
         move(maze, rats, path, paths);
         paths = filter(paths);
         if (paths.isEmpty()) {
-            System.out.println("No Solution Possible");
+            System.out.println("No SolutionV1 Possible");
             return;
         }
         if (paths.size() > 1) {

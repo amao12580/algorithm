@@ -49,7 +49,7 @@ import java.util.LinkedList;
  * (2,1),(2,2),(2,3),(2,4),(2,5),(1,5),(1,6),(1,7),(2,7),
  * (3,7),(4,7),(4,6),(3,6),(2,6)
  * DICEMAZE3
- * No Solution Possible
+ * No SolutionV1 Possible
  */
 public class Solution {
     public static void main(String[] args) {
@@ -87,7 +87,7 @@ public class Solution {
         if (move(dice, maze, configArray, path)) {
             printPath(path);
         } else {
-            System.out.println("No Solution Possible");
+            System.out.println("No SolutionV1 Possible");
         }
     }
 

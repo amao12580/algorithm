@@ -169,6 +169,7 @@ basic\dataStructure\tree\binary\MultiTree.class
 ACM\Sculpture\Solution$Area.class
 ACM\Paintball\Solution.class
 ACM\Borrowers\Solution$Command.class
+ACM\EightNums\SolutionV1.class
 ACM\UseOfHospitalFacilities\Solution$Patient.class
 ACM\SelfAssembly\Solution.class
 classic\KMP\SolutionV3.class
@@ -188,6 +189,7 @@ classic\KMP\SolutionV2.class
 ACM\QueueAndA\Solution$Topic.class
 basic\dataStructure\tree\binary\MultiNode.class
 ACM\BugHunt\Solution.class
+ACM\EightNums\SolutionV1$Current.class
 ACM\score\Solution.class
 graph\edge\EdgeGraph.class
 sort\quick\QuickHandler.class

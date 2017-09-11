@@ -430,6 +430,18 @@ public class Util {
         return new String(newChars);
     }
 
+    public static int[] cover(Integer[] array) {
+        if (array == null) {
+            return null;
+        }
+        int len = array.length;
+        int[] result = new int[len];
+        for (int i = 0; i < len; i++) {
+            result[i] = array[i] == null ? 0 : array[i];
+        }
+        return result;
+    }
+
     private static class DictionaryString implements Comparable<DictionaryString> {
         private String string;
 
