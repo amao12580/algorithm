@@ -37,21 +37,6 @@ public class SolutionV1 {
         slide((byte) 2, (byte) 2, before, after);
     }
 
-    private void case2() {
-        int[] before = {2, 6, 4, 1, 3, 7, 0, 5, 8};
-        int[] after = {8, 1, 5, 7, 3, 6, 4, 0, 2};
-        slide((byte) 3, (byte) 3, before, after);
-    }
-
-    private void case3() {
-        Integer[] seed = {2, 6, 4, 1, 3, 7, 0, 5, 8};
-        Util.shuffleArray(seed);
-        int[] before = Util.cover(seed);
-        Util.shuffleArray(seed);
-        int[] after = Util.cover(seed);
-        slide((byte) 3, (byte) 3, before, after);
-    }
-
     /**
      * 有rows行，每行有columns个
      */
