@@ -139,6 +139,7 @@ ACM\Sculpture\Solution$Cube.class
 ACM\WhereistheMarble\Solution.class
 ACM\ExtraordinarilyTiredStudents\Solution$Student.class
 ACM\AllinAll\Solution.class
+ACM\EightNums\SolutionV2.class
 ACM\ConcurrencySimulator\Solution.class
 sort\shaker\ShakerHandler.class
 ACM\MessageDecoding\Solution.class
@@ -186,6 +187,7 @@ ACM\PrinterQueue\Solution$Task.class
 ACM\DoYouKnowTheWayToSanJose\Solution.class
 ACM\IPNetworks\Solution$IP.class
 classic\KMP\SolutionV2.class
+ACM\EightNums\SolutionV2$SearchHandler.class
 ACM\QueueAndA\Solution$Topic.class
 basic\dataStructure\tree\binary\MultiNode.class
 ACM\BugHunt\Solution.class
@@ -232,6 +234,7 @@ ACM\HangmanJudge\Solution.class
 ACM\FractionsAgain\Solution.class
 sort\radix\RadixHandler$RadixSortHandler.class
 ACM\ConcurrencySimulator\Solution$Procedure.class
+ACM\EightNums\SolutionV2$Current.class
 ACM\OrderingTasks\Solution.class
 ACM\MobileComputing\Solution$Node.class
 ACM\Borrowers\Solution.class

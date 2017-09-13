@@ -4,7 +4,10 @@ import basic.Util;
 
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -28,10 +31,11 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class SolutionV2 {
     public static void main(String[] args) throws FileNotFoundException, InterruptedException {
-        PrintStream print = new PrintStream("E:\\test.txt");  //写好输出位置文件；
-        System.setOut(print);
+//        PrintStream print = new PrintStream("E:\\test.txt");  //写好输出位置文件；
+//        System.setOut(print);
         new SolutionV2().case1();
-//        new SolutionV2().case2();
+        new SolutionV2().case2();
+//        new SolutionV2().case3();
     }
 
 
@@ -50,6 +54,15 @@ public class SolutionV2 {
         slide((byte) 3, (byte) 3, before, after);
     }
 
+    private void case3() throws FileNotFoundException, InterruptedException {//4*4 timeout or OOM
+        Integer[] seed = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+        Util.shuffleArray(seed);
+        int[] before = Util.cover(seed);
+        Util.shuffleArray(seed);
+        int[] after = Util.cover(seed);
+        slide((byte) 4, (byte) 4, before, after);
+    }
+
     /**
      * 有rows行，每行有columns个
      */
@@ -62,12 +75,12 @@ public class SolutionV2 {
         String beforeString = contactAll(before);
         String afterString = contactAll(after);
         List<Current> moves = new ArrayList<>();
-        moves.add(new Current((byte) beforeString.indexOf("0"), (byte) -1, beforeString.toCharArray()));
-        positive.put(beforeString, 0);
-        negative.put(afterString, 0);
+        moves.add(new Current(indexOfZero(before), (byte) -1, beforeString.toCharArray()));
+        positiveCurrents.put(beforeString, 0);
+        negativeCurrents.put(afterString, 0);
         positiveThread = new SearchHandler(moves, true);
         moves = new ArrayList<>();
-        moves.add(new Current((byte) afterString.indexOf("0"), (byte) -1, afterString.toCharArray()));
+        moves.add(new Current(indexOfZero(after), (byte) -1, afterString.toCharArray()));
         negativeThread = new SearchHandler(moves, false);
         positiveThread.start();
         negativeThread.start();
@@ -81,15 +94,20 @@ public class SolutionV2 {
     private Thread positiveThread;
     private Thread negativeThread;
 
+    private byte indexOfZero(int[] array) {
+        for (int i = 0; i < sum; i++) {
+            if (array[i] == 0) {
+                return (byte) i;
+            }
+        }
+        return -1;
+    }
+
     private void print() throws InterruptedException {
         if (!positiveThread.isAlive() && !negativeThread.isAlive()) {
-            System.out.println(globalMin);
-//            Set<String> set=positive.keySet();
-//            Set<String> set2=negative.keySet();
-//            System.out.println(set.size());
-//            System.out.println(set2.size());
-//            set.retainAll(set2);
-//            System.out.println(set.size());
+            positiveCurrents.clear();
+            negativeCurrents.clear();
+            System.out.println("shortest path length is " + globalMin);
             System.out.println("--------------------------------------------");
         } else {
             Thread.sleep(100);
@@ -97,47 +115,29 @@ public class SolutionV2 {
         }
     }
 
-    private Map<String, Integer> positive = new ConcurrentHashMap<>();//正向搜索
-    private Map<String, Integer> negative = new ConcurrentHashMap<>();//反向搜索
+    private Map<String, Integer> positiveCurrents = new ConcurrentHashMap<>();//正向搜索
+    private Map<String, Integer> negativeCurrents = new ConcurrentHashMap<>();//反向搜索
 
-    private boolean isCross(boolean isPositive, String current) {
-        Map<String, Integer> target = isPositive ? negative : positive;
-        return target.containsKey(current);
+    private boolean cross(boolean isPositive, String current) {
+        return (isPositive ? negativeCurrents : positiveCurrents).containsKey(current);
     }
 
-    private boolean isVisited(boolean isPositive, String current, Integer steps) {
-        return isVisited0(isPositive, current, steps) || isVisited0(!isPositive, current, null);
-    }
-
-    private boolean isVisited0(boolean isPositive, String current, Integer steps) {
-        Map<String, Integer> target = isPositive ? positive : negative;
-        if (target.containsKey(current)) {
-            if (steps != null) {
-                Integer s = target.get(current);
-                if (s == null || steps < s) {
-                    target.put(current, steps);
-                }
-            }
-            return true;
-        }
-        return false;
-    }
-
-    private void visit(boolean isPositive, String current, int steps) {
-        Map<String, Integer> target = isPositive ? positive : negative;
+    private boolean visit(boolean isPositive, String current, int steps) {
+        Map<String, Integer> target = isPositive ? positiveCurrents : negativeCurrents;
         if (target.containsKey(current)) {
             Integer s = target.get(current);
             if (s == null || steps < s) {
                 target.put(current, steps);
             }
+            return true;
         } else {
             target.put(current, steps);
         }
+        return false;
     }
 
-    private int getNegativeSteps(boolean isPositive, String current) {
-        Map<String, Integer> target = isPositive ? negative : positive;
-        return target.containsKey(current) ? 0 : target.get(current);
+    private int getShortestSteps(boolean isPositive, String current) {
+        return (isPositive ? positiveCurrents : negativeCurrents).getOrDefault(current, 0);
     }
 
     class SearchHandler extends Thread {
@@ -157,42 +157,20 @@ public class SolutionV2 {
         private void slide(List<Current> moves) {
             Current current;
             char[] currentDesc;
-            String currentString;
-            byte currentWhiteIndex;
-            int currentStep;
             List<Byte> canMove;
             List<Current> next = new ArrayList<>();
             for (Current item : moves) {
-                System.out.println(isPositive + "," + String.valueOf(item.getDesc()));
+//                System.out.println(isPositive + "," + String.valueOf(item.getDesc()));
                 canMove = canMove(item.getWhiteIndex(), item.getPreWhiteIndex());
                 for (Byte move : canMove) {
                     current = item.copyOf();
                     currentDesc = Arrays.copyOf(current.getDesc(), sum);
-                    currentWhiteIndex = current.getWhiteIndex();
-                    currentWhiteIndex = move(currentDesc, currentWhiteIndex, move);
-                    currentString = String.valueOf(currentDesc);
-                    if (isVisited(isPositive, currentString, current.getStep() + 1)) {
-                        current.clear();
-                        continue;
-                    }
-                    current.plusStep(currentDesc, currentWhiteIndex);
-                    currentStep = current.getStep();
-                    visit(isPositive, currentString, currentStep);
-                    if (isCross(isPositive, currentString)) {
-                        currentStep += getNegativeSteps(isPositive, currentString);
-                        System.out.println("may be " + currentStep);
-                        if (globalMin < 0 || currentStep < globalMin) {
-                            globalMin = currentStep;
-                        }
-                        current.clear();
-                        continue;
+                    current.plusStep(currentDesc, move(currentDesc, current.getWhiteIndex(), move));
+                    if (check(String.valueOf(currentDesc), current.getStep())) {
+                        next.add(current);
                     } else {
-                        if (globalMin > 0 && currentStep > globalMin) {
-                            current.clear();
-                            continue;
-                        }
+                        current.clear();
                     }
-                    next.add(current);
                 }
                 canMove.clear();
             }
@@ -201,6 +179,24 @@ public class SolutionV2 {
                 return;
             }
             slide(next);
+        }
+
+        synchronized boolean check(String currentString, int steps) {
+            boolean visited = visit(isPositive, currentString, steps);
+            boolean crossed = cross(isPositive, currentString);
+            if (crossed) {
+                steps = getShortestSteps(isPositive, currentString) + getShortestSteps(!isPositive, currentString);
+//                System.out.println("may be " + steps + ",currentString:" + currentString);
+                if (globalMin < 0 || steps < globalMin) {
+                    globalMin = steps;
+                }
+                return false;
+            } else {
+                if (visited || (globalMin > 0 && steps > globalMin)) {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 
@@ -277,6 +273,9 @@ public class SolutionV2 {
 
 
         Current(byte whiteIndex, byte preWhiteIndex, char[] desc) {
+            if (whiteIndex < 0) {
+                throw new IllegalArgumentException();
+            }
             this.whiteIndex = whiteIndex;
             this.preWhiteIndex = preWhiteIndex;
             this.desc = desc;
