@@ -68,6 +68,7 @@ ACM\DroppingBalls\Solution$SwitchNode.class
 ACM\ConcurrencySimulator\Solution$StatementType.class
 ACM\Kickdown\Solution.class
 ACM\TreesOnTheLevel\Solution$NodePrint.class
+ACM\Fill\Solution$State.class
 ACM\ForeignExchange\Solution$Student.class
 ACM\Exchange\Solution.class
 ACM\CrosswordAnswers\Solution$Element.class
@@ -154,6 +155,7 @@ ACM\Squares\Solution.class
 ACM\BugHunt\Statement.class
 sort\count\CountHandler.class
 ACM\PetriNetSimulation\Transition.class
+ACM\Fill\Solution.class
 ACM\AbbottsRevenge\Solution$Maze.class
 ACM\Quadtrees\Solution$1.class
 leetcode\sumEqualZero\SolutionForSimple.class
