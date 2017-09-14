@@ -77,8 +77,9 @@ public class Solution {
         State current;
         int[][] maybe;
         int[] es;
-        Set<State> next = new HashSet<>();
         int currentGap;
+        int currentJug;
+        Set<State> next = new HashSet<>();
         for (State state : states) {
             maybe = state.canJug();
             for (int i = 0; i < 3; i++) {
@@ -93,16 +94,22 @@ public class Solution {
                         continue;
                     }
                     currentGap = current.getGap();
+                    currentJug = current.getJug();
                     if (minGap < 0) {
                         minGap = currentGap;
-                        minJug = current.jug;
+                        minJug = currentJug;
                     } else {
+                        if (Math.abs(currentGap) > Math.abs(minGap)) {
+                            continue;
+                        }
                         if (Math.abs(currentGap) < Math.abs(minGap)) {
                             minGap = currentGap;
                         }
                         if (Math.abs(currentGap) == Math.abs(minGap)) {
-                            if (current.jug < minJug) {
-                                minJug = current.jug;
+                            if (currentJug < minJug) {
+                                minJug = currentJug;
+                            } else {
+                                continue;
                             }
                         }
                     }
@@ -131,21 +138,26 @@ public class Solution {
         int jug = 0;//倒水量
 
         State(int[] stock) {
-            this.stock = stock;
-            this.hashCode = Arrays.toString(stock).hashCode();
+            this(stock, 0);
         }
 
-        State(int[] stock, int jug) {
-            this(stock);
+        State(int[] stock, int hashCode) {
+            this.stock = stock;
+            this.hashCode = hashCode == 0 ? Arrays.toString(stock).hashCode() : hashCode;
+        }
+
+        State(int[] stock, int jug, int hashCode) {
+            this(stock, hashCode);
             this.jug = jug;
         }
 
         State copyOf() {
-            return new State(Arrays.copyOf(this.stock, 3), this.jug);
+            return new State(Arrays.copyOf(this.stock, 3), this.jug, this.hashCode);
         }
 
         void jug(int beginIndex, int endIndex) {
             this.jug += jug(beginIndex, endIndex, this.stock);
+            this.hashCode = Arrays.toString(stock).hashCode();
         }
 
         private int jug(int beginIndex, int endIndex, int[] stock) {
@@ -187,7 +199,7 @@ public class Solution {
                 if (i == index) {
                     continue;
                 }
-                if (capacity[i] - stock[i] >= s) {
+                if (capacity[i] - stock[i] > 0) {
                     result.add(i);
                 }
             }
@@ -204,6 +216,10 @@ public class Solution {
 
         int getGap() {
             return d - closestD(this.stock);
+        }
+
+        int getJug() {
+            return jug;
         }
 
         private int closestD(int[] stock) {
