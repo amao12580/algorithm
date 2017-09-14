@@ -220,6 +220,7 @@ ACM\Tree\Solution$WeightLeafNode.class
 ACM\BugHunt\Common.class
 tree\huffman\HuffmanTree.class
 ACM\AbbottsRevenge\Solution.class
+ACM\EightNums\SolutionV3$Current.class
 ACM\MorseMismatches\Solution.class
 ACM\SearchingTheWeb\Solution.class
 ACM\ConcurrencySimulator\Solution$Result.class
@@ -232,6 +233,7 @@ ACM\Puzzle\Solution$Element.class
 ACM\digitGenerator\Solution.class
 ACM\HangmanJudge\Solution.class
 ACM\FractionsAgain\Solution.class
+ACM\EightNums\SolutionV3$SearchHandler.class
 sort\radix\RadixHandler$RadixSortHandler.class
 ACM\ConcurrencySimulator\Solution$Procedure.class
 ACM\EightNums\SolutionV2$Current.class
@@ -240,6 +242,7 @@ ACM\MobileComputing\Solution$Node.class
 ACM\Borrowers\Solution.class
 ACM\PetriNetSimulation\Solution.class
 ACM\RepeatingDecimals\Solution.class
+ACM\EightNums\SolutionV3.class
 ACM\BugHunt\Statement$PartType.class
 ACM\Squares\Solution$Point.class
 ACM\Borrowers\Solution$1.class
