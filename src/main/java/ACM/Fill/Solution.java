@@ -1,5 +1,7 @@
 package ACM.Fill;
 
+import basic.Util;
+
 import java.util.*;
 
 /**
@@ -35,8 +37,9 @@ import java.util.*;
 public class Solution {
     public static void main(String[] args) {
         new Solution().case1();
-//        new Solution().case2();
-//        new Solution().case3();
+        new Solution().case2();
+        new Solution().case3();
+        new Solution().case4();
     }
 
     private void case1() {
@@ -51,12 +54,18 @@ public class Solution {
         fill(96, 97, 199, 62);
     }
 
+
+    private void case4() {
+        fill(Util.getRandomInteger(1, 200), Util.getRandomInteger(1, 200), Util.getRandomInteger(1, 200), Util.getRandomInteger(1, 200));
+    }
+
     /**
      * 杯子的容量分别为a, b, c，最初只有第3个杯子装满了c升水
      * <p>
      * 最少需要倒多少升水才能让某一个杯子中的水有d升呢？如果无法做到恰好d升，就让某一个杯子里的水是d'升，其中d'<d并且尽量接近d。
      */
     private void fill(int a, int b, int c, int d) {
+        long s = System.currentTimeMillis();
         System.out.println("a:" + a + ",b:" + b + ",c:" + c + ",d:" + d);
         capacity[0] = a;
         capacity[1] = b;
@@ -67,9 +76,10 @@ public class Solution {
         List<State> states = new ArrayList<>();
         State state = new State(stock);
         states.add(state);
-        allStates.add(state);
+        allStates.add(state.hashCode);
         fill(states);
-        System.out.println(minJug + " " + (minGap < 0 ? -1 : (d - minGap)));
+        System.out.println(minJug + " " + (minGap == null ? -1 : (d - minGap)));
+        System.out.println("time:" + (System.currentTimeMillis() - s));
         System.out.println("----------------------------------------------");
     }
 
@@ -90,27 +100,21 @@ public class Solution {
                 for (int endIndex : es) {
                     current = state.copyOf();
                     current.jug(i, endIndex);
-                    if (!allStates.add(current) || next.contains(current)) {
+                    if (!allStates.add(current.hashCode) || next.contains(current)) {
                         continue;
                     }
                     currentGap = current.getGap();
                     currentJug = current.getJug();
-                    if (minGap < 0) {
+                    if (minGap == null) {
                         minGap = currentGap;
                         minJug = currentJug;
                     } else {
-                        if (Math.abs(currentGap) > Math.abs(minGap)) {
-                            continue;
-                        }
                         if (Math.abs(currentGap) < Math.abs(minGap)) {
                             minGap = currentGap;
+                            minJug = currentJug;
                         }
-                        if (Math.abs(currentGap) == Math.abs(minGap)) {
-                            if (currentJug < minJug) {
-                                minJug = currentJug;
-                            } else {
-                                continue;
-                            }
+                        if (Math.abs(currentGap) == Math.abs(minGap) && currentJug < minJug) {
+                            minJug = currentJug;
                         }
                     }
                     next.add(current);
@@ -124,10 +128,10 @@ public class Solution {
         fill(new ArrayList<>(next));
     }
 
-    private Set<State> allStates = new HashSet<>();
+    private Set<Integer> allStates = new HashSet<>();
 
     private int minJug = -1;
-    private int minGap = -1;
+    private Integer minGap = null;
     private int d = -1;
 
     private int[] capacity = new int[3];//每个杯子的容量
@@ -215,23 +219,20 @@ public class Solution {
         }
 
         int getGap() {
-            return d - closestD(this.stock);
+            return d - minGap(this.stock);
         }
 
         int getJug() {
             return jug;
         }
 
-        private int closestD(int[] stock) {
+        private int minGap(int[] stock) {
             int s;
             int closest = -1;
             int gap;
             int r = -1;
             for (int i = 0; i < 3; i++) {
                 s = stock[i];
-                if (capacity[i] < d || s < d) {
-                    continue;
-                }
                 if (s == d) {
                     return d;
                 } else {
