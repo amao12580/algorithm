@@ -63,11 +63,50 @@ public class Solution {
     private int rowNum;
     private int columnNum;
     private int ghostNum;
+    private LinkedList<LinkedList<Integer>> moves;
 
     public static void main(String[] args) {
         new Solution().case1();
 //        new Solution().case2();
 //        new Solution().case3();
+    }
+
+    /**
+     * 计算所有移动方案，sum=ghost数量
+     */
+    private LinkedList<LinkedList<Integer>> shouldMoveGhost(int sum) {//只需要计算一次
+        LinkedList<LinkedList<Integer>> result = new LinkedList<>();
+        for (int i = 1; i <= sum; i++) {
+            shouldMoveGhost(sum, i, result);
+        }
+        return result;
+    }
+
+    private void shouldMoveGhost(int sum, int num, LinkedList<LinkedList<Integer>> result) {
+        LinkedList<Integer> current = new LinkedList<>();
+        boolean[] b = new boolean[sum];
+        shouldMoveGhost(sum, num, b, result, current);
+    }
+
+    private void shouldMoveGhost(int sum, int num, boolean[] b,
+                                 LinkedList<LinkedList<Integer>> result,
+                                 LinkedList<Integer> current) {
+        boolean item;
+        LinkedList<Integer> group;
+        for (int i = 0; i < sum; i++) {
+            item = b[i];
+            if (!item) {
+                b[i] = true;
+                group = new LinkedList<>(current);
+                group.add(i);
+                if (group.size() == num) {
+                    result.add(group);
+                } else {
+                    shouldMoveGhost(sum, num, b, result, group);
+                }
+                b[i] = false;
+            }
+        }
     }
 
     private void case1() {
@@ -118,6 +157,7 @@ public class Solution {
         this.rowNum = rowNum;
         this.ghostNum = ghostNum;
         this.puzzle = puzzle;
+        this.moves = shouldMoveGhost(ghostNum);
         scan();
         Execute positive = new Execute(true);
         Execute negative = new Execute(false);
@@ -133,6 +173,8 @@ public class Solution {
                 executes.add(current);
             }
         }
+        System.out.println(globalMin);
+        System.out.println("-----------------------------------------------------");
     }
 
     class Execute {
@@ -178,38 +220,40 @@ public class Solution {
         boolean run() {
             Set<State> next = new HashSet<>();
             for (State item : current) {
-                move(item, item.canMove(this.blank), next);
+                move(item, next);
             }
             current.clear();
             current.addAll(next);
             return !current.isEmpty();
         }
 
-        void move(State state, Integer[][] ghost, Set<State> next) {
+        void move(State state, Set<State> next) {
             Integer[] nextIndexArray;
             Integer nextIndex;
             State current;
-            for (int i = 0; i < ghostNum; i++) {
-                nextIndexArray = ghost[i];
-                for (int j = 0; j < 5; j++) {
-                    nextIndex = nextIndexArray[i];
-                    if (nextIndex == null) {
-                        continue;
-                    }
-                    current = state.copyOf();
-                    current.move(i, nextIndex);
-                    if (check(current.hashCode(), current.getStep())) {
-                        next.add(current);
-                    } else {
-                        current.clear();
+            for (LinkedList<Integer> list : moves) {//移动方案，可能会有多个同时移动
+                current = state.copyOf();
+                for (Integer item : list) {//移动项
+                    nextIndexArray = current.next(this.blank, item);
+                    for (int j = 0; j < 5; j++) {//方向
+                        nextIndex = nextIndexArray[j];
+                        if (nextIndex == null) {
+                            continue;
+                        }
+                        current.move(item, nextIndex);
+                        if (check(current.hashCode(), current.getStep())) {
+                            next.add(current);
+                        }
                     }
                 }
             }
         }
 
+
         boolean check(Integer hashCode, int steps) {
             boolean visited = visit(hashCode, steps);
             boolean crossed = opposite.containsKey(hashCode);
+            System.out.println("visited:" + visited + ",crossed:" + crossed);
             if (crossed) {
                 steps = getShortestSteps(hashCode) + getShortestSteps(hashCode);
                 System.out.println("may be " + steps + ",currentString:" + hashCode);
@@ -304,16 +348,12 @@ public class Solution {
             return new State(this.hashCode, Arrays.copyOf(this.ghostI2V, ghostNum), this.step);
         }
 
-        Integer[][] canMove(Set<Integer> blank) {
-            Integer[][] result = new Integer[ghostNum][];
+        Integer[] next(Set<Integer> blank, int ghostIndex) {
             Set<Integer> gis = new HashSet<>();
             for (int i = 0; i < ghostNum; i++) {
                 gis.add(ghostI2V[i]);
             }
-            for (int i = 0; i < ghostNum; i++) {
-                result[i] = next(blank, ghostI2V[i], gis);
-            }
-            return result;
+            return next(blank, ghostI2V[ghostIndex], gis);
         }
 
         Integer[] next(Set<Integer> blank, int nowIndex, Set<Integer> ghostIndex) {
@@ -373,10 +413,6 @@ public class Solution {
         @Override
         public int hashCode() {
             return hashCode;
-        }
-
-        public void clear() {
-            this.ghostI2V = null;
         }
     }
 }
