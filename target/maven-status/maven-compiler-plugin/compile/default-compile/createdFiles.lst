@@ -1,6 +1,7 @@
 ACM\AbbottsRevenge\Solution$Rats.class
 basic\dataStructure\graph\Graph.class
 ACM\DucciSequence\Solution.class
+ACM\TheMorningAfterHalloween\Solution$State.class
 ACM\SpatialStructures\Solution.class
 ACM\Xiangqi\Role$3.class
 graph\edge\EdgeGraph$Node.class
@@ -229,6 +230,7 @@ ACM\ConcurrencySimulator\Solution$Result.class
 DP\lis\SolutionV2.class
 ACM\Othello\Solution$Point.class
 ACM\IPNetworks\Solution.class
+ACM\TheMorningAfterHalloween\Solution.class
 ACM\Box\Solution.class
 basic\Comparator.class
 ACM\Puzzle\Solution$Element.class
@@ -241,6 +243,7 @@ ACM\ConcurrencySimulator\Solution$Procedure.class
 ACM\EightNums\SolutionV2$Current.class
 ACM\OrderingTasks\Solution.class
 ACM\MobileComputing\Solution$Node.class
+ACM\TheMorningAfterHalloween\Solution$Execute.class
 ACM\Borrowers\Solution.class
 ACM\PetriNetSimulation\Solution.class
 ACM\RepeatingDecimals\Solution.class
