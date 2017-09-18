@@ -5,7 +5,6 @@ import basic.Util;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created with IntelliJ IDEA.
@@ -61,7 +60,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * 77
  */
 public class Solution {
-    private static Set<Integer> blank = new HashSet<>();
+    private Set<Integer> blank = new HashSet<>();
 
     private String[] puzzle;
     private int rowNum;
@@ -76,15 +75,15 @@ public class Solution {
         PrintStream print = new PrintStream("E:\\test.txt");  //写好输出位置文件；
         System.setOut(print);
         new Solution().case1();
-//        new Solution().case2();
-//        new Solution().case3();
+        new Solution().case2();
+        new Solution().case3();
     }
 
     private void case1() {
         String[] desc = {
                 "#####",
                 "#A#B#",
-                "# #  ",
+                "#   #",
                 "#b#a#",
                 "#####",
         };
@@ -95,7 +94,7 @@ public class Solution {
         String[] desc = {
                 "################",
                 "## ########## ##",
-                "# ABCcba #      ",
+                "#    ABCcba    #",
                 "################",
         };
         restore(16, 4, 3, desc);
@@ -104,26 +103,27 @@ public class Solution {
     private void case3() {
         String[] desc = {
                 "################",
-                "### ## # ##     ",
-                "## # ## # c#    ",
-                "# ## ########b# ",
-                "# ## # # # #    ",
-                "# # ## # # ##   ",
-                "## a# # # # #   ",
+                "### ##    #   ##",
+                "##  #  ##   # c#",
+                "#  ## ########b#",
+                "# ##  # #   #  #",
+                "#  # ##   # # ##",
+                "##  a#  # # #  #",
                 "### ## #### ## #",
-                "## # # # #      ",
-                "# ##### # ## ## ",
-                "#### #B# # #    ",
-                "## C# # ###     ",
-                "# # # ####### # ",
-                "# ###### A## #  ",
-                "# # ##          ",
-                "################",
+                "##   #   #  #  #",
+                "#  ##### # ## ##",
+                "####   #B# #   #",
+                "##  C#   #   ###",
+                "#  # # ####### #",
+                "# ######  A##  #",
+                "#        #    ##",
+                "################"
         };
         restore(16, 16, 3, desc);
     }
 
     private void restore(int columnNum, int rowNum, int ghostNum, String[] puzzle) {
+        long s = System.currentTimeMillis();
         this.columnNum = columnNum;
         this.rowNum = rowNum;
         this.ghostNum = ghostNum;
@@ -143,9 +143,17 @@ public class Solution {
             if (current.run()) {
                 executes.add(current);
             }
+            if (isReach()) {
+                break;
+            }
         }
         System.out.println(globalMin);
+        System.out.println("time:" + (System.currentTimeMillis() - s));
         System.out.println("-----------------------------------------------------");
+    }
+
+    private boolean isReach() {
+        return globalMin > 0;
     }
 
     /**
@@ -197,9 +205,8 @@ public class Solution {
                     index++;
                     continue;
                 }
-                if (c == ' ') {
-                    blank.add(index);
-                } else {
+                blank.add(index);
+                if (c != ' ') {
                     map = Util.isLowerCaseAlpha(c) ? lowerGhost : upperGhost;
                     if (map.containsKey(c)) {
                         throw new IllegalArgumentException();
@@ -214,16 +221,13 @@ public class Solution {
         }
     }
 
-    private void scan(Set<Integer> blank, int[] beforeIndex, int[] afterIndex, boolean isPositive) {
+    private void scan(int[] beforeIndex, int[] afterIndex, boolean isPositive) {
         if (isPositive) {
             scan(lowerGhost, beforeIndex);
             scan(upperGhost, afterIndex);
         } else {
             scan(upperGhost, beforeIndex);
             scan(lowerGhost, afterIndex);
-        }
-        for (int i : afterIndex) {
-            blank.add(i);
         }
     }
 
@@ -259,15 +263,15 @@ public class Solution {
             return new State(this.hashCode, Arrays.copyOf(this.ghostI2V, ghostNum), this.step);
         }
 
-        List<Integer> next(Set<Integer> blank, int ghostIndex) {//获取可以移动的新位置
+        List<Integer> next(int ghostIndex) {//获取可以移动的新位置
             Set<Integer> gis = new HashSet<>();
             for (int i = 0; i < ghostNum; i++) {
                 gis.add(ghostI2V[i]);
             }
-            return next(blank, ghostI2V[ghostIndex], gis);
+            return next(ghostI2V[ghostIndex], gis);
         }
 
-        List<Integer> next(Set<Integer> blank, int nowIndex, Set<Integer> ghostIndex) {
+        List<Integer> next(int nowIndex, Set<Integer> ghostIndex) {
             List<Integer> next = new ArrayList<>(5);
             int nextIndex;
             if (nowIndex >= columnNum) {//上
@@ -332,16 +336,14 @@ public class Solution {
 
     class Execute {
         private Execute opposite;
-        private Set<Integer> blank;
-        private Set<State> current = new HashSet<>();
-        private Map<Integer, Integer> states = new ConcurrentHashMap<>();
+        private LinkedList<State> current = new LinkedList<>();
+        private Map<Integer, Integer> visited = new HashMap<>();
 
         Execute(boolean isPositive) {
-            this.blank = new HashSet<>(Solution.blank);
             int[] after = new int[ghostNum];
             int[] before = new int[ghostNum];
-            scan(blank, before, after, isPositive);
-            states.put(Arrays.toString(before).hashCode(), 0);
+            scan(before, after, isPositive);
+            visited.put(Arrays.toString(before).hashCode(), 0);
             current.add(new State(before));
         }
 
@@ -350,43 +352,46 @@ public class Solution {
         }
 
         boolean containsKey(Integer current) {
-            return this.states.containsKey(current);
+            return this.visited.containsKey(current);
         }
 
         int getShortestSteps(Integer current) {
-            return this.states.getOrDefault(current, 0);
+            return this.visited.getOrDefault(current, 0);
         }
 
         boolean visit(Integer current, int steps) {
-            if (states.containsKey(current)) {
-                Integer s = states.get(current);
+            if (visited.containsKey(current)) {
+                Integer s = visited.get(current);
                 if (s == null || steps < s) {
-                    states.put(current, steps);
+                    visited.put(current, steps);
                 }
                 return true;
             } else {
-                states.put(current, steps);
+                visited.put(current, steps);
             }
             return false;
         }
 
         boolean run() {
             Set<State> next = new HashSet<>();
-            for (State item : current) {
-                move(item, next);
+            while (!current.isEmpty()) {
+                move(current.poll(), next);
+                if (isReach()) {
+                    return false;
+                }
             }
-            current.clear();
             current.addAll(next);
             return !current.isEmpty();
         }
 
         void move(State state, Set<State> next) {
             State current;
-            LinkedList<Integer> ghostList;
             for (LinkedList<Integer> list : moves) {//移动方案，可能会有多个同时移动
-                ghostList = new LinkedList<>(list);
                 current = state.copyOf();
-                move(current, ghostList, next);
+                move(current, new LinkedList<>(list), next);
+                if (isReach()) {
+                    return;
+                }
             }
         }
 
@@ -398,7 +403,7 @@ public class Solution {
             while (!ghostList.isEmpty()) {
                 ghostIndex = ghostList.poll();
                 isEmpty = ghostList.isEmpty();
-                nextIndexList = current.next(this.blank, ghostIndex);
+                nextIndexList = current.next(ghostIndex);
                 for (Integer nextIndex : nextIndexList) {//方向
                     current.move(ghostIndex, nextIndex);
                     if (!isEmpty) {
@@ -408,19 +413,22 @@ public class Solution {
                         maybe.increase();
                         if (check(maybe.hashCode(), maybe.getStep())) {
                             next.add(maybe);
+                        } else {
+                            if (isReach()) {
+                                return;
+                            }
                         }
                     }
                 }
+                nextIndexList.clear();
             }
         }
 
         boolean check(Integer hashCode, int steps) {
             boolean visited = visit(hashCode, steps);
             boolean crossed = opposite.containsKey(hashCode);
-            System.out.println("visited:" + visited + ",crossed:" + crossed);
             if (crossed) {
-                steps = getShortestSteps(hashCode) + getShortestSteps(hashCode);
-                System.out.println("may be " + steps + ",currentString:" + hashCode);
+                steps = getShortestSteps(hashCode) + opposite.getShortestSteps(hashCode);
                 if (globalMin < 0 || steps < globalMin) {
                     globalMin = steps;
                 }
