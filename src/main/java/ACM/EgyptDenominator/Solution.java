@@ -1,5 +1,9 @@
 package ACM.EgyptDenominator;
 
+import basic.Util;
+
+import java.util.LinkedList;
+
 /**
  * Created with IntelliJ IDEA.
  * User:ChengLiang
@@ -29,8 +33,10 @@ package ACM.EgyptDenominator;
  */
 public class Solution {
     public static void main(String[] args) {
-        new Solution().case1();
-        new Solution().case2();
+//        new Solution().case1();
+//        new Solution().case2();
+        new Solution().case3();
+//        new Solution().case4();
     }
 
     private void case1() {
@@ -41,9 +47,47 @@ public class Solution {
         best(495, 499);
     }
 
-    private void best(int up, int down) {
-        System.out.println("up:" + up + ",down:" + down);
+    private void case3() {
+        best(6, 72);
+    }
 
+
+    private void case4() {
+        best(Util.getRandomInteger(2, 20000), Util.getRandomInteger(20001, 100000));
+    }
+
+    private void best(long up, long down) {
+        long s = System.currentTimeMillis();
+        System.out.println("up:" + up + ",down:" + down);
+        if (up == 1 || down % up == 0) {
+            System.out.println(up + "/" + down + "=1/" + (up == 1 ? down : down / up));
+            return;
+        }
+        System.out.println("time:" + (System.currentTimeMillis() - s));
         System.out.println("---------------------------------------------------");
+    }
+
+    private boolean isSumMatch(long thisUp, long thisDown, LinkedList<Long> downs) {
+        long[] other = sum(downs);
+        long otherUp = other[0];
+        long otherDown = other[1];
+        return otherUp == thisUp && otherDown == thisDown || thisUp * otherDown == thisDown * otherUp;
+    }
+
+    private long[] sum(LinkedList<Long> downs) {
+        long[] d = new long[2];
+        d[0] = 1;
+        d[1] = downs.poll();
+        while (!downs.isEmpty()) {
+            d = sum(d[0], d[1], 1, downs.poll());
+        }
+        return d;
+    }
+
+    private long[] sum(long thisUp, long thisDown, long otherUp, long otherDown) {
+        long[] d = new long[2];
+        d[0] = thisUp * otherDown + thisDown * otherUp;
+        d[1] = thisDown * otherDown;
+        return d;
     }
 }
