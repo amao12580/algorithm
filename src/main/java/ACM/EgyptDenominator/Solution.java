@@ -32,10 +32,12 @@ import java.util.LinkedList;
  * Case 1: 495/499=1/2+1/5+1/6+1/8+1/3992+1/14970
  */
 public class Solution {
+    private long[] target;
+
     public static void main(String[] args) {
-//        new Solution().case1();
+        new Solution().case1();
 //        new Solution().case2();
-        new Solution().case3();
+//        new Solution().case3();
 //        new Solution().case4();
     }
 
@@ -63,30 +65,129 @@ public class Solution {
             System.out.println(up + "/" + down + "=1/" + (up == 1 ? down : down / up));
             return;
         }
+        this.up = up;
+        this.down = down;
+        this.target = new long[2];
+        this.target[0] = up;
+        this.target[1] = down;
+        LinkedList<Long> group = new LinkedList<>();
+        long[] groupSum = new long[2];
+        best(2, group, groupSum);
+        print();
         System.out.println("time:" + (System.currentTimeMillis() - s));
         System.out.println("---------------------------------------------------");
     }
 
-    private boolean isSumMatch(long thisUp, long thisDown, LinkedList<Long> downs) {
-        long[] other = sum(downs);
-        long otherUp = other[0];
-        long otherDown = other[1];
-        return otherUp == thisUp && otherDown == thisDown || thisUp * otherDown == thisDown * otherUp;
+    private LinkedList<Long> bestGroup = new LinkedList<>();
+    private long up;
+    private long down;
+
+    private void print() {
+        if (bestGroup.isEmpty()) {
+            System.out.println("error.");
+            return;
+        }
+        StringBuilder builder = new StringBuilder();
+        builder = builder.append(this.up).append("/").append(this.down);
+        builder = builder.append("=");
+        while (!bestGroup.isEmpty()) {
+            builder = builder.append(1 + "/").append(bestGroup.poll());
+            if (!bestGroup.isEmpty()) {
+                builder = builder.append(" + ");
+            }
+        }
+        System.out.println(builder.toString());
     }
 
-    private long[] sum(LinkedList<Long> downs) {
-        long[] d = new long[2];
-        d[0] = 1;
-        d[1] = downs.poll();
-        while (!downs.isEmpty()) {
-            d = sum(d[0], d[1], 1, downs.poll());
+    private void best(long numUpper, LinkedList<Long> group, long[] groupSum) {
+        long[] downBound = downBound(numUpper, group, groupSum);//A*
+        long downBoundLower = downBound[0];
+        long downBoundUpper = downBound[1];
+        LinkedList<Long> current;
+        long[] currentSum;
+        for (long i = downBoundLower; i <= downBoundUpper; i++) {
+            current = new LinkedList<>(group);
+            current.add(i);
+            currentSum = current.size() == 1 ? build(i) : sum(groupSum[0], groupSum[1], i);
+            if (current.size() == numUpper) {
+                check(current, currentSum);
+            } else {
+                best(numUpper, current, currentSum);//DFS
+            }
         }
+        if (bestGroup.isEmpty()) {//ID
+            best(numUpper + 1, group, groupSum);
+        }
+    }
+
+    private long[] build(long down) {
+        long[] result = new long[2];
+        result[0] = 1;
+        result[1] = down;
+        return result;
+    }
+
+    private void check(LinkedList<Long> group, long[] groupSum) {
+        long c = compare(this.up, this.down, groupSum[0], groupSum[1]);
+        if (c < 0) {
+            return;
+        }
+        if (c == 0) {
+            if (bestGroup.isEmpty() || group.size() < bestGroup.size() ||
+                    (group.size() == bestGroup.size() && group.peekLast() < bestGroup.peekLast())) {
+                bestGroup=group;
+            }
+        }
+    }
+
+    private long[] downBound(long numUpper, LinkedList<Long> group, long[] groupSum) {
+        if (group.size() >= numUpper) {
+            throw new IllegalArgumentException();
+        }
+        long[] result = new long[2];
+        long[] odd;
+        long lower, upper;
+        if (group.isEmpty()) {
+            lower = (this.down / this.up) + 1;
+            odd = target;
+        } else {
+            odd = sub(up, down, groupSum[0], groupSum[1]);
+            System.out.println(group.toString() + "    " + numUpper);
+            lower = odd[1] % odd[0] == 0 ? odd[1] / odd[0] : (odd[1] / odd[0]) + 1;
+            lower = lower > group.peekLast() ? lower : group.peekLast() + 1;
+        }
+        long u = (numUpper - group.size()) * odd[1];
+        long d = odd[0];
+        upper = u % d == 0 ? (u / d) - 1 : u / d;
+        upper = upper >= lower ? upper : lower + 1;
+        result[0] = lower;
+        result[1] = upper;
+        return result;
+    }
+
+    private long compare(long thisUp, long thisDown, long otherUp, long otherDown) {
+        return thisUp * otherDown - thisDown * otherUp;
+    }
+
+    private long[] sum(long thisUp, long thisDown, long otherDown) {
+        long[] d = new long[2];
+        d[0] = thisUp * otherDown + thisDown;
+        d[1] = thisDown * otherDown;
         return d;
     }
 
-    private long[] sum(long thisUp, long thisDown, long otherUp, long otherDown) {
+    private long[] sub(long thisUp, long thisDown, long otherUp, long otherDown) {
         long[] d = new long[2];
-        d[0] = thisUp * otherDown + thisDown * otherUp;
+        if (thisUp == otherUp && thisDown == otherDown) {
+            return d;
+        }
+        if (thisDown == 0 && thisUp != 0) {
+            throw new IllegalArgumentException();
+        }
+        if (otherDown == 0 && otherUp != 0) {
+            throw new IllegalArgumentException();
+        }
+        d[0] = thisUp * otherDown - thisDown * otherUp;
         d[1] = thisDown * otherDown;
         return d;
     }
