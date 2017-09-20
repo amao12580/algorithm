@@ -1,7 +1,5 @@
 package ACM.EgyptDenominator;
 
-import basic.Util;
-
 import java.util.LinkedList;
 
 /**
@@ -32,13 +30,16 @@ import java.util.LinkedList;
  * Case 1: 495/499=1/2+1/5+1/6+1/8+1/3992+1/14970
  */
 public class Solution {
+    private LinkedList<Long> bestGroup = new LinkedList<>();
+    private long up;
+    private long down;
     private long[] target;
 
     public static void main(String[] args) {
         new Solution().case1();
-//        new Solution().case2();
-//        new Solution().case3();
-//        new Solution().case4();
+        new Solution().case2();
+        new Solution().case3();
+        new Solution().case4();
     }
 
     private void case1() {
@@ -55,7 +56,7 @@ public class Solution {
 
 
     private void case4() {
-        best(Util.getRandomInteger(2, 20000), Util.getRandomInteger(20001, 100000));
+        best(14663, 72045);
     }
 
     private void best(long up, long down) {
@@ -78,9 +79,6 @@ public class Solution {
         System.out.println("---------------------------------------------------");
     }
 
-    private LinkedList<Long> bestGroup = new LinkedList<>();
-    private long up;
-    private long down;
 
     private void print() {
         if (bestGroup.isEmpty()) {
@@ -100,6 +98,9 @@ public class Solution {
     }
 
     private void best(long numUpper, LinkedList<Long> group, long[] groupSum) {
+        if (!checkNum(numUpper, group, groupSum)) {//A*
+            return;
+        }
         long[] downBound = downBound(numUpper, group, groupSum);//A*
         long downBoundLower = downBound[0];
         long downBoundUpper = downBound[1];
@@ -116,8 +117,23 @@ public class Solution {
             }
         }
         if (bestGroup.isEmpty()) {//ID
+            group.clear();
+            groupSum = new long[2];
             best(numUpper + 1, group, groupSum);
         }
+    }
+
+    private boolean checkNum(long numUpper, LinkedList<Long> group, long[] groupSum) {
+        if (group.size() <= 1) {
+            return true;
+        }
+        long[] odd = sub(this.up, this.down, groupSum[0], groupSum[1]);
+        if (odd[1] == 0) {
+            return false;
+        }
+        odd[0] = odd[0] * (group.peekLast() + 1);
+        long r = odd[0] % odd[1] == 0 ? odd[0] / odd[1] : odd[0] / odd[1] + 1;
+        return r <= numUpper - group.size();
     }
 
     private long[] build(long down) {
@@ -135,7 +151,7 @@ public class Solution {
         if (c == 0) {
             if (bestGroup.isEmpty() || group.size() < bestGroup.size() ||
                     (group.size() == bestGroup.size() && group.peekLast() < bestGroup.peekLast())) {
-                bestGroup=group;
+                bestGroup = group;
             }
         }
     }
@@ -152,7 +168,6 @@ public class Solution {
             odd = target;
         } else {
             odd = sub(up, down, groupSum[0], groupSum[1]);
-            System.out.println(group.toString() + "    " + numUpper);
             lower = odd[1] % odd[0] == 0 ? odd[1] / odd[0] : (odd[1] / odd[0]) + 1;
             lower = lower > group.peekLast() ? lower : group.peekLast() + 1;
         }
@@ -185,7 +200,9 @@ public class Solution {
             throw new IllegalArgumentException();
         }
         if (otherDown == 0 && otherUp != 0) {
-            throw new IllegalArgumentException();
+            d[0] = thisUp;
+            d[1] = thisDown;
+            return d;
         }
         d[0] = thisUp * otherDown - thisDown * otherUp;
         d[1] = thisDown * otherDown;
