@@ -222,6 +222,7 @@ basic\sort\SortHandlerBehavior.class
 ACM\MaximumProduct\Solution.class
 ACM\Tree\Solution$WeightLeafNode.class
 ACM\BugHunt\Common.class
+ACM\EditingABook\Solution.class
 tree\huffman\HuffmanTree.class
 ACM\AbbottsRevenge\Solution.class
 ACM\EightNums\SolutionV3$Current.class
