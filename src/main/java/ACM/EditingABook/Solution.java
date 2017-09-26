@@ -35,6 +35,10 @@ import java.util.List;
  * Case 2: 1
  */
 public class Solution {
+    private int len;
+    private int minStep = -1;
+    private int threeMaxStep = -1;
+
     public static void main(String[] args) {
         new Solution().case1();
         new Solution().case2();
@@ -60,25 +64,58 @@ public class Solution {
         long s = System.currentTimeMillis();
         System.out.println(Arrays.toString(array));
         this.len = array.length;
+        this.threeMaxStep = (len - 1) * 3;
         List<Integer> wrongNextIndex = wrongNextIndex(array);
         System.out.println("wrongNextIndex:" + wrongNextIndex.toString());
         if (!wrongNextIndex.isEmpty()) {
-            CtrlXV(wrongNextIndex, array);
+            CtrlXV(wrongNextIndex, array, 0);
         }
         System.out.println("time:" + (System.currentTimeMillis() - s));
         System.out.println("--------------------------------------------");
     }
 
-    private void CtrlXV(List<Integer> wrongNextIndex, int[] array) {
+    private void CtrlXV(List<Integer> wrongNextIndex, int[] array, int step) {
+        if (wrongNextIndex.size() == 0) {
+            if (minStep < 0 || step < minStep) {
+                minStep = step;
+            }
+            return;
+        }
+        if (3 * step + wrongNextIndex.size() > threeMaxStep) {//A*
+            return;
+        }
+        if (wrongNextIndex.size() == 1) {
+            CtrlXV(0, wrongNextIndex.get(0), len, array);
+            wrongNextIndex.clear();
+            CtrlXV(wrongNextIndex, array, step + 1);
+            return;
+        }
 
     }
 
-    private int len;
+    /**
+     * 将数组指定的开始结束部分，剪切到新位置
+     *
+     * @param copyBeginIndex   需要剪切的部分，开始位置
+     * @param copyEndIndex     需要剪切的部分，结束位置
+     * @param pasteInsertIndex 新的粘贴位置
+     * @param array            数组
+     */
+    private void CtrlXV(int copyBeginIndex, int copyEndIndex, int pasteInsertIndex, int[] array) {
+        int copyLen = copyEndIndex - copyBeginIndex + 1;
+        int[] copyArray = new int[copyLen];
+        System.arraycopy(array, copyBeginIndex, copyArray, copyBeginIndex - copyBeginIndex, copyEndIndex + 1 - copyBeginIndex);
+        System.arraycopy(array, copyEndIndex + 1, copyArray, copyEndIndex + 1 - copyLen, pasteInsertIndex - (copyEndIndex + 1));
+        System.arraycopy(copyArray, 0, array, copyBeginIndex + pasteInsertIndex - 1 - copyEndIndex, copyLen);
+    }
+
 
     /**
      * 找到不符合升序的前一个元素值
      * <p>
      * 如果下标值为i的元素，比下标值为i+1的元素值要大，则记录
+     * <p>
+     * O(N) N为数组长度 线性复杂度
      */
     private List<Integer> wrongNextIndex(int[] array) {
         List<Integer> result = new ArrayList<>(len - 1);
