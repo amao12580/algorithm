@@ -1,6 +1,8 @@
 package ACM.EditingABook;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -36,6 +38,7 @@ public class Solution {
     public static void main(String[] args) {
         new Solution().case1();
         new Solution().case2();
+        new Solution().case3();
     }
 
     private void case1() {
@@ -48,11 +51,42 @@ public class Solution {
         CtrlXV(array);
     }
 
+    private void case3() {
+        int[] array = {5, 4, 3, 2, 1};
+        CtrlXV(array);
+    }
+
     private void CtrlXV(int[] array) {
         long s = System.currentTimeMillis();
         System.out.println(Arrays.toString(array));
-
+        this.len = array.length;
+        List<Integer> wrongNextIndex = wrongNextIndex(array);
+        System.out.println("wrongNextIndex:" + wrongNextIndex.toString());
+        if (!wrongNextIndex.isEmpty()) {
+            CtrlXV(wrongNextIndex, array);
+        }
         System.out.println("time:" + (System.currentTimeMillis() - s));
         System.out.println("--------------------------------------------");
+    }
+
+    private void CtrlXV(List<Integer> wrongNextIndex, int[] array) {
+
+    }
+
+    private int len;
+
+    /**
+     * 找到不符合升序的前一个元素值
+     * <p>
+     * 如果下标值为i的元素，比下标值为i+1的元素值要大，则记录
+     */
+    private List<Integer> wrongNextIndex(int[] array) {
+        List<Integer> result = new ArrayList<>(len - 1);
+        for (int i = 0; i < len - 1; i++) {
+            if (array[i] > array[i + 1]) {
+                result.add(i);
+            }
+        }
+        return result;
     }
 }
