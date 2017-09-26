@@ -1,8 +1,8 @@
 package ACM.EditingABook;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import basic.Util;
+
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -38,11 +38,13 @@ public class Solution {
     private int len;
     private int minStep = -1;
     private int threeMaxStep = -1;
+    private Set<Move> passable = new HashSet<>();
 
     public static void main(String[] args) {
         new Solution().case1();
         new Solution().case2();
         new Solution().case3();
+        new Solution().case4();
     }
 
     private void case1() {
@@ -60,22 +62,102 @@ public class Solution {
         CtrlXV(array);
     }
 
+    private void case4() {
+        int[] array = {5, 4, 2, 3, 1, 0};
+        CtrlXV(array);
+
+    }
+
+    private void passable() {
+        int copyLen = 1;
+        int copyBeginIndex, copyEndIndex, pasteInsertIndex;
+        while (copyLen < len) {
+            for (int i = 0; i < len; i++) {
+                copyBeginIndex = i;
+                copyEndIndex = i + copyLen - 1;
+                if (copyEndIndex > len - 1) {
+                    continue;
+                }
+                for (int j = copyEndIndex + 1; j <= len; j++) {
+                    pasteInsertIndex = j;
+                    passable.add(new Move(copyBeginIndex, copyEndIndex, pasteInsertIndex));
+                }
+            }
+            copyLen++;
+        }
+    }
+
+    class Move {
+        int hashCode;
+        int copyBeginIndex = -1;
+        int copyEndIndex = -1;
+        int pasteInsertIndex = -1;
+
+        Move(int copyBeginIndex, int copyEndIndex, int pasteInsertIndex) {
+            this.copyBeginIndex = copyBeginIndex;
+            this.copyEndIndex = copyEndIndex;
+            this.pasteInsertIndex = pasteInsertIndex;
+            hashCode = buildHashCode();
+        }
+
+        int getCopyBeginIndex() {
+            return copyBeginIndex;
+        }
+
+        int getCopyEndIndex() {
+            return copyEndIndex;
+        }
+
+        int getPasteInsertIndex() {
+            return pasteInsertIndex;
+        }
+
+        private int buildHashCode() {
+            return Util.contactAll(',', copyBeginIndex, copyEndIndex, pasteInsertIndex).hashCode();
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (o == null) {
+                return false;
+            }
+            if (o instanceof Move) {
+                Move other = (Move) o;
+                return this.hashCode() == other.hashCode();
+            } else {
+                return false;
+            }
+        }
+
+        @Override
+        public int hashCode() {
+            return hashCode;
+        }
+
+        @Override
+        public String toString() {
+            return "copyBeginIndex:" + copyBeginIndex + ",copyEndIndex:" + copyEndIndex + ",pasteInsertIndex:" + pasteInsertIndex;
+        }
+    }
+
     private void CtrlXV(int[] array) {
         long s = System.currentTimeMillis();
         System.out.println(Arrays.toString(array));
         this.len = array.length;
         this.threeMaxStep = (len - 1) * 3;
+        passable();
         List<Integer> wrongNextIndex = wrongNextIndex(array);
-        System.out.println("wrongNextIndex:" + wrongNextIndex.toString());
+        Set<Integer> visited = new HashSet<>();
         if (!wrongNextIndex.isEmpty()) {
-            CtrlXV(wrongNextIndex, array, 0);
+            CtrlXV(wrongNextIndex, array, 0, visited);
         }
+        System.out.println(minStep);
         System.out.println("time:" + (System.currentTimeMillis() - s));
         System.out.println("--------------------------------------------");
     }
 
-    private void CtrlXV(List<Integer> wrongNextIndex, int[] array, int step) {
-        if (wrongNextIndex.size() == 0) {
+    private void CtrlXV(List<Integer> wrongNextIndex, int[] array, int step, Set<Integer> visited) {
+        if (wrongNextIndex.isEmpty()) {
             if (minStep < 0 || step < minStep) {
                 minStep = step;
             }
@@ -87,14 +169,40 @@ public class Solution {
         if (wrongNextIndex.size() == 1) {
             CtrlXV(0, wrongNextIndex.get(0), len, array);
             wrongNextIndex.clear();
-            CtrlXV(wrongNextIndex, array, step + 1);
+            if (!visited.add(Arrays.toString(array).hashCode())) {
+                return;
+            }
+            CtrlXV(wrongNextIndex, array, step + 1, visited);
             return;
         }
+        int[] currentArray;
+        int currentStep;
+        List<Integer> currentWrongNextIndex;
+        for (Move maybe : passable) {
+            currentArray = Arrays.copyOf(array, len);
+            currentStep = step;
+            CtrlXV(maybe, currentArray);
+            currentStep++;
+            currentWrongNextIndex = wrongNextIndex(currentArray);
+            if (!visited.add(Arrays.toString(currentArray).hashCode())) {
+                continue;
+            }
+            if (currentWrongNextIndex.isEmpty()) {
+                if (minStep < 0 || currentStep < minStep) {
+                    minStep = currentStep;
+                }
+                continue;
+            }
+            CtrlXV(currentWrongNextIndex, currentArray, currentStep, visited);//DFS
+        }
+    }
 
+    private void CtrlXV(Move maybe, int[] array) {
+        CtrlXV(maybe.getCopyBeginIndex(), maybe.getCopyEndIndex(), maybe.getPasteInsertIndex(), array);
     }
 
     /**
-     * 将数组指定的开始结束部分，剪切到新位置
+     * 将数组指定的开始结束部分，剪切到新位置  O(N) N为数组长度 线性复杂度
      *
      * @param copyBeginIndex   需要剪切的部分，开始位置
      * @param copyEndIndex     需要剪切的部分，结束位置
@@ -102,13 +210,30 @@ public class Solution {
      * @param array            数组
      */
     private void CtrlXV(int copyBeginIndex, int copyEndIndex, int pasteInsertIndex, int[] array) {
+        LinkedList<Integer> list = new LinkedList<>();
+        for (int i = 0; i < len; i++) {
+            list.add(array[i]);
+        }
         int copyLen = copyEndIndex - copyBeginIndex + 1;
         int[] copyArray = new int[copyLen];
-        System.arraycopy(array, copyBeginIndex, copyArray, copyBeginIndex - copyBeginIndex, copyEndIndex + 1 - copyBeginIndex);
-        System.arraycopy(array, copyEndIndex + 1, copyArray, copyEndIndex + 1 - copyLen, pasteInsertIndex - (copyEndIndex + 1));
-        System.arraycopy(copyArray, 0, array, copyBeginIndex + pasteInsertIndex - 1 - copyEndIndex, copyLen);
+        System.arraycopy(array, copyBeginIndex, copyArray, 0, copyEndIndex + 1 - copyBeginIndex);
+        for (int i = 0; i < copyLen; i++) {
+            list.remove(copyBeginIndex);
+        }
+        pasteInsertIndex -= copyLen - 1;
+        for (int i = 0; i < copyLen; i++) {
+            if (pasteInsertIndex > list.size() - 1) {
+                list.add(copyArray[i]);
+            } else {
+                list.add(pasteInsertIndex, copyArray[i]);
+            }
+            pasteInsertIndex++;
+        }
+        int index = 0;
+        while (!list.isEmpty()) {
+            array[index++] = list.poll();
+        }
     }
-
 
     /**
      * 找到不符合升序的前一个元素值

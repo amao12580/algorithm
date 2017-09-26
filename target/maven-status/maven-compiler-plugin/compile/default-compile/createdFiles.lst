@@ -123,6 +123,7 @@ basic\Util$DictionaryString.class
 ACM\UrbanElevations\Solution.class
 ACM\SelfAssembly\Solution$Point.class
 ACM\ForeignExchange\Solution.class
+ACM\EditingABook\Solution$Move.class
 ACM\BugHunt\Statement$Type$2.class
 ACM\DoYouKnowTheWayToSanJose\Solution$Point.class
 ACM\Rails\Solution.class
