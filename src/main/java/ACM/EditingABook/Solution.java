@@ -2,7 +2,10 @@ package ACM.EditingABook;
 
 import basic.Util;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -48,12 +51,12 @@ public class Solution {
     }
 
     private void case1() {
-        int[] array = {2, 4, 1, 5, 3, 6};
+        int[] array = {3, 4, 5, 1, 2};
         CtrlXV(array);
     }
 
     private void case2() {
-        int[] array = {3, 4, 5, 1, 2};
+        int[] array = {2, 4, 1, 5, 3, 6};
         CtrlXV(array);
     }
 
@@ -75,7 +78,7 @@ public class Solution {
             for (int i = 0; i < len; i++) {
                 copyBeginIndex = i;
                 copyEndIndex = i + copyLen - 1;
-                if (copyEndIndex > len - 1) {
+                if (copyEndIndex >= len - 1) {
                     continue;
                 }
                 for (int j = copyEndIndex + 1; j <= len; j++) {
@@ -85,6 +88,98 @@ public class Solution {
             }
             copyLen++;
         }
+    }
+
+    private void CtrlXV(int[] array) {
+        long s = System.currentTimeMillis();
+        System.out.println(Arrays.toString(array));
+        this.len = array.length;
+        this.threeMaxStep = (len - 1) * 3;
+        passable();
+        Set<Integer> visited = new HashSet<>();
+        visited.add(Arrays.toString(array).hashCode());
+        CtrlXV(array, 0, visited);
+        System.out.println(minStep);
+        System.out.println("time:" + (System.currentTimeMillis() - s));
+        System.out.println("--------------------------------------------");
+    }
+
+    private void CtrlXV(int[] array, int step, Set<Integer> visited) {
+        int num = wrongSum(array);
+        if (num == 0) {
+            if (minStep < 0 || step < minStep) {
+                minStep = step;
+            }
+            return;
+        }
+        if (3 * step + num > threeMaxStep) {//A*
+            return;
+        }
+        int[] currentArray;
+        Set<Integer> currentVisited;
+        for (Move maybe : passable) {
+            currentArray = Arrays.copyOf(array, len);
+            currentVisited = new HashSet<>(visited);
+            CtrlXV(maybe, currentArray);
+            if (currentVisited.add(Arrays.toString(currentArray).hashCode())) {//回路
+                CtrlXV(currentArray, step + 1, currentVisited);//DFS
+            }
+        }
+    }
+
+    private void CtrlXV(Move maybe, int[] array) {
+        CtrlXV(maybe.getCopyBeginIndex(), maybe.getCopyEndIndex(), maybe.getPasteInsertIndex(), array);
+    }
+
+    /**
+     * 将数组指定的开始结束部分，剪切到新位置  O(N) N为数组长度 线性复杂度
+     *
+     * @param copyBeginIndex   需要剪切的部分，开始位置
+     * @param copyEndIndex     需要剪切的部分，结束位置
+     * @param pasteInsertIndex 新的粘贴位置
+     * @param array            数组
+     */
+    private void CtrlXV(int copyBeginIndex, int copyEndIndex, int pasteInsertIndex, int[] array) {
+        LinkedList<Integer> list = new LinkedList<>();
+        for (int i = 0; i < len; i++) {
+            list.add(array[i]);
+        }
+        int copyLen = copyEndIndex - copyBeginIndex + 1;
+        int[] copyArray = new int[copyLen];
+        System.arraycopy(array, copyBeginIndex, copyArray, 0, copyEndIndex + 1 - copyBeginIndex);
+        for (int i = 0; i < copyLen; i++) {
+            list.remove(copyBeginIndex);
+        }
+        pasteInsertIndex -= copyLen - 1;
+        for (int i = 0; i < copyLen; i++) {
+            if (pasteInsertIndex > list.size() - 1) {
+                list.add(copyArray[i]);
+            } else {
+                list.add(pasteInsertIndex, copyArray[i]);
+            }
+            pasteInsertIndex++;
+        }
+        int index = 0;
+        while (!list.isEmpty()) {
+            array[index++] = list.poll();
+        }
+    }
+
+    /**
+     * 找到不符合升序的前一个元素值
+     * <p>
+     * 如果下标值为i的元素，比下标值为i+1的元素值，不是刚好小1，则记录
+     * <p>
+     * O(N) N为数组长度 线性复杂度
+     */
+    private int wrongSum(int[] array) {
+        int num = 0;
+        for (int i = 0; i < len - 1; i++) {
+            if (array[i] != array[i + 1] - 1) {
+                num++;
+            }
+        }
+        return num;
     }
 
     class Move {
@@ -138,117 +233,5 @@ public class Solution {
         public String toString() {
             return "copyBeginIndex:" + copyBeginIndex + ",copyEndIndex:" + copyEndIndex + ",pasteInsertIndex:" + pasteInsertIndex;
         }
-    }
-
-    private void CtrlXV(int[] array) {
-        long s = System.currentTimeMillis();
-        System.out.println(Arrays.toString(array));
-        this.len = array.length;
-        this.threeMaxStep = (len - 1) * 3;
-        passable();
-        List<Integer> wrongNextIndex = wrongNextIndex(array);
-        Set<Integer> visited = new HashSet<>();
-        if (!wrongNextIndex.isEmpty()) {
-            CtrlXV(wrongNextIndex, array, 0, visited);
-        }
-        System.out.println(minStep);
-        System.out.println("time:" + (System.currentTimeMillis() - s));
-        System.out.println("--------------------------------------------");
-    }
-
-    private void CtrlXV(List<Integer> wrongNextIndex, int[] array, int step, Set<Integer> visited) {
-        if (wrongNextIndex.isEmpty()) {
-            if (minStep < 0 || step < minStep) {
-                minStep = step;
-            }
-            return;
-        }
-        if (3 * step + wrongNextIndex.size() > threeMaxStep) {//A*
-            return;
-        }
-        if (wrongNextIndex.size() == 1) {
-            CtrlXV(0, wrongNextIndex.get(0), len, array);
-            wrongNextIndex.clear();
-            if (!visited.add(Arrays.toString(array).hashCode())) {
-                return;
-            }
-            CtrlXV(wrongNextIndex, array, step + 1, visited);
-            return;
-        }
-        int[] currentArray;
-        int currentStep;
-        List<Integer> currentWrongNextIndex;
-        for (Move maybe : passable) {
-            currentArray = Arrays.copyOf(array, len);
-            currentStep = step;
-            CtrlXV(maybe, currentArray);
-            currentStep++;
-            currentWrongNextIndex = wrongNextIndex(currentArray);
-            if (!visited.add(Arrays.toString(currentArray).hashCode())) {
-                continue;
-            }
-            if (currentWrongNextIndex.isEmpty()) {
-                if (minStep < 0 || currentStep < minStep) {
-                    minStep = currentStep;
-                }
-                continue;
-            }
-            CtrlXV(currentWrongNextIndex, currentArray, currentStep, visited);//DFS
-        }
-    }
-
-    private void CtrlXV(Move maybe, int[] array) {
-        CtrlXV(maybe.getCopyBeginIndex(), maybe.getCopyEndIndex(), maybe.getPasteInsertIndex(), array);
-    }
-
-    /**
-     * 将数组指定的开始结束部分，剪切到新位置  O(N) N为数组长度 线性复杂度
-     *
-     * @param copyBeginIndex   需要剪切的部分，开始位置
-     * @param copyEndIndex     需要剪切的部分，结束位置
-     * @param pasteInsertIndex 新的粘贴位置
-     * @param array            数组
-     */
-    private void CtrlXV(int copyBeginIndex, int copyEndIndex, int pasteInsertIndex, int[] array) {
-        LinkedList<Integer> list = new LinkedList<>();
-        for (int i = 0; i < len; i++) {
-            list.add(array[i]);
-        }
-        int copyLen = copyEndIndex - copyBeginIndex + 1;
-        int[] copyArray = new int[copyLen];
-        System.arraycopy(array, copyBeginIndex, copyArray, 0, copyEndIndex + 1 - copyBeginIndex);
-        for (int i = 0; i < copyLen; i++) {
-            list.remove(copyBeginIndex);
-        }
-        pasteInsertIndex -= copyLen - 1;
-        for (int i = 0; i < copyLen; i++) {
-            if (pasteInsertIndex > list.size() - 1) {
-                list.add(copyArray[i]);
-            } else {
-                list.add(pasteInsertIndex, copyArray[i]);
-            }
-            pasteInsertIndex++;
-        }
-        int index = 0;
-        while (!list.isEmpty()) {
-            array[index++] = list.poll();
-        }
-    }
-
-    /**
-     * 找到不符合升序的前一个元素值
-     * <p>
-     * 如果下标值为i的元素，比下标值为i+1的元素值要大，则记录
-     * <p>
-     * O(N) N为数组长度 线性复杂度
-     */
-    private List<Integer> wrongNextIndex(int[] array) {
-        List<Integer> result = new ArrayList<>(len - 1);
-        for (int i = 0; i < len - 1; i++) {
-            if (array[i] > array[i + 1]) {
-                result.add(i);
-            }
-        }
-        return result;
     }
 }
