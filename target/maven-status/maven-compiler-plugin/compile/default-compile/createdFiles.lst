@@ -72,6 +72,7 @@ ACM\ConcurrencySimulator\Solution$StatementType.class
 ACM\Kickdown\Solution.class
 ACM\TreesOnTheLevel\Solution$NodePrint.class
 ACM\Fill\Solution$State.class
+ACM\TheRotationGame\Solution.class
 ACM\ForeignExchange\Solution$Student.class
 ACM\Exchange\Solution.class
 ACM\CrosswordAnswers\Solution$Element.class
