@@ -57,6 +57,7 @@ ACM\DoYouKnowTheWayToSanJose\Solution$Map.class
 ACM\BoxesInALine\Solution.class
 ACM\Xiangqi\Role$4.class
 ACM\AncientMessages\Solution.class
+ACM\ZombiesTreasureChest\Solution.class
 ACM\AbbottsRevenge\Solution$Path.class
 sort\bucket\BucketHandler.class
 ACM\BugHunt\Statement$Type.class
@@ -103,6 +104,7 @@ ACM\Xiangqi\Role$2.class
 ACM\ConcurrencySimulator\Solution$Statement.class
 ACM\SearchingTheWeb\Solution$Command.class
 sort\merge\MergeHandler.class
+ACM\ZombiesTreasureChest\Solution$Gem.class
 ACM\AccordianPatience\Card.class
 ACM\RevengeOfFibonacci\Solution$TrieTree.class
 ACM\ATypicalHomework\Solution.class
