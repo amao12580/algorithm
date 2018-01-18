@@ -74,4 +74,45 @@ public class Solution {
         }
         builder.append("\n");
     }
+
+    private boolean isSameCore(String descString) {
+        char[] chars = descString.toCharArray();
+        char c = chars[6];
+        return scan(c, 7, 8, chars) && scan(c, 11, 11, chars) && scan(c, 12, 12, chars) && scan(c, 15, 17, chars);
+    }
+
+    private boolean scan(char c, int s, int e, char[] array) {
+        for (int i = s; i <= e; i++) {
+            if (c != array[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 按方向旋转
+     */
+    private String rotate(String descString, byte direction) {
+        char[] chars = descString.toCharArray();
+        switch (direction) {
+            case 0://A
+                break;
+            case 1://B
+                break;
+            case 2://C
+                break;
+            case 3://D
+                break;
+            case 4://E
+                break;
+            case 5://F
+                break;
+            case 6://G
+                break;
+            case 7://H
+                break;
+        }
+        return new String(chars);
+    }
 }
