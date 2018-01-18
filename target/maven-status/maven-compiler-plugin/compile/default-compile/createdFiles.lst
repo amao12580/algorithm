@@ -24,6 +24,7 @@ ACM\MobileComputing\Solution.class
 ACM\DoYouKnowTheWayToSanJose\Solution$Request.class
 basic\sort\Sortable.class
 sort\radix\RadixHandler.class
+classic\hugeFileDereplication\Solution$MergeFileTask.class
 ACM\DNAConsensusString\Solution.class
 ACM\AbbottsRevenge\Solution$MovePoint.class
 ACM\Borrowers\Solution$Book.class
@@ -189,6 +190,7 @@ ACM\SystemDependencies\Solution.class
 ACM\Xiangqi\Solution.class
 graph\list\ListGraph$Node.class
 ACM\InspectorsDilemma\Solution.class
+classic\hugeFileDereplication\Solution.class
 ACM\Othello\Solution.class
 ACM\IdealPath\Solution$1.class
 ACM\PrinterQueue\Solution$Task.class

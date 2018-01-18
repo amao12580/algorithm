@@ -25,7 +25,7 @@ public class Solution {
     private static final int DEFAULT_FILE_NUM = 100;//拆分文件个数
 
     public static void main(String[] args) {
-        String filePath = "D://log.txt1";
+        String filePath = "D://log.txt";
         String outDir = "D://";
         Solution solution = new Solution();
         solution.reduce(filePath, outDir);
@@ -67,7 +67,7 @@ public class Solution {
         if (resultFile == null) {
             return false;
         }
-        ForkJoinPool pool = new ForkJoinPool(Runtime.getRuntime().availableProcessors() * 2);//默认为处理器个数*2
+        ForkJoinPool pool = new ForkJoinPool(Runtime.getRuntime().availableProcessors());//默认为处理器个数
         File dir = new File(tempPath);
         File[] files = dir.listFiles();
         if (files == null || files.length <= 0) {
@@ -87,6 +87,7 @@ public class Solution {
             return false;
         } finally {
             closeWriter(bufferedWriter);
+            pool.shutdown();
         }
         println("result file path:" + resultFilePath);
         return true;
