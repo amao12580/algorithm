@@ -18,6 +18,13 @@ import java.util.concurrent.RecursiveTask;
  * <p>
  * 定义N为文件行数(与大小成正比例)
  * 时间复杂度:O(N)
+ * <p>
+ * TODO
+ * 1.子文件大小可控，倾斜度
+ * 2.vm内存监控，freeMemory
+ * 3.断点恢复，checkPoint
+ * 4.保持有序性  ？
+ * 5.单文件:多线程拆分  ？
  */
 public class Solution {
     private static final Charset DEFAULT_CHARACTER_SET = Charset.forName("UTF-8");//文件字符集
