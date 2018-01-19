@@ -2,7 +2,7 @@ package classic.hugeFileDereplication;
 
 import java.io.*;
 import java.nio.charset.Charset;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.ForkJoinPool;
@@ -22,10 +22,11 @@ import java.util.concurrent.RecursiveTask;
 public class Solution {
     private static final Charset DEFAULT_CHARACTER_SET = Charset.forName("UTF-8");//文件字符集
     private static final int DEFAULT_BUFFER_READ_SIZE = 10 * 1024 * 1024;//读缓冲大小
+    private static final int DEFAULT_BUFFER_WRITE_SIZE = 10 * 1024 * 1024;//写缓冲大小
     private static final int DEFAULT_FILE_NUM = 100;//拆分文件个数
 
     public static void main(String[] args) {
-        String filePath = "D://log.txt";
+        String filePath = "D://log.txt1";
         String outDir = "D://";
         Solution solution = new Solution();
         solution.reduce(filePath, outDir);
@@ -67,27 +68,28 @@ public class Solution {
         if (resultFile == null) {
             return false;
         }
-        ForkJoinPool pool = new ForkJoinPool(Runtime.getRuntime().availableProcessors());//默认为处理器个数
         File dir = new File(tempPath);
         File[] files = dir.listFiles();
         if (files == null || files.length <= 0) {
             println("dir.listFiles() is empty.");
             return false;
         }
-        BufferedWriter bufferedWriter = null;
-        try {
-            bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(resultFile), DEFAULT_CHARACTER_SET));
+        ForkJoinPool pool = null;
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(resultFile), DEFAULT_CHARACTER_SET), DEFAULT_BUFFER_WRITE_SIZE)) {
             MergeFileTask task = new MergeFileTask(bufferedWriter, files, 0, files.length - 1);
+            pool = new ForkJoinPool(Runtime.getRuntime().availableProcessors() * 2);
             Boolean isSuccess = pool.invoke(task);
             if (!isSuccess || task.isCompletedAbnormally()) {
                 println("MergeFileTask is error.");
             }
-        } catch (FileNotFoundException e) {
+            bufferedWriter.flush();
+        } catch (IOException e) {
             e.printStackTrace();
             return false;
         } finally {
-            closeWriter(bufferedWriter);
-            pool.shutdown();
+            if (pool != null) {
+                pool.shutdown();
+            }
         }
         println("result file path:" + resultFilePath);
         return true;
@@ -103,28 +105,21 @@ public class Solution {
             return false;
         }
         println("origin file size:" + fileSize);
-        BufferedReader bufferedReader = null;
         BufferedWriter bufferedWriter;
         BufferedWriter[] bufferedWriters = null;
-        try {
-            bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), DEFAULT_CHARACTER_SET), DEFAULT_BUFFER_READ_SIZE);
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), DEFAULT_CHARACTER_SET), DEFAULT_BUFFER_READ_SIZE)) {
             String line;
-            File[] tempFiles = createTempFiles(tempPath);
-            bufferedWriters = buildBufferedWriter(tempFiles);
-            int lineHashCode;
-            int subFileNum;
+            bufferedWriters = buildBufferedWriter(createTempFiles(tempPath));
             while ((line = bufferedReader.readLine()) != null) {
-                lineHashCode = line.hashCode();
-                subFileNum = Math.abs(lineHashCode % DEFAULT_FILE_NUM);
-                bufferedWriter = bufferedWriters[subFileNum];
+                bufferedWriter = bufferedWriters[Math.abs(line.hashCode() % DEFAULT_FILE_NUM)];
                 bufferedWriter.write(line);
                 bufferedWriter.newLine();
             }
         } catch (IOException e) {
             e.printStackTrace();
+            return false;
         } finally {
             closeWriter(bufferedWriters);
-            closeReader(bufferedReader);
         }
         return true;
     }
@@ -133,7 +128,7 @@ public class Solution {
         int length = files.length;
         BufferedWriter[] result = new BufferedWriter[length];
         for (int i = 0; i < length; i++) {
-            result[i] = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(files[i]), DEFAULT_CHARACTER_SET));
+            result[i] = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(files[i]), DEFAULT_CHARACTER_SET), DEFAULT_BUFFER_WRITE_SIZE);
         }
         return result;
     }
@@ -144,16 +139,6 @@ public class Solution {
             files[i] = createTempFile(tempPath, i);
         }
         return files;
-    }
-
-    private void closeReader(Reader reader) {
-        if (reader != null) {
-            try {
-                reader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     private void closeWriter(Writer... writer) {
@@ -182,8 +167,7 @@ public class Solution {
                 return false;
             }
             for (File item : files) {
-                boolean success = clearTemp(item);
-                if (!success) {
+                if (!clearTemp(item)) {
                     return false;
                 }
             }
@@ -240,9 +224,8 @@ public class Solution {
     }
 
     private void println(String s) {
-        System.out.println(new Date().toString() + " - " + s);
+        System.out.println(Calendar.getInstance().getTime().toString() + " - " + s);
     }
-
 
     class MergeFileTask extends RecursiveTask<Boolean> {
         private BufferedWriter bufferedWriter;
@@ -259,8 +242,7 @@ public class Solution {
 
         @Override
         protected Boolean compute() {
-            boolean canCompute = (max == min);
-            if (canCompute) {
+            if (max == min) {
                 boolean result = merge(bufferedWriter, files[max]);
                 println(files[max].getPath() + " merge completed.result:" + result);
                 return result;
@@ -277,9 +259,7 @@ public class Solution {
         }
 
         private boolean merge(BufferedWriter bufferedWriter, File file) {
-            BufferedReader bufferedReader = null;
-            try {
-                bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), DEFAULT_CHARACTER_SET), DEFAULT_BUFFER_READ_SIZE);
+            try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), DEFAULT_CHARACTER_SET), DEFAULT_BUFFER_READ_SIZE)) {
                 String line;
                 Set<Integer> lineHashCode = new HashSet<>();
                 while ((line = bufferedReader.readLine()) != null) {
@@ -288,11 +268,10 @@ public class Solution {
                         bufferedWriter.newLine();
                     }
                 }
+                bufferedWriter.flush();
             } catch (IOException e) {
                 e.printStackTrace();
                 return false;
-            } finally {
-                closeReader(bufferedReader);
             }
             return true;
         }
