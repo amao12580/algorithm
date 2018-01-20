@@ -30,11 +30,13 @@ public class Solution {
     private static final Charset DEFAULT_CHARACTER_SET = Charset.forName("UTF-8");//文件字符集
     private static final int DEFAULT_BUFFER_READ_SIZE = 10 * 1024 * 1024;//读缓冲大小
     private static final int DEFAULT_BUFFER_WRITE_SIZE = 10 * 1024 * 1024;//写缓冲大小
-    private static final int DEFAULT_FILE_NUM = 100;//拆分文件个数
+    private static final int DEFAULT_FILE_NUM_HALF = 50;//拆分文件个数的一半
 
     public static void main(String[] args) {
-        String filePath = "D://log.txt1";
+        String filePath = "D://log.txt";
         String outDir = "D://";
+        System.out.println(Integer.MIN_VALUE);
+        System.out.println(Integer.MAX_VALUE);
         Solution solution = new Solution();
         solution.reduce(filePath, outDir);
     }
@@ -118,7 +120,7 @@ public class Solution {
             String line;
             bufferedWriters = buildBufferedWriter(createTempFiles(tempPath));
             while ((line = bufferedReader.readLine()) != null) {
-                bufferedWriter = bufferedWriters[Math.abs(line.hashCode() % DEFAULT_FILE_NUM)];
+                bufferedWriter = bufferedWriters[(line.hashCode() % DEFAULT_FILE_NUM_HALF) + DEFAULT_FILE_NUM_HALF];
                 bufferedWriter.write(line);
                 bufferedWriter.newLine();
             }
@@ -141,8 +143,9 @@ public class Solution {
     }
 
     private File[] createTempFiles(String tempPath) throws IOException {
-        File[] files = new File[DEFAULT_FILE_NUM];
-        for (int i = 0; i < DEFAULT_FILE_NUM; i++) {
+        int fileNum = DEFAULT_FILE_NUM_HALF * 2;
+        File[] files = new File[fileNum];
+        for (int i = 0; i < fileNum; i++) {
             files[i] = createTempFile(tempPath, i);
         }
         return files;
