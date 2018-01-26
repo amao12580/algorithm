@@ -3,8 +3,9 @@ package basic;
 import com.google.gson.Gson;
 
 import java.math.BigDecimal;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.Arrays;
-import java.util.Random;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,10 +15,19 @@ import java.util.Random;
  */
 public class Util {
 
-    public static final Integer DEFAULT_ARRAY_LENGTH_MIN = 1;
-    public static Integer DEFAULT_ARRAY_LENGTH_MAX;
-
+    private static final Integer DEFAULT_ARRAY_LENGTH_MIN = 1;
+    private static Integer DEFAULT_ARRAY_LENGTH_MAX;
     private static final Gson json = new Gson();
+    private static SecureRandom random;
+
+    static {
+        try {
+            random = SecureRandom.getInstance("SHA1PRNG");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public static String toJson(Object obj) {
         return json.toJson(obj);
@@ -36,7 +46,7 @@ public class Util {
         return getRandomRealNumberArray(getRandomInteger(DEFAULT_ARRAY_LENGTH_MIN, DEFAULT_ARRAY_LENGTH_MAX));
     }
 
-    public static Double[] getRandomRealNumberArray(int len) {
+    private static Double[] getRandomRealNumberArray(int len) {
         Double[] array = new Double[len];
         for (int i = 0; i < array.length; i++) {
             array[i] = getRandomDouble();
@@ -66,7 +76,7 @@ public class Util {
         return array;
     }
 
-    public static Double getRandomDouble() {
+    private static Double getRandomDouble() {
         return Math.random() * Double.MAX_VALUE;
     }
 
@@ -86,7 +96,7 @@ public class Util {
     /**
      * 是否有小数
      */
-    public static boolean hasDecimals(double value) {
+    private static boolean hasDecimals(double value) {
         String str = String.valueOf(value);
         int p = str.indexOf(".");
         if (p < 0) {
@@ -103,7 +113,7 @@ public class Util {
         return (long) (Math.random() * Long.MAX_VALUE);
     }
 
-    public static long getRandomLong(long min, long max) {
+    private static long getRandomLong(long min, long max) {
         if (max < min) {
             return 0;
         }
@@ -111,6 +121,10 @@ public class Util {
             return max;
         }
         return (long) (Math.random() * (max - min + 1)) + min;
+    }
+
+    public static int getRandomInteger() {
+        return getRandomInteger(0, 100);
     }
 
     /**
@@ -127,7 +141,7 @@ public class Util {
         if (max == min) {
             return max;
         }
-        return (int) (Math.random() * (max - min + 1)) + min;
+        return random.nextInt(max - min) + min;
     }
 
     /**
@@ -158,7 +172,6 @@ public class Util {
 
     public static String generateMixedString(int length) {
         StringBuilder stringBuffer = new StringBuilder();
-        Random random = new Random();
         for (int i = 0; i < length; i++) {
             stringBuffer.append(ALLCHAR.charAt(random.nextInt(ALLCHAR.length())));
         }
@@ -175,7 +188,6 @@ public class Util {
 
     public static String generateLetterString(int length) {
         StringBuilder builder = new StringBuilder();
-        Random random = new Random();
         for (int i = 0; i < length; i++) {
             builder.append(LETTERCHAR.charAt(random.nextInt(LETTERCHAR.length())));
         }
@@ -184,7 +196,6 @@ public class Util {
 
     public static String generateLowerLetterString(int length) {
         StringBuilder builder = new StringBuilder();
-        Random random = new Random();
         for (int i = 0; i < length; i++) {
             builder.append(LOWERLETTERCHAR.charAt(random.nextInt(LOWERLETTERCHAR.length())));
         }
@@ -193,7 +204,6 @@ public class Util {
 
     public static String generateNumberString(int length) {
         StringBuilder builder = new StringBuilder();
-        Random random = new Random();
         for (int i = 0; i < length; i++) {
             builder.append(NUMBERCHAR.charAt(random.nextInt(NUMBERCHAR.length())));
         }
@@ -216,7 +226,7 @@ public class Util {
         return stringBuilder.toString();
     }
 
-    public static String byte2bits(byte b) {
+    private static String byte2bits(byte b) {
         int z = b;
         z |= 256;
         String str = Integer.toBinaryString(z);
@@ -270,7 +280,7 @@ public class Util {
     /**
      * 数组指定两个下标值进行交换，交换成功后返回true
      */
-    public static boolean swapArray(Object[] arrays, int thisIndex, int otherIndex) {
+    private static boolean swapArray(Object[] arrays, int thisIndex, int otherIndex) {
         int endIndex = arrays.length - 1;
         if (thisIndex >= 0 && thisIndex <= endIndex && otherIndex >= 0 && otherIndex <= endIndex && thisIndex != otherIndex) {
             Object temp = arrays[thisIndex];
@@ -445,7 +455,7 @@ public class Util {
     private static class DictionaryString implements Comparable<DictionaryString> {
         private String string;
 
-        public DictionaryString(String string) {
+        DictionaryString(String string) {
             this.string = string;
         }
 
@@ -558,5 +568,12 @@ public class Util {
                 return false;
         }
         return true;
+    }
+
+    /**
+     * 计算绝对值
+     */
+    public static int abs(int value) {
+        return value < 0 ? (~value + 1) : value;
     }
 }

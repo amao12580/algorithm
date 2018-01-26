@@ -61,6 +61,7 @@ ACM\AncientMessages\Solution.class
 ACM\ZombiesTreasureChest\Solution.class
 ACM\AbbottsRevenge\Solution$Path.class
 sort\bucket\BucketHandler.class
+classic\hugeFileDereplication\Solution$UniqueFileTask.class
 ACM\BugHunt\Statement$Type.class
 ACM\BugHunt\Statement$1.class
 DP\knapsack\Solution$Gem.class
