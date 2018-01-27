@@ -1,5 +1,7 @@
 package classic.hugeFileDereplication;
 
+import basic.Util;
+
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -103,13 +105,14 @@ public class Solution {
         }
         println("origin file size:" + fileSize);
         BufferedWriter bufferedWriter = null;
-        BitSet bitSet = null;
+        BitSet[] bitSet = null;
         try (BufferedReader bufferedReader = buildBufferedReader(file)) {
             String line;
-            int bitIndex;
+            int bitIndex, lineHashCode;
             int lineNum = 0;
             long fileNum = 0;
             bitSet = buildBitSet();
+            int bitSetIndex;
             bufferedWriter = buildBufferedWriter(createTempFile(tempPath, fileNum));
             while ((line = bufferedReader.readLine()) != null) {
                 if (lineNum >= DEFAULT_FILE_MAX_LINE) {//新文件
@@ -118,12 +121,14 @@ public class Solution {
                     fileNum++;
                     bufferedWriter = buildBufferedWriter(createTempFile(tempPath, fileNum));
                 }
+                lineHashCode = line.hashCode();
                 bitIndex = cover2BitIndex(line.hashCode());
-                if (!bitSet.get(bitIndex)) {
+                bitSetIndex = lineHashCode >= 0 ? 0 : 1;
+                if (!bitSet[bitSetIndex].get(bitIndex)) {
                     bufferedWriter.write(line);
                     bufferedWriter.newLine();
                     if (fileNum == 0) {
-                        bitSet.set(bitIndex);
+                        bitSet[bitSetIndex].set(bitIndex);
                     }
                 }
                 lineNum++;
@@ -157,20 +162,22 @@ public class Solution {
         return copyResult && unique(uniquePath, files, null, 1);
     }
 
-    private boolean unique(String uniquePath, List<File> files, BitSet bitSet, int fileNumOffset) {
+    private boolean unique(String uniquePath, List<File> files, BitSet[] bitSet, int fileNumOffset) {
         if (bitSet == null) {
             bitSet = buildBitSet();
             BufferedWriter bufferedWriter = null;
             try (BufferedReader bufferedReader = buildBufferedReader(files.get(fileNumOffset))) {
                 String line;
-                int bitIndex;
+                int bitIndex, bitSetIndex, lineHashCode;
                 bufferedWriter = buildBufferedWriter(createTempFile(uniquePath, fileNumOffset));
                 while ((line = bufferedReader.readLine()) != null) {
+                    lineHashCode = line.hashCode();
                     bitIndex = cover2BitIndex(line.hashCode());
-                    if (!bitSet.get(bitIndex)) {
+                    bitSetIndex = lineHashCode >= 0 ? 0 : 1;
+                    if (!bitSet[bitSetIndex].get(bitIndex)) {
                         bufferedWriter.write(line);
                         bufferedWriter.newLine();
-                        bitSet.set(line.hashCode());
+                        bitSet[bitSetIndex].set(bitIndex);
                     }
                 }
             } catch (IOException e) {
@@ -245,8 +252,11 @@ public class Solution {
         return new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), DEFAULT_CHARACTER_SET), DEFAULT_BUFFER_WRITE_SIZE);
     }
 
-    private BitSet buildBitSet() {
-        return new BitSet(Integer.MAX_VALUE / 8); //64MB 内存;
+    private BitSet[] buildBitSet() {
+        BitSet[] bitSets = new BitSet[2];//正+负
+        bitSets[0] = new BitSet(Integer.MAX_VALUE / 8); //64MB 内存;
+        bitSets[1] = new BitSet(Integer.MAX_VALUE / 8); //64MB 内存;
+        return bitSets;
     }
 
     private void closeWriter(Writer... writer) {
@@ -265,9 +275,14 @@ public class Solution {
         }
     }
 
-    private void closeBitSet(BitSet bitSet) {
-        if (bitSet != null) {
-            bitSet.clear();
+    private void closeBitSet(BitSet... bitSet) {
+        if (bitSet == null) {
+            return;
+        }
+        for (BitSet item : bitSet) {
+            if (item != null) {
+                item.clear();
+            }
         }
     }
 
@@ -372,7 +387,7 @@ public class Solution {
     }
 
     private int cover2BitIndex(int hashCode) {
-        return hashCode + Integer.MAX_VALUE + 1;
+        return Util.abs(hashCode);
     }
 
     private void println(String s) {
@@ -427,12 +442,12 @@ public class Solution {
     }
 
     class UniqueFileTask extends RecursiveTask<Boolean> {
-        private BitSet bitSet;
+        private BitSet[] bitSet;
         private List<File> files;
         private int min;
         private int max;
 
-        UniqueFileTask(BitSet bitSet, List<File> files, int min, int max) {
+        UniqueFileTask(BitSet[] bitSet, List<File> files, int min, int max) {
             this.bitSet = bitSet;
             this.files = files;
             this.min = min;
@@ -457,7 +472,7 @@ public class Solution {
             return true;
         }
 
-        private boolean unique(BitSet bitSet, File file) {
+        private boolean unique(BitSet[] bitSet, File file) {
             File newFile;
             try {
                 newFile = createTempFile(file.getParent(), Long.valueOf(file.getName() + "0"));
@@ -468,10 +483,12 @@ public class Solution {
             try (BufferedReader bufferedReader = buildBufferedReader(file);
                  BufferedWriter bufferedWriter = buildBufferedWriter(newFile)) {
                 String line;
-                int bitIndex;
+                int bitIndex, bitSetIndex, lineHashCode;
                 while ((line = bufferedReader.readLine()) != null) {
+                    lineHashCode = line.hashCode();
                     bitIndex = cover2BitIndex(line.hashCode());
-                    if (!bitSet.get(bitIndex)) {
+                    bitSetIndex = lineHashCode >= 0 ? 0 : 1;
+                    if (!bitSet[bitSetIndex].get(bitIndex)) {
                         bufferedWriter.write(line);
                         bufferedWriter.newLine();
                     }
