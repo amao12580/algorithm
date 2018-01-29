@@ -1,14 +1,11 @@
 package classic.hugeFileDereplication;
 
-import basic.Util;
 import org.apache.commons.io.FileUtils;
 
 import java.io.*;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.BitSet;
-import java.util.Calendar;
-import java.util.List;
+import java.nio.file.FileAlreadyExistsException;
+import java.util.*;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 
@@ -36,12 +33,16 @@ public class Solution {
     private static final Charset DEFAULT_CHARACTER_SET = Charset.forName("UTF-8");//文件字符集
     private static final int DEFAULT_BUFFER_READ_SIZE = 10 * 1024 * 1024;//读缓冲大小
     private static final int DEFAULT_BUFFER_WRITE_SIZE = 10 * 1024 * 1024;//写缓冲大小
-    //    private static final int DEFAULT_FILE_MAX_LINE = 10 * 1024;//子文件的行数上限
-    private static final long DEFAULT_FILE_MAX_LINE = 1024 * 512;//子文件的行数上限、大小约256MB、文件个数约400
+    private static final int DEFAULT_PARALLELISM_LEVEL = Runtime.getRuntime().availableProcessors() * 2;//并发级别
+    private static final int DEFAULT_FILE_MAX_LINE = 100 * 1024;//子文件的行数上限
+//    private static final long DEFAULT_FILE_MAX_LINE = 1024 * 1024;//子文件的行数上限 105w、大小约512MB、文件个数约200
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+//        String filePath = "E://in/log.txt";
         String filePath = "D://log.txt";
         String outDir = "D://";
+//        System.out.println(new File(filePath).getParent());
+//        System.out.println(new File(filePath).getName());
 //        System.out.println(Runtime.getRuntime().freeMemory());
 //        System.out.println(Runtime.getRuntime().maxMemory());
 //        System.out.println(Runtime.getRuntime().totalMemory());
@@ -56,11 +57,17 @@ public class Solution {
      * @param filePath 文件完整路径
      * @param outDir   输出的结果文件的目录
      */
-    private void reduce(String filePath, String outDir) {
-        String tempPath = createTempDir(outDir, "temp");
-        if (tempPath == null) {
+    private void reduce(String filePath, String outDir) throws IOException {
+        if (filePath == null || filePath.isEmpty() || !isFileExist(filePath)) {
+            println("filePath is not found..filePath=" + filePath);
             return;
         }
+        if (outDir == null || outDir.isEmpty() || !isDirExist(outDir)) {
+            println("outDir is not found..outDir=" + outDir);
+            return;
+        }
+        outDir = formatDir(outDir);
+        String tempPath = createTempDir(outDir, "temp");
         //拆分
         boolean splitResult = split(filePath, tempPath);
         println("split complete.result:" + splitResult);
@@ -69,9 +76,6 @@ public class Solution {
             return;
         }
         String uniquePath = createTempDir(outDir, "unique");
-        if (uniquePath == null) {
-            return;
-        }
         //去重
         boolean uniqueResult = unique(tempPath, uniquePath);
         println("unique complete.result:" + uniqueResult);
@@ -87,16 +91,13 @@ public class Solution {
             return;
         }
         //清理
-        boolean clearResult = clearDir(tempPath, uniquePath) && closeBitSet();
+        boolean clearResult = clearDir(tempPath, uniquePath);
         if (!clearResult) {
             println("clearDir failed.return");
             return;
         }
         println("reduce success.");
     }
-
-    private BitSet[] bitSet = null;//复用
-    private boolean clearBitSet = false;
 
     private boolean split(String filePath, String tempPath) {
         File file = new File(filePath);
@@ -111,36 +112,26 @@ public class Solution {
         BufferedWriter bufferedWriter = null;
         try (BufferedReader bufferedReader = buildBufferedReader(file)) {
             String line;
-            int bitIndex, lineHashCode;
             int lineNum = 0;
             long fileNum = 0;
-            bitSet = buildBitSet();
-            int bitSetIndex;
             bufferedWriter = buildBufferedWriter(createTempFile(tempPath, fileNum));
             while ((line = bufferedReader.readLine()) != null) {
                 if (lineNum >= DEFAULT_FILE_MAX_LINE) {//新文件
+                    println("sub file num " + fileNum + " complete.");
                     closeWriter(bufferedWriter);
                     lineNum = 0;
                     fileNum++;
                     bufferedWriter = buildBufferedWriter(createTempFile(tempPath, fileNum));
                 }
-                lineHashCode = line.hashCode();
-                bitIndex = cover2BitIndex(lineHashCode);
-                bitSetIndex = lineHashCode >= 0 ? 0 : 1;
-                if (!bitSet[bitSetIndex].get(bitIndex)) {
-                    bufferedWriter.write(line);
-                    bufferedWriter.newLine();
-                    if (fileNum == 0) {
-                        bitSet[bitSetIndex].set(bitIndex);
-                    }
-                }
+                bufferedWriter.write(line);
+                bufferedWriter.newLine();
                 lineNum++;
             }
+            println("all sub file num:" + (fileNum + 1));
         } catch (IOException e) {
             e.printStackTrace();
             return false;
         } finally {
-            clearBitSet(bitSet);
             closeWriter(bufferedWriter);
         }
         return true;
@@ -150,104 +141,84 @@ public class Solution {
     private boolean unique(String tempPath, String uniquePath) {
         List<File> files = listFilesOrderByName(tempPath);
         if (files == null || files.isEmpty()) {
+            println("files is empty,may be split failed.");
             return false;
         }
-        try {
-            FileUtils.moveFile(files.get(0), new File(uniquePath + 0));
-        } catch (IOException e) {
-            e.printStackTrace();
+        boolean uniquePhase1 = unique(files);
+        if (!uniquePhase1) {
+            println("unique files phase 1 failed.");
             return false;
         }
-        int size = files.size();
-        return size == 1 || unique(uniquePath, files, size);
+        println("unique files phase 1 success.");
+        boolean uniquePhase2 = unique(uniquePath, files, files.size());
+        if (!uniquePhase2) {
+            println("unique files phase 2 failed.");
+            return false;
+        }
+        println("unique files phase 2 success.");
+        return true;
     }
 
-    private boolean unique(String uniquePath, List<File> files, int max) {
-        int fileNumOffset = 1;
+    private boolean unique(List<File> files) {//第一阶段：每个文件局部去重复
+        return booleanRecursiveTaskExecutor(new UniqueFileTask(null, files, 0, files.size() - 1));
+    }
+
+    private boolean unique(String uniquePath, List<File> files, int max) {//第二阶段，向前去重
+        int fileNumOffset = 0;
+        List<Set<Integer>> lineHashCodes = null;
+        ForkJoinPool pool = null;
         while (fileNumOffset < max) {
-            if (clearBitSet) {
-                bitSet = bitSet == null ? buildBitSet() : bitSet;
-                BufferedWriter bufferedWriter = null;
-                try (BufferedReader bufferedReader = buildBufferedReader(files.get(fileNumOffset))) {
-                    String line;
-                    int bitIndex, bitSetIndex, lineHashCode;
-                    bufferedWriter = buildBufferedWriter(createTempFile(uniquePath, fileNumOffset));
-                    while ((line = bufferedReader.readLine()) != null) {
-                        lineHashCode = line.hashCode();
-                        bitIndex = cover2BitIndex(lineHashCode);
-                        bitSetIndex = lineHashCode >= 0 ? 0 : 1;
-                        if (!bitSet[bitSetIndex].get(bitIndex)) {
-                            bufferedWriter.write(line);
-                            bufferedWriter.newLine();
-                            bitSet[bitSetIndex].set(bitIndex);
-                        }
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    return false;
-                } finally {
-                    closeWriter(bufferedWriter);
-                }
-                clearBitSet = false;
-            }
-            ForkJoinPool pool = null;
-            try {
-                UniqueFileTask task = new UniqueFileTask(bitSet, files, fileNumOffset, files.size() - 1);
-                pool = new ForkJoinPool(Runtime.getRuntime().availableProcessors() * 2);
-                Boolean isSuccess = pool.invoke(task);
-                if (!isSuccess || task.isCompletedAbnormally()) {
+            lineHashCodes = buildSet();
+            try (BufferedReader bufferedReader = buildBufferedReader(files.get(fileNumOffset));
+                 BufferedWriter bufferedWriter = buildBufferedWriter(createTempFile(uniquePath, fileNumOffset))) {
+                uniqueTransferFile(bufferedReader, bufferedWriter, lineHashCodes);
+                closeReader(bufferedReader);
+                closeWriter(bufferedWriter);
+                if (!booleanRecursiveTaskExecutor(new UniqueFileTask(lineHashCodes, files, fileNumOffset, files.size() - 1))) {
                     println("UniqueFileTask is error.");
+                    return false;
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
+                return false;
             } finally {
                 if (pool != null) {
                     pool.shutdown();
                 }
-                clearBitSet(bitSet);
+                clearBitSet(lineHashCodes);
             }
             fileNumOffset++;
         }
+        clearBitSet(lineHashCodes);
         return true;
     }
 
     private boolean merge(String uniquePath, String outDir) {
-        String resultFilePath = outDir + (outDir.endsWith(File.separator) ? "" : File.separator) + "resultFile";
-        File resultFile = null;
+        String resultFilePath = outDir + "resultFile";
+        File resultFile;
         try {
             resultFile = createTempFile(resultFilePath);
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        if (resultFile == null) {
             return false;
         }
         List<File> files = listFilesOrderByName(uniquePath);
         if (files == null || files.isEmpty()) {
-            println("dir.listFiles() is empty.");
+            println("listFilesOrderByName is empty.");
             return false;
         }
-        ForkJoinPool pool = null;
-        MergeFileTask task;
         List<File> newFileList;
-        Boolean mergeSuccess;
-        int num = Runtime.getRuntime().availableProcessors() * 2;
+        boolean mergeSuccess;
         while (files.size() > 1) {
-            try {
-                newFileList = new ArrayList<>();
-                task = new MergeFileTask(files, newFileList);
-                pool = new ForkJoinPool(num);
-                mergeSuccess = pool.invoke(task);
-                if (mergeSuccess == null || !mergeSuccess || newFileList.isEmpty() || task.isCompletedAbnormally()) {
-                    println("MergeFileTask is error.");
-                    return false;
-                }
-                files.clear();
-                files = newFileList;
-                orderByFileName(files);
-            } finally {
-                if (pool != null) {
-                    pool.shutdown();
-                }
+            newFileList = new ArrayList<>();
+            mergeSuccess = booleanRecursiveTaskExecutor(new MergeFileTask(files, newFileList, 0, files.size() - 1)) && !newFileList.isEmpty();
+            if (!mergeSuccess) {
+                println("MergeFileTask is error.");
+                return false;
             }
+            files.clear();
+            files = newFileList;
+            orderByFileName(files);
         }
         try {
             FileUtils.copyFile(files.get(0), resultFile);
@@ -272,12 +243,26 @@ public class Solution {
         return new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, append), DEFAULT_CHARACTER_SET), DEFAULT_BUFFER_WRITE_SIZE);
     }
 
-    private BitSet[] buildBitSet() {
-        BitSet[] bitSets = new BitSet[2];//正+负
-        bitSets[0] = new BitSet(Integer.MAX_VALUE / 8); //64MB 内存;
-        bitSets[1] = new BitSet(Integer.MAX_VALUE / 8); //64MB 内存;
-        println("buildBitSet");
-        return bitSets;
+    private List<Set<Integer>> buildSet() {
+        List<Set<Integer>> sets = new ArrayList<>(2);//正+负
+        sets.add(new HashSet<>());
+        sets.add(new HashSet<>());
+        return sets;
+    }
+
+    private void closeReader(Reader... readers) {
+        if (readers == null) {
+            return;
+        }
+        for (Reader item : readers) {
+            if (item != null) {
+                try {
+                    item.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     private void closeWriter(Writer... writer) {
@@ -296,17 +281,16 @@ public class Solution {
         }
     }
 
-    private void clearBitSet(BitSet... bitSet) {
-        if (bitSet == null) {
+    private void clearBitSet(List<Set<Integer>> list) {
+        if (list == null) {
             return;
         }
-        for (BitSet item : bitSet) {
+        for (Set<Integer> item : list) {
             if (item != null) {
                 item.clear();
             }
         }
-        clearBitSet = true;
-        println("clearBitSet" + bitSet.length);
+        list.clear();
     }
 
     private boolean clearDir(String... dir) {
@@ -324,37 +308,25 @@ public class Solution {
         return true;
     }
 
-    private boolean closeBitSet() {
-        this.bitSet = null;
-        return true;
-    }
-
     private File createTempFile(String tempFilePath) throws IOException {
         File file = new File(tempFilePath);
         if (file.exists()) {
-            println("file has existed.file path:" + file.getPath());
-            return null;
+            throw new FileAlreadyExistsException("file has existed.file path:" + file.getPath());
         }
-        FileUtils.forceMkdirParent(file);
         FileUtils.touch(file);
         return file;
     }
 
     private File createTempFile(String tempPath, long tempFileNum) throws IOException {
-        String tempFilePath = tempPath + tempFileNum;
-        return createTempFile(tempFilePath);
+        return createTempFile(tempPath + tempFileNum);
     }
 
     private File createTempFile(String tempPath, String fileName) throws IOException {
-        String tempFilePath = tempPath + fileName;
-        return createTempFile(tempFilePath);
+        return createTempFile(tempPath + fileName);
     }
 
-    private String createTempDir(String dirPath, String newDirName) {
+    private String createTempDir(String dirPath, String newDirName) throws IOException {
         StringBuilder tempPathBuilder = new StringBuilder();
-        if (!dirPath.endsWith(File.separator)) {
-            dirPath = dirPath + File.separator;
-        }
         if (isDirExist(dirPath)) {
             tempPathBuilder.append(dirPath);
         } else {
@@ -368,13 +340,8 @@ public class Solution {
             println(tempPath);
             return tempPath;
         }
-        File tempDir = new File(tempPath);
-        if (tempDir.mkdirs()) {
-            return tempPath;
-        } else {
-            println("createTempDir mkdirs failed.");
-            return null;
-        }
+        FileUtils.forceMkdir(new File(tempPath));
+        return tempPath;
     }
 
     private boolean appendFile(File source, File target) {
@@ -404,13 +371,7 @@ public class Solution {
         if (fileList.size() <= 1) {
             return;
         }
-        fileList.sort((fileThis, fileOther) -> {
-            if (fileThis.isDirectory() && fileOther.isFile())
-                return -1;
-            if (fileThis.isFile() && fileOther.isDirectory())
-                return 1;
-            return fileThis.getName().compareTo(fileOther.getName());
-        });
+        fileList.sort(Comparator.comparingLong(fileThis -> Long.valueOf(fileThis.getName())));
     }
 
     private boolean isDirExist(String dirPath) {
@@ -418,22 +379,57 @@ public class Solution {
         return file.exists() && file.isDirectory();
     }
 
-    private int cover2BitIndex(int hashCode) {
-        return Util.abs(hashCode);
+    private boolean isFileExist(String filePath) {
+        File file = new File(filePath);
+        return file.exists() && file.isFile();
+    }
+
+    private String formatDir(String dirPath) {
+        if (!dirPath.endsWith(File.separator)) {
+            dirPath = dirPath + File.separator;
+        }
+        return dirPath;
+    }
+
+    private void uniqueTransferFile(BufferedReader bufferedReader, BufferedWriter bufferedWriter, List<Set<Integer>> lineHashCodes) throws IOException {
+        String line;
+        int setIndex, lineHashCode;
+        while ((line = bufferedReader.readLine()) != null) {
+            lineHashCode = line.hashCode();
+            setIndex = lineHashCode >= 0 ? 0 : 1;
+            if (lineHashCodes.get(setIndex).add(lineHashCode)) {
+                bufferedWriter.write(line);
+                bufferedWriter.newLine();
+            }
+        }
     }
 
     private void println(String s) {
         System.out.println(Calendar.getInstance().getTime().toString() + " - " + s);
     }
 
+    private boolean booleanRecursiveTaskExecutor(RecursiveTask<Boolean> task) {
+        ForkJoinPool pool = null;
+        Boolean executeResult;
+        try {
+            pool = new ForkJoinPool(DEFAULT_PARALLELISM_LEVEL);
+            executeResult = pool.invoke(task);
+            executeResult = executeResult != null && executeResult && task.isCompletedNormally();
+        } finally {
+            if (pool != null) {
+                pool.shutdown();
+            }
+        }
+        if (!executeResult) {
+            println("task execute is error.");
+            return false;
+        }
+        return true;
+    }
+
     class MergeFileTask extends RecursiveTask<Boolean> {
         private List<File> files, newFiles;
         private int start, end;
-
-        MergeFileTask(List<File> files, List<File> newFiles) {
-            this(files, 0, files.size() - 1);
-            this.newFiles = newFiles;
-        }
 
         MergeFileTask(List<File> files, List<File> newFiles, int start, int end) {
             this(files, start, end);
@@ -463,13 +459,8 @@ public class Solution {
                 newFiles.add(newFile);
             } else {
                 int middle = (start + end) / 2;
-                MergeFileTask t1 = new MergeFileTask(files, newFiles, start, middle);
-                MergeFileTask t2 = new MergeFileTask(files, newFiles, middle + 1, end);
-                invokeAll(t1, t2);
-                if (!(t1.isCompletedNormally() && t2.isCompletedNormally())) {
-                    println("merge failed,piece task error.");
-                    return false;
-                }
+                new MergeFileTask(files, newFiles, start, middle).fork().join();
+                new MergeFileTask(files, newFiles, middle + 1, end).fork().join();
             }
             return true;
         }
@@ -490,14 +481,14 @@ public class Solution {
         }
     }
 
-    class UniqueFileTask extends RecursiveTask<Boolean> {
-        private BitSet[] bitSet;
-        private List<File> files;
-        private int min;
-        private int max;
 
-        UniqueFileTask(BitSet[] bitSet, List<File> files, int min, int max) {
-            this.bitSet = bitSet;
+    class UniqueFileTask extends RecursiveTask<Boolean> {
+        private List<Set<Integer>> lineHashCodes;
+        private List<File> files;
+        private int min, max;
+
+        UniqueFileTask(List<Set<Integer>> lineHashCodes, List<File> files, int min, int max) {
+            this.lineHashCodes = lineHashCodes;
             this.files = files;
             this.min = min;
             this.max = max;
@@ -506,42 +497,37 @@ public class Solution {
         @Override
         protected Boolean compute() {
             if (max == min) {
-                boolean result = unique(bitSet, files.get(max));
+                boolean result = unique(lineHashCodes, files.get(max));
                 println(files.get(max).getPath() + " unique completed.result:" + result);
                 return result;
             } else {
                 int middle = (max + min) / 2;
-                UniqueFileTask left = new UniqueFileTask(bitSet, files, min, middle);
-                UniqueFileTask right = new UniqueFileTask(bitSet, files, middle + 1, max);
-                invokeAll(left, right);
+                new UniqueFileTask(lineHashCodes, files, min, middle).fork().join();
+                new UniqueFileTask(lineHashCodes, files, middle + 1, max).fork().join();
             }
             return true;
         }
 
-        private boolean unique(BitSet[] bitSet, File file) {
+        private boolean unique(List<Set<Integer>> lineHashCodes, File file) {
             File newFile;
             try {
-                newFile = createTempFile(file.getAbsolutePath(), file.getName() + ".unique");
+                newFile = createTempFile(formatDir(file.getParent()), file.getName() + ".unique");
             } catch (IOException e) {
                 e.printStackTrace();
                 return false;
             }
+            boolean autoClear = lineHashCodes == null;
+            lineHashCodes = lineHashCodes == null ? buildSet() : lineHashCodes;
             try (BufferedReader bufferedReader = buildBufferedReader(file);
                  BufferedWriter bufferedWriter = buildBufferedWriter(newFile)) {
-                String line;
-                int bitIndex, bitSetIndex, lineHashCode;
-                while ((line = bufferedReader.readLine()) != null) {
-                    lineHashCode = line.hashCode();
-                    bitIndex = cover2BitIndex(lineHashCode);
-                    bitSetIndex = lineHashCode >= 0 ? 0 : 1;
-                    if (!bitSet[bitSetIndex].get(bitIndex)) {
-                        bufferedWriter.write(line);
-                        bufferedWriter.newLine();
-                    }
-                }
+                uniqueTransferFile(bufferedReader, bufferedWriter, lineHashCodes);
             } catch (IOException e) {
                 e.printStackTrace();
                 return false;
+            } finally {
+                if (autoClear) {
+                    clearBitSet(lineHashCodes);
+                }
             }
             try {
                 FileUtils.forceDelete(file);
