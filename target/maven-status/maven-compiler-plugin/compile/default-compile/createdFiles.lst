@@ -6,6 +6,7 @@ ACM\TheMorningAfterHalloween\Solution$State.class
 ACM\SpatialStructures\Solution.class
 ACM\Xiangqi\Role$3.class
 graph\edge\EdgeGraph$Node.class
+classic\hugeFileDereplication\Solution$SplitFileTask.class
 ACM\Exchange\Solution$1.class
 ACM\IdealPath\Solution$Edge.class
 ACM\BugHunt\Statement$Type$1.class
@@ -203,6 +204,7 @@ ACM\QueueAndA\Solution$Topic.class
 basic\dataStructure\tree\binary\MultiNode.class
 ACM\BugHunt\Solution.class
 ACM\EightNums\SolutionV1$Current.class
+basic\io\BufferedRandomAccessFile.class
 ACM\score\Solution.class
 graph\edge\EdgeGraph.class
 sort\quick\QuickHandler.class
