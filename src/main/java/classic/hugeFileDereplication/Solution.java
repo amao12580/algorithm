@@ -21,10 +21,10 @@ import java.util.concurrent.RecursiveTask;
  * <p>
  * 100GB的文件，按行去重复, 每行大约为512byte
  * <p>
- * 行数为2亿,内存1GB
+ * 行数为2亿,堆内存1GB
  * <p>
- * 定义N为文件行数(与大小成正比例)
- * 时间复杂度:O(N)
+ * 定义N为文件行数(与大小成正相关)
+ * 时间复杂度:O(N*N)
  * <p>
  * TODO
  * 1.子文件大小可控，倾斜度  OK
@@ -34,23 +34,17 @@ import java.util.concurrent.RecursiveTask;
  * 5.单文件:多线程拆分 OK
  */
 public class Solution {
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
     private static final Charset DEFAULT_CHARACTER_SET = Charset.forName("UTF-8");//文件字符集
-    private static final int DEFAULT_BUFFER_READ_SIZE = 32 * 1024 * 1024;//读缓冲大小
-    private static final int DEFAULT_BUFFER_WRITE_SIZE = 32 * 1024 * 1024;//写缓冲大小
+    private static final int DEFAULT_BUFFER_READ_SIZE = 2 * 1024 * 1024;//读缓冲大小 2MB
+    private static final int DEFAULT_BUFFER_WRITE_SIZE = 2 * 1024 * 1024;//写缓冲大小 2MB
     private static final int DEFAULT_PARALLELISM_LEVEL = Runtime.getRuntime().availableProcessors();//并发级别
-    //    private static final int DEFAULT_FILE_MAX_SIZE = 1024 * 1024;//子文件的大小上限 1MB
     private static final int DEFAULT_FILE_MAX_SIZE = 128 * 1024 * 1024;//子文件的大小上限 128MB
 
 
     public static void main(String[] args) throws IOException {
         String filePath = "D://log.txt";
         String outDir = "D://";
-//        System.out.println("sep:" + System.getProperty("line.separator"));
-//        System.out.println(Runtime.getRuntime().freeMemory());
-//        System.out.println(Runtime.getRuntime().maxMemory());
-//        System.out.println(Runtime.getRuntime().totalMemory());
-//        System.out.println(Runtime.getRuntime().maxMemory() - Runtime.getRuntime().totalMemory() + Runtime.getRuntime().freeMemory());
         long s = System.currentTimeMillis();
         Solution solution = new Solution();
         solution.reduce(filePath, outDir);
@@ -107,15 +101,15 @@ public class Solution {
 
     private boolean split(String filePath, String tempPath) {
         File file = new File(filePath);
-        long fileSize;
+        long fileSize, offset = 0;
         fileSize = file.length();
         println("origin file size:" + fileSize);
         List<Long> offsets = new ArrayList<>();
-        long offset = 0;
         offsets.add(offset);
-        try (BufferedRandomAccessFile reader = new BufferedRandomAccessFile(filePath, "r", DEFAULT_BUFFER_READ_SIZE)) {
+        byte[] bytes = new byte[4 * 1024];//4KB 一行可能超过4KB吗？
+        try (BufferedRandomAccessFile reader = new BufferedRandomAccessFile(filePath, "r", DEFAULT_BUFFER_READ_SIZE / 4)) {
             //按照子文件大小上限值，计算offset
-            while ((offset = getNextOffset(reader, DEFAULT_FILE_MAX_SIZE, fileSize)) < fileSize) {
+            while ((offset = getNextOffset(reader, fileSize, bytes)) < fileSize) {
                 offsets.add(offset);
             }
         } catch (IOException e) {
@@ -123,38 +117,57 @@ public class Solution {
             return false;
         }
         offsets.add(fileSize);
-        println(offsets.toString());
-        return booleanRecursiveTaskExecutor(new SplitFileTask(filePath, tempPath, offsets, 0, offsets.size() - 1));
+        println("split offsets:" + offsets.toString());
+        boolean result = booleanRecursiveTaskExecutor(new SplitFileTask(filePath, tempPath, offsets, 0, offsets.size() - 1));
+        offsets.clear();
+        return result;
     }
 
-    private long getNextOffset(BufferedRandomAccessFile reader, int fileMaxSize, long maxOffset) throws IOException {
+    private long getNextOffset(BufferedRandomAccessFile reader, long maxOffset, byte[] bytes) throws IOException {
         long offset = reader.getFilePointer();
         if (offset >= maxOffset) {
             return maxOffset;
         }
-        int lineMaxSize = 4 * 1024;//4KB 一行可能超过4KB吗？
-        long newOffset = offset + fileMaxSize - lineMaxSize;
+        long newOffset = offset + DEFAULT_FILE_MAX_SIZE - bytes.length;
         if (newOffset >= maxOffset) {
             return maxOffset;
         }
-        reader.seek(offset);
-        return getNextOffset(reader, newOffset, lineMaxSize, maxOffset);
-    }
-
-    private long getNextOffset(BufferedRandomAccessFile reader, long offset, int lineMaxSize, long maxOffset) throws IOException {
-        byte[] bytes = new byte[lineMaxSize];
-        int len = reader.read(bytes);
-        if (len <= 0) {
-            return maxOffset;
-        }
-        for (int i = 0; i < len; i++) {
-            if (bytes[i] == '\n') {
-                offset += i;
-                reader.seek(offset + 1);
-                return offset;
+        reader.seek(newOffset);
+        int len;
+        byte[] oneByte = new byte[1];
+        while ((len = reader.read(bytes)) > 0) {
+            for (int i = 0; i < len; i++) {
+                if (bytes[i] == '\r') {
+                    if (i + 1 < len) {
+                        if (bytes[i + 1] == '\n') {//windows \r\n
+                            newOffset = newOffset + i + 2;
+                            reader.seek(newOffset + 2);
+                            return newOffset;
+                        }
+                    } else {
+                        if (reader.read(oneByte) == 1) {
+                            if (oneByte[0] == '\n') {//windows \r\n
+                                newOffset = reader.getFilePointer();
+                                reader.seek(newOffset + 1);
+                                return newOffset;
+                            } else {//mac \r
+                                newOffset = newOffset + i + 1;
+                                reader.seek(newOffset + 1);
+                                return newOffset;
+                            }
+                        } else {//EOF
+                            return maxOffset;
+                        }
+                    }
+                }
+                if (bytes[i] == '\n') {//linux unix \n 或 windows \r\n
+                    newOffset = newOffset + i + 1;
+                    reader.seek(newOffset + 1);
+                    return newOffset;
+                }
             }
         }
-        return getNextOffset(reader, reader.getFilePointer(), lineMaxSize, maxOffset);
+        return maxOffset;
     }
 
     private boolean unique(String tempPath, String uniquePath) {
@@ -170,6 +183,7 @@ public class Solution {
         }
         println("unique files phase 1 success.");
         boolean uniquePhase2 = unique(uniquePath, files, files.size());
+        files.clear();
         if (!uniquePhase2) {
             println("unique files phase 2 failed.");
             return false;
@@ -179,18 +193,17 @@ public class Solution {
     }
 
     private boolean unique(List<File> files) {//第一阶段：每个文件局部去重复
-        return booleanRecursiveTaskExecutor(new UniqueFileTask(null, files, 0, files.size() - 1));
+        return booleanRecursiveTaskExecutor(DEFAULT_PARALLELISM_LEVEL << 1, new UniqueFileTask(null, files, 0, files.size() - 1));
     }
 
     private boolean unique(String uniquePath, List<File> files, int max) {//第二阶段，向前去重
         int fileNumOffset = 0;
         List<Set<Integer>> lineHashCodes = null;
-        ForkJoinPool pool = null;
         while (fileNumOffset < max) {
             lineHashCodes = buildSet();
             try {
                 uniqueTransferFile(files.get(fileNumOffset), createTempFile(uniquePath, fileNumOffset), lineHashCodes, false);
-                if (!booleanRecursiveTaskExecutor(new UniqueFileTask(lineHashCodes, files, fileNumOffset, files.size() - 1))) {
+                if (!booleanRecursiveTaskExecutor(DEFAULT_PARALLELISM_LEVEL << 1, new UniqueFileTask(lineHashCodes, files, fileNumOffset, files.size() - 1))) {
                     println("UniqueFileTask is error.");
                     return false;
                 }
@@ -198,9 +211,6 @@ public class Solution {
                 e.printStackTrace();
                 return false;
             } finally {
-                if (pool != null) {
-                    pool.shutdown();
-                }
                 clearSet(lineHashCodes);
             }
             fileNumOffset++;
@@ -211,8 +221,7 @@ public class Solution {
 
     private boolean merge(String uniquePath, String outDir) {
         String resultFilePath = outDir + "resultFile";
-        File resultFile = new File(resultFilePath);
-        if (resultFile.exists()) {
+        if (isFileExist(resultFilePath)) {
             println("resultFile is exist.resultFilePath=" + resultFilePath);
             return false;
         }
@@ -221,11 +230,11 @@ public class Solution {
             println("listFilesOrderByName is empty.");
             return false;
         }
-        List<File> newFileList;
+        List<File> newFileList = null;
         boolean mergeSuccess;
         while (files.size() > 1) {
             newFileList = new ArrayList<>();
-            mergeSuccess = booleanRecursiveTaskExecutor(new MergeFileTask(files, newFileList, 0, files.size() - 1)) && !newFileList.isEmpty();
+            mergeSuccess = booleanRecursiveTaskExecutor(3, new MergeFileTask(files, newFileList, 0, files.size() - 1)) && !newFileList.isEmpty();
             if (!mergeSuccess) {
                 println("MergeFileTask is error.");
                 return false;
@@ -235,10 +244,13 @@ public class Solution {
             orderByFileName(files);
         }
         try {
-            FileUtils.moveFile(files.get(0), resultFile);
+            FileUtils.moveFile(files.get(0), new File(resultFilePath));
         } catch (IOException e) {
             e.printStackTrace();
             return false;
+        }
+        if (newFileList != null) {
+            newFileList.clear();
         }
         println("result file path:" + resultFilePath);
         return true;
@@ -278,8 +290,7 @@ public class Solution {
         File file;
         List<File> fileList;
         for (String item : dir) {
-            file = new File(item);
-            FileUtils.deleteQuietly(file);
+            FileUtils.deleteQuietly(new File(item));
             file = new File(item);
             //appendFile().MappedByteBuffer 可能不释放文件句柄 需要vm thread释放
             if (file.exists()) {
@@ -292,6 +303,7 @@ public class Solution {
                         FileUtils.deleteQuietly(f);
                         f.deleteOnExit();
                     }
+                    fileList.clear();
                 }
                 FileUtils.deleteQuietly(file);
                 file.deleteOnExit();
@@ -337,15 +349,13 @@ public class Solution {
     }
 
     private boolean appendFile(File source, File target) {
-        try (BufferedRandomAccessFile writer = new BufferedRandomAccessFile(target, "rw", DEFAULT_BUFFER_WRITE_SIZE)) {
+        try (BufferedRandomAccessFile writer = new BufferedRandomAccessFile(target, "rw", DEFAULT_BUFFER_WRITE_SIZE << 1)) {
             writer.seek(target.length());
             MappedByteBuffer buffer = Files.map(source, FileChannel.MapMode.READ_ONLY);
             byte[] bytes = new byte[DEFAULT_BUFFER_WRITE_SIZE];
-            int endIndex = 0;
-            int maxEndIndex = bytes.length - 1;
+            int endIndex = 0, maxEndIndex = bytes.length - 1;
             while (buffer.hasRemaining()) {
-                bytes[endIndex] = buffer.get();
-                endIndex++;
+                bytes[endIndex++] = buffer.get();
                 if (endIndex == maxEndIndex) {
                     writer.write(bytes, 0, endIndex);
                     endIndex = 0;
@@ -417,16 +427,21 @@ public class Solution {
     }
 
     private boolean booleanRecursiveTaskExecutor(RecursiveTask<Boolean> task) {
+        return booleanRecursiveTaskExecutor(DEFAULT_PARALLELISM_LEVEL, task);
+    }
+
+    private boolean booleanRecursiveTaskExecutor(int level, RecursiveTask<Boolean> task) {
         ForkJoinPool pool = null;
         Boolean executeResult;
         try {
-            pool = new ForkJoinPool(DEFAULT_PARALLELISM_LEVEL);
+            pool = new ForkJoinPool(level);
             executeResult = pool.invoke(task);
             executeResult = executeResult != null && executeResult && task.isCompletedNormally();
         } finally {
             if (pool != null) {
                 pool.shutdown();
             }
+            System.gc();
         }
         if (!executeResult) {
             println("task execute is error.");
@@ -436,8 +451,7 @@ public class Solution {
     }
 
     class SplitFileTask extends RecursiveTask<Boolean> {
-        private String filePath;
-        private String tempPath;
+        private String filePath, tempPath;
         private List<Long> offsets;
         private int min, max;
 
@@ -469,8 +483,8 @@ public class Solution {
         }
 
         private boolean split(long start, long end, int fileNum) {
-            try (BufferedRandomAccessFile reader = new BufferedRandomAccessFile(filePath, "r", DEFAULT_BUFFER_READ_SIZE);
-                 BufferedRandomAccessFile writer = new BufferedRandomAccessFile(createTempFile(tempPath, fileNum), "rw", DEFAULT_BUFFER_WRITE_SIZE)) {
+            try (BufferedRandomAccessFile reader = new BufferedRandomAccessFile(filePath, "r", DEFAULT_BUFFER_READ_SIZE << 1);
+                 BufferedRandomAccessFile writer = new BufferedRandomAccessFile(createTempFile(tempPath, fileNum), "rw", DEFAULT_BUFFER_WRITE_SIZE << 1)) {
                 reader.seek(start);
                 byte[] bytes = new byte[DEFAULT_BUFFER_READ_SIZE];
                 int readLength;
